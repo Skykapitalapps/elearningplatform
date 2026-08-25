@@ -18,6 +18,7 @@ import EvidencePage from "./pages/EvidencePage.jsx";
 import CapstonePage from "./pages/CapstonePage.jsx";
 import QuizPage from "./pages/QuizPage.jsx";
 import CertificatePrintPage from "./pages/CertificatePrintPage.jsx";
+import { PrivacyPage, TermsPage } from "./pages/LegalPage.jsx";
 
 // Jump back to the top on every route change (SPAs otherwise keep the old
 // scroll position, which feels broken when "changing page").
@@ -149,6 +150,8 @@ export default function App() {
             <Route path="/evidence" element={<EvidencePage />} />
             <Route path="/admin" element={<AdminPage />} />
             <Route path="/capstone" element={<CapstonePage />} />
+            <Route path="/privacy" element={<PrivacyPage />} />
+            <Route path="/terms" element={<TermsPage />} />
           </Route>
 
           {/* Any unknown address goes home instead of a blank page */}

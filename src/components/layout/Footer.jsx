@@ -1,7 +1,12 @@
+import { Link } from "react-router-dom";
 import Logo from "../Logo.jsx";
 import { platform } from "../../data.js";
 
-const LINKS = ["Privacy Policy", "Terms of Service", "Support", "Institutional Login"];
+// Footer with working links only — no dead ends.
+const LINKS = [
+  { label: "Privacy Policy", to: "/privacy" },
+  { label: "Terms of Service", to: "/terms" },
+];
 
 export default function Footer() {
   return (
@@ -19,15 +24,20 @@ export default function Footer() {
       </div>
       <div className="flex flex-wrap justify-center gap-x-8 gap-y-3">
         {LINKS.map((l) => (
-          <a
-            key={l}
-            href="#"
-            onClick={(e) => e.preventDefault()}
+          <Link
+            key={l.label}
+            to={l.to}
             className="text-caption text-on-primary-fixed-variant transition-colors hover:text-white"
           >
-            {l}
-          </a>
+            {l.label}
+          </Link>
         ))}
+        <a
+          href="mailto:rudy.choufani@skykapital.com?subject=Skykapital%20Academy%20support"
+          className="text-caption text-on-primary-fixed-variant transition-colors hover:text-white"
+        >
+          Support
+        </a>
       </div>
     </footer>
   );
