@@ -26,19 +26,26 @@ export default function AdminPage({ standalone = false }) {
   const [projects, setProjects] = useState([]);
   const [people, setPeople] = useState([]);
   const [docs, setDocs] = useState([]);
+  const [progressRows, setProgressRows] = useState([]); // all module_progress (staff-read)
+  const [logins, setLogins] = useState([]); // recent login_events (staff-read)
   const [view, setView] = useState(null); // null | {type:"project", id} | {type:"shared"}
   const [err, setErr] = useState(null);
 
   async function loadAll() {
-    const [p1, p2, p3] = await Promise.all([
+    const [p1, p2, p3, p4, p5] = await Promise.all([
       supabase.from("projects").select("*").order("name"),
       supabase.from("profiles").select("*").order("created_at"),
       supabase.from("client_documents").select("*").order("created_at", { ascending: false }),
+      supabase.from("module_progress").select("*"),
+      supabase.from("login_events").select("*").order("created_at", { ascending: false }).limit(1000),
     ]);
-    setErr(p1.error?.message || p2.error?.message || p3.error?.message || null);
+    // login_events is optional (its SQL block may not be installed yet)
+    setErr(p1.error?.message || p2.error?.message || p3.error?.message || p4.error?.message || null);
     setProjects(p1.data ?? []);
     setPeople(p2.data ?? []);
     setDocs(p3.data ?? []);
+    setProgressRows(p4.data ?? []);
+    setLogins(p5.data ?? []);
   }
   useEffect(() => {
     if (isSupabaseConfigured && isStaff) loadAll();
@@ -74,6 +81,8 @@ export default function AdminPage({ standalone = false }) {
           projects={projects}
           people={people}
           docs={docs}
+          progressRows={progressRows}
+          logins={logins}
           email={user?.email}
           onOpen={(p) => setView({ type: "project", id: p.id })}
           onOpenShared={() => setView({ type: "shared" })}
@@ -86,6 +95,7 @@ export default function AdminPage({ standalone = false }) {
           projects={projects}
           people={people}
           docs={docs}
+          logins={logins}
           isAdmin={isAdmin}
           onBack={() => setView(null)}
           reload={loadAll}
@@ -122,7 +132,7 @@ function Shell({ children, standalone, onSignOut }) {
 }
 
 /* -------------------------------- HOME -------------------------------- */
-function Home({ projects, people, docs, email, onOpen, onOpenShared, reload }) {
+function Home({ projects, people, docs, progressRows, logins, email, onOpen, onOpenShared, reload }) {
   const [name, setName] = useState("");
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState(null);
@@ -142,11 +152,42 @@ function Home({ projects, people, docs, email, onOpen, onOpenShared, reload }) {
   const sharedDocs = docs.filter((d) => !d.project_id).length;
   const unassigned = people.filter((u) => !u.project_id && u.role === "learner").length;
 
+  // Platform-wide vital signs for the pilot's cockpit.
+  const learners = people.filter((u) => u.role !== "admin");
+  const doneByUser = {};
+  progressRows.forEach((r) => {
+    if (r.status === "completed") doneByUser[r.user_id] = (doneByUser[r.user_id] ?? 0) + 1;
+  });
+  const certified = learners.filter((u) => (doneByUser[u.id] ?? 0) >= TOTAL_MODULES).length;
+  const weekAgo = Date.now() - 7 * 24 * 3600 * 1000;
+  const signins7d = logins.filter((e) => new Date(e.created_at).getTime() >= weekAgo).length;
+  const active7d = new Set(
+    logins.filter((e) => new Date(e.created_at).getTime() >= weekAgo).map((e) => e.user_id)
+  ).size;
+
   return (
     <>
       <div className="mb-stack-lg">
         <h1 className="text-headline-lg text-primary md:text-headline-xl">Administration</h1>
         <p className="text-body-md text-on-surface-variant">{client.clientShort} platform · {email}</p>
+      </div>
+
+      {/* Vital signs */}
+      <div className="mb-stack-lg grid grid-cols-2 gap-gutter sm:grid-cols-4">
+        {[
+          { icon: "apartment", label: "Projects", value: projects.length },
+          { icon: "group", label: "Learners", value: learners.length },
+          { icon: "workspace_premium", label: "Certified", value: certified },
+          { icon: "history", label: "Sign-ins · 7 days", value: signins7d, sub: `${active7d} active learner${active7d === 1 ? "" : "s"}` },
+        ].map((s) => (
+          <div key={s.label} className="rounded-xl border border-outline-variant bg-surface-container-lowest px-stack-md py-stack-md">
+            <p className="flex items-center gap-1.5 text-caption uppercase tracking-wider text-on-surface-variant">
+              <MaterialIcon name={s.icon} className="text-[16px] text-secondary" /> {s.label}
+            </p>
+            <p className="mt-1 text-headline-lg text-primary">{s.value}</p>
+            {s.sub && <p className="text-caption text-on-surface-variant">{s.sub}</p>}
+          </div>
+        ))}
       </div>
 
       {/* Create project */}
@@ -221,7 +262,7 @@ function Home({ projects, people, docs, email, onOpen, onOpenShared, reload }) {
 }
 
 /* ------------------------------ WORKSPACE ------------------------------ */
-function Workspace({ project, shared, projects, people, docs, isAdmin, onBack, reload }) {
+function Workspace({ project, shared, projects, people, docs, logins, isAdmin, onBack, reload }) {
   const [tab, setTab] = useState(shared ? "docs" : "users");
   const [confirmDel, setConfirmDel] = useState(false);
   const [delName, setDelName] = useState("");
@@ -315,7 +356,7 @@ function Workspace({ project, shared, projects, people, docs, isAdmin, onBack, r
       </div>
 
       {tab === "progress" && !shared ? (
-        <ProjectProgress project={project} people={people} />
+        <ProjectProgress project={project} people={people} logins={logins} />
       ) : tab === "users" && !shared ? (
         <ProjectUsers project={project} projects={projects} people={people} isAdmin={isAdmin} reload={reload} />
       ) : tab === "activity" && !shared ? (
@@ -351,7 +392,7 @@ function printCertificate(p) {
   window.open('/certificate-print?' + q.toString(), '_blank', 'noopener');
 }
 
-function ProjectProgress({ project, people }) {
+function ProjectProgress({ project, people, logins = [] }) {
   const members = people.filter((u) => u.project_id === project.id && u.role !== "admin");
   const [rows, setRows] = useState(null);
 
@@ -373,6 +414,7 @@ function ProjectProgress({ project, people }) {
     const mine = (rows ?? []).filter((r) => r.user_id === m.id && r.status === "completed");
     const last = mine.map((r) => r.updated_at).sort().slice(-1)[0];
     const pts = mine.reduce((s, r) => s + (r.earned ?? 0), 0);
+    const myLogins = logins.filter((e) => e.user_id === m.id);
     return {
       ...m,
       done: mine.length,
@@ -380,9 +422,39 @@ function ProjectProgress({ project, people }) {
       last: last ? last.slice(0, 10) : "—",
       pts,
       certNo: "SKA-" + m.id.replace(/-/g, "").slice(0, 10).toUpperCase(),
+      lastSignIn: myLogins.length ? myLogins[0].created_at.slice(0, 10) : "—",
+      signIns: myLogins.length,
     };
   });
   const certified = per.filter((p) => p.certified).length;
+
+  // Progress report as a CSV the admin can attach to invoices and lender
+  // reports. Semicolon-separated + BOM so Excel opens it cleanly.
+  function exportCsv() {
+    const head = ["Learner", "Modules completed", "Total modules", "Progress %", "Quiz points", "Certified", "Certificate no.", "Completion date", "Last sign-in", "Total sign-ins"];
+    const lines = per.map((p) => [
+      p.full_name || "",
+      p.done,
+      TOTAL_MODULES,
+      Math.round((p.done / TOTAL_MODULES) * 100),
+      p.pts,
+      p.certified ? "Yes" : "No",
+      p.certified ? p.certNo : "",
+      p.certified ? p.last : "",
+      p.lastSignIn,
+      p.signIns,
+    ]);
+    const csv =
+      "﻿" +
+      [head, ...lines]
+        .map((row) => row.map((v) => '"' + String(v).replace(/"/g, '""') + '"').join(";"))
+        .join("\r\n");
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([csv], { type: "text/csv;charset=utf-8" }));
+    a.download = `${project.name.replace(/[^\w-]+/g, "_")}-progress-report-${new Date().toISOString().slice(0, 10)}.csv`;
+    a.click();
+    URL.revokeObjectURL(a.href);
+  }
 
   return (
     <div className="space-y-gutter">
@@ -398,23 +470,32 @@ function ProjectProgress({ project, people }) {
             <span className="text-headline-md text-outline">/{members.length}</span>
           </p>
         </div>
+        <button
+          onClick={exportCsv}
+          disabled={per.length === 0}
+          title="Download this table as a CSV progress report"
+          className="ml-auto flex items-center gap-2 self-center rounded-lg bg-gradient-to-r from-primary-container to-[#1c3a63] px-5 py-3 text-label-md font-bold text-white transition-all hover:brightness-110 disabled:opacity-50"
+        >
+          <MaterialIcon name="table_view" className="text-[18px]" /> Export progress report (CSV)
+        </button>
       </div>
 
       <div className="overflow-x-auto rounded-xl border border-outline-variant bg-surface-container-lowest">
-        <table className="w-full min-w-[680px] text-left">
+        <table className="w-full min-w-[760px] text-left">
           <thead>
             <tr className="border-b border-outline-variant text-caption uppercase tracking-wider text-on-surface-variant">
               <th className="px-stack-md py-stack-sm font-semibold">Name</th>
               <th className="px-stack-md py-stack-sm font-semibold">Modules completed</th>
               <th className="px-stack-md py-stack-sm font-semibold">Certificate</th>
               <th className="px-stack-md py-stack-sm font-semibold">Last activity</th>
+              <th className="px-stack-md py-stack-sm font-semibold">Last sign-in</th>
             </tr>
           </thead>
           <tbody>
             {rows === null ? (
-              <tr><td colSpan={4} className="px-stack-md py-stack-lg text-center text-on-surface-variant">Loading…</td></tr>
+              <tr><td colSpan={5} className="px-stack-md py-stack-lg text-center text-on-surface-variant">Loading…</td></tr>
             ) : per.length === 0 ? (
-              <tr><td colSpan={4} className="px-stack-md py-stack-lg text-center text-on-surface-variant">No learners in this project yet.</td></tr>
+              <tr><td colSpan={5} className="px-stack-md py-stack-lg text-center text-on-surface-variant">No learners in this project yet.</td></tr>
             ) : (
               per.map((p) => (
                 <tr key={p.id} className="border-b border-surface-container last:border-0">
@@ -460,6 +541,7 @@ function ProjectProgress({ project, people }) {
                     )}
                   </td>
                   <td className="px-stack-md py-stack-md text-body-md text-on-surface-variant">{p.last}</td>
+                  <td className="px-stack-md py-stack-md text-body-md text-on-surface-variant">{p.lastSignIn}<span className="ml-1 text-caption text-outline">({p.signIns})</span></td>
                 </tr>
               ))
             )}

@@ -163,11 +163,11 @@ export default function CoursePage() {
                             className="flex items-center gap-1.5 rounded-lg bg-primary px-4 py-1.5 text-caption font-bold text-on-primary transition-opacity hover:opacity-90"
                           >
                             <MaterialIcon name="menu_book" className="text-[14px]" />
-                            {m.status === "completed" ? "REVIEW THE LESSON" : "READ THE LESSON"}
+                            {m.status === "completed" ? "REVIEW THE MODULE" : "OPEN THE MODULE"}
                           </button>
-                          {m.type === "quiz" && m.status !== "completed" && (
+                          {m.status !== "completed" && (
                             <span className="text-caption text-outline">
-                              then pass its quiz (80%) to unlock the next module
+                              Readings → Games → Quiz (80%) unlocks the next module
                             </span>
                           )}
                         </div>
