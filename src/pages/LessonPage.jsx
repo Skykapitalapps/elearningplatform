@@ -623,7 +623,9 @@ export default function LessonPage() {
               <p className="mt-2 text-headline-md">{module.type === "capstone" ? "Run the simulation" : "Take the quiz"}</p>
               <p className="mx-auto mt-1 max-w-md text-body-md text-white/80">
                 {module.type === "capstone"
-                  ? "Run the simulation — 10 good calls out of 12 keeps the financing flowing."
+                  ? (module.id === "c6"
+                      ? "Run the simulation — 8 good calls out of 10 completes the pathway."
+                      : "Run the simulation — 10 good calls out of 12 keeps the financing flowing.")
                   : "Score 80% on the quiz to complete this module and unlock the next one."}
               </p>
               {readingDone ? (

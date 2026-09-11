@@ -582,213 +582,107 @@ export const modules = [
     code: "A3",
     order: 3,
     pathway: "A",
-    title: "ESG & The Financing",
+    title: "How the Money Works",
     type: "quiz",
-    duration: "13–15 min",
+    duration: "13–16 min",
     status: "not_started",
-    score: { earned: 0, total: 20 },
+    score: { earned: 0, total: 12 },
     icon: "account_balance",
-    summary: "ESDD, the IESC, audits — how lenders check, and why it keeps the money flowing.",
-    tldr: "The banks lending the money treat ESG failures as a risk to their money. So they investigate before lending (ESDD), write ESG promises into the loan, and send an independent checker (IESC) to audit the site for as long as the loan lasts. Do well and money flows; hide problems and it stops.",
-    glossary: [
-      { term: "ESDD", plain: "Environmental & Social Due Diligence — the lenders' investigation of the project's risks BEFORE they commit money." },
-      { term: "IESC", plain: "Independent Environmental & Social Consultant — the lenders' eyes on site. Works for the banks, not for the contractor." },
-      { term: "ESAP", plain: "The fix-it list: every gap found, turned into an action with an owner, a deadline, and proof when done." },
-      { term: "Covenant", plain: "A promise written into the loan. Breaking it (a 'breach') can freeze the money." },
-      { term: "Conditions precedent", plain: "Things that must be DONE before the bank releases the first payment." },
-      { term: "Disbursement", plain: "A release of loan money. Each one depends on the project keeping its ESG promises." },
-      { term: "Self-monitoring report", plain: "The project's own regular report card to the lenders — verified by the IESC." },
-    ],
-    overview:
-      "Large infrastructure projects are rarely paid for in cash — they are financed by lenders who apply the IFC Performance Standards and Equator Principles. And lenders don't just trust: they audit. Before financing, they run an ESDD (Environmental & Social Due Diligence); during the project, an IESC (Independent Environmental & Social Consultant) visits the site and verifies everything. This module follows the money — who lends it, what they ask for, who audits it, and what happens when ESG slips.",
+    summary: "Conditions, covenants, and the consultant who comes to check.",
+    tldr: "Most people on a construction project do not know this mechanism exists — and therefore cannot see the connection between what they do and whether the project gets paid. Who is at the table, the three instruments that turn a standard into money, the action plan, and where you sit in the chain.",
+    overview: "A contractor completes a milestone, certifies it, invoices — and the payment does not come, because four actions on the Environmental and Social Action Plan are overdue and one is attached to this disbursement. None of the four is a construction matter. This module traces the chain from a site activity to a bank's decision.",
     lesson: [
       {
-        heading: "The money story — how a PPP is paid for",
-        body: "In a Public-Private Partnership, a public asset (a road, a bridge, a water network) is built with private financing. Banks and development lenders put up most of the money and are repaid over many years. Because their money is at risk for so long, lenders care deeply about anything that could stop the project — including environmental and social failures.",
-        image: "/images/course-hero.jpg",
-        caption: "A PPP: public infrastructure, private financing — repaid over decades.",
-      },
-      {
-        heading: "Why lenders care about ESG",
-        body: "Banks that follow the Equator Principles require their borrowers to meet the IFC Performance Standards. For a lender, ESG risk IS financial risk: a community blockade stops construction, a pollution fine drains cash, a safety disaster halts the project and makes headlines. So lenders build ESG straight into the loan agreement.",
+        heading: "The payment that did not arrive",
+        body: "A contractor completes a milestone, certifies it, and invoices. Three weeks later nothing has been paid. The client is not disputing the works. The engineer has signed. The construction is fine. What happened is that the lenders have not released the tranche, because four actions on the project's action plan are overdue and one of them is attached to this disbursement. None of the four is a construction matter: one is a resettlement register, one a grievance mechanism, one a set of accommodation standards, one a monitoring report that went in late. This module exists because most people on a construction project do not know this mechanism is there — and so cannot see how what they do connects to whether the project gets paid.",
         image: "/images/lm2.jpg",
-        caption: "For a lender, an ESG failure is a financial failure — so ESG goes into the loan.",
+        caption: "Nobody on this project is more than three steps from the money.",
       },
       {
-        heading: "ESDD — the lenders' due diligence",
-        body: "Before a bank commits a single dollar, it runs an ESDD — an Environmental & Social Due Diligence. Specialist consultants review the project's ESIA, permits, land acquisition, management plans and track record, and assess the gaps against the IFC Performance Standards and Equator Principles.",
+        heading: "Who is at the table",
         points: [
-          "ESDD = the lenders' investigation of the project's E&S risks BEFORE financing.",
-          "It asks: what are the risks, are they well managed, and what is missing?",
-          "The gaps found become the ESAP — the fix-it list with deadlines.",
-          "The ESDD also drives the project's Equator category (A / B / C) and the strictness of the conditions.",
+          "LENDERS — development banks, commercial banks under the Equator Principles, export credit agencies, often several as a syndicate. They can withhold a disbursement, impose conditions, require corrective actions at your cost, and in the extreme declare default.",
+          "THE BORROWER or sponsor signed the loan and owes every obligation in it. They pass those obligations into the construction contract and cannot waive what the lenders imposed.",
+          "THE CLIENT and THE ENGINEER sit on the contract side. The engineer supervises, instructs, and in many contracts can suspend an activity.",
+          "THE CONTRACTOR builds. Everything in the Site Practice pathway is aimed here.",
+          "THE INDEPENDENT CONSULTANT (IESC), appointed by and reporting to the lenders, reviews before financial close and monitors afterwards.",
+          "★ The engineer works for the client and can tell you what to do. The independent consultant works for the lenders and cannot. They observe and report — and the consequence arrives later, through the money.",
         ],
-        image: "/images/lm1.jpg",
-        caption: "The ESDD: lenders investigate the project's E&S risks before the money moves.",
       },
       {
-        heading: "The IESC — the lenders' eyes on site",
-        body: "Once the loan is signed, the lenders don't just trust — they verify. An IESC (Independent Environmental & Social Consultant) is a specialist firm engaged to monitor the project on the lenders' behalf, for the life of the loan. It is not part of the contractor and not paid to please it — independence is the whole point.",
+        heading: "Three instruments, three effects",
+        body: "The financing agreement converts environmental and social requirements into money through three devices, often confused and behaving differently. A CONDITION PRECEDENT is a gate: something that must be satisfied before an event, usually financial close or a particular disbursement. If it is not met, the event does not happen — there is nothing to cure; the gate simply has not opened. A COVENANT is a continuing obligation for the life of the loan: maintain a management system, report on a cycle, comply with the applicable standards. Failure is a breach, usually with a cure period, and persistent or material breach reaches default. THE ACTION PLAN (ESAP) is a schedule of specific corrective actions, each with an owner and a date, annexed to the agreement. Some actions are tied to a disbursement — which is how an overdue action stops a payment.",
         points: [
-          "The IESC answers to the lenders, not the contractor.",
-          "It reviews records and self-monitoring reports, visits the site, and interviews workers and communities.",
-          "It verifies ESAP progress and flags non-compliances directly to the banks.",
-          "Transparency with the IESC builds the trust that keeps funds flowing.",
+          "★ The distance between a foreman not running an induction and a tranche not arriving is three steps. Most people believe it is infinite.",
         ],
-        image: "/images/lm5.jpg",
-        caption: "The IESC checks the project on the lenders' behalf — independence is the point.",
       },
       {
-        heading: "Audits — who checks what, when",
-        body: "A financed project is audited continuously, by several layers of checkers. Expect it, prepare for it, and treat every audit as a chance to prove the system works:",
+        heading: "The cycle, and where you joined it",
         points: [
-          "BEFORE financing — the ESDD: the lenders' consultants audit the project's ESIA, permits, plans and record.",
-          "DURING the project — IESC site visits: typically every 6–12 months (more often for Category A), walking the site, checking records, talking to workers and communities.",
-          "EVERY period — lender reviews: the self-monitoring report and ESAP progress are checked against the loan's ESG conditions.",
-          "CONTINUOUSLY — internal audits: the contractor's own ESMS audits and inspections (Module 4) catch issues before external auditors do.",
-          "Audit findings become corrective actions with deadlines — usually added to the ESAP and tracked to closure.",
+          "Screening and categorisation — the project is rated A, B or C on the magnitude of its potential impacts.",
+          "Due diligence — the existing studies are reviewed against the applicable standards, gaps are identified, and the action plan is first drafted.",
+          "Independent review before financial close, for Category A and some Category B projects.",
+          "Financial close — the agreement is signed, and from that moment the standards are contractually binding.",
+          "Construction — disbursements against milestones subject to conditions; the action plan runs; the consultant visits two to four times a year.",
+          "Completion and operation — completion audits where required, monitoring continuing at reduced frequency for the life of the loan.",
+          "★ Almost everyone reading this joined at construction — the requirements you work under were agreed by people you have never met, in a document you have never read, about a period before you arrived.",
         ],
-        image: "/images/lm9.jpg",
-        caption: "ESDD before, IESC visits during, lender reviews every period, internal audits always.",
       },
       {
-        heading: "ESG loan conditions & the ESAP",
+        heading: "Category A, and what it brings",
+        body: "EP4 Principle 1 requires every project to be categorised on the magnitude of its potential impacts. Category A means potential significant adverse impacts that are diverse, irreversible or unprecedented — major road corridors, ports, large hydropower, anything with significant resettlement or critical habitat. Category B means limited impacts, few in number, largely site-specific and reversible; Category C means minimal or none. Category A brings: a full assessment to lender scope, independent review before financial close, independent monitoring for the life of the loan, INFORMED consultation and participation rather than mere consultation, and public reporting. Almost every project in this programme is Category A.",
         points: [
-          "The loan agreement contains ESG conditions (covenants) the contractor must meet.",
-          "An ESAP — Environmental & Social Action Plan — lists the corrective actions to complete, each with an owner and a deadline.",
-          "Self-monitoring reports go to the lenders; the IESC verifies them; they feed the KPIs (Module 5).",
+          "★ If the requirements seem heavy, the accurate answer is that they match the risk category the project sits in — and the category was set by what the project does, not by anyone's preference.",
         ],
-        image: "/images/esg-reporting.jpg",
-        caption: "Covenants, the ESAP and self-monitoring reports — ESG on paper, with deadlines.",
       },
       {
-        heading: "The ESG covenant cycle",
+        heading: "The life of an action",
+        body: "The action plan is the instrument you are most likely to meet by name: a list of actions, each with an owner and a date, annexed to the financing agreement, which makes every line a contractual commitment. Actions open from the due diligence, from a monitoring finding, from an incident or complaint — or from the project itself disclosing something, which is the origin that reflects best and is the rarest. A well-formed action has: a SPECIFIC deliverable, not an aspiration; a named owner, not a department; a date; the EVIDENCE that will close it — the field most often left blank; and whether it is tied to a disbursement. An action closes when the agreed evidence has been produced and VERIFIED. Not when the owner says it is done, not when a tracker says closed, and not because time has passed.",
         points: [
-          "Appraisal — lenders assess the project's ESG risk before committing.",
-          "Conditions precedent — certain ESG actions must be done before the first disbursement.",
-          "Disbursement — funds are released as milestones and conditions are met.",
-          "Ongoing monitoring — self-monitoring reports and IESC visits run throughout the loan.",
+          "★ The commonest defect in any tracker is an action marked closed with no evidence attached. A reviewer reopens every one of them — and draws a conclusion about the tracker rather than about the actions.",
         ],
-        image: "/images/lm3.jpg",
-        caption: "Appraise → conditions precedent → disburse → monitor: the cycle runs for the life of the loan.",
       },
       {
-        heading: "The stakes — what happens when ESG slips",
-        body: "Meeting the ESG conditions keeps loan disbursements flowing. Falling short can trigger covenant breaches, withheld disbursements, or even default. An unreported incident discovered by the IESC is worse than the incident itself — it breaks the trust the whole arrangement is built on.",
-        image: "/images/esg-pollution.jpg",
-        caption: "A covenant breach can freeze the money — honesty costs less than concealment.",
-      },
-      {
-        heading: "Reputation — winning the next project",
-        body: "Beyond the loan itself, a public ESG incident — a polluted stream, a community protest — damages the contractor's ability to win future work and stains the lenders' own ESG standing. A clean ESG record is a commercial asset: it wins bids, lowers financing costs and opens doors with international clients.",
-        image: "/images/esg-social.jpg",
-        caption: "Communities remember. A clean ESG record wins the next bid.",
-      },
-      {
-        heading: "Deep dive — anatomy of a covenant package",
-        body: "What do these obligations actually look like in a real facility agreement? Typical shape and numbers:",
+        heading: "What actually stops the money",
         points: [
-          "Conditions precedent: 10–20 E&S actions before first drawdown (permits valid, ESMS staffed, grievance mechanism live).",
-          "Reporting: monthly or quarterly self-monitoring reports, in a format annexed to the loan.",
-          "Incident notification: serious events (fatality, major spill, community conflict) reported within 24–48 hours.",
-          "IESC visits: every 6 months is common for Category A/B — with full access to site, records and people.",
-          "ESAP: typically 20–40 actions at signing, each with an owner and deadline; progress reviewed at every report.",
-          "The lesson: none of this is exotic — it is a calendar of ordinary discipline. Projects fail covenants through neglect, not through impossibility.",
+          "A condition precedent unmet — the cleanest stop: nothing is disputed, the gate has not opened.",
+          "Overdue action plan items tied to a disbursement — the commonest cause in practice, and the one nobody on site sees coming.",
+          "A serious incident, particularly a fatality or a community incident — notification, a special report, and often a pause.",
+          "A finding that the management system cannot be relied upon — slower and more damaging, because it reopens everything rather than one item.",
+          "Regulatory action, or a complaint to an accountability mechanism — scrutiny the project does not control.",
+          "★ Overdue actions are the usual cause, and the most preventable. Each one has a name against it.",
         ],
-        image: "/images/lm14.jpg",
-        caption: "A covenant package is a calendar of discipline: report, notify, host, close actions.",
       },
-    ],
-    objectives: [
-      "Explain why lenders impose ESG requirements on the contractor.",
-      "Define the ESDD and how it shapes the loan's conditions.",
-      "Describe the role of the IESC and the ESAP.",
-      "Explain the audit layers: ESDD, IESC visits, lender reviews, internal audits.",
-      "Link self-monitoring reports to continued financing.",
-      "Recognise the consequences of poor ESG performance.",
+      {
+        heading: "Where you sit",
+        body: "The point is not that you should read a financing agreement. It is that you should be able to place your own work in a chain that ends at a bank. Operating plant, driving, labouring: you are the last link, and what you do is the performance — everything above it is a plan. Supervising: you turn a plan into an instruction and a record — whether the induction happened, whether the register is contemporaneous, whether a problem is raised or absorbed. HR, procurement, camp management: you hold several action plan items without necessarily knowing it — contracts, age records, payslips, accommodation, subcontract clauses. E&S and HSE: you are the interface with the action plan and the consultant. Management: you decide what the trade is when a requirement costs programme or money — and whether the person who raised it is supported.",
+        points: [
+          "★ The induction that did not happen becomes an overdue action, and the overdue action becomes a tranche that does not arrive.",
+        ],
+      },
     ],
     activities: [
       {
-        type: "scenario",
-        title: "On-site decision: an ESG breach",
-        intro:
-          "A subcontractor has been discharging untreated wastewater near a community stream. You are the contractor’s site ESG officer.",
-        steps: [
-          {
-            prompt: "What do you do first?",
-            options: [
-              { text: "Stop the discharge immediately and contain it", outcome: "good", feedback: "Correct — halt and contain the harm first. That's the mitigation hierarchy in action." },
-              { text: "Wait for the next monthly report to mention it", outcome: "bad", feedback: "Delay lets the impact grow and risks a covenant breach when the IESC finds it." },
-              { text: "Ignore it — it's the subcontractor's problem", outcome: "bad", feedback: "Subcontractor conduct is the contractor’s responsibility; this exposes the contractor directly." },
-            ],
-          },
-          {
-            prompt: "The community has complained. What next?",
-            options: [
-              { text: "Log it in the grievance mechanism and respond", outcome: "good", feedback: "Right — the grievance mechanism records and resolves concerns transparently." },
-              { text: "Offer cash quietly to keep it off the record", outcome: "bad", feedback: "Off-record payments breach the Code of Conduct and destroy lender trust." },
-            ],
-          },
-          {
-            prompt: "How should this reach the lenders?",
-            options: [
-              { text: "Record the incident and corrective action in the self-monitoring report / ESAP", outcome: "good", feedback: "Exactly — transparent reporting plus a closed corrective action keeps financing flowing." },
-              { text: "Leave it out so the report looks clean", outcome: "bad", feedback: "If the IESC later finds it, credibility collapses and disbursements can be withheld." },
-            ],
-          },
-        ],
-      },
-      {
-        type: "scenario",
-        title: "Role-play: you are the lender",
-        intro:
-          "You are the bank's reviewer. The contractor requests its next disbursement. The IESC report shows: dust controls in place, two community grievances open past their deadline, and one unreported spill found during a site visit.",
-        steps: [
-          {
-            prompt: "What is your decision as the lender?",
-            options: [
-              { text: "Withhold the disbursement until the grievances and spill are resolved and reported", outcome: "good", feedback: "Correct — overdue grievances and an unreported spill are covenant issues; release only once the ESAP actions close." },
-              { text: "Release the full amount — the dust controls look fine", outcome: "bad", feedback: "Risky — ignoring the unreported spill and overdue grievances is exactly what erodes lender confidence." },
-              { text: "Release everything and don't mention the spill", outcome: "bad", feedback: "No — tolerating a hidden incident exposes the lender too." },
-            ],
-          },
-        ],
-      },
-      {
         type: "match",
-        title: "Match the financing term to its meaning",
-        prompt: "Choose the correct definition for each.",
-        items: [
-          { prompt: "ESDD", options: ["The lenders' E&S due diligence before financing", "A site safety drill", "A type of permit"], correct: 0, tip: "Environmental & Social Due Diligence — the lenders' pre-financing investigation of the project's E&S risks." },
-          { prompt: "IESC", options: ["Independent consultant who monitors for the lenders", "A contractor manager", "A government inspector"], correct: 0, tip: "Independent Environmental & Social Consultant." },
-          { prompt: "ESAP", options: ["A plan of corrective ESG actions with deadlines", "A payment schedule", "A safety poster"], correct: 0, tip: "Environmental & Social Action Plan." },
-          { prompt: "Self-monitoring report", options: ["The contractor’s own ESG performance report to lenders", "A lender advert", "A tax return"], correct: 0, tip: "Verified by the IESC." },
+        title: "Three instruments, three effects",
+        prompt: "Pair each instrument with what happens when it is not met.",
+        pairs: [
+          { l: "Condition precedent", r: "The gate does not open — the money is not released" },
+          { l: "Covenant", r: "A breach, with a cure period; persistent breach reaches default" },
+          { l: "ESAP action tied to a disbursement", r: "Overdue — and the payment it is tied to stops" },
+          { l: "Incident notification threshold", r: "Immediate notification, on occurrence — not on the reporting cycle" },
         ],
       },
       {
         type: "swipe",
-        title: "Myth or fact? — the financing",
-        prompt: "Six statements about lenders and audits. Myth or fact?",
+        title: "Myth or fact? — the money",
+        prompt: "Call each statement: myth or fact?",
         cards: [
-          { text: "The IESC works for the contractor.", truth: false, tip: "Myth — the IESC is independent and answers to the LENDERS." },
-          { text: "The ESDD happens before the money is committed.", truth: true, tip: "Fact — due diligence first; its findings shape the ESAP and the loan conditions." },
-          { text: "Hiding a small incident is safer than reporting it.", truth: false, tip: "Myth — an incident the IESC finds later costs far more than one reported honestly." },
-          { text: "A covenant breach can freeze disbursements.", truth: true, tip: "Fact — and persistent breaches can escalate to default." },
-          { text: "Conditions precedent are completed after the loan ends.", truth: false, tip: "Myth — they must be done BEFORE money moves." },
-          { text: "Transparent reporting builds lender trust.", truth: true, tip: "Fact — honesty plus a corrective plan is exactly what keeps funds flowing." },
-        ],
-      },
-      {
-        type: "memory",
-        title: "Memory: the financing vocabulary",
-        prompt: "Match each financing term to its meaning.",
-        pairs: [
-          { a: "ESDD", b: "Due diligence before lending" },
-          { a: "IESC", b: "The lenders' site monitor" },
-          { a: "ESAP", b: "Fix-it list with deadlines" },
-          { a: "Covenant", b: "A promise in the loan" },
-          { a: "Condition precedent", b: "Done before first payment" },
-          { a: "Disbursement", b: "A release of loan money" },
+          { text: "The independent consultant can instruct the contractor.", truth: false, tip: "Myth — they observe, assess and report to the lenders. The consequence arrives later, through the money." },
+          { text: "Nobody on the project is more than three steps from the money.", truth: true, tip: "Fact — a missed induction becomes an overdue action, and an overdue action becomes a tranche that does not arrive." },
+          { text: "An action closes when its owner confirms it is done.", truth: false, tip: "Myth — it closes when the agreed evidence has been produced and verified." },
+          { text: "Standards become contractually binding at financial close.", truth: true, tip: "Fact — from signature, the Performance Standards are loan obligations, not guidance." },
+          { text: "A serious incident is the commonest reason a disbursement stops.", truth: false, tip: "Myth — the commonest cause is overdue action plan items tied to a disbursement, and nobody on site sees it coming." },
         ],
       },
     ],
@@ -800,222 +694,98 @@ export const modules = [
     pathway: "A",
     title: "The ESMS",
     type: "quiz",
-    duration: "12–14 min",
+    duration: "12–15 min",
     status: "not_started",
-    score: { earned: 0, total: 20 },
+    score: { earned: 0, total: 12 },
     icon: "schema",
-    summary: "The ESMS: strategic objectives, the policy suite, and the rules everyone works by.",
-    video: { id: "Kwh8wGWLMrs", title: "Working at height — site safety essentials" },
-    tldr: "The ESMS is the machine that turns good intentions into daily behaviour: policies say what we stand for, plans say how, training makes sure everyone knows, grievance channels catch problems, and audits check it's real. It runs on a simple loop — Plan, Do, Check, Act — forever.",
-    glossary: [
-      { term: "ESMS", plain: "Environmental & Social Management System — all the policies, plans, roles and routines that manage ESG day to day." },
-      { term: "PDCA", plain: "Plan–Do–Check–Act: plan it, do it, check it worked, fix what didn't. Then repeat, forever." },
-      { term: "RACI", plain: "A chart that ends 'I thought someone else had it': who's Responsible, who's Accountable, who's Consulted, who's Informed." },
-      { term: "Grievance mechanism", plain: "The safe, formal way for ANYONE — worker or neighbour — to complain and get an answer. No retaliation, ever." },
-      { term: "Toolbox talk", plain: "A short safety chat with the crew before work starts — small, daily, and one of the most powerful tools on site." },
-      { term: "GBVSH", plain: "Gender-Based Violence & Sexual Harassment — zero tolerance, confidential reporting, survivor support." },
-      { term: "Flow-down", plain: "Making subcontractors follow the same rules — through contracts, training and audits. Their conduct is our responsibility." },
-    ],
-    overview:
-      "The Environmental & Social Management System (ESMS) is how a company turns ESG requirements into everyday practice. It starts with strategic E&S objectives, is written down as a suite of policies — from environment and safety to labour, inclusion and anti-corruption — and is lived on site through roles, plans, training, a grievance mechanism, and control of subcontractors. This module is based on a real ESMS policy suite used on lender-financed construction projects.",
+    summary: "From a plan on a shelf to what happens on site.",
+    tldr: "A management system is not a set of documents. It is the machinery that keeps the documents true and makes them operate. When people say a project has an ESMS but it does not work, what they mean is that it has the documents and not the machinery.",
+    overview: "The seven elements PS1 requires and what each delivers, the difference between a policy, a plan, a procedure and a record, why organisational capacity is the element that fails most often, what makes an emergency arrangement real, the loop that changes things — and five questions that tell you which kind of system you have.",
     lesson: [
       {
-        heading: "What the ESMS is",
-        body: "The ESMS is the system — policy, plans, procedures and roles — that a company uses to manage ESG on the ground. It is anchored in international frameworks: the IFC Performance Standards, Equator Principles IV, ISO 14001 and ISO 45001, the ILO conventions, the UN Guiding Principles on Business and Human Rights, and the Voluntary Principles on Security and Human Rights. It runs on a continual-improvement loop: Plan → Do → Check → Act.",
+        heading: "The plan nobody used",
+        body: "A project holds a complete management system. Policy, procedures, plans for traffic, waste, borrow pits, camps, community engagement. Several hundred pages, approved, current, indexed. On site, the traffic management plan refers to two haul routes changed eleven months ago. The waste procedure names a disposal facility the project stopped using. The camp plan was written for 180 workers and there are 340. No supervisor has opened any of them. Nothing here was done in bad faith — the plans were produced by people who knew what they were doing and approved by people who read them. Then the project started, and the plans stopped. A management system is not a set of documents. It is the machinery that keeps the documents true and makes them operate.",
         image: "/images/lm3.jpg",
-        caption: "The ESMS turns standards on paper into practice on site.",
+        caption: "When people say a project has a system but it does not work, what they mean is that it has the documents and not the machinery.",
       },
       {
-        heading: "Strategic E&S objectives",
-        body: "The ESMS starts with a set of strategic objectives, set by top management, that everything else serves:",
+        heading: "Seven elements",
+        body: "PS1 requires a management system proportionate to the project's risks. Seven elements — and notice how much of the list is about people and authority rather than documents:",
         points: [
-          "Compliance with legal and regulatory requirements — national and international.",
-          "Sustainable resource management — efficient use of energy, water and materials.",
-          "Pollution prevention and effective waste management.",
-          "Biodiversity conservation — protect and restore natural habitats.",
-          "Community engagement and local development.",
-          "Health and safety — for workers, contractors and communities.",
-          "Economic and social benefits — local jobs, local procurement, livelihoods.",
-          "Continuous improvement, capacity building, and climate mitigation & adaptation.",
+          "POLICY — what the organisation commits to, signed at the top, communicated to everyone including contractors. Real when someone on site can say roughly what it commits the project to; otherwise it is a poster.",
+          "IDENTIFICATION OF RISKS AND IMPACTS — the assessment, across the whole area of influence including ancillary facilities. Real when a new borrow pit triggers an assessment rather than a mobilisation.",
+          "MANAGEMENT PROGRAMMES — the plans, with measures, responsibilities, resources and timing. Real when they describe what is actually being done, revised when the works changed.",
+          "ORGANISATIONAL CAPACITY AND COMPETENCY — named roles, real authority, adequate resourcing, competent people.",
+          "EMERGENCY PREPAREDNESS AND RESPONSE — coordinated with authorities, communicated to communities.",
+          "STAKEHOLDER ENGAGEMENT — disclosure, consultation, a grievance mechanism, and reporting back. Real when there are grievances in the register and complainants were told the outcome.",
+          "MONITORING AND REVIEW — the only element that changes the other six.",
         ],
-        image: "/images/esg-environment.jpg",
-        caption: "Ten strategic objectives, signed by the Managing Director, drive the whole system.",
       },
       {
-        heading: "The policy suite — one system, many policies",
-        body: "A real ESMS is written down as a family of policies that cover every ESG risk. Each is short, signed by top management, and applies to employees AND subcontractors:",
+        heading: "Four words, four objects",
+        body: "Policy, plan, procedure, record are used interchangeably on most projects and describe four different things. A POLICY is what we commit to — one or two pages, signed high up; nobody uses it daily; it sets the bar. A PLAN is what we will do about a defined risk over a defined period — managers use it to organise; it is the object that goes stale when the works change. A PROCEDURE is how one task is done, step by step — the person doing the task uses it at the moment of doing it. A RECORD is evidence that something happened — everyone uses it afterwards, including every external reader. A worker who asks what to do when he uncovers a grave needs a PROCEDURE. Handing him a ninety-page heritage plan is a correct answer to a question he did not ask — and it is why he will ask his foreman instead next time.",
         points: [
-          "Environmental & Social Policy — stewardship, waste via certified disposers, biodiversity (No Net Loss).",
-          "CASHES Policy — Community Affairs, Safety, Health, Environment & Security in one commitment.",
-          "Occupational Health & Safety — zero harm, and every worker's RIGHT TO STOP unsafe work.",
-          "Human Resources — fair hiring, working hours, leave, freedom of association.",
-          "Equality, Diversity & Inclusion + GBVSH — respect, women's empowerment, zero tolerance for harassment.",
-          "Alcohol & Drugs, Smoke-Free, HIV/AIDS — health and fitness for work.",
-          "Subcontractor & Third-Party, Anti-Bribery, Anti-Money-Laundering, Code of Conduct — integrity across the chain.",
+          "★ The test of a system is whether the person doing a task can reach the thing that tells them how, in under a minute, in a language they read.",
         ],
-        image: "/images/esg-governance.jpg",
-        caption: "One system, ~14 policies — every ESG risk has a written commitment behind it.",
       },
       {
-        heading: "Rules you should know by heart",
-        body: "A few concrete rules from the policy suite that everyone on a site is expected to know:",
+        heading: "The element that fails",
+        body: "Of the seven, organisational capacity and competency produces the most findings and is hardest to fix, because it is not a document problem. What inadequate capacity looks like:",
         points: [
-          "Safety first — any worker may STOP WORK under dangerous conditions; management must respond.",
-          "Working hours — no more than 48 regular + 12 overtime hours a week, and at least one rest day every seven.",
-          "Zero alcohol — a Blood Alcohol Concentration of 0.00 is required on site; random screening applies to everyone.",
-          "Zero tolerance for GBV and sexual harassment — mandatory training, confidential reporting, survivor support.",
-          "No child or forced labour — anywhere in the operation or its supply chain.",
-          "No bribes, no facilitation payments, no cash transactions — gifts must be modest, approved and declared.",
-          "PPE is provided and must be worn; toolbox talks and inductions are mandatory.",
+          "An E&S manager with no budget, who must ask for funds from the person whose programme the requirement affects.",
+          "An E&S function reporting to the production manager — so every escalation goes through the person being escalated about.",
+          "One officer for ninety kilometres of corridor and four hundred workers — a resourcing decision presented as a staffing level.",
+          "No authority to stop work, so the only response to an unsafe condition is persuasion.",
+          "Competence assumed rather than established. Contractor E&S staff paid by the contractor and measured on not causing delay.",
+          "Every other element improves by producing something. This one improves only by a decision about money, reporting lines and authority.",
+          "★ A reviewer who concludes the E&S function lacks authority will read every other finding in that light.",
         ],
-        image: "/images/esg-social.jpg",
-        caption: "Right to stop work, 48+12 hour cap, BAC 0.00, zero tolerance for GBVSH — non-negotiables.",
       },
       {
-        heading: "Worked example — working at height & mandatory PPE",
-        body: "Falls from height are the #1 killer on construction sites worldwide — which is why the OHS policy treats height work as a special regime. Picture the crew fixing roof tiles in the photo: before the first tile moves, ALL of this must be true:",
+        heading: "Has anyone driven it?",
+        body: "The difference between a real emergency arrangement and a written one is four things. The scenarios are CREDIBLE for this project — a haulage collision involving community members, a bitumen spill in a settlement, a blasting incident, a camp fire, a flood affecting works and community together; not a generic fire-and-first-aid plan. The times are MEASURED, not assumed — drive from the furthest working point to the nearest facility with surgical capability and time it; on several corridors the honest answer is over three hours, which changes where the clinic goes and whether you work that chainage at night. People OUTSIDE the project know it exists — the health facility, the local authority and the community need to know what you will do, what you will not, and how to reach you at three in the morning. And it has been RUN — a drill, with the night shift included, with the lessons recorded.",
         points: [
-          "Mandatory PPE for everyone on site, every day: hard hat, hi-vis vest, safety boots — plus gloves and eye protection for the task.",
-          "At height (any work where a fall can injure — typically 1.8 m and above), PPE alone is NOT enough: a safety harness clipped to a solid anchor point, or guardrails/edge protection, is mandatory.",
-          "The scaffold or platform must be complete and INSPECTED — a tagged scaffold, not a plank on two drums.",
-          "A permit to work at height and a toolbox talk on the task before starting.",
-          "No harness, no anchor, no inspection = no work — and any worker who spots it may STOP the job. That is the right to stop work in action.",
-          "The supervisor is Responsible for checking all of this daily; the site manager is Accountable (RACI in action).",
+          "★ A plan that has never been exercised is a description of an intention.",
         ],
-        image: "/images/lm13.jpg",
-        caption: "Hard hats and hi-vis on the roof — but height work also demands harness/edge protection, an inspected platform and a permit.",
       },
       {
-        heading: "Roles & responsibilities (RACI)",
-        body: "A RACI chart makes ownership clear for every ESG activity: who is Responsible (does the work), Accountable (owns the outcome), Consulted, and Informed. Top management is ultimately accountable; ESG/HSE managers run the system; supervisors enforce it daily; every worker owns their part.",
-        image: "/images/lm4.jpg",
-        caption: "Everyone has a defined ESG role — accountability sits at the top.",
-      },
-      {
-        heading: "The grievance mechanism",
-        body: "A safe channel for workers AND communities to raise concerns — grievance boxes, email, or anonymously — and have them investigated and resolved. Retaliation against anyone who reports in good faith is strictly prohibited. Subcontractors must run their own mechanism and cooperate with the project-level one.",
-        image: "/images/esg-social.jpg",
-        caption: "Anyone can raise a concern, safely and without retaliation — that is the test of trust.",
-      },
-      {
-        heading: "Subcontractors & third parties",
+        heading: "The loop that changes things",
+        body: "Monitoring and review is what turns documents into a system, because it is the only element that changes the others. MONITOR: data collected against defined parameters at defined frequencies by competent people — breaks when data is collected and never looked at, or collected retrospectively. ASSESS: someone compares the data against the requirement and the trend and forms a view — breaks when nobody owns the comparison. ACT: a corrective action with an owner, a date and verification that the condition changed — breaks when actions are recorded and never verified. REVIEW: management examines whether the system as a whole is working and changes it — the step most often absent entirely.",
         points: [
-          "Every subcontractor signs a formal agreement flowing down E&S, HSE and labour obligations.",
-          "Suppliers sign a Supplier Code of Conduct — ethical sourcing, fair labour, road safety.",
-          "Local hiring target: at least 50% local employment, with commitments to female participation.",
-          "All workers formally employed, registered for social security, fairly paid, and given PPE.",
-          "Non-conformances must be closed by deadline — repeated failure means penalties or termination.",
+          "★ Name one thing in this project's system that changed this year because of something that was monitored. If nobody can answer, you have a monitoring programme and not a management system.",
         ],
-        image: "/images/lm2.jpg",
-        caption: "The same standards flow down the chain — through contracts, training and audits.",
       },
       {
-        heading: "Documents vs behaviour",
-        body: "An ESMS only works if it is lived, not filed. A shelf full of policies means nothing if the haul road isn't watered or the grievance box is never emptied. The real test is what happens on site every day — that is why training, toolbox talks and audits matter as much as the documents.",
-        image: "/images/lm8.jpg",
-        caption: "The ESMS is tested on the ground, not on the shelf.",
-      },
-      {
-        heading: "How it keeps improving",
+        heading: "Five questions",
+        body: "These five tell you within ten minutes whether a project has a system or a set of documents. Is the traffic management plan current with the haul routes in use today? Who is the E&S lead, what is their budget, and can they stop work? How long does it take to get a serious casualty from the furthest chainage to surgical care? How would a worker raise a complaint about his supervisor? Name one thing in the system that changed this year because of something monitored. A working system answers all five with a name, a number or an example. A documented one answers with a document reference.",
         points: [
-          "Internal audits and site inspections check what is really happening.",
-          "Non-conformances trigger corrective actions with owners and deadlines.",
-          "KPIs (Module 5) track performance; management review adjusts the plans.",
-          "Policies are reviewed periodically — that is the Check → Act half of PDCA in practice.",
+          "★ A project with rough documents and five confident answers will outperform a project with perfect documents and none of them, on every measure that matters.",
         ],
-        image: "/images/esg-reporting.jpg",
-        caption: "Audit → correct → review → improve: the loop never stops.",
       },
-      {
-        heading: "Deep dive — when an incident happens",
-        body: "The ESMS is judged in the ten minutes after something goes wrong. The response sequence every worker should know:",
-        points: [
-          "1 · People first — stop the task, secure the area, give first aid, count heads.",
-          "2 · Stop the spread — contain the spill, isolate the energy, close the road; prevent a second victim.",
-          "3 · Notify — supervisor immediately; serious events reach management the same day and lenders within 24–48 h (Module 3).",
-          "4 · Preserve & investigate — photos, witness notes, then root cause: ask 'why?' five times, past 'human error' to the system gap.",
-          "5 · Corrective actions — with owners and deadlines, into the CAR register; verified closed, not just promised.",
-          "6 · Share the lesson — tomorrow's toolbox talk tells every crew what was learned; the KPI trend (Module 5) shows if it worked.",
-        ],
-        image: "/images/lm11.jpg",
-        caption: "People → containment → notify → root cause → actions → shared lesson.",
-      },
-    ],
-    objectives: [
-      "Describe the purpose, standards base and main elements of the ESMS.",
-      "Name the key policies in an ESMS policy suite and what each covers.",
-      "Recall the concrete site rules: right to stop work, hours cap, BAC 0.00, zero tolerance for GBVSH.",
-      "Use a RACI to assign ESG responsibilities.",
-      "Explain the grievance mechanism and how subcontractors are controlled.",
     ],
     activities: [
       {
-        type: "order",
-        title: "Order the PDCA cycle",
-        prompt: "Drag the ESMS improvement cycle into the right order.",
-        items: ["Plan", "Do", "Check", "Act"],
-      },
-      {
-        type: "scenario",
-        title: "A worker raises a grievance",
-        intro:
-          "A worker reports, through the grievance box, that a subcontractor is skipping safety briefings.",
-        steps: [
-          {
-            prompt: "What is the right first step?",
-            options: [
-              { text: "Log the grievance and investigate the subcontractor", outcome: "good", feedback: "Correct — the grievance mechanism must record and act on concerns, and subcontractors are the contractor’s responsibility." },
-              { text: "Ignore it — it's the subcontractor's problem", outcome: "bad", feedback: "No — subcontractor conduct is flowed down to the contractor; ignoring it is an ESMS failure." },
-              { text: "Find out who complained and warn them", outcome: "bad", feedback: "Never — retaliation destroys the grievance mechanism and breaches the Code of Conduct." },
-            ],
-          },
-        ],
-      },
-      {
         type: "match",
-        title: "Match the RACI role",
-        prompt: "Choose what each RACI letter means.",
-        items: [
-          { prompt: "R — Responsible", options: ["Does the work", "Owns the outcome", "Is kept informed"], correct: 0, tip: "Responsible = does the task." },
-          { prompt: "A — Accountable", options: ["Owns the outcome", "Does the work", "Is only consulted"], correct: 0, tip: "Accountable = answerable for the result." },
-          { prompt: "C — Consulted", options: ["Gives input before a decision", "Does the work", "Owns the outcome"], correct: 0, tip: "Consulted = asked for input." },
-        ],
-      },
-      {
-        type: "match",
-        title: "Which policy covers it?",
-        prompt: "Match each situation to the ESMS policy that governs it.",
-        items: [
-          { prompt: "A worker refuses to climb unsafe scaffolding", options: ["Occupational Health & Safety", "Anti-Money-Laundering", "Smoke-Free"], correct: 0, tip: "The OHS policy gives every worker the right to stop unsafe work." },
-          { prompt: "A supplier offers an expensive gift before a tender", options: ["Anti-Bribery & Anti-Corruption", "HIV/AIDS", "Environmental & Social"], correct: 0, tip: "Gifts intended to influence decisions are prohibited by the anti-bribery policy." },
-          { prompt: "A subcontractor pays workers cash, off the books", options: ["Subcontractor & Third-Party + HR", "Smoke-Free", "Biodiversity"], correct: 0, tip: "All workers must be formally employed, registered and fairly paid — flowed down by contract." },
-          { prompt: "Oil drums must be disposed of", options: ["Environmental & Social (certified disposers)", "EDI", "Alcohol & Drugs"], correct: 0, tip: "Waste goes only to government-certified disposal companies." },
+        title: "How you know each element is real",
+        prompt: "Pair each element with the sign that it actually operates.",
+        pairs: [
+          { l: "Policy", r: "Someone on site can say what it commits the project to" },
+          { l: "Risk identification", r: "A new borrow pit triggers an assessment, not a mobilisation" },
+          { l: "Organisational capacity", r: "The E&S lead has a budget and can stop something" },
+          { l: "Emergency preparedness", r: "Somebody has driven the route to the hospital and timed it" },
+          { l: "Stakeholder engagement", r: "Grievances exist — and complainants were told the outcome" },
+          { l: "Monitoring and review", r: "Something changed this year because of something monitored" },
         ],
       },
       {
         type: "swipe",
-        title: "Myth or fact? — the rules everyone works by",
-        prompt: "Six statements from the policy suite. Myth or fact?",
+        title: "Myth or fact? — the system",
+        prompt: "Call each statement: myth or fact?",
         cards: [
-          { text: "Any worker can stop work under dangerous conditions.", truth: true, tip: "Fact — the OHS policy protects that right, and management must respond." },
-          { text: "The alcohol limit on site is BAC 0.05.", truth: false, tip: "Myth — it's 0.00. Zero tolerance, including subcontractors." },
-          { text: "Retaliating against someone who filed a grievance is forbidden.", truth: true, tip: "Fact — no retaliation, ever; it's the mechanism's foundation." },
-          { text: "Subcontractors are exempt from the ESMS.", truth: false, tip: "Myth — the same standards flow down through contracts, training and audits." },
-          { text: "PDCA stops once the first cycle is complete.", truth: false, tip: "Myth — it loops forever; that's what 'continual improvement' means." },
-          { text: "Toolbox talks are short daily safety chats with the crew.", truth: true, tip: "Fact — small, daily, and among the most powerful tools on site." },
-        ],
-      },
-      {
-        type: "memory",
-        title: "Memory: the ESMS toolkit",
-        prompt: "Match each piece of the system to what it does.",
-        pairs: [
-          { a: "ESMS", b: "The daily ESG machine" },
-          { a: "PDCA", b: "Plan, Do, Check, Act" },
-          { a: "RACI", b: "The who-does-what chart" },
-          { a: "Grievance", b: "A complaint, safely raised" },
-          { a: "Toolbox talk", b: "Daily crew safety chat" },
-          { a: "Flow-down", b: "Same rules for subcontractors" },
+          { text: "A complete, approved document set proves the management system works.", truth: false, tip: "Myth — it proves the documents exist. The machinery is what keeps them true and makes them operate." },
+          { text: "A worker facing a task needs a procedure, not a plan.", truth: true, tip: "Fact — a plan organises the risk for managers. A procedure tells the person doing the task what to do now." },
+          { text: "Organisational capacity can be fixed by producing a better document.", truth: false, tip: "Myth — it improves only by a decision about money, reporting lines and authority, taken by someone senior." },
+          { text: "An emergency plan that has never been drilled is a description of an intention.", truth: true, tip: "Fact — real arrangements have credible scenarios, measured times, external awareness and an actual drill." },
         ],
       },
     ],
@@ -1027,206 +797,92 @@ export const modules = [
     pathway: "A",
     title: "KPIs & Reporting",
     type: "quiz",
-    duration: "10–12 min",
+    duration: "12–15 min",
     status: "not_started",
-    score: { earned: 0, total: 20 },
+    score: { earned: 0, total: 12 },
     icon: "monitoring",
-    summary: "The ESG scoreboard: KPIs, how they're calculated, and what lenders read.",
-    video: { id: "OT3gsCbCKdI", title: "Sustainability 101 — ESG reporting" },
-    tldr: "KPIs are the project's scoreboard. Every form filled at the site gate becomes a number; the numbers become trends; the trends tell you where to act BEFORE something goes wrong — and they tell the lenders the project deserves its financing. One rule above all: the numbers must be honest.",
-    glossary: [
-      { term: "KPI", plain: "Key Performance Indicator — a number that tracks something that matters: injuries, spills, complaints, local jobs." },
-      { term: "LTIFR", plain: "Lost-Time Injury Frequency Rate: injuries serious enough to miss work, per million hours worked. The flagship safety number." },
-      { term: "Leading indicator", plain: "Measures prevention — near-misses reported, training done. It warns you BEFORE the accident." },
-      { term: "Lagging indicator", plain: "Counts what already happened — injuries, spills. Useful, but it's looking in the rear-view mirror." },
-      { term: "Near-miss", plain: "An incident that ALMOST hurt someone. Lots of near-miss reports = a healthy site that sees its risks." },
-      { term: "Trend", plain: "The direction of a number over months. 2 → 5 → 9 complaints is an alarm even if each one was handled." },
-    ],
-    overview:
-      "What gets measured gets managed. KPIs are the project's ESG scoreboard: they turn thousands of daily actions — inductions, inspections, grievances, spills — into numbers that show whether the system is working. This module covers the KPI families, how the key ones are actually calculated, where the data comes from, and how the numbers travel from a site form to a lender's desk.",
+    summary: "From a form at the gate to a decision at a bank.",
+    tldr: "Indicators are not a reporting exercise. They are the mechanism by which what a driver noticed becomes something a manager can act on and a lender can rely on — and the most important lesson in this module runs against instinct: a perfect number is a warning.",
+    overview: "The five-link chain from a procedure to a disbursement and where it usually breaks, the four properties that make a number usable, leading and lagging indicators and the one that is both, the five families a financed project reports on, why a perfect number is a warning, and the five readers of one honest set of numbers.",
     lesson: [
       {
-        heading: "Why measure at all",
-        body: "You cannot manage what you cannot see. A site runs on thousands of small events a week; KPIs compress them into a picture management can act on. They also serve three audiences at once: the site (fix problems early), management (steer resources), and the lenders (verify the loan's ESG conditions are being met). One set of honest numbers serves all three.",
-        image: "/images/esg-reporting.jpg",
-        caption: "One honest scoreboard serves the site, management and the lenders.",
+        heading: "The form at the gate",
+        body: "A storeman signs an induction register. A driver reports that he nearly hit someone at a junction. A supervisor records a bund full of rainwater. A liaison officer logs a complaint about dust. None of those four thinks of themselves as producing data — each is filling in a form because they were told to. Eleven weeks later a page in a report to the lenders shows that near misses rose through the dry season, that they cluster at three junctions, and that two of the three are on a haul route the project changed in February. A decision follows: the route changes again, or the hours change, or somebody accepts a risk in writing.",
+        image: "/images/lm14.jpg",
+        caption: "Indicators are how what a driver noticed becomes something a manager can act on and a lender can rely on.",
       },
       {
-        heading: "The four KPI families",
+        heading: "Five links, and one that usually breaks",
         points: [
-          "Safety — LTIFR, TRIR, near-misses reported, toolbox talks held, drills completed.",
-          "Environment — spills (number & volume), waste by type and destination, water and energy use, dust/noise complaints.",
-          "Social — grievances raised and closed on time, local employment %, female participation %, training hours, community meetings held.",
-          "Compliance — permit status, ESAP actions closed by deadline, audit findings open/closed.",
+          "1 · THE PROCEDURE — something happens and someone records that it happened. Breaks when it is not followed, or followed and not recorded.",
+          "2 · THE DATA — a form, a register, a reading, made at the time by a named person. Breaks when recorded retrospectively, which makes it fiction.",
+          "3 · THE INDICATOR — many data points compressed into a number you can compare over time and against a target. Breaks when defined differently in different months.",
+          "4 · THE DECISION — somebody looks at the number, forms a view, and does something. THE COMMONEST BREAK: the number is produced, reported, filed, and nobody acts.",
+          "5 · THE ASSURANCE — the lenders see performance they can rely on and the conditions on the money are met. Breaks when the records behind the numbers were found unreliable.",
+          "★ Same test as the ESMS module: name one thing that changed this year because of a number.",
         ],
-        image: "/images/lm8.jpg",
-        caption: "Safety, environment, social, compliance — every pillar gets a number.",
       },
       {
-        heading: "Leading vs lagging — the two directions of time",
-        body: "Lagging indicators count what has already happened: injuries, spills, complaints. Leading indicators measure what you do to PREVENT those things: near-misses reported, inspections done, training delivered. A site with rising near-miss reports and falling injuries is usually a HEALTHY site — people are looking, reporting and fixing before harm occurs.",
+        heading: "Four properties, and a denominator",
+        body: "A number missing any one of these can still be reported — and cannot be relied on. DEFINED: everyone calculating it uses the same definition, including subcontractors; a rate calculated on a different basis in two months is not a trend, it is two unrelated figures. SOURCED: traceable back to the records it came from; a number you cannot walk back to a register is an assertion. COMPLETE: covering everyone it should — an injury rate excluding the labour supplier's twenty-two workers is not your injury rate, and their absence is invisible in the number. COMPARABLE: against last period, against a target, against a benchmark. And watch the DENOMINATOR: most frequency indicators are a count divided by exposure, and the denominator is compiled separately, often by another department, and rarely checked.",
         points: [
-          "Lagging: lost-time injuries, spills, grievances received.",
-          "Leading: near-misses reported, training hours, inspections completed, drills held.",
-          "Track both — leading indicators buy you the time to act.",
+          "★ Before comparing any rate to anything, establish that the denominator was compiled the same way. This one check finds more reporting errors than any other.",
         ],
-        image: "/images/lm4.jpg",
-        caption: "Leading indicators look forward; lagging ones look back. You need both.",
       },
       {
-        heading: "How a KPI is actually calculated — LTIFR",
-        body: "LTIFR — the Lost-Time Injury Frequency Rate — is the flagship safety KPI. It counts lost-time injuries per million hours worked, so sites of different sizes can be compared fairly. Example: a project works 500,000 hours in a quarter and records 1 lost-time injury. LTIFR = 1 ÷ 500,000 × 1,000,000 = 2.0. A target might be 'LTIFR below 1.0' — this quarter misses it, and the report must say why and what changes.",
-        image: "/images/lm3.jpg",
-        caption: "LTIFR = lost-time injuries × 1,000,000 ÷ hours worked — size-adjusted, comparable.",
-      },
-      {
-        heading: "Targets, thresholds and trends",
+        heading: "Leading, lagging, and the one that is both",
+        body: "LAGGING indicators measure outcomes that already happened — injuries, spills, exceedances, grievances received. Reliable and countable, and they arrive too late to prevent what they measure. LEADING indicators measure the activities meant to prevent those outcomes — inspections completed, inductions delivered, permits audited, actions closed on time. Predictive, and easy to game: a hundred shallow inspections produce an excellent number and no safety, so check quality, not only quantity. THE NEAR MISS is both: a lagging indicator of an event that happened and a leading indicator of one that has not. A rising count is usually good news, because it means people are reporting. A falling count is usually bad news — and a count of zero is not a safety result.",
         points: [
-          "Every KPI needs a target (e.g. grievances closed within 30 days: ≥ 90%).",
-          "Thresholds turn numbers into signals: green (on target), amber (watch), red (act now).",
-          "The TREND matters more than a single month — three amber months are a red flag.",
-          "Zero is not always good: zero grievances usually means the mechanism isn't trusted, not that everyone is happy.",
+          "★ How you respond to the first near miss a worker reports decides the value of that indicator for the rest of the project. Criticise the reporter once and the number is permanently worthless.",
         ],
-        image: "/images/esg-environment.jpg",
-        caption: "Targets make numbers mean something; trends tell you where you're heading.",
       },
       {
-        heading: "Where the data comes from",
-        body: "KPIs are only as good as the forms behind them. On a real project the sources are mundane and daily:",
+        heading: "Five families",
         points: [
-          "VHSE daily/weekly forms — hours worked, incidents, near-misses, inspections.",
-          "HSE reports — incident investigations, drill records, waste and water logs.",
-          "HR workbook — headcount, local employment, female participation, training registers.",
-          "Grievance register — every complaint, its date, owner and closure.",
-          "If it wasn't written down when it happened, it didn't happen — reconstructed data is guessed data.",
+          "OCCUPATIONAL SAFETY — injury rates, lost days, near misses, inspections, training hours, permits.",
+          "ENVIRONMENT — monitoring against limits for dust, noise, effluent and water; exceedances and their closure; waste by stream; fuel and water use; greenhouse gases where the threshold applies.",
+          "SOCIAL AND COMMUNITY — grievances received, resolved and closed; average closure time; engagement events; community incidents; local employment and procurement.",
+          "LABOUR — workforce by category INCLUDING third parties, written terms in place, age verification completed, accommodation occupancy against standard, worker grievances.",
+          "LAND AND RESETTLEMENT — affected persons identified, compensated and paid; livelihood measures delivered; and land accessed without compensation, which should be zero.",
+          "★ Mark each of your project's indicators as leading or lagging. Most projects find they report almost entirely lagging ones — every number they look at describes something that already went wrong.",
         ],
-        image: "/images/lm10.jpg",
-        caption: "KPIs are born on the road and at the site gate, not in the head office.",
       },
       {
-        heading: "The reporting chain",
-        body: "Site teams collect the data daily. The ESG/HSE manager checks and compiles it monthly. It becomes the self-monitoring report, signed off by the project director, sent to the lenders and verified by the IESC against the loan's ESG conditions and the ESAP (Module 3).",
-        image: "/images/lm2.jpg",
-        caption: "Form → register → report → lender: the same number travels the whole chain.",
-      },
-      {
-        heading: "Turning data into decisions",
-        body: "Numbers only matter if they change something. A rising near-miss trend in one work area prompts a targeted toolbox talk before an injury happens. A grievance backlog triggers extra community-relations capacity. A dashboard makes those trends visible at a glance — and management review (Module 4's Check → Act) turns them into actions.",
-        image: "/images/esg-reporting.jpg",
-        caption: "A trend caught early is an injury prevented — that is what KPIs are for.",
-      },
-      {
-        heading: "Data quality matters",
+        heading: "A perfect number is a warning",
+        body: "This runs against instinct and it is the most important thing in this module. Zero near misses this quarter does not mean excellent safety — it means nobody is reporting. Zero grievances beside a host community does not mean strong relations — it means the mechanism is unknown or distrusted. Every monitoring result within limits every month means the monitoring points are in the wrong places, the readings are not taken at the times that matter, or the data is reconstructed. Every action closed on time means items are being marked closed without evidence — a reviewer will sample five and reopen them. An injury rate far below the sector benchmark usually means under-reporting or a padded denominator. A real project has bad numbers in it. Their presence is evidence that the system detects. Their absence is evidence that it does not.",
         points: [
-          "Accurate — measured, not guessed.",
-          "Timely — reported on schedule, not months late.",
-          "Verifiable — backed by records the IESC can check.",
-          "Consistent — same definitions every period, or the trend is fiction.",
-          "Garbage in, garbage out: unreliable data erodes lender trust faster than a bad number reported honestly.",
+          "★ When a number looks perfect, ask why before reporting it as an achievement — and say in the report what you asked and what you found.",
         ],
-        image: "/images/esg-pollution.jpg",
-        caption: "Accurate, timely, verifiable, consistent — or the numbers are worthless.",
       },
       {
-        heading: "Closing the loop",
-        body: "KPIs feed back into the ESMS (Plan-Do-Check-Act) and into financing decisions — tying straight back to Module 3. Reliable self-monitoring is what sustains lender trust and keeps disbursements flowing. The scoreboard isn't paperwork; it's the project's licence to keep building.",
-        image: "/images/course-hero.jpg",
-        caption: "The loop closes: site data → ESMS improvement → lender confidence → financing.",
-      },
-      {
-        heading: "Deep dive — building the monthly report, step by step",
-        body: "How the report actually comes together on a well-run project — a repeatable monthly rhythm:",
+        heading: "One set of numbers, five readers",
+        body: "The site wants to know where to act this week, and fixes the thing the number points at before it becomes an incident. Project management wants to know where to put resources and what to escalate, and moves people and money. The borrower and the client want to know whether the project is deliverable and defensible, and answer to their own board or ministry. The lenders want to know whether the conditions attached to the money are being met, and release or withhold accordingly. And the independent consultant wants to know whether the picture the numbers paint matches the site — where the two diverge, the divergence is the finding. One set of honest numbers serves all five.",
         points: [
-          "Days 1–25 — site teams fill the daily forms as work happens; nothing is reconstructed later.",
-          "Day 26 — the ESG/HSE manager compiles and CHECKS: do hours worked look right? Any outlier begging a question?",
-          "Day 27 — the narrative is written: every red or amber number gets its explanation and its corrective action beside it.",
-          "Day 28 — the project director reads and signs; accountability means reading before signing.",
-          "Submission — to the lenders on the agreed date; late is itself a finding.",
-          "Archive — the report and its evidence filed where the IESC can trace every number back to a form. That traceability IS the credibility.",
+          "★ Two sets — a working one and a presentable one — is the worst document a project can hold. The existence of two versions is itself the finding, and no explanation survives it.",
         ],
-        image: "/images/esg-reporting.jpg",
-        caption: "Collect daily → compile → explain the reds → sign → submit on time → archive the proof.",
       },
-    ],
-    objectives: [
-      "Identify the main ESG KPI categories.",
-      "Explain who collects and who reports the data.",
-      "Describe what lenders review, and why it matters.",
     ],
     activities: [
       {
-        type: "categorize",
-        title: "Leading or lagging indicator?",
-        prompt: "Drag each KPI into the right type.",
-        categories: [
-          { id: "lead", label: "Leading (predicts)" },
-          { id: "lag", label: "Lagging (looks back)" },
-        ],
-        items: [
-          { id: "nm", text: "Near-misses reported", cat: "lead" },
-          { id: "train", text: "Safety training hours", cat: "lead" },
-          { id: "insp", text: "Inspections completed", cat: "lead" },
-          { id: "lti", text: "Lost-time injuries", cat: "lag" },
-          { id: "spill", text: "Spills recorded", cat: "lag" },
-        ],
-      },
-      {
-        type: "order",
-        title: "The reporting flow",
-        prompt: "Put the reporting chain in order, from site to lender.",
-        items: [
-          "Site teams collect the data",
-          "ESG/HSE managers compile it",
-          "Self-monitoring report is produced",
-          "Lenders and the IESC review it",
-        ],
-      },
-      {
-        type: "slider",
-        title: "Estimate the KPI",
-        prompt: "On a project this size, roughly how many community grievances might be logged in a year?",
-        min: 0,
-        max: 100,
-        step: 1,
-        answer: 30,
-        unit: "",
-        tip: "Dozens a year is normal and healthy — it means people trust the mechanism. Zero is often a red flag that it isn't being used.",
-      },
-      {
         type: "match",
-        title: "Match the KPI to what it tells you",
-        prompt: "Choose what each number really means.",
-        items: [
-          { prompt: "LTIFR rising over three months", options: ["People are getting hurt — investigate and act now", "The site is getting safer", "Nothing — it's a leading indicator"], correct: 0, tip: "LTIFR is a lagging safety rate — a rising trend means injuries are happening." },
-          { prompt: "Near-miss reports doubled, injuries at zero", options: ["A healthy reporting culture — people see and flag risk", "The site became twice as dangerous", "The data must be wrong"], correct: 0, tip: "More near-miss reporting with no injuries usually means eyes are open, not danger rising." },
-          { prompt: "Zero grievances for six months straight", options: ["Probably a trust problem — check the mechanism is known and safe", "Perfect community relations", "The register can be closed"], correct: 0, tip: "Silence is rarely satisfaction — verify people know and trust the channel." },
-          { prompt: "ESAP actions: 9 of 10 closed, 1 overdue", options: ["Report it with a recovery plan — flag it before the IESC finds it", "Hide the overdue one", "Close it without evidence"], correct: 0, tip: "An overdue action flagged early with a plan is manageable; a hidden one is a trust problem." },
+        title: "Who reads the numbers, and what they do",
+        prompt: "Pair each reader with what they do with the report.",
+        pairs: [
+          { l: "The site", r: "Fixes the thing the number points at, this week" },
+          { l: "Project management", r: "Moves people and money; decides what to accept" },
+          { l: "The lenders", r: "Release or withhold; set the next visit's agenda" },
+          { l: "The independent consultant", r: "Tests the numbers against the site — divergence is the finding" },
         ],
       },
       {
         type: "swipe",
         title: "Myth or fact? — the numbers",
-        prompt: "Six statements about KPIs and reporting. Myth or fact?",
+        prompt: "Call each statement: myth or fact?",
         cards: [
-          { text: "Zero grievances always means the community is happy.", truth: false, tip: "Myth — silence usually means the mechanism isn't known or trusted." },
-          { text: "LTIFR is measured per million hours worked.", truth: true, tip: "Fact — injuries × 1,000,000 ÷ hours worked, so projects of any size compare fairly." },
-          { text: "Near-misses are lagging indicators.", truth: false, tip: "Myth — they're LEADING: they warn you before the injury happens." },
-          { text: "A trend over months matters more than one month's number.", truth: true, tip: "Fact — 2 → 5 → 9 is an alarm even if each month looked handled." },
-          { text: "Estimating hours worked is fine if you're busy.", truth: false, tip: "Myth — hours are the denominator of every safety rate; guessed hours = fictional KPIs." },
-          { text: "Every red KPI should sit next to its corrective action.", truth: true, tip: "Fact — a red number with a plan builds trust; a red number alone raises questions." },
-        ],
-      },
-      {
-        type: "memory",
-        title: "Memory: the numbers game",
-        prompt: "Match each KPI term to its meaning.",
-        pairs: [
-          { a: "KPI", b: "A number that matters" },
-          { a: "LTIFR", b: "Injuries per million hours" },
-          { a: "Leading", b: "Warns before the accident" },
-          { a: "Lagging", b: "Counts what happened" },
-          { a: "Near-miss", b: "Almost an accident" },
-          { a: "Trend", b: "Direction over months" },
+          { text: "Zero near misses this quarter is excellent safety performance.", truth: false, tip: "Myth — it means nobody is reporting. A rising near-miss count is usually the good news." },
+          { text: "An injury rate that excludes the labour supplier's workers is incomplete.", truth: true, tip: "Fact — PS2 covers workers engaged by third parties, and their exclusion is invisible in the number itself." },
+          { text: "Before comparing two rates, check the denominator was compiled the same way.", truth: true, tip: "Fact — this single check finds more reporting errors than any other." },
+          { text: "A hundred inspections is proof of a strong safety culture.", truth: false, tip: "Myth — leading indicators are easy to game. An inspection that never finds anything is not an inspection." },
         ],
       },
     ],
@@ -1238,11 +894,11 @@ export const modules = [
     pathway: "A",
     title: "Capstone: the full ESG simulation",
     type: "capstone",
-    duration: "10–15 min",
+    duration: "20–25 min",
     status: "not_started",
-    score: { earned: 0, total: 10 },
+    score: { earned: 0, total: 12 },
     icon: "sports_esports",
-    summary: "Ten live ESG decisions that decide whether the financing holds.",
+    summary: "Twelve live decisions that decide whether the financing holds.",
     tldr: "No more reading — this is the game. Twelve situations from the whole course land on your desk, one by one. Every decision moves the project's financing health up or down. Get 10 of 12 right and the lenders stay with you.",
     glossary: [
       { term: "Financing health", plain: "The meter in the simulation — it stands for the lenders' confidence in the project. Good calls raise it, bad calls sink it." },
@@ -1253,18 +909,18 @@ export const modules = [
     lesson: [
       {
         heading: "How the capstone works",
-        body: "There is no reading here — this module IS the simulation. You'll face ten situations drawn from Modules 1–5: environmental impacts, the rules, the financing, the ESMS and the KPIs. Choose wisely; the lenders are watching.",
+        body: "There is no reading here — this module IS the simulation. You'll face twelve situations drawn from Modules A1–A5: environmental impacts, the rules, the financing, the ESMS and the KPIs. Choose wisely; the lenders are watching.",
         image: "/images/course-hero.jpg",
         caption: "Twelve live decisions on a financed project — everything you've learned, applied.",
       },
       {
         heading: "What you'll need",
         points: [
-          "The mitigation hierarchy and E vs S impacts (Module 1).",
-          "The stricter-standard rule and the standards (Module 2).",
-          "How ESG keeps the financing flowing (Module 3).",
-          "The ESMS, grievances and subcontractor control (Module 4).",
-          "Honest KPIs and reporting (Module 5).",
+          "The mitigation hierarchy and E vs S impacts (A1).",
+          "The stricter-standard rule and the four rulebooks (A2).",
+          "Conditions, covenants and the action plan (A3).",
+          "The ESMS: documents vs machinery (A4).",
+          "Honest KPIs, and why a perfect number is a warning (A5).",
         ],
         image: "/images/lm2.jpg",
         caption: "Five modules of knowledge, one project to protect.",
@@ -2686,19 +2342,14 @@ export const libraryByModule = {
     { title: "Jurisdiction file: Nigeria — law vs lender standards", icon: "gavel", doc: "nigeria-legal" },
   ],
   m3: [
-    { title: "Loan ESG conditions — summary", icon: "account_balance", doc: "loan-esg-conditions" },
-    { title: "ESAP — Environmental & Social Action Plan template", icon: "checklist", doc: "esap-template" },
-    { title: "Self-monitoring report template", icon: "assignment", doc: "self-monitoring-template" },
+    { title: "Reference pack — How the money works", icon: "account_balance", doc: "a3-money" },
   ],
   m4: [
+    { title: "Reference pack — The ESMS", icon: "schema", doc: "a4-esms" },
     { title: "Signed ESMS policy suite & Code of Conduct", icon: "policy", doc: "code-of-conduct" },
-    { title: "RACI matrix — ESG responsibilities", icon: "grid_view", doc: "raci-matrix" },
-    { title: "Grievance mechanism procedure", icon: "forum", doc: "grievance-procedure" },
-    { title: "Subcontractor ESG requirements", icon: "engineering", doc: "subcontractor-esg" },
   ],
   m5: [
-    { title: "KPI sources — VHSE form, HSE report, HR workbook", icon: "bar_chart", doc: "kpi-sources" },
-    { title: "KPI definitions & targets", icon: "monitoring", doc: "kpi-definitions" },
+    { title: "Reference pack — KPIs and reporting", icon: "monitoring", doc: "a5-kpis" },
   ],
   m6: [
     { title: "Launch the capstone simulation", icon: "sports_esports", to: "/capstone" },
@@ -2951,97 +2602,125 @@ export const psMatchItems = [
 
 // Capstone simulation — 5 ESG decisions on a PPP project that together decide
 // whether the financing keeps flowing. Need `passNeeded` good calls to pass.
+// The Pathway A capstone: twelve situations drawn from Modules A1-A5.
+// Pass at 10 of 12. Per the Module A6 specification (v1.0).
 export const capstoneSim = {
+  title: "Capstone: keep the financing flowing",
   intro:
-    "You are the contractor’s site ESG lead on a lender-financed PPP road. Twelve situations land on your desk over the project. Each decision moves the project's financing health up or down. Keep the lenders' confidence — make at least 10 good calls out of 12.",
+    "You are the site E&S lead on a financed road project. The lenders have signed, the standards are binding, and the independent consultant visits in eight weeks. Twelve situations will reach you — each one a real decision with a real cost. There is no option that costs nothing.",
   passNeeded: 10,
   steps: [
     {
-      prompt: "Monday — dust from earthworks is drifting over the neighbouring village.",
+      prompt: "A wetland sits on the alignment. The design team offers four ways forward.",
       options: [
-        { text: "Start dust suppression and inform the community", good: true, feedback: "Good — you avoided/minimised the impact and engaged the community (Modules 1 & 4)." },
-        { text: "Wait to see if anyone complains", good: false, feedback: "Poor — the impact grows and the IESC will flag it (Module 1)." },
+        { text: "Ask first whether the alignment can shift to miss the wetland, and cost that option before any other", good: true, feedback: "Avoidance is step one, close to free during design, and unavailable later. The others are steps two to four — legitimate only once avoidance has been considered and documented." },
+        { text: "Fund a wetland offset elsewhere", good: false, feedback: "Offset is the LAST step, and a reviewer's first question will be what avoidance you considered. Cash to a conservation body is not even an offset — it is how one might be funded." },
+        { text: "Bridge the wetland rather than embank it", good: false, feedback: "Better than an embankment — but it is minimisation, step two. Nobody has yet asked whether the crossing is needed at all." },
+        { text: "Cross now and restore the wetland afterwards", good: false, feedback: "Restoration is step three, and hydrological function rarely restores to what it was. The hierarchy exists precisely to stop this jump." },
       ],
     },
     {
-      prompt: "Tuesday — a subcontractor is skipping safety briefings.",
+      prompt: "Your environmental permit is valid. A community member tells your liaison officer the compensation schedule applied depreciation to every structure.",
       options: [
-        { text: "Enforce the standard through their contract and retrain", good: true, feedback: "Good — subcontractor conduct is the contractor’s responsibility (Module 4)." },
-        { text: "Leave it — they're a separate company", good: false, feedback: "Poor — their breach is your breach in the lenders' eyes (Module 4)." },
+        { text: "Treat it as an open PS5 issue: check the valuation method, quantify any shortfall against full replacement cost, and plan top-ups", good: true, feedback: "A valid permit closes a legal question and no lender finding. Depreciation is the classic gap between national practice and PS5 — recalculate and top up, documented as such." },
+        { text: "Point to the valid permit — the regulator approved the schedule", good: false, feedback: "The permit answers tier 1. The lender standards are a separate tier, and the regulator has no power to waive a standard it was never given to apply." },
+        { text: "Refer the community member to the valuation office", good: false, feedback: "The valuation office applied national law correctly. The gap is the project's to close, not theirs." },
+        { text: "Wait to see if a formal grievance is lodged", good: false, feedback: "If depreciation was applied across the register, this is a systematic finding, not a case. Waiting converts one correction into a hundred claims." },
       ],
     },
     {
-      prompt: "Wednesday — the local permit allows more effluent than the IFC standard.",
+      prompt: "A subcontractor's labour supplier holds his workers' identity documents — 'for safekeeping, the camp has no lockers'.",
       options: [
-        { text: "Apply the stricter IFC standard", good: true, feedback: "Good — where they differ, the stricter rule applies (Module 2)." },
-        { text: "Follow the looser local limit to save money", good: false, feedback: "Poor — lenders require the stricter standard; this breaches the loan (Module 2)." },
+        { text: "Require the documents returned today, provide lockable storage, and address the supplier contractually", good: true, feedback: "A forced labour indicator, acted on regardless of intent. PS2 covers workers engaged by third parties — the contractual distance is paperwork, not a defence." },
+        { text: "Treat it as the supplier's internal arrangement", good: false, feedback: "The finding lands on the project. PS2 applies to contracted workers, and PS1 requires you to manage and monitor third parties." },
+        { text: "Ask the subcontractor to confirm in writing that the workers consent", good: false, feedback: "A consent letter for a forced labour indicator makes it worse: there is no legitimate reason to hold a worker's documents, and now the file proves you knew." },
+        { text: "Note it for the next audit", good: false, feedback: "The correction costs nothing and removes a real harm today. Deferring it leaves twenty men unable to leave for another quarter." },
       ],
     },
     {
-      prompt: "Thursday — a community member files a grievance about road access.",
+      prompt: "An ESAP action tied to the next disbursement is overdue. Work on it has started. Your PM wants it reported as 'on track'.",
       options: [
-        { text: "Log it in the grievance mechanism and respond", good: true, feedback: "Good — transparent, retaliation-free grievance handling (Modules 1 & 4)." },
-        { text: "Offer a quiet cash payment to drop it", good: false, feedback: "Poor — off-record payments breach the Code of Conduct (Governance)." },
+        { text: "Report it as overdue with a dated completion plan — progress is not closure, and the closing evidence has not been produced", good: true, feedback: "Right. An action closes on verified evidence, and an honest overdue with a plan is a manageable conversation. A false 'on track' discovered later is not." },
+        { text: "Report it 'on track' — work has started", good: false, feedback: "Progress is not closure. When the disbursement is requested, the evidence will be asked for, and the report will be shown to have been wrong." },
+        { text: "Mark it closed and finish the work before anyone checks", good: false, feedback: "A reviewer samples closed actions and asks for the evidence. One reopened action puts the whole tracker in doubt." },
+        { text: "Ask for the action to be removed from the ESAP", good: false, feedback: "The ESAP is annexed to the financing agreement. Site does not amend it — and the request itself signals the project negotiates its commitments." },
       ],
     },
     {
-      prompt: "Friday — a minor spill occurred. What goes in the self-monitoring report?",
+      prompt: "The traffic management plan refers to haul routes changed eleven months ago. The consultant visits in three weeks.",
       options: [
-        { text: "Record the spill and the corrective action taken", good: true, feedback: "Good — honest reporting keeps lender trust and disbursements flowing (Modules 3 & 5)." },
-        { text: "Leave it out so the report looks clean", good: false, feedback: "Poor — if the IESC finds it later, credibility and financing collapse (Module 3)." },
+        { text: "Revise it now, dated today, brief the drivers this week, and disclose both the gap and the correction", good: true, feedback: "Plans go stale when works change — ordinary, and fixable. Fixing it now and saying so demonstrates the system working." },
+        { text: "Revise it and date it to when the routes changed", good: false, feedback: "IRREVERSIBLE. Back-dating converts a routine finding into an integrity one, it is usually detectable, and it poisons every other document you hold." },
+        { text: "Leave it — the plan is approved and the routes work fine", good: false, feedback: "An approved stale plan is the textbook sign of documents without machinery, and it is the first thing a reviewer checks for currency." },
+        { text: "Withdraw the plan from the document pack", good: false, feedback: "A missing mandatory plan is more conspicuous than a stale one, and the omission reads as deliberate." },
       ],
     },
     {
-      prompt: "A community elder asks to meet about noise near the school.",
+      prompt: "Your E&S officer asks for budget to fence three borrow pits near footpaths. Production says it is not in the price.",
       options: [
-        { text: "Meet, listen, and agree working-hour limits", good: true, feedback: "Good — proactive engagement is the heart of the Social pillar (Module 1)." },
-        { text: "Decline — you're too busy building", good: false, feedback: "Poor — ignoring the community breeds grievances and reputational risk." },
+        { text: "Escalate it as a decision: the exposure quantified, the cost, the options — to someone with authority over the money", good: true, feedback: "Capacity is decided above you: money, reporting lines, authority. An unfenced pit beside a footpath is a life-safety exposure today, and 'not in the price' is an answer only a director can accept in writing." },
+        { text: "Accept the answer — production owns the budget", good: false, feedback: "This is the capacity failure PS1 names: an E&S function that must beg funds from the person whose programme the requirement affects." },
+        { text: "Tell the officer to keep asking", good: false, feedback: "Persuasion is what remains when the function has no authority. Six more weeks of asking is six more weeks of open pits." },
+        { text: "Log it as a risk and move on", good: false, feedback: "A risk register entry does not fence a pit. The exposure is physical and daily." },
       ],
     },
     {
-      prompt: "The IESC schedules a site visit next week.",
+      prompt: "Four weeks of monitoring sheets were completed in one sitting, in one hand. The technician says he transcribed a notebook that no longer exists.",
       options: [
-        { text: "Get records and the ESAP up to date and be transparent", good: true, feedback: "Good — transparency with the lenders' monitor sustains trust (Module 3)." },
-        { text: "Hide the open issues until they leave", good: false, feedback: "Poor — concealment discovered by the IESC can trigger default (Module 3)." },
+        { text: "Disclose the retrospective transcription, resume contemporaneous recording, and note it on the gap register", good: true, feedback: "The lapse is ordinary; concealing it is what turns it into a credibility finding that reaches every record the project holds." },
+        { text: "Have the sheets redone with varied handwriting", good: false, feedback: "IRREVERSIBLE. Falsification — the worst option available, and the one most often suggested in the room." },
+        { text: "Submit them as they are", good: false, feedback: "One hand, one pen, values that do not move with conditions that did: it is detectable, and the whole document set becomes assertion rather than evidence." },
+        { text: "Remove the four weeks from the series", good: false, feedback: "An unexplained gap in a monitoring series is more conspicuous than the sheets, and the omission reads as deliberate." },
       ],
     },
     {
-      prompt: "Hazardous waste (used oil, chemicals) is piling up on site.",
+      prompt: "The grievance register shows zero entries this quarter — 400 workers, a host community, a live corridor.",
       options: [
-        { text: "Store it safely and use a licensed disposal contractor", good: true, feedback: "Good — proper waste management is core to the Environmental pillar (Module 1)." },
-        { text: "Burn it on site to clear space", good: false, feedback: "Poor — that's illegal pollution and a serious ESG breach." },
+        { text: "Report it as an open question about the channel, and test it: can a villager name the person she would tell, without entering the gate?", good: true, feedback: "An empty register is not a performance result. It usually means the channel is unknown, distrusted or unsafe — and a reviewer reads it that way whatever the covering note says." },
+        { text: "Report it as a community relations achievement", good: false, feedback: "A perfect number is a warning. A project that cannot see its own operation is the conclusion the reviewer draws." },
+        { text: "Report it without comment", good: false, feedback: "Silence invites the reviewer's own conclusion. Say what you checked and what you found." },
+        { text: "Add a few informal complaints to make it look realistic", good: false, feedback: "Fabricating register entries is falsification — the same act as back-dating a document." },
       ],
     },
     {
-      prompt: "A worker reports that scaffolding looks unsafe.",
+      prompt: "The quarterly injury rate looks excellent — and you notice the hours exclude the labour supplier's 22 workers.",
       options: [
-        { text: "Stop that work, inspect and fix it before restarting", good: true, feedback: "Good — worker safety comes first; the grievance was acted on (Modules 2 & 4)." },
-        { text: "Keep going to hold the schedule", good: false, feedback: "Poor — a preventable injury would stop the site and breach the loan." },
+        { text: "Recalculate with everyone included, state the change of basis, and restate the prior period the same way", good: true, feedback: "A rate that excludes contracted workers is not the project's rate, and the exclusion is invisible in the number. PS2 covers workers engaged by third parties." },
+        { text: "Accept it — they are not direct employees", good: false, feedback: "Scope is defined by the relationship to the project, not the contract. Incomplete numbers misstate the project's exposure." },
+        { text: "Report both versions and let the reader choose", good: false, feedback: "Two versions of one indicator is exactly the document position a project must never hold." },
+        { text: "Keep the basis and footnote it", good: false, feedback: "A footnote does not make an incomplete number complete. Fix the number, not the caption." },
       ],
     },
     {
-      prompt: "Local law is silent on a risk, but the IFC standard addresses it.",
+      prompt: "The community asks that haulage stop during school hours. It costs nine percent of capacity. Your logistics manager says the banksman at the gate is enough.",
       options: [
-        { text: "Apply the IFC standard anyway", good: true, feedback: "Good — meet the higher bar even where local law is silent (Module 2)." },
-        { text: "Do nothing — the law doesn't require it", good: false, feedback: "Poor — lenders expect the international standard regardless." },
+        { text: "Impose the school-hour pause as an interim measure, and put the routing decision to the project director in writing, with cost and risk stated", good: true, feedback: "A decision with a foreseeable fatality at the end of it cannot sit with the person optimising haulage capacity. Six minutes is a price — someone with authority has to be shown the bill." },
+        { text: "Let the logistics manager decide", good: false, feedback: "He has no authority to accept a fatality risk, and asking him to carry it is how the decision goes unmade." },
+        { text: "Accept the banksman as the control", good: false, feedback: "Step four of the hierarchy: one point, part of the day, nothing for the two kilometres of shoulder the children walk." },
+        { text: "Promise the community a study", good: false, feedback: "The interim measure costs nothing today. A study is how the exposure keeps running with a clear conscience." },
       ],
     },
     {
-      prompt: "Myth or fact? A colleague says: “Hiding one bad monthly report is safer than showing it to the IESC.”",
+      prompt: "The independent consultant arrives. You hold a gap register with eleven open items, four of them high severity.",
       options: [
-        { text: "Myth — show the real records; a hidden problem found later destroys all trust", good: true, feedback: "Correct call — transparency plus a recovery plan keeps the lenders on side (Module 3)." },
-        { text: "Fact — protect the project's image this month", good: false, feedback: "Wrong call — when the IESC finds it, every past report becomes suspect and disbursements freeze." },
+        { text: "Hand it over at the start — owners, dates, corrective actions, including the item you have not solved", good: true, feedback: "It changes what is assessed: from whether you know your position to whether your plan is adequate. And it protects the findings you missed — disclose eleven and miss one, and you are a project with a working system and a gap." },
+        { text: "Hold it back and answer questions well", good: false, feedback: "Answering well protects nothing once the first undisclosed item is found. Their most damaging question is not what went wrong — it is whether you knew." },
+        { text: "Disclose the comfortable seven and hold the four high-severity items", good: false, feedback: "Partial disclosure is discovered the same way as none, and it converts the seven disclosed items into camouflage." },
+        { text: "Present the project's achievements first", good: false, feedback: "A curated opening is read as exactly that. The gap register IS the context." },
       ],
     },
     {
-      prompt: "Myth or fact? The foreman says: “Zero grievances this quarter means the community is happy.”",
+      prompt: "Your director asks you to confirm in writing that the project's E&S position is satisfactory.",
       options: [
-        { text: "Myth — silence often means the mechanism isn't known or trusted; go check awareness", good: true, feedback: "Correct call — a healthy project RECEIVES grievances and closes them on time (Modules 4 & 5)." },
-        { text: "Fact — no news is good news", good: false, feedback: "Wrong call — an unused mechanism is a warning sign, not a win." },
+        { text: "Decline, and offer the honest alternative: the gap register with owners, dates and corrective actions — the position, controlled", good: true, feedback: "A director shown a controlled path usually takes it. A written certification you know to be false converts technical findings into a personal integrity finding." },
+        { text: "Sign it — the big items are in hand", good: false, feedback: "IRREVERSIBLE. It destroys the credibility of everything the E&S function says afterwards, and it will be quoted back at the worst moment." },
+        { text: "Sign it with caveats noting the open items", good: false, feedback: "Worse than either alternative: the caveats prove you saw the problem and signed anyway." },
+        { text: "Avoid answering until after the visit", good: false, feedback: "The question does not go away, and avoidance spends the credibility you will need at the closeout meeting." },
       ],
     },
   ],
 };
+
 // Pathway C capstone: "Deciding under programme pressure". You are the E&S
 // lead on Section 3 — 52 km, 48% complete, eleven weeks behind on embankment,
 // IESC visit in eight weeks. Ten decisions; every option costs something.
@@ -4344,6 +4023,197 @@ export const documents = {
       },
     ],
     relatedModules: ["c5"],
+  },
+
+"a3-money": {
+    title: "How the money works — reference pack",
+    org: "Module A3 reference pack",
+    accent: "#0ea5e9",
+    image: "/images/lm2.jpg",
+    intro:
+      "Conditions, covenants, and the consultant who comes to check. A contractor completes a milestone, certifies it, invoices — and the payment does not arrive, because four actions on the Environmental and Social Action Plan are overdue and one is attached to this disbursement. None of the four is a construction matter.",
+    sections: [
+      {
+        title: "Who is at the table",
+        points: [
+          "LENDERS — development finance institutions, commercial banks under the Equator Principles, export credit agencies, often several as a syndicate with one acting as agent. They can release or withhold a disbursement, impose conditions, require corrective actions at the borrower's cost, and in the extreme declare an event of default.",
+          "THE BORROWER OR SPONSOR — the entity that signed the loan; on a PPP often a special purpose vehicle. Owes every obligation in the financing agreement, passes them into the construction contract, and cannot waive what the lenders imposed.",
+          "THE CLIENT — certifies work, instructs, pays. THE ENGINEER — supervises, instructs the contractor, approves method statements, and in many contracts can suspend an activity.",
+          "THE CONTRACTOR — executes, and holds the obligations that were passed down.",
+          "THE INDEPENDENT CONSULTANT (IESC) — appointed by and reporting to the LENDERS. Reviews before financial close, monitors afterwards. Does not instruct anyone; reports what they find, and the consequences arrive later, through the money.",
+          "The distinction people get wrong: site teams treat the consultant as an inspector to be satisfied on the day. They are forming a view about whether your management system can be relied upon — and that view outlives the visit.",
+        ],
+      },
+      {
+        title: "Three instruments, three different effects",
+        points: [
+          "CONDITION PRECEDENT — a gate: something that must be satisfied before financial close or before a particular disbursement. Not met → the event does not happen. Nothing to cure; the gate has not opened.",
+          "COVENANT — a continuing obligation during the life of the loan: maintain an ESMS, report on a cycle, comply with the applicable standards. Not met → a breach, usually with a cure period; persistent or material breach reaches an event of default.",
+          "ENVIRONMENTAL AND SOCIAL ACTION PLAN — a schedule of specific corrective actions, each with an owner and a deadline, annexed to the agreement. Some actions are tied to a disbursement — which is how an overdue action stops a payment.",
+          "Why it matters to someone who will never read a loan agreement: the chain is short. An ESAP action says a worker grievance mechanism will exist by a date. Someone has to build it, tell the workforce, and be able to show both happened. The distance between a foreman not running an induction and a tranche not being released is three steps. Most people believe it is infinite.",
+        ],
+      },
+      {
+        title: "The cycle, and where you joined it",
+        points: [
+          "Screening and categorisation (EP4 Principle 1) → due diligence against the applicable standards, where the ESAP is first drafted → independent review before financial close for Category A and certain Category B (Principle 7) → financial close, from which the standards are contractually binding → construction, with disbursements against milestones, the ESAP running, and the consultant visiting two to four times a year → completion and operation, with completion audits where required (notably resettlement) and monitoring for the life of the loan.",
+          "Almost everyone joins at construction, and most have never seen the due diligence report or the ESAP that came out of it. The obligations you work under were agreed by people you have never met, in a document you have never read, about a period before you arrived.",
+        ],
+      },
+      {
+        title: "Category A, and what it brings",
+        points: [
+          "Category A — potential significant adverse impacts, diverse, irreversible or unprecedented: major road corridors, ports, large hydropower, significant resettlement, critical habitat. Category B — limited, site-specific, largely reversible. Category C — minimal or none.",
+          "Category A brings: a full ESIA to lender scope; independent review before financial close; independent monitoring for the life of the loan; INFORMED consultation and participation; public reporting under Principle 10.",
+          "If someone says the requirements seem heavy: they are the requirements for the risk category the project actually sits in, and the category was determined by what the project does.",
+        ],
+      },
+      {
+        title: "The life of an action",
+        points: [
+          "Actions open from due diligence, from a monitoring visit, from an incident or complaint — or from the project disclosing something it found, the origin that reflects best and is the rarest.",
+          "A well-formed action: a SPECIFIC deliverable ('prepare and implement a livelihood restoration plan for the 63 traders at Section 3', not 'improve resettlement outcomes'); a named owner, not a department; a date; the EVIDENCE that will close it — the field most often left blank; and whether it is tied to a disbursement.",
+          "An action closes when the agreed evidence has been produced and VERIFIED. Not when the owner says it is done, not when a tracker says closed, not because time has passed.",
+          "The most common defect in any ESAP tracker: actions marked closed with no evidence attached. A reviewer reopens every one, and draws a conclusion about the tracker as a whole.",
+        ],
+      },
+      {
+        title: "The monitoring cycle, and what actually moves the money",
+        points: [
+          "Self-monitoring report (borrower, monthly or quarterly). Independent monitoring visit (two to four times a year). Independent monitoring report to the lenders after each visit. ESAP update each cycle. Incident notification IMMEDIATELY on occurrence, per thresholds — not on the reporting cycle. Public reporting, usually annual.",
+          "What stops the money is rarely a single event. A condition precedent unmet — the cleanest stop. Overdue ESAP actions tied to a disbursement — the most common cause, and the one nobody on site sees coming. A serious incident. A finding that the management system cannot be relied upon — slower and more damaging, because it reopens everything. Regulatory action or an accountability mechanism complaint.",
+          "The sentence to keep: nobody on this project is more than three steps from the money.",
+        ],
+      },
+    ],
+    relatedModules: ["m3"],
+  },
+
+  "a4-esms": {
+    title: "The ESMS — reference pack",
+    org: "Module A4 reference pack",
+    accent: "#8b5cf6",
+    image: "/images/lm3.jpg",
+    intro:
+      "From a plan on a shelf to what happens on site. An environmental and social management system is not a set of documents — it is the machinery that keeps the documents true and makes them operate. A project with the documents and not the machinery has plans referring to haul routes changed eleven months ago, and no supervisor who has opened any of them.",
+    sections: [
+      {
+        title: "The seven elements, and how you know each is real",
+        points: [
+          "POLICY — a short commitment signed at the top, communicated to everyone including contractors. Real when someone on site can say what it commits the project to; otherwise it is a poster.",
+          "IDENTIFICATION OF RISKS AND IMPACTS — the assessment, across the area of influence including ancillary facilities and cumulative effects. Real when a new borrow pit triggers an assessment rather than a mobilisation.",
+          "MANAGEMENT PROGRAMMES — the ESMP and the topic plans, with measures, responsibilities, resources and timing. Real when revised as the works changed.",
+          "ORGANISATIONAL CAPACITY AND COMPETENCY — named roles, defined authority, adequate resourcing, competent people. Real when the E&S lead has a budget and can stop something.",
+          "EMERGENCY PREPAREDNESS AND RESPONSE — coordinated with authorities, communicated to communities. Real when somebody has driven the route to the hospital and timed it.",
+          "STAKEHOLDER ENGAGEMENT — identification, disclosure, consultation, a grievance mechanism, reporting back. Real when there are grievances in the register and complainants were told the outcome.",
+          "MONITORING AND REVIEW — data collected, performance assessed, the system changed in response. The only element that changes the other six.",
+        ],
+      },
+      {
+        title: "Policy, plan, procedure, record",
+        points: [
+          "POLICY — what we commit to. One or two pages, signed at director level. Nobody uses it daily; it sets the standard. Changes rarely.",
+          "PLAN — what we will do about a defined risk over a defined period. Managers organise with it; supervisors know what is required from it. Changes when the works change — the object that goes stale.",
+          "PROCEDURE — how a specific task is done, step by step: the chance find procedure, the grievance intake, the permit to work. Used by the person doing the task, at the moment of doing it.",
+          "RECORD — evidence that something happened: registers, monitoring data, inductions, receipts. Created continuously; read by everyone afterwards, including every external reader.",
+          "A worker who asks what to do when he uncovers a grave needs a PROCEDURE. Handing him a 90-page heritage plan is a correct answer to a question he did not ask. The test of a system: can the person doing a task reach the thing that tells them how, in under a minute, in a language they read?",
+        ],
+      },
+      {
+        title: "The element that fails: capacity",
+        points: [
+          "An E&S manager with no budget line, requesting funds from the person whose programme the requirement affects. An E&S function reporting to the production manager, so every escalation goes through the person being escalated about. One officer for 90 km and 400 workers. No authority to stop work, so the only response to an unsafe condition is persuasion. Competence assumed rather than established. Contractor E&S staff paid by the contractor and measured on not causing delay.",
+          "Every other element can be improved by producing something. Capacity improves only by a decision about money, reporting lines and authority, taken by someone senior — which is why it is the element most often left open through several monitoring cycles.",
+          "It also determines whether the others work: a reviewer who concludes the E&S function lacks authority reads every other finding in that light.",
+        ],
+      },
+      {
+        title: "Emergency arrangements that are real",
+        points: [
+          "Credible scenarios FOR THIS PROJECT: a haulage collision involving community members, a fuel or bitumen spill in a settlement, a blasting incident, a camp fire, a flood affecting works and community together, a disease outbreak, a serious injury at the furthest chainage.",
+          "Times MEASURED, not assumed — drive it. On several African corridors the honest answer is over three hours, which changes where the clinic goes and whether night work is viable at that chainage.",
+          "People OUTSIDE the project know it exists: the district health facility, the local authority, the community — what you will do, what you will not, and how to reach you at three in the morning.",
+          "It has been RUN, with the night shift included, lessons recorded, plan changed. A plan that has never been exercised is a description of an intention.",
+        ],
+      },
+      {
+        title: "The loop, and the five questions",
+        points: [
+          "MONITOR → ASSESS → ACT → REVIEW. Breaks: data collected and never looked at; nobody owns the comparison; actions recorded and never verified; and review — management changing the system — absent entirely, which is why the same findings recur.",
+          "The test: name one thing in this project's management system that changed this year because of something that was monitored. No answer = a monitoring programme, not a management system.",
+          "Five questions that tell you which you have: Is the traffic plan current with today's haul routes? Who is the E&S lead, what is their budget, can they stop work? How long to surgical care from the furthest chainage — measured? How would a worker complain about his supervisor? Name one thing that changed because of monitoring.",
+          "A working system answers with a name, a number or an example. A documented one answers with a document reference — and the first will outperform the second on every measure that matters.",
+        ],
+      },
+    ],
+    relatedModules: ["m4"],
+  },
+
+  "a5-kpis": {
+    title: "KPIs and reporting — reference pack",
+    org: "Module A5 reference pack",
+    accent: "#10b981",
+    image: "/images/lm14.jpg",
+    intro:
+      "From a form at the gate to a decision at a bank. Indicators are not a reporting exercise — they are the mechanism by which what a driver noticed becomes something a manager can act on and a lender can rely on. And the most counter-intuitive lesson in the programme: a perfect number is a warning.",
+    sections: [
+      {
+        title: "The chain, and where it breaks",
+        points: [
+          "1 · THE PROCEDURE — something happens and someone records it. Breaks: not followed, or followed and not recorded.",
+          "2 · THE DATA — made at the time, by a named person. Breaks: recorded retrospectively, which makes it fiction.",
+          "3 · THE INDICATOR — many data points compressed into a comparable number. Breaks: defined differently in different months, or a denominator nobody agreed.",
+          "4 · THE DECISION — somebody looks, forms a view, does something. THE COMMONEST BREAK: produced, reported, filed, and nothing changes.",
+          "5 · THE ASSURANCE — the lenders see performance they can rely on. Breaks: the records behind the numbers were found unreliable.",
+          "On most projects links 1-3 work and link 4 does not — the state Module A4 calls a monitoring programme rather than a management system.",
+        ],
+      },
+      {
+        title: "What makes a number usable",
+        points: [
+          "DEFINED — the same definition for everyone, including subcontractors. A rate calculated on a different basis in two months is not a trend; it is two unrelated figures.",
+          "SOURCED — traceable back to the records. A number that cannot be walked back to a register is an assertion.",
+          "COMPLETE — covering everyone it should. An injury rate excluding the labour supplier's 22 workers is not the project's rate, and the exclusion is invisible in the number.",
+          "COMPARABLE — against the previous period, a target, a benchmark.",
+          "THE DENOMINATOR PROBLEM — most frequency indicators are a count divided by exposure, and the denominator is compiled separately, by a different department, and rarely checked. Before comparing any rate to anything, establish that the denominator was compiled the same way. This single check finds more reporting errors than any other.",
+        ],
+      },
+      {
+        title: "Leading, lagging, and the near miss",
+        points: [
+          "LAGGING — outcomes that already happened: injuries, spills, exceedances, grievances. Reliable, countable — and too late to prevent what they measure. Watch the trend, not the month.",
+          "LEADING — activities meant to prevent the outcomes: inspections, inductions, permits audited, actions closed on time. Predictive — and easy to game: a hundred shallow inspections produce an excellent number and no safety. Check quality, not only quantity.",
+          "THE NEAR MISS is both — lagging for an event that happened, leading for one that has not. A rising count usually means people are reporting; a count of zero is a statement that the channel is unknown, unused or unsafe.",
+          "How the project responds to the FIRST near miss a worker reports determines the value of the indicator for the rest of the project. Criticise the reporter once, and the number becomes permanently worthless.",
+        ],
+      },
+      {
+        title: "The five families",
+        points: [
+          "OCCUPATIONAL SAFETY — injury frequency rates, lost days, near misses, inspections, training hours, permits. From the incident register, timesheets, inspection and induction records.",
+          "ENVIRONMENT — monitoring against limits (dust, noise, effluent, water), exceedances and closure, waste by stream, fuel and water consumption, greenhouse gases where the 25,000 tCO2e threshold applies.",
+          "SOCIAL AND COMMUNITY — grievances received/resolved/closed and average closure time, engagement events, community incidents, local employment and procurement.",
+          "LABOUR — workforce by category INCLUDING third parties, written terms, age verification, accommodation occupancy against standard, worker grievances.",
+          "LAND AND RESETTLEMENT — affected persons identified, compensated, paid; livelihood measures delivered; land accessed without compensation — which should be zero.",
+        ],
+      },
+      {
+        title: "Why a perfect number is a warning",
+        points: [
+          "Zero near misses → nobody is reporting. Zero grievances beside a host community → the mechanism is unknown or distrusted. 100% within limits every month → wrong monitoring points, wrong times, or reconstructed data. 100% of actions closed on time → closed without evidence; a reviewer samples five and reopens them. An injury rate far below the benchmark → under-reporting, or a padded denominator.",
+          "A real project has bad numbers in it. Their presence is evidence the system detects; their absence is evidence it does not.",
+          "When a number looks perfect, ask why BEFORE reporting it as an achievement — and say in the report what you asked and what you found.",
+        ],
+      },
+      {
+        title: "Who reads it",
+        points: [
+          "The site — where to act this week. Project management — where to put resources, what to escalate. The borrower and client — whether the project is deliverable and defensible. The lenders — whether the conditions on the money are met: release or withhold. The independent consultant — whether the picture matches the site; where they diverge, the divergence is the finding.",
+          "One set of honest numbers serves all five. Two sets — a working one and a presentable one — is the worst document a project can hold: the existence of two versions is itself the finding, and no explanation survives it.",
+        ],
+      },
+    ],
+    relatedModules: ["m5"],
   },
 
   "ps-reference": {
@@ -5749,1317 +5619,325 @@ export const quizzes = {
   "m3": {
     "passMark": 0.8,
     "questions": [
-      {
-        "tag": "Why it matters",
-        "prompt": "True or false: good ESG performance helps keep loan disbursements flowing.",
-        "options": [
-          "True",
-          "False"
-        ],
+      { "fmt": "mcq", "difficulty": "easy", "tag": "S2 — The consultant",
+        "prompt": "The independent consultant (IESC) reports to…",
+        "options": ["The lenders", "The borrower who pays their fees", "The engineer", "The national regulator"],
         "correct": 0,
-        "tip": "Meeting ESG conditions unlocks each disbursement."
-      },
-      {
-        "tag": "Conditions",
-        "image": "/images/lm14.jpg",
-        "prompt": "'Conditions precedent' are ESG actions completed…",
-        "options": [
-          "Before the first disbursement",
-          "After the loan ends",
-          "Only by the lender",
-          "Never"
-        ],
+        "tip": "Fees are often paid by the borrower under the agreement. The reporting line is to the lenders — and that is what independence means." },
+      { "fmt": "mcq", "difficulty": "medium", "tag": "S2 — Who instructs",
+        "prompt": "Who can instruct a contractor to change a method statement?",
+        "options": ["The engineer or supervision consultant", "The independent consultant", "The lenders' agent bank", "The community liaison officer"],
         "correct": 0,
-        "tip": "They must be met before money is released."
-      },
-      {
-        "tag": "Honesty",
-        "prompt": "True or false: hiding an incident from the report is safer than reporting it.",
-        "options": [
-          "True",
-          "False"
-        ],
-        "correct": 1,
-        "tip": "If the IESC finds it later, trust collapses — report honestly."
-      },
-      {
-        "tag": "Why lenders care",
-        "image": "/images/lm2.jpg",
-        "prompt": "Lenders build ESG into the loan because…",
-        "options": [
-          "ESG risk is financial and reputational risk",
-          "It is a legal tax",
-          "It is charity",
-          "There is no reason"
-        ],
+        "tip": "The consultant observes and reports. An instruction from them would compromise the independence of their own later assessment." },
+      { "fmt": "mcq", "difficulty": "easy", "tag": "S3 — Covenants",
+        "prompt": "A covenant is…",
+        "options": ["A continuing obligation for the life of the loan", "A precondition to financial close", "A corrective action with a deadline", "A type of insurance"],
         "correct": 0,
-        "tip": "Poor ESG threatens repayment and reputation."
-      },
-      {
-        "tag": "Reputation",
-        "prompt": "Reputational damage from an incident mainly affects…",
-        "options": [
-          "Future bids and the lender's ESG standing",
-          "Nothing",
-          "Only the weather",
-          "Only payroll"
-        ],
+        "tip": "A precondition to close is a condition precedent. A covenant runs afterwards, continuously." },
+      { "fmt": "mcq", "difficulty": "medium", "tag": "S3 — Which is it?",
+        "prompt": "An obligation to maintain a management system throughout construction is…",
+        "options": ["A covenant", "A condition precedent", "An ESAP action", "A voluntary commitment"],
         "correct": 0,
-        "tip": "A public incident costs future work and trust."
-      },
-      {
-        "type": "multi",
-        "tag": "Select all",
-        "prompt": "Which can result from a serious ESG failure?",
-        "options": [
-          "Withheld funds",
-          "Covenant breach",
-          "Lost future work",
-          "A guaranteed pay rise"
-        ],
-        "correct": [
-          0,
-          1,
-          2
-        ],
-        "tip": "A pay rise is not a consequence of failure."
-      },
-      {
-        "tag": "Reporting",
-        "image": "/images/esg-reporting.jpg",
-        "prompt": "ESG performance data reaches lenders mainly through…",
-        "options": [
-          "Self-monitoring reports",
-          "Social media",
-          "Rumours",
-          "TV adverts"
-        ],
+        "tip": "Conditions precedent are gates before an event. This one runs continuously, so it is a covenant." },
+      { "fmt": "mcq", "difficulty": "easy", "tag": "S4 — Binding",
+        "prompt": "Standards become contractually binding at…",
+        "options": ["Financial close", "Categorisation", "The first monitoring visit", "Construction start"],
         "correct": 0,
-        "tip": "Compiled site data → self-monitoring reports."
-      },
-      {
-        "tag": "IESC",
-        "prompt": "True or false: the IESC is an internal employee of the contractor.",
-        "options": [
-          "True",
-          "False"
-        ],
-        "correct": 1,
-        "tip": "It is INDEPENDENT — it works for the lenders."
-      },
-      {
-        "tag": "Financing",
-        "image": "/images/course-hero.jpg",
-        "prompt": "A PPP project is…",
-        "options": [
-          "A public asset built with private financing",
-          "A private house",
-          "A tax scheme",
-          "A charity"
-        ],
+        "tip": "Categorisation determines which standards and what scrutiny. The agreement is what binds." },
+      { "fmt": "mcq", "difficulty": "easy", "tag": "S5 — Category A",
+        "prompt": "Category A means potential impacts that are…",
+        "options": ["Significant, diverse, irreversible or unprecedented", "Limited, site specific and reversible", "Minimal or none", "Not yet assessed"],
         "correct": 0,
-        "tip": "Public-Private Partnership."
-      },
-      {
-        "tag": "Why lenders care",
-        "difficulty": "medium",
-        "prompt": "Lenders that follow the Equator Principles require the contractor to meet…",
-        "options": [
-          "The IFC Performance Standards",
-          "Nigerian tax law only",
-          "ISO 9001",
-          "No ESG rules"
-        ],
+        "tip": "Limited, site-specific and reversible is Category B. Almost every project in this programme is Category A." },
+      { "fmt": "mcq", "difficulty": "medium", "tag": "S6 — The blank field",
+        "prompt": "The field most often left blank on an ESAP action is…",
+        "options": ["The evidence that will close it", "The owner", "The date", "The action description"],
         "correct": 0,
-        "tip": "Equator-Principles banks require borrowers to meet the IFC PS."
-      },
-      {
-        "tag": "IESC",
-        "prompt": "An IESC is…",
-        "options": [
-          "An Independent Environmental & Social Consultant who monitors for the lenders",
-          "An internal auditor of the contractor",
-          "A government inspector",
-          "A subcontractor"
-        ],
+        "tip": "Owners are usually named. Without defined closing evidence, the action cannot be verified and stays open." },
+      { "fmt": "mcq", "difficulty": "hard", "tag": "S7 — The system finding",
+        "prompt": "A finding that the management system cannot be relied upon is more damaging than a single severe finding because…",
+        "options": ["It reopens every record rather than one item", "It attracts a larger financial penalty", "It must be reported to the regulator", "It requires a new assessment"],
         "correct": 0,
-        "tip": "The IESC checks the contractor’s ESG performance on the lenders' behalf."
-      },
-      {
-        "tag": "ESAP",
-        "prompt": "An ESAP is…",
-        "options": [
-          "An Environmental & Social Action Plan — corrective actions with deadlines",
-          "A payment schedule",
-          "A marketing plan",
-          "A safety poster"
-        ],
+        "tip": "The consequence is scope, not penalty. Every other record becomes assertion rather than evidence." },
+      { "fmt": "mcq", "difficulty": "medium", "tag": "S8 — Your link",
+        "prompt": "A supervisor's link in the chain to the money is…",
+        "options": ["Converting a plan into an instruction and a record", "Reporting to the lenders", "Approving disbursements", "None — supervisors are outside the chain"],
         "correct": 0,
-        "tip": "The ESAP lists what the contractor must fix, and by when."
-      },
-      {
-        "tag": "Monitoring",
-        "prompt": "The contractor mainly demonstrates ongoing ESG compliance to lenders through…",
-        "options": [
-          "Self-monitoring reports, verified by the IESC",
-          "Press releases",
-          "Social-media posts",
-          "Verbal updates"
-        ],
+        "tip": "Nobody at supervisor level reports to a lender. What they produce is the evidence the report is built from." },
+      { "fmt": "mcq", "difficulty": "hard", "tag": "S7 — What stops the money",
+        "prompt": "The commonest cause of a stopped disbursement in practice is…",
+        "options": ["Overdue action plan items tied to a disbursement", "A fatality", "Regulatory prosecution", "A community blockade"],
         "correct": 0,
-        "tip": "Self-monitoring reports feed the KPIs and the lenders' review."
-      },
-      {
-        "tag": "Stakes",
-        "prompt": "A serious, unresolved ESG failure can lead to…",
-        "options": [
-          "Withheld disbursements, covenant breach or loan default",
-          "A bonus for the team",
-          "Automatic extra funding",
-          "No consequences"
-        ],
-        "correct": 0,
-        "tip": "Good ESG management is what keeps the financing flowing."
-      },
-      {
-        "tag": "Honesty",
-        "difficulty": "hard",
-        "prompt": "The contractor leaves an incident out of the self-monitoring report and the IESC later finds it. The likely result?",
-        "options": [
-          "Lost credibility and withheld disbursements",
-          "A reward for tidy paperwork",
-          "Nothing at all",
-          "A lower interest rate"
-        ],
-        "correct": 0,
-        "tip": "Transparency is what keeps lender trust — hiding issues is far worse than reporting them."
-      },
-      {
-        "type": "order",
-        "tag": "Puzzle",
-        "prompt": "Order the ESG covenant cycle over the life of the loan.",
+        "tip": "And it is the most preventable cause — each overdue action has a name against it." },
+      { "fmt": "multi", "type": "multi", "difficulty": "medium", "tag": "S6 — A well-formed action",
+        "prompt": "What does a well-formed ESAP action contain? Select all that apply.",
+        "options": ["A specific deliverable, not an aspiration", "A named owner, not a department", "A date", "A severity colour", "The evidence that will close it", "Whether it is tied to a disbursement"],
+        "correct": [0, 1, 2, 4, 5],
+        "tip": "A severity colour is presentation. The closing evidence is the field most often left blank — and the reason actions stay open." },
+      { "fmt": "multi", "type": "multi", "difficulty": "medium", "tag": "S5 — What Category A brings",
+        "prompt": "Which of these does Category A bring? Select all that apply.",
+        "options": ["A full assessment to lender scope", "Independent review before financial close", "Independent monitoring for the life of the loan", "Exemption from national permitting", "Informed consultation and participation", "Public reporting"],
+        "correct": [0, 1, 2, 4, 5],
+        "tip": "Nothing exempts a project from national permitting — the tiers stack, they never replace each other." },
+      { "fmt": "order", "type": "order", "difficulty": "medium", "tag": "S4 — The cycle",
+        "prompt": "Put the project cycle in order.",
+        "items": ["Screening and categorisation", "Due diligence against the applicable standards", "Independent review of the documentation", "Financial close", "Construction and periodic monitoring"],
+        "tip": "Almost everyone joins at the last stage — and has never seen the due diligence report that produced the obligations they work under." },
+      { "fmt": "order", "type": "order", "difficulty": "hard", "tag": "S6 — Life of an action",
+        "prompt": "Put the life of an ESAP action in order.",
+        "items": ["A gap is identified in due diligence or a monitoring visit", "The action is written: deliverable, owner, date, closing evidence", "The work is done and the agreed evidence produced", "The evidence is verified", "The action is closed"],
+        "tip": "Not when the owner says it is done, not when a tracker says closed, and not because time has passed. Verified evidence closes an action." },
+      { "fmt": "cat", "type": "categorize", "difficulty": "medium", "tag": "S2 — Instructs or reports?",
+        "prompt": "Can this party instruct the contractor — or do they observe and report?",
+        "categories": [{ "id": "inst", "label": "Can instruct" }, { "id": "rep", "label": "Observes / reports" }],
         "items": [
-          "Appraisal",
-          "Conditions precedent",
-          "Disbursement",
-          "Ongoing monitoring"
+          { "id": "engineer", "text": "The engineer or supervision consultant", "cat": "inst" },
+          { "id": "iesc", "text": "The independent consultant appointed by the lenders", "cat": "rep" },
+          { "id": "client", "text": "The client, through the contract", "cat": "inst" },
+          { "id": "agent", "text": "The lenders' agent bank", "cat": "rep" }
         ],
-        "hint": "Follow the money: the lender checks first, sets conditions, then releases funds, then keeps watching.",
-        "tip": "Assessed up front, conditions met, money released, then monitored throughout."
-      },
-      {
-        "type": "fillblank",
-        "tag": "Fill the blanks",
-        "prompt": "Complete the financing sentence.",
-        "segments": [
-          "The ",
-          {
-            "options": [
-              "IESC",
-              "IFC"
-            ],
-            "correct": 0
-          },
-          " monitors ESG performance for the lenders, while an ",
-          {
-            "options": [
-              "ESAP",
-              "ESIA"
-            ],
-            "correct": 0
-          },
-          " lists corrective actions with deadlines."
-        ],
-        "hint": "One is the lenders' independent monitor; the other is an action plan.",
-        "tip": "The IESC monitors for the lenders; the ESAP is the corrective-action plan with deadlines."
-      },
-      {
-        "tag": "ESDD",
-        "prompt": "An ESDD is…",
-        "options": [
-          "The lenders' Environmental & Social Due Diligence before financing",
-          "A daily site drill",
-          "A discharge permit",
-          "The contractor's marketing review"
-        ],
-        "correct": 0,
-        "tip": "ESDD = the lenders' investigation of the project's E&S risks before committing funds."
-      },
-      {
-        "tag": "ESDD",
-        "difficulty": "medium",
-        "prompt": "The gaps found during the ESDD typically become…",
-        "options": [
-          "The ESAP — corrective actions with deadlines",
-          "A press release",
-          "A bonus plan",
-          "Nothing — they are ignored"
-        ],
-        "correct": 0,
-        "tip": "ESDD findings feed the ESAP, which is written into the loan."
-      },
-      {
-        "tag": "ESDD",
-        "difficulty": "medium",
-        "prompt": "When does the ESDD happen?",
-        "options": [
-          "Before the loan is committed",
-          "Only after project completion",
-          "Only when an accident occurs",
-          "Never — lenders don't check"
-        ],
-        "correct": 0,
-        "tip": "Due diligence comes first — it shapes the Equator category and the loan's ESG conditions."
-      },
-      {
-        "tag": "Audits",
-        "difficulty": "medium",
-        "prompt": "How is a lender-financed project audited over its life?",
-        "options": [
-          "ESDD before financing, IESC site visits during, lender reviews every period, plus internal audits",
-          "One audit at the very end",
-          "Only if the community complains",
-          "It isn't — reports are taken on trust"
-        ],
-        "correct": 0,
-        "tip": "Several layers of checking run continuously: ESDD → IESC visits → periodic lender reviews → the contractor's own internal audits."
-      },
-      {
-        "tag": "Audits",
-        "prompt": "An IESC site visit finds a non-compliance. What normally happens to it?",
-        "options": [
-          "It becomes a corrective action with a deadline, usually added to the ESAP",
-          "It is deleted from the report",
-          "Nothing — findings are informal",
-          "The IESC fixes it itself"
-        ],
-        "correct": 0,
-        "tip": "Audit findings turn into tracked corrective actions — closed with evidence."
-      },
-      {
-        "tag": "Solve it",
-        "image": "/images/lm2.jpg",
-        "difficulty": "medium",
-        "prompt": "SOLVE THE CASE: this bridge is lender-financed and the first drawdown is next month. The grievance mechanism isn't running yet. What happens?",
-        "options": [
-          "The disbursement is blocked — a working grievance mechanism is a condition precedent",
-          "Nothing — grievances can wait until the bridge is done",
-          "The lender pays anyway and adds interest",
-          "The community must build its own mechanism"
-        ],
-        "correct": 0,
-        "hint": "Some ESG actions must exist BEFORE money moves.",
-        "tip": "Conditions precedent must be met before the first disbursement — a live grievance mechanism is a classic CP."
-      },
-      {
-        "tag": "Solve it",
-        "image": "/images/lm5.jpg",
-        "difficulty": "medium",
-        "prompt": "SOLVE THE CASE: the IESC arrives tomorrow for a site visit. Two grievances are overdue and one corrective action slipped. What do you show them?",
-        "options": [
-          "Everything — the full records, plus your recovery plan for the overdue items",
-          "Only the good files; hide the overdue items",
-          "Nothing — make them ask in writing",
-          "A staged tour avoiding the problem areas"
-        ],
-        "correct": 0,
-        "hint": "The IESC reports to the lenders either way — the only variable is your credibility.",
-        "tip": "Transparency plus a recovery plan builds trust; anything hidden and later found destroys it."
-      },
-      {
-        "type": "order",
-        "tag": "Puzzle",
-        "prompt": "From audit finding to closure — put the steps in order.",
+        "tip": "The consultant's consequences arrive later, through the money — never through an instruction on the day." },
+      { "fmt": "cat", "type": "categorize", "difficulty": "hard", "tag": "S3 — Gate or obligation?",
+        "prompt": "Condition precedent, or covenant?",
+        "categories": [{ "id": "cp", "label": "Condition precedent" }, { "id": "cov", "label": "Covenant" }],
         "items": [
-          "IESC finds a non-compliance",
-          "Corrective action added to the ESAP with a deadline",
-          "Action completed and evidence collected",
-          "IESC verifies and closes the finding"
+          { "id": "esms-close", "text": "An ESMS in place before financial close", "cat": "cp" },
+          { "id": "maintain", "text": "Maintain the ESMS throughout the loan", "cat": "cov" },
+          { "id": "rap", "text": "A resettlement plan approved before the land-works disbursement", "cat": "cp" },
+          { "id": "report", "text": "Report E&S performance quarterly", "cat": "cov" },
+          { "id": "comply", "text": "Comply with the applicable standards at all times", "cat": "cov" },
+          { "id": "insurance", "text": "Insurance certificates delivered before first drawdown", "cat": "cp" }
         ],
-        "hint": "A finding isn't closed when the work is done — it's closed when it's verified.",
-        "tip": "Finding → ESAP action → evidence → verified closure: that's the audit loop."
-      },
-      {
-        "type": "fillblank",
-        "tag": "Fill the blanks",
-        "prompt": "Complete the audit timeline.",
-        "segments": [
-          "The ",
-          {
-            "options": [
-              "ESDD",
-              "ESAP"
-            ],
-            "correct": 0
-          },
-          " happens before financing, and the ",
-          {
-            "options": [
-              "IESC",
-              "IFC"
-            ],
-            "correct": 0
-          },
-          " audits the project throughout the loan."
-        ],
-        "hint": "One is due diligence, the other is the lenders' monitor.",
-        "tip": "ESDD before the money moves; IESC watching for as long as it flows."
-      },
-      {
-        "type": "categorize",
-        "tag": "Puzzle",
-        "prompt": "Sort each event: BEFORE financing or DURING the project?",
-        "categories": [
-          {
-            "id": "before",
-            "label": "Before financing"
-          },
-          {
-            "id": "during",
-            "label": "During the project"
-          }
-        ],
-        "items": [
-          {
-            "text": "ESDD investigation",
-            "cat": "before"
-          },
-          {
-            "text": "Equator category assigned",
-            "cat": "before"
-          },
-          {
-            "text": "IESC site visits",
-            "cat": "during"
-          },
-          {
-            "text": "Self-monitoring reports",
-            "cat": "during"
-          }
-        ],
-        "hint": "Due diligence and categorisation come first; monitoring runs while money flows.",
-        "tip": "ESDD and the A/B/C category happen at appraisal; IESC visits and reports run for the life of the loan."
-      },
-      {
-        "type": "diagramtap",
-        "tag": "Tap the diagram",
-        "prompt": "The ESG covenant cycle. Tap the stage where the ESDD happens.",
-        "boxes": [
-          "Appraisal",
-          "Conditions precedent",
-          "Disbursement",
-          "Ongoing monitoring"
-        ],
+        "tip": "A gate before an event is a condition precedent — nothing to cure, the gate simply has not opened. A continuing obligation is a covenant, with breach and cure periods." },
+      { "fmt": "tap", "type": "diagramtap", "difficulty": "medium", "tag": "S6 — The tracker",
+        "prompt": "Five entries in an ESAP tracker. Four are defects — tap the ONE that is well-formed.",
+        "boxes": ["'Improve resettlement outcomes' — no owner, ongoing", "Closed last month, no evidence attached", "Owner: 'the E&S department', date TBC", "'Prepare and implement a livelihood restoration plan for the 63 traders at Section 3' — named owner, dated, evidence defined", "Overdue 90 days, reported as 'on track' because work has started"],
+        "correct": 3,
+        "hint": "Specific deliverable, named owner, date, closing evidence.",
+        "tip": "A reviewer reopens every action closed without evidence — and draws a conclusion about the tracker as a whole rather than about the actions." },
+      { "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — the overdue action",
+        "prompt": "An ESAP action tied to the next disbursement — 'worker grievance mechanism implemented and communicated' — falls due Friday. The boxes are installed but no worker has been told and no procedure is published. Your PM wants it reported as complete since 'the work is done'.",
+        "options": ["Report it honestly as overdue with a dated completion plan, and finish the communication this week — the closing evidence is what counts", "Report it complete: the boxes are installed", "Report it 'on track' without a date", "Remove it from this month's report"],
         "correct": 0,
-        "hint": "Due diligence means checking BEFORE committing.",
-        "tip": "The ESDD is the lenders' investigation at appraisal — before anything is signed or paid."
-      },
-      {
-        "type": "diagramtap",
-        "tag": "Tap the diagram",
-        "prompt": "Same cycle. Tap the stage where money is actually released.",
-        "boxes": [
-          "Appraisal",
-          "Conditions precedent",
-          "Disbursement",
-          "Ongoing monitoring"
-        ],
-        "correct": 2,
-        "hint": "Dis-burse = pay out.",
-        "tip": "Disbursement is the release of funds — earned by meeting the conditions, kept by ongoing performance."
-      },
-      {
-        "type": "connect",
-        "tag": "Link them",
-        "prompt": "Link each financing term to its meaning.",
-        "pairs": [
-          {
-            "l": "ESDD",
-            "r": "The lenders' check before financing"
-          },
-          {
-            "l": "IESC",
-            "r": "Independent monitor working for the banks"
-          },
-          {
-            "l": "ESAP",
-            "r": "Corrective actions with owners and deadlines"
-          },
-          {
-            "l": "Covenant",
-            "r": "A binding promise inside the loan"
-          }
-        ],
-        "hint": "Check, checker, fix-list, promise.",
-        "tip": "ESDD before, IESC during, ESAP to fix, covenants to hold it all together."
-      }
+        "tip": "An action closes when the agreed evidence has been produced and verified. Reporting it complete creates a record the reviewer can disprove by asking one worker where to complain." },
+      { "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — the unresourced action",
+        "prompt": "Your E&S officer asks for a budget to fence three borrow pits — an open ESAP action. Production says it is not in the price and the request dies there. The pits sit near footpaths.",
+        "options": ["Escalate it as a decision: the exposure quantified, the cost, the disbursement link, and a date a decision is needed", "Accept the answer — production owns the budget", "Fence one pit with materials on hand and close the action", "Wait for the consultant to raise it at the next visit"],
+        "correct": 0,
+        "tip": "This is a capacity decision and it belongs above you. An unfunded action is still a contractual commitment — and an unfenced pit beside a footpath is a life-safety exposure today." },
+      { "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — before the visit",
+        "prompt": "Reviewing the ESAP a fortnight before the monitoring visit, you find three actions marked closed with no evidence attached — by a predecessor, in good faith.",
+        "options": ["Reopen the three, attach or produce the evidence where it exists, and disclose the correction at the visit", "Leave them closed — reopening looks worse", "Attach retrospective memos dated last year", "Delete the tracker history and start a clean version"],
+        "correct": 0,
+        "tip": "A correction you made and explained is housekeeping. Back-dated memos and cleaned histories convert a tidy-up into an integrity finding that reaches every other record." }
     ]
   },
   "m4": {
     "passMark": 0.8,
     "questions": [
-      {
-        "tag": "What it is",
-        "prompt": "True or false: the ESMS only works if it is lived on site, not just filed.",
-        "options": [
-          "True",
-          "False"
-        ],
+      { "fmt": "mcq", "difficulty": "easy", "tag": "S2 — Seven elements",
+        "prompt": "How many elements comprise the management system under PS1?",
+        "options": ["Seven", "Four", "Ten", "Three"],
         "correct": 0,
-        "tip": "A binder on a shelf changes nothing — behaviour does."
-      },
-      {
-        "tag": "Grievance",
-        "image": "/images/esg-social.jpg",
-        "prompt": "A grievance mechanism must be…",
-        "options": [
-          "Safe and free from retaliation",
-          "For employees only",
-          "Kept secret",
-          "Paid to use"
-        ],
+        "tip": "Policy, risk identification, management programmes, capacity and competency, emergency preparedness, stakeholder engagement, monitoring and review." },
+      { "fmt": "mcq", "difficulty": "medium", "tag": "S3 — Which object?",
+        "prompt": "A worker asks what to do if he uncovers a grave. He needs…",
+        "options": ["A procedure", "The cultural heritage management plan", "The policy", "A toolbox talk"],
         "correct": 0,
-        "tip": "Anyone affected must be able to raise concerns safely."
-      },
-      {
-        "tag": "Plans",
-        "difficulty": "medium",
-        "prompt": "Management plans (CESMP, waste, traffic) set out…",
-        "options": [
-          "How each risk is controlled",
-          "The project budget",
-          "Only the schedule",
-          "The canteen menu"
-        ],
+        "tip": "A plan tells managers how the risk is organised. A procedure tells the person doing the task what to do now." },
+      { "fmt": "mcq", "difficulty": "medium", "tag": "S3 — Goes stale",
+        "prompt": "Which object goes stale when the works change?",
+        "options": ["The plan", "The policy", "The record", "The procedure"],
         "correct": 0,
-        "tip": "They translate risks into controls."
-      },
-      {
-        "tag": "Governance",
-        "prompt": "Who is ultimately accountable for ESG on the project?",
-        "options": [
-          "Top management",
-          "The newest worker",
-          "The community",
-          "The bank"
-        ],
+        "tip": "Policies change every few years. Plans describe a defined period and a defined configuration of works." },
+      { "fmt": "mcq", "difficulty": "hard", "tag": "S4 — Reporting line",
+        "prompt": "An E&S function reporting to the production manager is a problem because…",
+        "options": ["Every escalation runs through the person being escalated about", "It reduces the E&S manager's seniority", "It slows down reporting", "It is prohibited by PS1 explicitly"],
         "correct": 0,
-        "tip": "Accountability sits at the top."
-      },
-      {
-        "tag": "Grievance",
-        "prompt": "True or false: it's acceptable to retaliate against a worker who raises a minor grievance.",
-        "options": [
-          "True",
-          "False"
-        ],
-        "correct": 1,
-        "tip": "Never — retaliation destroys the mechanism and breaches the Code of Conduct."
-      },
-      {
-        "tag": "Emergency",
-        "prompt": "Emergency preparedness covers…",
-        "options": [
-          "Plans and drills for incidents like spills or fires",
-          "Payroll",
-          "Marketing",
-          "Sales targets"
-        ],
+        "tip": "Seniority is secondary. The reporting line determines whether an escalation is possible at all." },
+      { "fmt": "mcq", "difficulty": "hard", "tag": "S4 — Incentives",
+        "prompt": "Contractor E&S staff paid by the contractor and measured on not causing delay are…",
+        "options": ["A capacity finding, because the incentive runs against the function", "Acceptable, since the contractor holds the obligation", "A cost saving", "Standard practice and unremarkable"],
         "correct": 0,
-        "tip": "It readies the team for accidents and emergencies."
-      },
-      {
-        "tag": "Training",
-        "image": "/images/lm9.jpg",
-        "prompt": "ESMS training includes…",
-        "options": [
-          "Inductions and toolbox talks",
-          "Only a final exam",
-          "Nothing",
-          "Managers only"
-        ],
+        "tip": "Holding the obligation is exactly why the incentive matters. The arrangement makes raising a problem personally costly." },
+      { "fmt": "mcq", "difficulty": "medium", "tag": "S5 — Real arrangements",
+        "prompt": "An emergency arrangement is real when…",
+        "options": ["The times are measured, outsiders know it exists, and it has been drilled", "It is approved and current", "It names the district hospital", "It covers fire and first aid"],
         "correct": 0,
-        "tip": "Everyone is trained for their role."
-      },
-      {
-        "tag": "Purpose",
-        "difficulty": "medium",
-        "prompt": "The overall aim of running the ESMS on PDCA is…",
-        "options": [
-          "Continual improvement",
-          "To eliminate reporting",
-          "To maximise output only",
-          "A one-time audit"
-        ],
+        "tip": "Approval is a document state. None of the real tests is satisfied by approval." },
+      { "fmt": "mcq", "difficulty": "hard", "tag": "S6 — The absent step",
+        "prompt": "The step most often absent from the monitoring loop is…",
+        "options": ["Review, where management changes the system", "Monitor", "Assess", "Act"],
         "correct": 0,
-        "tip": "PDCA keeps performance improving."
-      },
-      {
-        "tag": "Ownership",
-        "prompt": "True or false: subcontractors are exempt from the contractor’s ESG rules.",
-        "options": [
-          "True",
-          "False"
-        ],
-        "correct": 1,
-        "tip": "They must meet the same standards."
-      },
-      {
-        "tag": "What it is",
-        "image": "/images/lm3.jpg",
-        "prompt": "The ESMS is…",
-        "options": [
-          "The system the contractor uses to manage ESG in daily practice",
-          "A one-off report",
-          "An accounting ledger",
-          "A marketing brochure"
-        ],
+        "tip": "Without review the system can be maintained but not improved — which is why the same findings recur." },
+      { "fmt": "mcq", "difficulty": "medium", "tag": "S7 — The fast test",
+        "prompt": "The fastest way to test whether a system works is…",
+        "options": ["Ask five questions and listen for names, numbers and examples", "Audit the document register", "Count the approved plans", "Check the certification"],
         "correct": 0,
-        "tip": "Policy, plans, procedures and roles — run on Plan-Do-Check-Act."
-      },
-      {
-        "tag": "RACI",
-        "prompt": "A RACI chart clarifies…",
-        "options": [
-          "Who is Responsible, Accountable, Consulted and Informed",
-          "The project budget",
-          "The site layout",
-          "The delivery schedule"
-        ],
-        "correct": 0,
-        "tip": "RACI assigns clear ownership for each ESG activity."
-      },
-      {
-        "tag": "Grievances",
-        "prompt": "A grievance mechanism lets workers and communities…",
-        "options": [
-          "Raise concerns safely and have them resolved, without retaliation",
-          "Buy company shares",
-          "Skip required training",
-          "Set their own pay"
-        ],
-        "correct": 0,
-        "tip": "It must be accessible and retaliation-free."
-      },
-      {
-        "tag": "Subcontractors",
-        "prompt": "How are subcontractors held to the contractor’s ESG standards?",
-        "options": [
-          "Flowed down through contracts, training and audits",
-          "They are exempt",
-          "Only by a verbal reminder",
-          "They are not"
-        ],
-        "correct": 0,
-        "tip": "Their conduct is the contractor’s responsibility."
-      },
-      {
-        "tag": "Improvement",
-        "prompt": "The ESMS continually improves through which cycle?",
-        "options": [
-          "Plan – Do – Check – Act",
-          "Buy – Build – Sell",
-          "Start – Stop",
-          "Plan – Approve – Forget"
-        ],
-        "correct": 0,
-        "tip": "PDCA turns the ESMS into a system that keeps getting better."
-      },
-      {
-        "type": "multi",
-        "tag": "Select all",
-        "prompt": "Which of these are parts of the ESMS?",
-        "options": [
-          "Management plans",
-          "Grievance mechanism",
-          "Training",
-          "The company's dividend policy"
-        ],
-        "correct": [
-          0,
-          1,
-          2
-        ],
-        "hint": "One option is about paying shareholders — nothing to do with managing E&S.",
-        "tip": "Plans, grievances and training are ESMS elements; dividends are not."
-      },
-      {
-        "type": "order",
-        "tag": "Puzzle",
-        "prompt": "Order the PDCA improvement cycle.",
+        "tip": "A document register tells you what exists. The five questions tell you what operates." },
+      { "fmt": "multi", "type": "multi", "difficulty": "easy", "tag": "S2 — The elements",
+        "prompt": "Which are elements of the management system PS1 requires? Select all that apply.",
+        "options": ["Policy", "Identification of risks and impacts", "Organisational capacity and competency", "An external sustainability rating", "Emergency preparedness and response", "Monitoring and review"],
+        "correct": [0, 1, 2, 4, 5],
+        "tip": "No standard requires an external rating — it measures disclosure at company level, not operation at project level." },
+      { "fmt": "multi", "type": "multi", "difficulty": "medium", "tag": "S4 — Inadequate capacity",
+        "prompt": "Which of these are signs of inadequate organisational capacity? Select all that apply.",
+        "options": ["An E&S manager with no budget line", "An E&S function reporting to the production manager", "No authority to stop work", "An E&S team of more than two people", "Competence assumed rather than established", "One officer for 90 km of corridor and 400 workers"],
+        "correct": [0, 1, 2, 4, 5],
+        "tip": "Team size alone proves nothing either way — what matters is budget, reporting line, authority and competence." },
+      { "fmt": "order", "type": "order", "difficulty": "medium", "tag": "S6 — The loop",
+        "prompt": "Put the monitoring loop in order.",
+        "items": ["Monitor against defined parameters", "Assess the data against the requirement and the trend", "Act, with an owner, a date and verification", "Review whether the system as a whole is working"],
+        "tip": "Review is the step most often absent entirely — and the only one that lets the system improve rather than merely be maintained." },
+      { "fmt": "cat", "type": "categorize", "difficulty": "medium", "tag": "S3 — Four objects",
+        "prompt": "Policy, plan, procedure or record?",
+        "categories": [{ "id": "pol", "label": "Policy" }, { "id": "plan", "label": "Plan" }, { "id": "proc", "label": "Procedure" }, { "id": "rec", "label": "Record" }],
         "items": [
-          "Plan",
-          "Do",
-          "Check",
-          "Act"
+          { "id": "grave", "text": "What to do when you uncover human remains", "cat": "proc" },
+          { "id": "tmp", "text": "The traffic management plan", "cat": "plan" },
+          { "id": "commit", "text": "A signed commitment from the director", "cat": "pol" },
+          { "id": "sheet", "text": "A monitoring sheet for last Tuesday", "cat": "rec" },
+          { "id": "intake", "text": "The grievance intake steps", "cat": "proc" },
+          { "id": "register", "text": "An induction attendance register", "cat": "rec" }
         ],
-        "tip": "Plan it, do it, check it, then act on what you learned."
-      },
-      {
-        "type": "fillblank",
-        "tag": "Fill the blanks",
-        "prompt": "Complete the improvement cycle.",
-        "segments": [
-          "The ESMS runs on the ",
-          {
-            "options": [
-              "Plan",
-              "Buy"
-            ],
-            "correct": 0
-          },
-          " – Do – ",
-          {
-            "options": [
-              "Check",
-              "Sell"
-            ],
-            "correct": 0
-          },
-          " – Act cycle for continual improvement."
-        ],
-        "hint": "It's a four-step loop that keeps performance improving.",
-        "tip": "Plan – Do – Check – Act (PDCA) drives continual improvement."
-      },
-      {
-        "tag": "Solve it",
-        "image": "/images/lm4.jpg",
-        "difficulty": "medium",
-        "prompt": "SOLVE THE CASE: a worker on this site is told to enter an unshored trench and refuses because it looks unsafe. Under the OHS policy, the worker is…",
-        "options": [
-          "Right — every worker may stop work under dangerous conditions, and management must address it",
-          "Wrong — only supervisors can stop work",
-          "Wrong — refusing work is always misconduct",
-          "Right, but he should be sent home unpaid"
-        ],
-        "correct": 0,
-        "hint": "The policy gives one powerful right to EVERY worker.",
-        "tip": "The right to stop unsafe work belongs to every worker — management must promptly address the concern, never punish it."
-      },
-      {
-        "tag": "Solve it",
-        "image": "/images/esg-governance.jpg",
-        "difficulty": "medium",
-        "prompt": "SOLVE THE CASE: these community members are upset about night-time noise and want answers. The correct channel is…",
-        "options": [
-          "The grievance mechanism — register it, acknowledge, investigate, respond and close",
-          "A quiet cash payment to the loudest person",
-          "Ignore them — they're not employees",
-          "Tell security to keep them away"
-        ],
-        "correct": 0,
-        "hint": "There is one formal door for every complaint, from anyone.",
-        "tip": "Community complaints go through the grievance mechanism — registered, acknowledged, investigated, resolved, no retaliation."
-      },
-      {
-        "type": "order",
-        "tag": "Puzzle",
-        "prompt": "Put the grievance steps in the correct order.",
+        "tip": "Four different objects with four different lifespans. Confusing them is why people get handed a document that does not answer their question." },
+      { "fmt": "cat", "type": "categorize", "difficulty": "hard", "tag": "S7 — Which system?",
+        "prompt": "Is this the answer of a WORKING system, or a DOCUMENTED one?",
+        "categories": [{ "id": "work", "label": "Working system" }, { "id": "docd", "label": "Documented system" }],
         "items": [
-          "Receive & register the complaint",
-          "Acknowledge it to the person",
-          "Investigate the facts",
-          "Resolve, respond and close"
+          { "id": "revision", "text": "'Yes — here is the revision that changed the plan when the routes moved'", "cat": "work" },
+          { "id": "approved", "text": "'All our plans are approved and current'", "cat": "docd" },
+          { "id": "drove", "text": "'Two hours ten minutes — I drove it in March'", "cat": "work" },
+          { "id": "annex", "text": "'The emergency plan is at Annex F'", "cat": "docd" },
+          { "id": "example", "text": "'We moved the fuel point after the March monitoring data'", "cat": "work" },
+          { "id": "reference", "text": "'The grievance procedure is document GRV-002'", "cat": "docd" }
         ],
-        "hint": "You can't investigate what you haven't logged.",
-        "tip": "Register → acknowledge → investigate → resolve & close — inside the target window, with no retaliation."
-      },
-      {
-        "type": "fillblank",
-        "tag": "Fill the blanks",
-        "prompt": "Complete the site rules.",
-        "segments": [
-          "The alcohol limit on site is BAC ",
-          {
-            "options": [
-              "0.00",
-              "0.05"
-            ],
-            "correct": 0
-          },
-          ", and subcontractors must target at least ",
-          {
-            "options": [
-              "50%",
-              "10%"
-            ],
-            "correct": 0
-          },
-          " local employment."
-        ],
-        "hint": "Zero tolerance, and half the workforce.",
-        "tip": "BAC 0.00 — zero tolerance; local hiring target ≥ 50% of the workforce."
-      },
-      {
-        "type": "categorize",
-        "tag": "Puzzle",
-        "prompt": "Sort each situation into the RACI letter that fits the person described.",
-        "categories": [
-          {
-            "id": "r",
-            "label": "Responsible (does it)"
-          },
-          {
-            "id": "a",
-            "label": "Accountable (answers for it)"
-          }
-        ],
-        "items": [
-          {
-            "text": "HSE supervisor doing the daily inspection",
-            "cat": "r"
-          },
-          {
-            "text": "Project director signing the report",
-            "cat": "a"
-          },
-          {
-            "text": "Community officer logging a grievance",
-            "cat": "r"
-          },
-          {
-            "text": "Managing Director owning the ESG policy",
-            "cat": "a"
-          }
-        ],
-        "hint": "Doing the work vs owning the outcome.",
-        "tip": "R does the task; A owns the result — exactly one A per activity."
-      },
-      {
-        "type": "multi",
-        "tag": "PPE",
-        "prompt": "Which PPE is mandatory for EVERYONE on site, every day?",
-        "options": [
-          "Hard hat",
-          "Hi-vis vest",
-          "Safety boots",
-          "A necktie"
-        ],
-        "correct": [
-          0,
-          1,
-          2
-        ],
-        "hint": "Think of the basics you must wear just to walk onto the site.",
-        "tip": "Hard hat, hi-vis and safety boots are the everyday minimum; gloves and eye protection are added per task."
-      },
-      {
-        "tag": "Work at height",
-        "prompt": "True or false: PPE alone is enough for working at height.",
-        "options": [
-          "True",
-          "False"
-        ],
-        "correct": 1,
-        "hint": "A hard hat doesn't stop a fall.",
-        "tip": "Myth — at height you also need a harness clipped to an anchor point or guardrails, an inspected platform, and a permit to work."
-      },
-      {
-        "tag": "Solve it",
-        "image": "/images/lm13.jpg",
-        "difficulty": "hard",
-        "prompt": "SOLVE THE CASE: this crew is about to fix roof tiles. They have hard hats and hi-vis — what must ALSO be true before the first tile moves?",
-        "options": [
-          "Harness anchored (or edge protection), an inspected tagged platform, and a permit to work at height",
-          "Nothing — hard hats cover it",
-          "Only a verbal OK from the foreman",
-          "They should work faster to spend less time at height"
-        ],
+        "tip": "A working system answers with a name, a number or an example. A documented one answers with a document reference." },
+      { "fmt": "tap", "type": "diagramtap", "difficulty": "medium", "tag": "S1 — The noticeboard",
+        "prompt": "Four items on a site office noticeboard. Three are findings — tap the ONE that is correct as posted.",
+        "boxes": ["A traffic plan referring to haul routes changed eleven months ago", "An organisation chart with the E&S role vacant for five months", "An emergency notice for a plan that has never been drilled", "A grievance poster naming a person, a number, and an entry point outside the gate"],
+        "correct": 3,
+        "hint": "One of these gives a name and a route that works.",
+        "tip": "Current, named, reachable — that is what real looks like. The other three are documents describing intentions." },
+      { "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — the stale plan",
+        "prompt": "Nine days before a monitoring visit you find the traffic management plan predates two haul route changes, and no briefing records exist for the new routes.",
+        "options": ["Revise the plan now, dated today, deliver the briefings this week, and disclose both the gap and the correction", "Revise the plan and date it to when the routes changed", "Leave it and explain if asked", "Remove the plan from the document pack"],
         "correct": 0,
-        "hint": "Falls are the #1 killer on construction sites — PPE is just the start.",
-        "tip": "Height work demands fall protection (harness/guardrails), an inspected platform and a permit — no anchor, no inspection, no work."
-      },
-      {
-        "type": "diagramtap",
-        "tag": "Tap the diagram",
-        "prompt": "The PDCA loop. Tap the step where you MEASURE whether the plan actually worked.",
-        "boxes": [
-          "Plan",
-          "Do",
-          "Check",
-          "Act"
-        ],
-        "correct": 2,
-        "hint": "Monitoring and review live here.",
-        "tip": "Check = measure performance against the plan; Act then fixes what Check found."
-      },
-      {
-        "type": "connect",
-        "tag": "Link them",
-        "prompt": "Link each policy to its headline rule.",
-        "pairs": [
-          {
-            "l": "OHS policy",
-            "r": "Any worker may stop unsafe work"
-          },
-          {
-            "l": "Alcohol & drugs",
-            "r": "BAC 0.00 — zero tolerance"
-          },
-          {
-            "l": "Subcontractor policy",
-            "r": "Target at least 50% local hiring"
-          },
-          {
-            "l": "GBVSH policy",
-            "r": "Zero tolerance, confidential reporting"
-          }
-        ],
-        "hint": "Each policy has one rule to know by heart.",
-        "tip": "Stop-work right, zero alcohol, 50% local, zero tolerance for GBVSH."
-      },
-      {
-        "tag": "Safety rule",
-        "prompt": "A worker sees a dangerous condition. Under the OHS policy they may…",
-        "options": [
-          "Stop work immediately — it is their right",
-          "Keep working and mention it next week",
-          "Only stop if a manager agrees first",
-          "Never stop work"
-        ],
+        "tip": "The underlying issue is ordinary — plans go stale when works change. Back-dating is what turns it into an integrity finding." },
+      { "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — the refused budget",
+        "prompt": "Your E&S lead has requested a budget three times to fence open excavations near a footpath. Production has refused each time — 'not in the price'. Nothing has happened for six weeks.",
+        "options": ["Escalate it as a capacity decision: quantify the exposure, name the cost, and put it to someone with authority over money and reporting lines", "Keep asking production", "Note it in the monthly report and wait", "Have the E&S lead buy materials from petty cash"],
         "correct": 0,
-        "tip": "Every worker has the right to stop work under dangerous conditions; management must respond promptly."
-      },
-      {
-        "tag": "Working hours",
-        "difficulty": "medium",
-        "prompt": "The HR policy caps working time at…",
-        "options": [
-          "48 regular + 12 overtime hours a week, with 1 rest day in 7",
-          "60 regular hours, no rest days",
-          "40 hours with unlimited overtime",
-          "No limit if the project is late"
-        ],
+        "tip": "Capacity improves only by a decision about money, reporting lines and authority, taken by someone senior. Six weeks of persuasion IS the capacity finding." },
+      { "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — the data nobody read",
+        "prompt": "You discover six months of dust monitoring data, properly collected, showing a worsening trend at two houses — and no evidence anyone ever looked at it. No exceedance was reported because nobody compared the numbers to the limit.",
+        "options": ["Assess the data now against the limits, act on the exceedances with dated corrective actions, and fix the loop by naming an owner for the monthly comparison", "File the data — collection is what the plan requires", "Restart monitoring from this month with a clean series", "Report the trend without acting, to keep the record consistent"],
         "correct": 0,
-        "tip": "Max 48 regular + 12 overtime hours per week, and at least one rest day every seven days."
-      },
-      {
-        "tag": "Alcohol & drugs",
-        "prompt": "The Blood Alcohol Concentration (BAC) allowed on site is…",
-        "options": [
-          "0.00 — zero tolerance",
-          "0.05",
-          "0.08",
-          "Whatever local law allows"
-        ],
-        "correct": 0,
-        "tip": "BAC 0.00 is required on site; 0.01 or higher means immediate removal from the project."
-      },
-      {
-        "tag": "GBVSH",
-        "prompt": "The policy on gender-based violence and sexual harassment is…",
-        "options": [
-          "Zero tolerance — with training, confidential reporting and survivor support",
-          "Handled informally between colleagues",
-          "Only for managers",
-          "Only investigated if there are witnesses"
-        ],
-        "correct": 0,
-        "tip": "Zero tolerance: mandatory training, confidential channels, survivor support, no retaliation."
-      },
-      {
-        "tag": "Local hiring",
-        "difficulty": "medium",
-        "prompt": "The subcontractor policy sets a local employment target of at least…",
-        "options": [
-          "50%",
-          "5%",
-          "10%",
-          "90%"
-        ],
-        "correct": 0,
-        "tip": "Subcontractors must target at least 50% local employment, with commitments to female participation."
-      },
-      {
-        "tag": "Integrity",
-        "difficulty": "medium",
-        "prompt": "Under the anti-corruption and AML policies, which payment is acceptable?",
-        "options": [
-          "A documented bank transfer to a screened supplier",
-          "A small cash 'facilitation payment' to speed a permit",
-          "A generous gift to win a contract",
-          "A payment to a sanctioned entity, if discreet"
-        ],
-        "correct": 0,
-        "tip": "No bribes, no facilitation payments, no cash — only traceable payments to screened counterparties."
-      },
-      {
-        "type": "multi",
-        "tag": "Select all",
-        "difficulty": "medium",
-        "prompt": "Which of these are real rules from the ESMS policy suite?",
-        "options": [
-          "Right to stop unsafe work",
-          "BAC 0.00 on site",
-          "At least one rest day every 7 days",
-          "Free unlimited overtime"
-        ],
-        "correct": [
-          0,
-          1,
-          2
-        ],
-        "hint": "Three protect workers; one would exploit them.",
-        "tip": "Stop-work right, zero alcohol and the rest-day rule are real; overtime is capped at 12h/week."
-      }
+        "tip": "Data collected and never looked at is the classic broken loop: a monitoring programme, not a management system. The fix is an owner for the comparison — not more data." }
     ]
   },
   "m5": {
     "passMark": 0.8,
     "questions": [
-      {
-        "tag": "Basics",
-        "prompt": "True or false: what gets measured gets managed.",
-        "options": [
-          "True",
-          "False"
-        ],
+      { "fmt": "mcq", "difficulty": "hard", "tag": "S2 — The broken link",
+        "prompt": "The link in the chain that most commonly breaks is…",
+        "options": ["The decision — the number is produced, reported, filed, and nobody acts", "The data", "The procedure", "The assurance"],
         "correct": 0,
-        "tip": "KPIs make performance visible so it can be improved."
-      },
-      {
-        "tag": "Leading",
-        "image": "/images/lm10.jpg",
-        "difficulty": "hard",
-        "prompt": "Which is a LEADING indicator?",
-        "options": [
-          "Near-misses reported",
-          "Fatalities",
-          "Lost-time injuries",
-          "Recordable injuries"
-        ],
+        "tip": "Data collection usually works. What fails is that nobody inside the organisation draws a conclusion from it." },
+      { "fmt": "mcq", "difficulty": "medium", "tag": "S3 — Completeness",
+        "prompt": "An injury rate that excludes a labour supplier's workers is…",
+        "options": ["Incomplete — and the exclusion is invisible in the number", "Acceptable, since they are not direct employees", "More accurate", "A conservative estimate"],
         "correct": 0,
-        "tip": "Leading indicators act before an incident."
-      },
-      {
-        "tag": "Environment",
-        "image": "/images/esg-pollution.jpg",
-        "prompt": "Environmental KPIs include…",
-        "options": [
-          "Emissions, water, waste and spills",
-          "Clicks and page views",
-          "Gross margin",
-          "Font sizes"
-        ],
+        "tip": "PS2 covers workers engaged by third parties. Excluding them understates the rate and misstates the project's exposure." },
+      { "fmt": "mcq", "difficulty": "hard", "tag": "S3 — The denominator",
+        "prompt": "Before comparing a rate to a previous period you should check…",
+        "options": ["That the denominator was compiled the same way", "That the target has not changed", "That the report was on time", "That the same person calculated it"],
         "correct": 0,
-        "tip": "They quantify the footprint."
-      },
-      {
-        "tag": "Reporting",
-        "image": "/images/esg-reporting.jpg",
-        "prompt": "Who compiles site data into the reports?",
-        "options": [
-          "ESG/HSE managers",
-          "The bank",
-          "The media",
-          "No one"
-        ],
+        "tip": "Two months can look like an improvement when only the hours changed. This check finds more errors than any other." },
+      { "fmt": "mcq", "difficulty": "easy", "tag": "S4 — Leading",
+        "prompt": "'Inspections completed against plan' is…",
+        "options": ["A leading indicator", "A lagging indicator", "Both", "Neither"],
         "correct": 0,
-        "tip": "Site teams collect; managers compile."
-      },
-      {
-        "type": "multi",
-        "tag": "Select all",
-        "prompt": "Which of these are LEADING indicators?",
-        "options": [
-          "Near-misses reported",
-          "Training hours",
-          "Inspections completed",
-          "Lost-time injuries"
-        ],
-        "correct": [
-          0,
-          1,
-          2
-        ],
-        "tip": "Lost-time injuries are lagging."
-      },
-      {
-        "tag": "Data quality",
-        "prompt": "True or false: unreliable KPI data erodes lender trust.",
-        "options": [
-          "True",
-          "False"
-        ],
+        "tip": "It measures an activity intended to prevent an outcome, not the outcome itself." },
+      { "fmt": "mcq", "difficulty": "medium", "tag": "S4 — The weakness",
+        "prompt": "The weakness of leading indicators is…",
+        "options": ["They are easy to game: many shallow inspections produce a good number and no safety", "They arrive too late to act on", "They cannot be counted", "They only apply to safety"],
         "correct": 0,
-        "tip": "Garbage in, garbage out — data must be reliable."
-      },
-      {
-        "tag": "Data quality",
-        "prompt": "Good ESG data must be…",
-        "options": [
-          "Accurate, timely and verifiable",
-          "Vague and late",
-          "Hidden from the IESC",
-          "Estimated once a year"
-        ],
+        "tip": "Arriving too late is the weakness of LAGGING indicators. Leading ones are timely — and gameable." },
+      { "fmt": "mcq", "difficulty": "medium", "tag": "S4 — The near miss",
+        "prompt": "A near miss is…",
+        "options": ["Both: lagging for an event that happened, leading for one that has not", "A lagging indicator only", "A leading indicator only", "Not an indicator"],
         "correct": 0,
-        "tip": "The IESC must be able to check it."
-      },
-      {
-        "tag": "Reporting",
-        "prompt": "The reporting chain STARTS with…",
-        "options": [
-          "Site teams collecting the data",
-          "The lender",
-          "The IESC",
-          "The media"
-        ],
+        "tip": "It is the most useful number on a construction project — and the one most projects report worst." },
+      { "fmt": "mcq", "difficulty": "hard", "tag": "S6 — Zero grievances",
+        "prompt": "Zero grievances on a corridor beside a host community indicates…",
+        "options": ["A mechanism that is unknown or distrusted", "Effective community engagement", "A satisfied community", "Good luck"],
         "correct": 0,
-        "tip": "Data starts at the source — the site."
-      },
-      {
-        "tag": "KPIs",
-        "difficulty": "medium",
-        "prompt": "TRIR, spills and grievances-closed are examples of…",
-        "options": [
-          "ESG KPIs",
-          "Tax codes",
-          "Marketing metrics",
-          "Loan terms"
-        ],
+        "tip": "A reviewer reads it as a project that cannot see its own operation, whatever the covering note says." },
+      { "fmt": "mcq", "difficulty": "hard", "tag": "S7 — Divergence",
+        "prompt": "When the numbers and the site diverge, the divergence is…",
+        "options": ["The finding", "A data quality issue to be corrected quietly", "Normal variation", "The consultant's problem"],
         "correct": 0,
-        "tip": "They measure ESG performance."
-      },
-      {
-        "tag": "Safety KPI",
-        "prompt": "Which is a common SAFETY KPI?",
-        "options": [
-          "LTIFR (lost-time injury frequency rate)",
-          "Gross profit margin",
-          "Website visits",
-          "Office rent"
-        ],
-        "correct": 0,
-        "tip": "LTIFR tracks lost-time injuries per hours worked."
-      },
-      {
-        "type": "categorize",
-        "tag": "Puzzle",
-        "prompt": "Sort each indicator into leading or lagging.",
-        "categories": [
-          {
-            "id": "lead",
-            "label": "Leading (predicts)"
-          },
-          {
-            "id": "lag",
-            "label": "Lagging (looks back)"
-          }
-        ],
+        "tip": "It may indeed be a data issue — and either way the reviewer's conclusion is about whether the reporting can be relied on." },
+      { "fmt": "multi", "type": "multi", "difficulty": "medium", "tag": "S3 — A usable number",
+        "prompt": "What makes a number usable? Select all that apply.",
+        "options": ["Defined the same way by everyone, including subcontractors", "Traceable to the records it came from", "Covering everyone it should cover", "Reported on time", "Comparable against a previous period or a target"],
+        "correct": [0, 1, 2, 4],
+        "tip": "Timeliness is a reporting obligation. It says nothing about whether the number can be relied on." },
+      { "fmt": "multi", "type": "multi", "difficulty": "medium", "tag": "S5 — The families",
+        "prompt": "Which are indicator families a financed infrastructure project reports on? Select all that apply.",
+        "options": ["Occupational safety", "Environment", "Social and community", "Share price performance", "Labour", "Land and resettlement"],
+        "correct": [0, 1, 2, 4, 5],
+        "tip": "Share price is a corporate ESG concern, not a project E&S indicator. The five families do not change from project to project — the specific indicators do." },
+      { "fmt": "order", "type": "order", "difficulty": "medium", "tag": "S2 — The chain",
+        "prompt": "Put the chain in order.",
+        "items": ["The procedure", "The data", "The indicator", "The decision", "The assurance to the lenders"],
+        "tip": "On most projects the first three work and the fourth does not: reports go out on time, and nothing changes as a result." },
+      { "fmt": "cat", "type": "categorize", "difficulty": "medium", "tag": "S4 — Leading or lagging?",
+        "prompt": "Leading, or lagging?",
+        "categories": [{ "id": "lead", "label": "Leading" }, { "id": "lag", "label": "Lagging" }],
         "items": [
-          {
-            "text": "Near-misses reported",
-            "cat": "lead"
-          },
-          {
-            "text": "Safety training hours",
-            "cat": "lead"
-          },
-          {
-            "text": "Lost-time injuries",
-            "cat": "lag"
-          },
-          {
-            "text": "Number of spills",
-            "cat": "lag"
-          }
+          { "id": "ltifr", "text": "Lost time injury frequency rate", "cat": "lag" },
+          { "id": "inspections", "text": "Inspections completed against plan", "cat": "lead" },
+          { "id": "exceed", "text": "Effluent exceedances recorded", "cat": "lag" },
+          { "id": "inductions", "text": "Inductions delivered to new starters", "cat": "lead" },
+          { "id": "grievances", "text": "Grievances received", "cat": "lag" },
+          { "id": "closed", "text": "Action plan items closed on time", "cat": "lead" }
         ],
-        "hint": "Ask: does it happen BEFORE an incident (leading) or COUNT one that already happened (lagging)?",
-        "tip": "Leading indicators are things you do before an incident; lagging ones count what already happened."
-      },
-      {
-        "tag": "Review",
-        "prompt": "Lenders and the IESC review the reports against…",
-        "options": [
-          "The loan's ESG conditions and ESAP progress",
-          "The weather",
-          "Competitor prices",
-          "Staff holidays"
-        ],
-        "correct": 0,
-        "tip": "They check performance against the agreed conditions."
-      },
-      {
-        "tag": "Loop",
-        "prompt": "KPIs ultimately feed back into…",
-        "options": [
-          "The ESMS and financing decisions (continuous improvement)",
-          "Nothing",
-          "Only payroll",
-          "Marketing only"
-        ],
-        "correct": 0,
-        "tip": "KPIs close the loop back to Module 3 and the ESMS."
-      },
-      {
-        "type": "fillblank",
-        "tag": "Fill the blanks",
-        "prompt": "Complete the indicators sentence.",
-        "segments": [
-          {
-            "options": [
-              "Leading",
-              "Lagging"
-            ],
-            "correct": 0
-          },
-          " indicators act before an incident, while ",
-          {
-            "options": [
-              "lagging",
-              "leading"
-            ],
-            "correct": 0
-          },
-          " indicators count what has already happened."
-        ],
-        "hint": "Near-misses come before; injuries come after.",
-        "tip": "Leading indicators are proactive; lagging indicators look back at what happened."
-      },
-      {
-        "tag": "Solve it",
-        "image": "/images/lm8.jpg",
-        "difficulty": "hard",
-        "prompt": "SOLVE THE CASE: trucks pass this street daily. Traffic complaints were 2 in May, 5 in June, 9 in July — all answered on time. What is the KPI telling you?",
-        "options": [
-          "A worsening trend — act now, even though each complaint was handled",
-          "Nothing — every complaint was closed on time",
-          "Good news — people enjoy complaining",
-          "The data must be wrong"
-        ],
-        "correct": 0,
-        "hint": "Look at the direction of the numbers, not just each month's closure rate.",
-        "tip": "The TREND is the signal: 2→5→9 is a red flag even with perfect closure — fix the cause (speeds, routes, timings), not just the complaints."
-      },
-      {
-        "tag": "Solve it",
-        "image": "/images/lm4.jpg",
-        "difficulty": "medium",
-        "prompt": "SOLVE THE CASE: this crew reported 12 near-misses this month and zero injuries. The neighbouring crew reported zero of each. Who worries you more?",
-        "options": [
-          "The crew reporting nothing — silence usually means non-reporting, not safety",
-          "The crew with 12 near-misses — they're clearly dangerous",
-          "Neither — zero injuries is all that matters",
-          "Both equally"
-        ],
-        "correct": 0,
-        "hint": "A healthy reporting culture LOOKS worse on paper.",
-        "tip": "High near-miss reporting with no injuries = a crew that sees and reports risk. Zero-zero usually means nobody is reporting."
-      },
-      {
-        "type": "order",
-        "tag": "Puzzle",
-        "prompt": "Put the reporting chain in order — from site to lender.",
+        "tip": "Most projects discover they report almost entirely lagging indicators — every number describes something that already went wrong." },
+      { "fmt": "cat", "type": "categorize", "difficulty": "hard", "tag": "S6 — What the reviewer reads",
+        "prompt": "Does this figure read as PERFORMANCE — or as a WARNING SIGN?",
+        "categories": [{ "id": "perf", "label": "Performance" }, { "id": "warn", "label": "Warning sign" }],
         "items": [
-          "Site teams fill the daily forms",
-          "The ESG/HSE manager checks and compiles",
-          "The project director signs off",
-          "Lenders and the IESC review the report"
+          { "id": "rising", "text": "A rising near-miss count on a new section", "cat": "perf" },
+          { "id": "zerogriev", "text": "Zero grievances beside a host community", "cat": "warn" },
+          { "id": "allwithin", "text": "100% of monitoring results within limits, every month", "cat": "warn" },
+          { "id": "closedexc", "text": "An exceedance recorded, investigated and closed with evidence", "cat": "perf" },
+          { "id": "benchmark", "text": "An injury rate far below the sector benchmark", "cat": "warn" },
+          { "id": "feedback", "text": "38 of 41 grievances closed WITH recorded feedback to the complainant", "cat": "perf" }
         ],
-        "hint": "The number travels up: form → compiler → signature → reader.",
-        "tip": "Form → compile → sign → review: the same number travels the whole chain, so it must be right at the source."
-      },
-      {
-        "type": "fillblank",
-        "tag": "Fill the blanks",
-        "prompt": "Complete the LTIFR formula.",
-        "segments": [
-          "LTIFR = lost-time injuries × ",
-          {
-            "options": [
-              "1,000,000",
-              "100"
-            ],
-            "correct": 0
-          },
-          " ÷ ",
-          {
-            "options": [
-              "hours worked",
-              "number of workers"
-            ],
-            "correct": 0
-          },
-          "."
-        ],
-        "hint": "It's a rate per million hours, not per person.",
-        "tip": "LTIFR = lost-time injuries × 1,000,000 ÷ hours worked — size-adjusted so projects can be compared."
-      },
-      {
-        "type": "categorize",
-        "tag": "Puzzle",
-        "prompt": "Sort each number into the KPI family it belongs to.",
-        "categories": [
-          {
-            "id": "saf",
-            "label": "Safety"
-          },
-          {
-            "id": "soc",
-            "label": "Social"
-          }
-        ],
-        "items": [
-          {
-            "text": "LTIFR",
-            "cat": "saf"
-          },
-          {
-            "text": "Grievances closed on time",
-            "cat": "soc"
-          },
-          {
-            "text": "Toolbox talks held",
-            "cat": "saf"
-          },
-          {
-            "text": "Local employment %",
-            "cat": "soc"
-          }
-        ],
-        "hint": "Injuries and talks protect workers; grievances and hiring concern people around the project.",
-        "tip": "LTIFR and toolbox talks are safety KPIs; grievance closure and local employment are social KPIs."
-      },
-      {
-        "type": "diagramtap",
-        "tag": "Tap the diagram",
-        "prompt": "The reporting chain. Tap the link where the data is VERIFIED for the lenders.",
-        "boxes": [
-          "Site forms",
-          "ESG manager compiles",
-          "Director signs",
-          "IESC verifies"
-        ],
+        "tip": "A real project has bad numbers in it. Their presence is evidence the system detects; their absence is evidence it does not." },
+      { "fmt": "tap", "type": "diagramtap", "difficulty": "medium", "tag": "S6 — The report page",
+        "prompt": "Five elements on a monthly report page. Four are defects — tap the ONE that is correct as presented.",
+        "boxes": ["An injury rate whose hours exclude the labour supplier's workers", "A perfect monitoring series with no explanation offered", "A rate compared to last quarter after the denominator method changed", "A near-miss trend shown against last quarter, with the junction cluster named and an action attached", "A grievance count with no comparison to any period or target"],
         "correct": 3,
-        "hint": "Verification is independent — it doesn't happen inside the project.",
-        "tip": "The IESC independently verifies the reports on the lenders' behalf — the last link before the banks rely on the numbers."
-      },
-      {
-        "type": "connect",
-        "tag": "Link them",
-        "prompt": "Link each KPI to what it tells you.",
-        "pairs": [
-          {
-            "l": "LTIFR",
-            "r": "Lost-time injuries per million hours"
-          },
-          {
-            "l": "Near-misses reported",
-            "r": "Leading signal — eyes are open"
-          },
-          {
-            "l": "Grievances closed on time",
-            "r": "The mechanism is working"
-          },
-          {
-            "l": "Local employment %",
-            "r": "Community benefit from hiring"
-          }
-        ],
-        "hint": "One safety rate, one leading signal, two social measures.",
-        "tip": "LTIFR looks back, near-misses look forward, grievances and hiring measure the social side."
-      }
+        "hint": "Defined, sourced, complete, comparable — and acted on.",
+        "tip": "The near-miss trend is the chain working: data, indicator, comparison, decision. The other four each break one of the four properties." },
+      { "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — the perfect quarter",
+        "prompt": "Your dry-season quarter shows zero near misses across a fleet of 22 tippers on public roads. Last quarter there were nine. Your PM wants it highlighted as an achievement in the lender report.",
+        "options": ["Ask why before reporting it: check whether reporting collapsed after a driver was criticised, and say in the report what you checked and found", "Highlight it as requested — the number is the number", "Report it without comment", "Adjust last quarter's figure downward for consistency"],
+        "correct": 0,
+        "tip": "A falling near-miss count usually means reporting fell, not risk. A reviewer who sees a perfect number with no explanation forms a conclusion about the reporting rather than the performance." },
+      { "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — the changed denominator",
+        "prompt": "The injury rate improved 40% this quarter. Digging in, you find HR started including the labour supplier's hours in the denominator in April — the incidents counted did not change.",
+        "options": ["Report the rate with the method change stated, restate the prior quarter on the same basis, and fix the definition so it cannot silently change again", "Report the improvement — the new method is more complete", "Revert to the old denominator", "Report both numbers and let the reader choose"],
+        "correct": 0,
+        "tip": "The new basis is actually the right one — but an unexplained 'improvement' from a denominator change is exactly the kind of trend a reviewer dismantles in one question." },
+      { "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — the second version",
+        "prompt": "Ahead of the lender report, your director asks for 'a presentable version' of the indicator tables — the working set shows two exceedances and a rising grievance count.",
+        "options": ["Refuse the second version: send the honest set with the exceedances, their closure actions, and a note on what the grievance trend means", "Produce both versions and keep the working one internal", "Smooth the two exceedances into next month", "Delay the report until the numbers improve"],
+        "correct": 0,
+        "tip": "Two sets is the worst document position a project can hold — the existence of two versions is itself the finding, and no explanation survives it. Bad numbers, explained and acted on, are evidence the system works." }
     ]
   },
   "b1": {

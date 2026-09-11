@@ -27,33 +27,6 @@ export default function LibraryPage() {
         All the reference documents and templates, organised by module. Each module's documents unlock when you reach it in the pathway.
       </p>
 
-      {/* Out-of-pathway reference library — accessible to everyone, from any
-          module, never evaluated and never counted in progress. */}
-      <div className="mb-stack-lg overflow-hidden rounded-xl border border-outline-variant bg-surface-container-lowest">
-        <div className="flex items-center gap-3 border-b border-outline-variant bg-primary-container px-stack-md py-stack-sm">
-          <MaterialIcon name="menu_book" className="text-secondary-fixed" />
-          <div>
-            <p className="text-label-md font-bold text-white">The standards — reference library</p>
-            <p className="text-caption text-white/70">Always available · consult it from any module · not evaluated</p>
-          </div>
-        </div>
-        {[
-          { title: "The eight Performance Standards — reference sheets", icon: "menu_book", doc: "ps-reference" },
-          { title: "EP4 & the EHS Guidelines — how standards become binding numbers", icon: "gavel", doc: "ep4-ehs-reference" },
-          { title: "The chance find drill — five steps every operator knows (micro-module)", icon: "construction", doc: "b6-chance-find" },
-        ].map((d) => (
-          <Link
-            key={d.doc}
-            to={`/library/${d.doc}`}
-            className="flex items-center gap-3 border-b border-surface-container px-stack-md py-stack-sm transition-colors last:border-0 hover:bg-surface-container-low"
-          >
-            <MaterialIcon name={d.icon} className="text-outline" />
-            <span className="flex-1 text-body-md text-primary">{d.title}</span>
-            <MaterialIcon name="arrow_forward" className="text-outline" />
-          </Link>
-        ))}
-      </div>
-
       <div className="overflow-hidden rounded-xl border border-outline-variant bg-surface-container-lowest">
         {modules.map((m, idx) => {
           const docs = libraryByModule[m.id] ?? [];
@@ -94,7 +67,9 @@ export default function LibraryPage() {
                 {locked ? (
                   <span className="flex shrink-0 items-center gap-1 text-caption font-semibold text-outline">
                     <MaterialIcon name="lock" className="text-[16px]" />
-                    Complete {prev ? prev.code : "the previous module"}
+                    {(m.pathway || "A") === "A"
+                      ? `Complete ${prev ? prev.code : "the previous module"}`
+                      : "Complete Pathway A"}
                   </span>
                 ) : (
                   <>
@@ -162,6 +137,34 @@ export default function LibraryPage() {
             </div>
           );
         })}
+      </div>
+
+      {/* Out-of-pathway reference library — on its own, at the end. Always
+          available, consultable from any module, never evaluated and never
+          counted in progress. */}
+      <div className="mt-stack-lg overflow-hidden rounded-xl border border-outline-variant bg-surface-container-lowest">
+        <div className="flex items-center gap-3 border-b border-outline-variant bg-primary-container px-stack-md py-stack-sm">
+          <MaterialIcon name="menu_book" className="text-secondary-fixed" />
+          <div>
+            <p className="text-label-md font-bold text-white">The standards — reference library</p>
+            <p className="text-caption text-white/70">Always available · consult it from any module · not evaluated</p>
+          </div>
+        </div>
+        {[
+          { title: "The eight Performance Standards — reference sheets", icon: "menu_book", doc: "ps-reference" },
+          { title: "EP4 & the EHS Guidelines — how standards become binding numbers", icon: "gavel", doc: "ep4-ehs-reference" },
+          { title: "The chance find drill — five steps every operator knows (micro-module)", icon: "construction", doc: "b6-chance-find" },
+        ].map((d) => (
+          <Link
+            key={d.doc}
+            to={`/library/${d.doc}`}
+            className="flex items-center gap-3 border-b border-surface-container px-stack-md py-stack-sm transition-colors last:border-0 hover:bg-surface-container-low"
+          >
+            <MaterialIcon name={d.icon} className="text-outline" />
+            <span className="flex-1 text-body-md text-primary">{d.title}</span>
+            <MaterialIcon name="arrow_forward" className="text-outline" />
+          </Link>
+        ))}
       </div>
     </div>
   );
