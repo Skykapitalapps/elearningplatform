@@ -80,6 +80,32 @@ export default function CapstonePage() {
 
   const chosen = picked != null ? s.options[picked] : null;
 
+  // A simulation whose module is not on this learner's pathway (job role)
+  // is not theirs to take — even via a direct URL.
+  if (!module) {
+    return (
+      <div className="mx-auto max-w-[760px] px-margin-mobile py-stack-lg md:px-margin-desktop">
+        <div className="rounded-xl border border-outline-variant bg-surface-container-lowest p-stack-lg text-center">
+          <div className="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-full bg-surface-container-high text-outline">
+            <MaterialIcon name="assignment_ind" className="text-3xl" />
+          </div>
+          <h1 className="text-headline-md text-primary">Not part of your pathway</h1>
+          <p className="mx-auto mt-2 max-w-sm text-body-md text-on-surface-variant">
+            This simulation belongs to a module that isn't assigned to your role.
+            Your course only includes the modules shown on your syllabus.
+          </p>
+          <Link
+            to="/course"
+            className="mt-stack-lg inline-flex items-center justify-center gap-2 bg-primary px-8 py-3 text-label-md text-on-primary transition-transform hover:opacity-90 active:scale-95"
+          >
+            Go to my course
+            <MaterialIcon name="arrow_forward" className="text-[18px]" />
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
   if (locked) {
     return (
       <div className="mx-auto max-w-[760px] px-margin-mobile py-stack-lg md:px-margin-desktop">

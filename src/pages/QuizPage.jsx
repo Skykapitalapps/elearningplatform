@@ -267,12 +267,13 @@ export default function QuizPage() {
   const navigate = useNavigate();
   const { modules, completeModule, reviewer } = useCourse();
 
-  // The module this assessment belongs to: the URL's module, else the module
-  // currently in progress, else the next unfinished quiz module.
-  const target =
-    (moduleId && modules.find((m) => m.id === moduleId && m.type === "quiz")) ||
-    modules.find((m) => m.status === "in_progress" && m.type === "quiz") ||
-    modules.find((m) => m.status !== "completed" && m.type === "quiz");
+  // The module this assessment belongs to: the URL's module (which must be on
+  // the learner's assigned pathway — no silent fallback for a module they do
+  // not have), else the module in progress, else the next unfinished quiz.
+  const target = moduleId
+    ? modules.find((m) => m.id === moduleId && m.type === "quiz")
+    : modules.find((m) => m.status === "in_progress" && m.type === "quiz") ||
+      modules.find((m) => m.status !== "completed" && m.type === "quiz");
 
   const activeQuiz = target ? quizzes[target.id] : null;
   const questions = activeQuiz?.questions ?? [];
