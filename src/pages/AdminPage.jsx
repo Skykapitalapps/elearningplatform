@@ -384,7 +384,7 @@ function TabBtn({ active, icon, onClick, children }) {
 }
 
 /* ------------------------- PROJECT · PROGRESS ------------------------- */
-const TOTAL_MODULES = 6;
+const TOTAL_MODULES = 7;
 
 // Opens the print-ready certificate page (the user's approved mockup,
 // rendered by CertificatePrintPage) in a new tab — it auto-prints.

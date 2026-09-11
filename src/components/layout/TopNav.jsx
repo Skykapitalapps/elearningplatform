@@ -161,7 +161,7 @@ function HelpMenu() {
               ["menu_book", "Read the lesson", "Open a module and tick each section as you read it."],
               ["extension", "Play the practice games", "Puzzles and cards to make it stick — nothing is graded."],
               ["quiz", "Pass the quiz", "80% completes the module and unlocks the next one."],
-              ["workspace_premium", "Finish all 6 modules", "Your certificate appears in “My progress”."],
+              ["workspace_premium", "Finish all 7 modules", "Your certificate appears in “My progress”."],
             ].map(([ic, t, d]) => (
               <div key={t} className="flex items-start gap-3">
                 <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-surface-container-low">

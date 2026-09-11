@@ -229,6 +229,7 @@ export default function LessonPage() {
       </div>
 
       {/* The 3-step path — one order, enforced: read, then play, then quiz */}
+      {module.type !== "read" && (
       <div className="mb-stack-lg flex flex-col gap-2 rounded-xl border border-outline-variant bg-surface-container-lowest p-stack-md sm:flex-row sm:items-center">
         <a
           href="#lesson-notes"
@@ -295,6 +296,7 @@ export default function LessonPage() {
           </div>
         )}
       </div>
+      )}
 
       {/* Content grid */}
       <div className="grid grid-cols-12 gap-gutter">
@@ -615,7 +617,7 @@ export default function LessonPage() {
           <Discussion moduleId={module.id} accent={module.accent} />
 
           {/* Bottom CTA — finish the module without scrolling back up */}
-          {module.status !== "completed" && (
+          {module.status !== "completed" && module.type !== "read" && (
             <div className="mt-stack-lg rounded-xl bg-gradient-to-r from-primary-container to-[#1c3a63] p-stack-lg text-center text-white">
               <span className="rounded-full bg-white/15 px-3 py-1 text-caption font-bold uppercase tracking-widest text-secondary-fixed">Step 3</span>
               <p className="mt-2 text-headline-md">{module.type === "capstone" ? "Run the simulation" : "Take the quiz"}</p>

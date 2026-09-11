@@ -325,10 +325,36 @@ export const modules = [
     ],
   },
   {
-    id: "m2",
+    id: "std",
     code: "M2",
     order: 2,
-    title: "The rulebooks",
+    title: "The Standards",
+    type: "read",
+    duration: "In preparation",
+    status: "not_started",
+    icon: "menu_book",
+    summary: "The IFC Performance Standards and the EHS Guidelines, one by one — module in preparation.",
+    tldr: "This module will walk through the standards themselves — PS1 to PS8 and the EHS Guidelines — one by one, with what each requires on a real site. The full content is being prepared; mark this page as read to continue your pathway in the meantime.",
+    glossary: [],
+    overview:
+      "Module 1 introduced the system: four tiers of rules, with the IFC Performance Standards at the centre. This module opens the standards themselves — what PS1 to PS8 each require, and how the EHS Guidelines set the numbers. The full content is being prepared and will appear here shortly.",
+    lesson: [
+      {
+        heading: "This module is in preparation",
+        body: "The Standards will cover, one by one: PS1 (assessment and management systems), PS2 (labour and working conditions), PS3 (resource efficiency and pollution prevention), PS4 (community health, safety and security), PS5 (land acquisition and involuntary resettlement), PS6 (biodiversity), PS7 (Indigenous Peoples), PS8 (cultural heritage) — and the World Bank Group EHS Guidelines that put numbers behind them. Until the content is published, press 'Mark as read & complete' in the sidebar to continue to the next module.",
+      },
+    ],
+    objectives: [
+      "Name the eight IFC Performance Standards and what each one governs.",
+      "Explain how the EHS Guidelines complement the Performance Standards with numeric limits.",
+    ],
+    activities: [],
+  },
+  {
+    id: "m2",
+    code: "M3",
+    order: 3,
+    title: "Rulebook",
     type: "quiz",
     duration: "25–30 min",
     status: "not_started",
@@ -577,9 +603,9 @@ export const modules = [
   },
   {
     id: "m3",
-    code: "M3",
-    order: 3,
-    title: "ESG and the financing",
+    code: "M4",
+    order: 4,
+    title: "ESG & The Financing",
     type: "quiz",
     duration: "13–15 min",
     status: "not_started",
@@ -792,8 +818,8 @@ export const modules = [
   },
   {
     id: "m4",
-    code: "M4",
-    order: 4,
+    code: "M5",
+    order: 5,
     title: "The ESMS",
     type: "quiz",
     duration: "12–14 min",
@@ -1018,9 +1044,9 @@ export const modules = [
   },
   {
     id: "m5",
-    code: "M5",
-    order: 5,
-    title: "KPIs and reporting",
+    code: "M6",
+    order: 6,
+    title: "KPIs & Reporting",
     type: "quiz",
     duration: "10–12 min",
     status: "not_started",
@@ -1228,8 +1254,8 @@ export const modules = [
   },
   {
     id: "m6",
-    code: "M6",
-    order: 6,
+    code: "M7",
+    order: 7,
     title: "Capstone: the full ESG simulation",
     type: "capstone",
     duration: "10–15 min",
@@ -1275,6 +1301,7 @@ export const modules = [
 // bars, lesson banners and card headers so each module is recognisable.
 export const moduleAccents = {
   m1: "#06b6d4", // cyan — ESG in construction
+  std: "#0ea5e9", // sky — the standards
   m2: "#f59e0b", // amber — regulatory framework
   m3: "#10b981", // emerald — financing
   m4: "#a855f7", // purple — the ESMS
@@ -1286,6 +1313,7 @@ export const moduleAccents = {
 // Unsplash). Files live in /public/images and are served from the site root.
 export const moduleImages = {
   m1: "/images/lm4.jpg", // managed construction site, work crew
+  std: "/images/lm11.jpg", // standards in the field
   m2: "/images/lm5.jpg", // modern public/civic building (regulation)
   m3: "/images/lm2.jpg", // financial district (the financing)
   m4: "/images/lm3.jpg", // workers in PPE on site (ESMS in practice)

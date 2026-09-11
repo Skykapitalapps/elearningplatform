@@ -42,7 +42,7 @@ export default function DashboardPage() {
               <MaterialIcon name="school" fill className="text-5xl text-secondary-fixed" />
               <h2 className="mt-2 text-headline-md">Welcome to your ESG pathway</h2>
               <p className="mt-1 text-body-md text-white/80">
-                6 modules · games &amp; quizzes · one certificate
+                7 modules · games &amp; quizzes · one certificate
               </p>
             </div>
             <div className="space-y-3 p-stack-lg text-left">
@@ -216,7 +216,9 @@ export default function DashboardPage() {
                           m.score ? ` · ${m.score.earned}/${m.score.total} pts` : ""
                         }`
                       : unlocked
-                      ? `${m.duration} · Lesson → Practice games → Quiz`
+                      ? m.type === "read"
+                        ? m.duration
+                        : `${m.duration} · Lesson → Practice games → Quiz`
                       : "Finish the previous module to unlock"}
                   </span>
                 </span>
