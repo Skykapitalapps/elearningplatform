@@ -329,26 +329,198 @@ export const modules = [
     code: "M2",
     order: 2,
     title: "The Standards",
-    type: "read",
-    duration: "In preparation",
+    type: "quiz",
+    duration: "25–30 min",
     status: "not_started",
+    score: { earned: 0, total: 20 },
     icon: "menu_book",
-    summary: "The IFC Performance Standards and the EHS Guidelines, one by one — module in preparation.",
-    tldr: "This module will walk through the standards themselves — PS1 to PS8 and the EHS Guidelines — one by one, with what each requires on a real site. The full content is being prepared; mark this page as read to continue your pathway in the meantime.",
-    glossary: [],
+    summary: "PS1 to PS8, the Equator Principles and the EHS Guidelines — what each one actually requires.",
+    video: { id: "xd9KRup3zaY", title: "IFC Performance Standards on Environmental & Social Sustainability" },
+    tldr: "Ten instruments run your project: the eight IFC Performance Standards (what must be achieved), the Equator Principles (how banks make them contractually binding), and the EHS Guidelines (the actual numbers you are measured against). This module walks through each one — what it requires, what it triggers on site, and what competent people get wrong about it.",
+    glossary: [
+      { term: "PS1–PS8", plain: "The eight IFC Performance Standards — the international benchmark for managing E&S risk. PS1 organises; PS2–PS8 each govern one risk area." },
+      { term: "Area of influence", plain: "Everything the project touches — not just the site: associated facilities, ancillary works, and the induced development that follows a new road." },
+      { term: "Habitat classification", plain: "PS6 sorts all habitat into modified, natural or critical — requirements get stricter across that gradient, up to conditions a project may be unable to meet." },
+      { term: "Critical habitat", plain: "The most sensitive category under PS6 — a project may only proceed if a demanding set of conditions is ALL met, aiming at a net GAIN for biodiversity." },
+      { term: "FPIC", plain: "Free, Prior and Informed Consent — required under PS7 in three defined circumstances. A process, not a signature." },
+      { term: "Chance find procedure", plain: "The PS8 control for heritage nobody had recorded: who stops the work, who is called, and who decides when it resumes. Invoked by a grader, not by a specialist." },
+      { term: "EP4 Principle 3", plain: "The provision that decides which standards apply. All of Sub-Saharan Africa is Non-Designated: national law + Performance Standards + EHS Guidelines." },
+      { term: "EHS Guidelines", plain: "The World Bank Group's technical reference that supplies the NUMBERS — emission limits, effluent quality, noise levels, exposure limits. Contractually binding through the loan." },
+    ],
     overview:
-      "Module 1 introduced the system: four tiers of rules, with the IFC Performance Standards at the centre. This module opens the standards themselves — what PS1 to PS8 each require, and how the EHS Guidelines set the numbers. The full content is being prepared and will appear here shortly.",
+      "Module 1 showed the system; this module opens the instruments themselves. The eight Performance Standards set the outcomes: PS1 builds the management system, PS2 protects every worker however engaged, PS3 governs pollution and resources, PS4 protects the community, PS5 governs land and displacement, PS6 biodiversity, PS7 Indigenous Peoples, PS8 cultural heritage. The Equator Principles make them contractually binding on bank-financed projects, and the EHS Guidelines supply the numeric levels everything is measured against. For each: what it requires, what it triggers on a real site, and the misreadings that produce findings.",
     lesson: [
       {
-        heading: "This module is in preparation",
-        body: "The Standards will cover, one by one: PS1 (assessment and management systems), PS2 (labour and working conditions), PS3 (resource efficiency and pollution prevention), PS4 (community health, safety and security), PS5 (land acquisition and involuntary resettlement), PS6 (biodiversity), PS7 (Indigenous Peoples), PS8 (cultural heritage) — and the World Bank Group EHS Guidelines that put numbers behind them. Until the content is published, press 'Mark as read & complete' in the sidebar to continue to the next module.",
+        heading: "Ten instruments, one system",
+        body: "Before reading any standard, establish which framework governs YOUR financing: commercial banks under the Equator Principles → national law + the IFC Performance Standards + the EHS Guidelines (the position across Sub-Saharan Africa); the IFC or an aligned DFI → the PS and EHS Guidelines directly; the World Bank lending to a government → its own ESF with ten ESS standards, broadly parallel but differently numbered; the African Development Bank → its Integrated Safeguards System, ten Operational Safeguards. And the rule that governs all of them: national law always applies and is never displaced — where a standard and national law differ, the MORE STRINGENT governs.",
+        image: "/images/lm5.jpg",
+        caption: "Whatever the lender, the more stringent requirement governs — always.",
+      },
+      {
+        heading: "PS1 — Assessment and management: the standard that organises all the others",
+        body: "PS1 requires you to find out what your project will do to people and the environment, decide what you will do about it, build an organisation capable of delivering that, and talk honestly to the people affected throughout. It applies to EVERY project — the other seven apply where their risk is present; PS1 establishes whether it is present.",
+        points: [
+          "An ESMS with seven elements: policy, risk identification, management programmes, capacity & competency, emergency preparedness, stakeholder engagement, monitoring & review.",
+          "Risks identified across the AREA OF INFLUENCE — associated facilities, cumulative impacts, induced development, and impacts on vulnerable groups.",
+          "The mitigation hierarchy applied in order — the conceptual backbone of the whole framework.",
+          "Named, resourced, competent people — an E&S manager with no budget and no authority is itself a non-conformity.",
+          "Third parties managed and monitored to the project's own commitments.",
+          "Engagement as a process for the whole project life — a public hearing is a disclosure EVENT, not engagement.",
+          "Misreading to avoid: PS1 is not a documentation requirement — capacity findings are among the hardest to close because they are about people and authority, not paper.",
+        ],
+        image: "/images/esg-governance.jpg",
+        caption: "PS1 asks one question: can this organisation actually deliver?",
+      },
+      {
+        heading: "PS2 — Labour: everyone working on the project, however they were engaged",
+        body: "PS2 governs how the project treats the people who build it — including the people it did not hire. Scope is defined by the relationship to the project, not by who signed the contract: direct workers, contracted workers, primary supply chain workers, migrants.",
+        points: [
+          "Written terms in a language the worker understands; wages, hours and deductions compliant with law and stated terms.",
+          "Accommodation to the IFC/EBRD standard where the project houses workers.",
+          "Freedom of association; non-discrimination; retrenchment as a managed process with everything owed paid on time.",
+          "A worker grievance mechanism — without retaliation, reaching contracted workers, separate from the community channel.",
+          "No child labour — and a stricter rule: no HAZARDOUS work by anyone under eighteen. On a construction site almost all work is hazardous, so the operative threshold is eighteen, whatever the national minimum age.",
+          "No forced labour: withheld documents, debt bondage, trafficked persons.",
+          "Misreading to avoid: a supplier's written assurance is not verification — it is a document showing you asked and did not check, which is worse than nothing.",
+        ],
+        image: "/images/esg-social.jpg",
+        caption: "Payslips, age records and grievance access — for the labour supplier's workers too.",
+      },
+      {
+        heading: "PS3 — Pollution and resources: what the project puts into air, water and ground",
+        points: [
+          "Pollution prevention meeting the performance levels of the EHS Guidelines — or the national standard where IT is more stringent.",
+          "Resource efficiency in energy, water and materials — especially where water is scarce.",
+          "Greenhouse gases quantified where the project exceeds 25,000 tonnes CO2-equivalent per year — which a large road programme usually does.",
+          "Waste: avoid, then reduce/reuse/recycle, then licensed disposal — hazardous waste segregated, with a manifest trail.",
+          "Hazardous materials: bunded storage, spill prevention and response.",
+          "On site this means: dust suppression, silt fences and settlement ponds, concrete washout containment, noise limits by receptor and time of day — and borrow pit CLOSURE designed before extraction starts, because a pit designed for maximum yield cannot be safely closed at any price.",
+        ],
+        image: "/images/lm11.jpg",
+        caption: "PS3 turns into a dozen daily site controls — each with a number behind it.",
+      },
+      {
+        heading: "PS4 — Community: the people who did not choose to be near your project",
+        points: [
+          "Infrastructure and equipment safety as communities experience it — during construction, operation and decommissioning.",
+          "The dominant risk on a road project: THE HAULAGE FLEET ON PUBLIC ROADS, kilometres from any site — hence the traffic management plan: routing, speed, overtaking and school-hour restrictions, driver rotation.",
+          "Community exposure to disease — communicable disease with a non-local workforce, vector-borne disease from standing water the works create.",
+          "Labour influx: a predictable, assessable, manageable impact — prices, water, health facilities, local hiring expectations.",
+          "Emergency preparedness coordinated with local authorities and COMMUNICATED to the community.",
+          "Security personnel: risks assessed, proportionality, screening for past abuses, training in use of force, a community channel — with the Voluntary Principles as the reference when public forces protect the project. A guard is simultaneously a worker under PS2 and a risk under PS4.",
+        ],
+        image: "/images/lm9.jpg",
+        caption: "The deadliest risk is not inside the fence — it is the truck passing the school.",
+      },
+      {
+        heading: "PS5 — Land and resettlement: the standard that stops more projects than any other",
+        body: "PS5 governs what happens when a project takes land or restricts its use, and someone loses a home, an asset, access or an income. It applies to physical AND economic displacement — not limited to expropriation, not limited to the main alignment, and not avoided by a signed agreement where the state could expropriate anyway.",
+        points: [
+          "Avoidance first: alternative designs explored and documented before displacement is accepted — a small alignment change is the cheapest resettlement measure available.",
+          "Compensation at FULL REPLACEMENT COST — no deduction for depreciation, transaction costs included.",
+          "Possession only AFTER compensation is available — the ONE requirement that cannot be cured retrospectively.",
+          "Three eligibility categories: formal rights; claims recognisable under national law (customary included); and NO recognisable claim — the third is compensated for structures and assisted, though not for the land itself.",
+          "A cut-off date, established and COMMUNICATED. A resettlement instrument: RAP (physical), LRP (economic), or a framework where the footprint is unknown.",
+          "Livelihoods RESTORED against a baseline — land-for-land preferred where land is the livelihood; payment direct to the affected person, never to a committee.",
+          "Misreading to avoid: agreement does not convert a shortfall into compliance — a negotiated figure below replacement cost is still a finding.",
+        ],
+        image: "/images/esg-social.jpg",
+        caption: "Economic displacement is the most under-counted impact on almost every corridor.",
+      },
+      {
+        heading: "PS6 — Biodiversity: the standard that can stop a project outright",
+        points: [
+          "All habitat classified: MODIFIED, NATURAL or CRITICAL — requirements get progressively stricter.",
+          "Natural habitat: proceed only where no feasible alternative, mitigating to NO NET LOSS where feasible.",
+          "Critical habitat: a demanding set of conditions must ALL be met, and the outcome sought is a net GAIN. Criteria include highly threatened ecosystems, habitat of endangered species, endemic species, migratory concentrations.",
+          "Legally protected areas carry additional requirements; invasive species must not be introduced — clean the plant, inspect imported fill.",
+          "Screening BEFORE clearance: desk screening then seasonal field survey — one dry-season pass will not detect what matters.",
+          "Misreadings to avoid: a national clearance does not settle biodiversity (critical habitat may be unscreened); an offset cannot substitute for feasible avoidance; and cash to a conservation body is NOT an offset — an offset is a measurable biodiversity outcome.",
+        ],
+        image: "/images/esg-environment.jpg",
+        caption: "No net loss and net gain are measurable claims — they cannot be asserted, only demonstrated.",
+      },
+      {
+        heading: "PS7 — Indigenous Peoples: the standard with a consent requirement",
+        body: "PS7 applies where affected communities meet the standard's CHARACTERISTICS — self-identification and recognition by others, collective attachment to distinct territories, customary institutions, distinct language — NOT the terminology of national law. Several jurisdictions do not use the term; that does not determine whether PS7 is engaged.",
+        points: [
+          "Baseline: Informed Consultation and Participation for the whole project life.",
+          "Free, Prior and Informed Consent (FPIC) in THREE circumstances: impacts on lands under traditional ownership or customary use; relocation from such lands; significant impacts on critical cultural heritage.",
+          "FPIC is a PROCESS — a signature from an individual leader is not consent by a community.",
+          "The screening determination is itself the deliverable: a project that never screened cannot demonstrate that PS7 does not apply.",
+        ],
+        image: "/images/course-hero.jpg",
+        caption: "Applicability turns on characteristics, not vocabulary.",
+      },
+      {
+        heading: "PS8 — Cultural heritage: invoked by a grader, not by a specialist",
+        points: [
+          "Tangible AND intangible heritage protected — routes, practices, ceremonies and uses of a place are in scope, even when they appear on no map.",
+          "The CHANCE FIND PROCEDURE is the operative control on a linear project: written in the operator's language, part of induction, and it STOPS THE WORK. The test is whether the grader driver knows what to do in the first five minutes after exposing a burial.",
+          "Consultation with communities who use, or used within living memory, the heritage in question.",
+          "Critical cultural heritage carries stricter requirements — a project may be unable to proceed.",
+          "Misreading to avoid: national antiquities law protects DECLARED monuments; PS8 exists precisely for what was never declared.",
+        ],
+        image: "/images/lm13.jpg",
+        caption: "A chance find is first an operational question: who stops, who calls, who decides.",
+      },
+      {
+        heading: "The Equator Principles — how the standards reach commercial bank money",
+        body: "EP4 is voluntary FOR THE BANK — and contractual FOR THE BORROWER: once the facility agreement incorporates it, breach carries financial consequence. The ten principles run from categorisation (most major infrastructure is Category A) through assessment, applicable standards (Principle 3 — the keystone: all of Sub-Saharan Africa is Non-Designated), the ESMS and Action Plan (where your ESAP comes from), engagement and grievance, independent review before financial close, covenants, independent monitoring for the life of the loan (the IESC — appointed by and reporting to the LENDERS, not there to help you pass), and public reporting.",
+        points: [
+          "What it triggers: conditions precedent before first disbursement; an ESAP with named owners and deadlines; an IESC that returns throughout construction; public disclosure of documents you may consider internal; and a direct link between E&S performance and the release of money.",
+        ],
+        image: "/images/lm2.jpg",
+        caption: "Adoption is voluntary for the bank. Application is contractual for you.",
+      },
+      {
+        heading: "The EHS Guidelines — the numbers everything is measured against",
+        body: "The Performance Standards set OUTCOMES; the EHS Guidelines set the LEVELS: emission limits, effluent quality, noise by receptor type and time of day, occupational exposure. Without them most of the framework cannot be measured. Structure: the General Guidelines in four sections — environmental; occupational health & safety; community health & safety; and CONSTRUCTION AND DECOMMISSIONING, the section most relevant to civil works and the one most often overlooked — plus sector guidelines (Toll Roads for road projects; quarrying, concrete and asphalt where relevant).",
+        points: [
+          "The applicability rule: where national regulations differ, achieve WHICHEVER IS MORE STRINGENT — compared parameter by parameter, never document by document.",
+          "A less stringent level needs a full, documented, health-based justification — the route exists and it is not a way around inconvenience.",
+          "On site: a monitoring programme taking the stricter of each parameter, and a written parameter-by-parameter comparison on file — what converts a defensible position into a demonstrable one.",
+          "Misreading to avoid: 'guidelines are guidance' — the financing agreement makes them binding, and the IESC measures against them.",
+        ],
+        image: "/images/lm8.jpg",
+        caption: "PS3 requires prevention; the Guidelines say what concentration is acceptable at the boundary.",
       },
     ],
     objectives: [
-      "Name the eight IFC Performance Standards and what each one governs.",
-      "Explain how the EHS Guidelines complement the Performance Standards with numeric limits.",
+      "Name the eight Performance Standards and state what each one governs, in one line.",
+      "Explain why PS1 applies to every project and what its seven ESMS elements are.",
+      "State the three FPIC circumstances (PS7) and the three eligibility categories (PS5).",
+      "Explain how the Equator Principles make the standards contractually binding, and the role of the IESC.",
+      "Apply the EHS Guidelines rule: parameter by parameter, the more stringent governs.",
     ],
-    activities: [],
+    activities: [
+      {
+        type: "match",
+        title: "Match each standard to what it governs",
+        prompt: "Pair each Performance Standard with its subject.",
+        pairs: [
+          { l: "PS1", r: "Assessment & the management system" },
+          { l: "PS2", r: "Labour & working conditions" },
+          { l: "PS3", r: "Pollution & resource efficiency" },
+          { l: "PS4", r: "Community health, safety & security" },
+          { l: "PS5", r: "Land acquisition & resettlement" },
+          { l: "PS6", r: "Biodiversity & living resources" },
+        ],
+      },
+      {
+        type: "swipe",
+        title: "Myth or fact? — the standards",
+        prompt: "Call each statement: myth or fact?",
+        cards: [
+          { text: "The EHS Guidelines are only advisory.", truth: false, tip: "Myth — the financing agreement makes them binding, and the IESC measures against them." },
+          { text: "PS1 applies to every project, whatever its size.", truth: true, tip: "Fact — PS1 is the standard that establishes whether the other seven are engaged." },
+          { text: "On a construction site, the working-age threshold that matters is eighteen.", truth: true, tip: "Fact — almost all site work is hazardous work, and PS2 prohibits hazardous work under eighteen." },
+          { text: "Cash paid to a conservation NGO counts as a biodiversity offset.", truth: false, tip: "Myth — an offset is a measurable biodiversity outcome, not a payment." },
+          { text: "FPIC means collecting a signature from the community leader.", truth: false, tip: "Myth — FPIC is a process, and one leader's signature is not a community's consent." },
+          { text: "A guard at the gate falls under PS2 AND PS4 at the same time.", truth: true, tip: "Fact — a worker owed duties under PS2, and a potential risk to the community under PS4." },
+        ],
+      },
+    ],
   },
   {
     id: "m2",
@@ -1370,6 +1542,10 @@ export const libraryByModule = {
     { title: "E, S and G on site — the field guide", icon: "description", doc: "esg-impacts-guide" },
     { title: "The mitigation hierarchy & the chain of obligation", icon: "sticky_note_2", doc: "mitigation-hierarchy" },
   ],
+  std: [
+    { title: "The eight Performance Standards — reference sheets", icon: "menu_book", doc: "ps-reference" },
+    { title: "EP4 & the EHS Guidelines — how standards become binding numbers", icon: "gavel", doc: "ep4-ehs-reference" },
+  ],
   m2: [
     { title: "The four rulebooks & the more-stringent test", icon: "menu_book", doc: "ifc-equator-reference" },
     { title: "Jurisdiction file: Nigeria — law vs lender standards", icon: "gavel", doc: "nigeria-legal" },
@@ -2187,6 +2363,155 @@ export const documents = {
       },
     ],
     relatedModules: ["m2"],
+  },
+
+  "ps-reference": {
+    title: "The eight Performance Standards — reference sheets",
+    org: "Module 2 · reading 1 of 2",
+    accent: "#0ea5e9",
+    image: "/images/lm5.jpg",
+    intro:
+      "One sheet per standard: what it is about in one line, when it applies, what it actually requires, and the misreading that most often produces a finding. These are plain-language restatements — in any submission, cite the primary text.",
+    sections: [
+      {
+        title: "PS1 — Assessment and Management of E&S Risks and Impacts",
+        body: "The standard that organises all the others: find out what your project will do to people and the environment, decide what you will do about it, build an organisation capable of delivering it, and talk honestly to the people affected throughout. Applies to EVERY project — the other seven apply where their risk is present; PS1 establishes whether it is present.",
+        points: [
+          "An ESMS with seven elements: policy; risk identification; management programmes; capacity and competency; emergency preparedness; stakeholder engagement; monitoring and review.",
+          "Risks identified across the area of influence: associated facilities, cumulative impacts, induced development, vulnerable groups.",
+          "The mitigation hierarchy, applied in order — the backbone of the whole framework.",
+          "Third parties managed and monitored to the project's own commitments.",
+          "A community grievance mechanism, and engagement as a process for the whole project life.",
+          "Misreading: 'PS1 is paperwork.' Capacity findings are the hardest to close — they are about people and authority, not documents.",
+        ],
+      },
+      {
+        title: "PS2 — Labor and Working Conditions",
+        body: "How the project treats the people who build it — including the people it did not hire. Scope follows the relationship to the PROJECT: direct workers, contracted workers, primary supply chain, migrants.",
+        points: [
+          "Written terms in a language the worker understands; lawful wages, hours and deductions.",
+          "Accommodation to the IFC/EBRD note where the project houses workers; freedom of association; non-discrimination; managed retrenchment.",
+          "A worker grievance mechanism without retaliation, reaching contracted workers.",
+          "No child labour — and NO HAZARDOUS WORK under eighteen, which on a site is the operative threshold whatever national law says.",
+          "No forced labour: withheld documents, debt bondage, recruitment fees.",
+          "Misreading: 'the supplier gave written assurance.' That shows you asked and did not check — verify ages and terms yourself, third parties included.",
+        ],
+      },
+      {
+        title: "PS3 — Resource Efficiency and Pollution Prevention",
+        body: "Emissions, effluent, waste, hazardous materials, resource use and greenhouse gases — with the numeric levels supplied by the EHS Guidelines, or the national standard where stricter.",
+        points: [
+          "GHG quantified above 25,000 tCO2e per year — a large road programme usually crosses it.",
+          "Waste: avoid → reduce/reuse/recycle → treat → licensed disposal, hazardous waste segregated with a manifest trail.",
+          "Bunded fuel storage, spill kits, concrete washout containment, dust suppression, silt control through the wet season.",
+          "Borrow pit closure is a DESIGN decision taken before extraction starts — a pit designed for maximum yield cannot be safely closed at any price.",
+          "Misreading: 'a national limit closes the question.' Compare parameter by parameter; the more stringent governs each one separately.",
+        ],
+      },
+      {
+        title: "PS4 — Community Health, Safety, and Security",
+        body: "The risks the project creates for the people living alongside it, and the conduct of anyone guarding it. On a road corridor: continuously, along the entire length.",
+        points: [
+          "The dominant risk is haulage on public roads — the traffic management plan is the control that saves lives.",
+          "Disease exposure: communicable disease with a non-local workforce; vector-borne disease from standing water the works create.",
+          "Labour influx assessed and managed: prices, water, health facilities, hiring expectations.",
+          "Emergency response coordinated with authorities and communicated to the community.",
+          "Security: risks assessed, personnel screened and trained, a community channel — Voluntary Principles where public forces are deployed.",
+          "Misreading: 'community safety is about the site boundary.' The greatest risk is kilometres from any site.",
+        ],
+      },
+      {
+        title: "PS5 — Land Acquisition and Involuntary Resettlement",
+        body: "What happens when a project takes land or restricts its use and someone loses a home, an asset, access or an income. Physical AND economic displacement — the most under-counted impact on almost every corridor.",
+        points: [
+          "Avoidance first: alternative designs documented before displacement is accepted.",
+          "Full replacement cost — no depreciation, transaction costs included; payment direct to the person, never to a committee.",
+          "Possession only AFTER compensation is available — the one requirement that cannot be cured retrospectively.",
+          "Three eligibility categories, including occupants with NO recognisable claim; a communicated cut-off date.",
+          "A RAP or LRP with budget and timetable; livelihoods restored against a baseline; a completion audit.",
+          "Misreading: 'the household agreed, so it is compliant.' Agreement does not convert a shortfall into compliance.",
+        ],
+      },
+      {
+        title: "PS6 — Biodiversity Conservation",
+        body: "Habitats, species, ecosystem services and living natural resources — the standard that can stop a project outright in the most sensitive areas.",
+        points: [
+          "Habitat classified modified / natural / critical, with progressively stricter requirements.",
+          "Natural habitat: no feasible alternative + no net loss where feasible. Critical habitat: ALL conditions met + net gain.",
+          "Screening BEFORE clearance — desk sources then seasonal field survey; one dry-season pass misses what matters.",
+          "No invasive species: clean plant, inspect imported fill; wildlife crossings where the alignment severs a corridor.",
+          "Misreading: 'cash to a conservation body is an offset.' An offset is a measurable outcome — and never a substitute for feasible avoidance.",
+        ],
+      },
+      {
+        title: "PS7 — Indigenous Peoples",
+        body: "Applies where communities meet the standard's CHARACTERISTICS — self-identification, collective attachment to distinct territories, customary institutions, distinct language — regardless of the vocabulary of national law.",
+        points: [
+          "Baseline: Informed Consultation and Participation across the project life.",
+          "Free, Prior and Informed CONSENT in three circumstances: impacts on lands under traditional ownership or customary use; relocation from such lands; significant impacts on critical cultural heritage.",
+          "FPIC is a process — one leader's signature is not a community's consent.",
+          "The documented screening IS the deliverable: without it a project cannot demonstrate PS7 does not apply.",
+        ],
+      },
+      {
+        title: "PS8 — Cultural Heritage",
+        body: "Tangible and intangible heritage — including routes, practices and uses of a place that appear on no map — and the procedure for what a grader uncovers.",
+        points: [
+          "The chance find procedure is the operative control: in the operator's language, part of induction, and it STOPS the work.",
+          "The test: does the grader driver know what to do in the first five minutes after exposing a burial? Who stops, who is called, who decides when work resumes.",
+          "Consultation with communities who use, or used within living memory, the heritage in question.",
+          "Misreading: 'national antiquities law covers it.' National regimes protect what is DECLARED; PS8 exists for what was never recorded.",
+        ],
+      },
+    ],
+    relatedModules: ["std"],
+  },
+
+  "ep4-ehs-reference": {
+    title: "EP4 & the EHS Guidelines — how standards become binding numbers",
+    org: "Module 2 · reading 2 of 2",
+    accent: "#0ea5e9",
+    image: "/images/lm2.jpg",
+    intro:
+      "Two instruments complete the system: the Equator Principles, which make the Performance Standards contractually binding on bank-financed projects, and the EHS Guidelines, which supply the numeric levels everything is measured against.",
+    sections: [
+      {
+        title: "Which framework governs YOUR financing",
+        points: [
+          "Commercial banks under the Equator Principles → national law + IFC Performance Standards + EHS Guidelines (the position across Sub-Saharan Africa).",
+          "The IFC or an aligned DFI → the Performance Standards and EHS Guidelines directly.",
+          "The World Bank lending to a government → the ESF and its ten ESS standards — broadly parallel, differently numbered (ESS5 ≈ PS5).",
+          "The African Development Bank → the updated ISS, ten Operational Safeguards (effective 31 May 2024); on co-financed projects both may apply and the more stringent governs.",
+          "Export credit agencies → usually the OECD Common Approaches, which point back to the Performance Standards.",
+          "The rule above all of them: national law always applies and is never displaced — the more stringent requirement governs.",
+        ],
+      },
+      {
+        title: "EP4 — voluntary for the bank, contractual for you",
+        body: "EP4 is a voluntary framework adopted by financial institutions — no regulator enforces it. But once the facility agreement incorporates it, it binds the borrower like any other contractual term, and breach carries financial consequence.",
+        points: [
+          "P1 Categorisation: A, B or C by magnitude of risk — most major infrastructure is Category A.",
+          "P2 Assessment proportionate to risk, now including climate risk. P3 Applicable standards: all of Sub-Saharan Africa is Non-Designated.",
+          "P4 ESMS + Action Plan — where your ESAP comes from. P5 ongoing engagement; P6 community grievance mechanism.",
+          "P7 independent review before financial close; P8 covenants; P9 independent monitoring for the life of the loan (the IESC); P10 public reporting.",
+          "What it triggers: conditions precedent before first disbursement, an ESAP with owners and deadlines, an IESC reporting to the LENDERS, and a direct link between E&S performance and the release of money.",
+          "Misreading: 'the IESC is there to help us pass.' Their function is to give lenders an accurate picture.",
+        ],
+      },
+      {
+        title: "The EHS Guidelines — the numbers",
+        body: "The Performance Standards set outcomes; the EHS Guidelines set the LEVELS: emission limits, effluent quality, noise by receptor and time of day, occupational exposure limits. Without them, most of the framework cannot be measured.",
+        points: [
+          "Structure: General Guidelines in four sections — environmental; occupational H&S; community H&S; and CONSTRUCTION & DECOMMISSIONING, the most relevant to civil works and the most overlooked.",
+          "Sector guidelines: Toll Roads for road projects; quarrying, concrete and asphalt where those components exist.",
+          "The applicability rule: where national regulations differ, achieve whichever is MORE STRINGENT — parameter by parameter, never document by document.",
+          "A less stringent level requires a full, documented, health-based justification — a demanding route, not an escape hatch.",
+          "Keep the written parameter-by-parameter comparison on file: it is what converts a defensible position into a demonstrable one.",
+          "Misreading: 'guidelines are guidance.' The financing agreement makes them binding, and the IESC measures against them.",
+        ],
+      },
+    ],
+    relatedModules: ["std"],
   },
 
   "loan-esg-conditions": {
@@ -3014,6 +3339,167 @@ export const quizzes = {
         ],
         "correct": 0,
         "tip": "PS2 extends to workers engaged by third parties — the finding lands on the project regardless of who signed the contract. Withheld identity documents are a forced-labour indicator: a monthly meeting is the wrong instrument for something that requires action this afternoon. Notifying the inspectorate is a legitimate LATER step."
+      }
+    ]
+  },
+  "std": {
+    "passMark": 0.8,
+    "questions": [
+      {
+        "tag": "PS1", "difficulty": "easy",
+        "prompt": "Which Performance Standard applies to EVERY project, whatever its sector, size or risk?",
+        "options": ["PS1 — it establishes whether the other risks are present", "PS5 — land is always affected", "PS3 — every project pollutes", "None — each is optional"],
+        "correct": 0,
+        "tip": "The other seven apply where their risk is present; PS1 is the one that establishes whether it is present."
+      },
+      {
+        "tag": "PS1", "difficulty": "medium",
+        "type": "multi",
+        "prompt": "Which of these are among the SEVEN elements of the management system PS1 requires? Select all that apply.",
+        "options": ["Policy", "Emergency preparedness and response", "Monitoring and review", "A published ESG rating", "Stakeholder engagement", "A corporate sustainability report"],
+        "correct": [0, 1, 2, 4],
+        "tip": "The seven elements: policy, risk identification, management programmes, capacity & competency, emergency preparedness, stakeholder engagement, monitoring & review. Ratings and glossy reports are not among them."
+      },
+      {
+        "tag": "PS1", "difficulty": "medium",
+        "prompt": "The project's 'area of influence' under PS1 covers…",
+        "options": ["Associated facilities, ancillary works and induced development — not just the site", "Everything inside the site fence", "Only the land the project legally owns", "The area shown on the construction permit"],
+        "correct": 0,
+        "tip": "On a linear project it includes the induced development that follows the alignment — the area of influence does not stop at the boundary."
+      },
+      {
+        "tag": "PS2", "difficulty": "easy",
+        "prompt": "True or false: PS2 covers only the workers the project directly employs.",
+        "options": ["True", "False"],
+        "correct": 1,
+        "tip": "False — scope is defined by the relationship to the PROJECT: direct workers, contracted workers via third parties, primary supply chain workers, migrants."
+      },
+      {
+        "tag": "PS2", "difficulty": "medium",
+        "prompt": "On a construction site, the working-age threshold that actually governs is…",
+        "options": ["Eighteen — almost all site work is hazardous work", "The national minimum working age, whatever it is", "Sixteen with parental consent", "Whatever the labour supplier's policy says"],
+        "correct": 0,
+        "tip": "PS2 prohibits HAZARDOUS work by anyone under eighteen — and on a site, almost everything is hazardous work."
+      },
+      {
+        "tag": "PS2", "difficulty": "hard",
+        "prompt": "Your labour supplier sends a signed letter assuring you that all its workers are of age. Under PS2, this is…",
+        "options": ["A document showing you asked and did not check — verification is still owed", "Sufficient evidence of compliance", "A matter between the supplier and the inspectorate", "Valid if notarised"],
+        "correct": 0,
+        "tip": "A written assurance is not verification — age verification records must extend to third parties."
+      },
+      {
+        "tag": "PS3", "difficulty": "medium",
+        "prompt": "PS3 requires greenhouse gas emissions to be quantified when the project is expected to exceed…",
+        "options": ["25,000 tonnes of CO2-equivalent per year", "1,000 tonnes of CO2-equivalent per year", "100,000 tonnes of CO2-equivalent per year", "No threshold — quantification is always voluntary"],
+        "correct": 0,
+        "tip": "25,000 tCO2e/year — a threshold a large road programme usually crosses."
+      },
+      {
+        "tag": "PS3", "difficulty": "medium",
+        "type": "order",
+        "prompt": "Put the PS3 waste management preferences in the required order.",
+        "items": ["Avoid generating the waste", "Reduce, reuse and recycle", "Treat the waste", "Dispose via a licensed route"],
+        "tip": "Avoidance first, licensed disposal last — with hazardous waste segregated and a manifest trail throughout."
+      },
+      {
+        "tag": "PS4", "difficulty": "easy",
+        "prompt": "The single deadliest community risk on a road project is…",
+        "options": ["The haulage fleet on public roads", "Dust from the crushing plant", "Noise from night works", "Camp wastewater"],
+        "correct": 0,
+        "tip": "Construction haulage on public roads kills more people than any on-site hazard — kilometres from any site. Hence the traffic management plan."
+      },
+      {
+        "tag": "PS4", "difficulty": "hard",
+        "prompt": "A security guard posted at your site gate is…",
+        "options": ["A worker owed duties under PS2 AND a potential community risk under PS4", "A facilities matter outside the standards", "Covered only by the security company's own rules", "Only relevant if an incident occurs"],
+        "correct": 0,
+        "tip": "Both at once — and where PUBLIC security forces protect the project, the Voluntary Principles on Security and Human Rights are the reference."
+      },
+      {
+        "tag": "PS5", "difficulty": "medium",
+        "prompt": "Which PS5 requirement can NEVER be cured retrospectively?",
+        "options": ["Taking possession of land before compensation was available", "A compensation amount later found too low", "A missing grievance log", "A late completion audit"],
+        "correct": 0,
+        "tip": "Paying afterwards remedies the amount, not the breach — the person was deprived of any real choice. Everything else can be corrected at cost; this cannot."
+      },
+      {
+        "tag": "PS5", "difficulty": "medium",
+        "type": "multi",
+        "prompt": "Who is ELIGIBLE for compensation or assistance under PS5? Select all that apply.",
+        "options": ["Holders of formal legal rights to the land", "People with claims recognisable under national law, including customary rights", "Occupants with no recognisable legal right or claim at all", "Only holders of a certificate of occupancy", "Anyone who arrives after the cut-off date"],
+        "correct": [0, 1, 2],
+        "tip": "Three categories — the third is compensated for structures and assisted to restore its standard of living, though not for the land itself. The cut-off date closes the register."
+      },
+      {
+        "tag": "PS5", "difficulty": "hard",
+        "prompt": "A household willingly signs for compensation BELOW full replacement cost. Under PS5 this is…",
+        "options": ["Still a non-conformity — agreement does not convert a shortfall into compliance", "Compliant, because the household agreed", "Compliant if witnessed by the community leader", "A matter for national law only"],
+        "correct": 0,
+        "tip": "The outcome must equal full replacement cost — no deduction for depreciation, transaction costs included — however willingly a lower figure was accepted."
+      },
+      {
+        "tag": "PS6", "difficulty": "medium",
+        "type": "categorize",
+        "prompt": "PS6 habitat: which requirement belongs to which category?",
+        "categories": [
+          { "id": "nat", "label": "Natural habitat" },
+          { "id": "crit", "label": "Critical habitat" }
+        ],
+        "items": [
+          { "id": "nnl", "text": "Mitigate to NO NET LOSS where feasible", "cat": "nat" },
+          { "id": "gain", "text": "The outcome sought is a net GAIN", "cat": "crit" },
+          { "id": "alt", "text": "Proceed only where no feasible alternative exists", "cat": "nat" },
+          { "id": "all", "text": "A demanding set of conditions must ALL be met", "cat": "crit" },
+          { "id": "endg", "text": "Includes habitat of critically endangered species", "cat": "crit" },
+          { "id": "mit", "text": "Standard mitigation design applies", "cat": "nat" }
+        ],
+        "tip": "The gradient: modified → natural (no net loss) → critical (all conditions met, net gain). Requirements get stricter at each step."
+      },
+      {
+        "tag": "PS6", "difficulty": "hard",
+        "prompt": "Which of these counts as a biodiversity OFFSET under PS6?",
+        "options": ["A measurable biodiversity outcome designed to a no-net-loss or net-gain objective", "A cash donation to a conservation NGO", "A tree-planting photo opportunity at handover", "A commitment letter to 'support conservation'"],
+        "correct": 0,
+        "tip": "An offset is a measurable outcome, not a payment — and it can never substitute for avoidance that was feasible and not taken."
+      },
+      {
+        "tag": "PS7", "difficulty": "hard",
+        "type": "multi",
+        "prompt": "In which circumstances does PS7 require Free, Prior and Informed CONSENT? Select all that apply.",
+        "options": ["Impacts on lands under traditional ownership or customary use", "Relocation from such lands", "Significant impacts on critical cultural heritage", "Any project within 50 km of an indigenous community", "Every hiring decision on the project"],
+        "correct": [0, 1, 2],
+        "tip": "FPIC applies to the three defined circumstances — establishing which are present is the first analytical task. And FPIC is a process, not a signature."
+      },
+      {
+        "tag": "PS8", "difficulty": "medium",
+        "prompt": "A grader exposes what looks like a burial. The chance find procedure requires FIRST that…",
+        "options": ["The work stops, and the defined contact is called", "The find is photographed and covered so work can continue", "An archaeologist is scheduled for next month's visit", "The community leader signs an acknowledgement"],
+        "correct": 0,
+        "tip": "The test of a chance find procedure is whether the OPERATOR knows what to do in the first five minutes: stop, secure, call. It is an operational question before it is an archaeological one."
+      },
+      {
+        "tag": "EP4", "difficulty": "medium",
+        "prompt": "The Equator Principles are voluntary. So why do they bind your project?",
+        "options": ["Adoption is voluntary for the BANK; once in the facility agreement, application is contractual for the borrower", "They do not bind anyone — they are guidance", "The national regulator enforces them", "They only bind projects in Designated Countries"],
+        "correct": 0,
+        "tip": "No regulator enforces EP4 — the FINANCING AGREEMENT does, and breach carries financial consequence."
+      },
+      {
+        "tag": "EP4", "difficulty": "easy",
+        "type": "diagramtap",
+        "prompt": "The IESC — the independent consultant who monitors your project — is appointed by and reports to… Tap the right box.",
+        "boxes": ["The lenders", "The contractor", "The national regulator", "The community"],
+        "correct": 0,
+        "hint": "They are not there to help the project pass.",
+        "tip": "EP4 Principles 7 and 9: the IESC reviews before financial close and monitors for the life of the loan — for the LENDERS. Their job is an accurate picture, not your success."
+      },
+      {
+        "tag": "EHS", "difficulty": "hard",
+        "prompt": "The national noise limit is stricter than the EHS Guideline, but the national effluent standard is weaker. What applies?",
+        "options": ["The national noise limit AND the EHS effluent level — the stricter of each, parameter by parameter", "The EHS Guidelines on both — international rules override", "National law on both — sovereignty prevails", "Whichever set the project's ESMS selected"],
+        "correct": 0,
+        "tip": "The comparison is made parameter by parameter, never document by document — and the written comparison on file is what makes the position demonstrable."
       }
     ]
   },
