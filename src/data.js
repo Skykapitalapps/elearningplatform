@@ -530,7 +530,7 @@ export const modules = [
     type: "quiz",
     duration: "25–30 min",
     status: "not_started",
-    score: { earned: 0, total: 20 },
+    score: { earned: 0, total: 12 },
     icon: "gavel",
     summary: "Where national law stops and the lender standard begins.",
     video: { id: "xd9KRup3zaY", title: "IFC Performance Standards on Environmental & Social Sustainability" },
@@ -1549,6 +1549,12 @@ export const libraryByModule = {
   m2: [
     { title: "The four rulebooks & the more-stringent test", icon: "menu_book", doc: "ifc-equator-reference" },
     { title: "Jurisdiction file: Nigeria — law vs lender standards", icon: "gavel", doc: "nigeria-legal" },
+    { title: "Land, compensation & livelihoods (PS5)", icon: "home_work", doc: "b1-land" },
+    { title: "Workers, subcontractors & the camp (PS2)", icon: "engineering", doc: "b2-workers" },
+    { title: "Communities, traffic & labour influx (PS4)", icon: "groups", doc: "b3-communities" },
+    { title: "Harassment, security & human rights", icon: "security", doc: "b4-conduct" },
+    { title: "Pollution, borrow pits & waste (PS3)", icon: "recycling", doc: "b5-pollution" },
+    { title: "Biodiversity & cultural heritage (PS6 & PS8)", icon: "forest", doc: "b6-biodiversity" },
   ],
   m3: [
     { title: "Loan ESG conditions — summary", icon: "account_balance", doc: "loan-esg-conditions" },
@@ -2217,7 +2223,7 @@ export const documents = {
 
   "ifc-equator-reference": {
     title: "The four rulebooks & the more-stringent test",
-    org: "Module 2 · reading 1 of 2",
+    org: "Module 3 · reading 1 of 8",
     accent: "#f59e0b",
     image: "/images/lm5.jpg",
     intro:
@@ -2299,7 +2305,7 @@ export const documents = {
 
   "nigeria-legal": {
     title: "Jurisdiction file: Nigeria — and the applicable-requirements test",
-    org: "Module 2 · reading 2 of 2",
+    org: "Module 3 · reading 2 of 8",
     accent: "#f59e0b",
     image: "/images/lm5.jpg",
     intro:
@@ -2360,6 +2366,403 @@ export const documents = {
           "6 · Has anything been done before it was authorised? Establish the dates; separate analytical activity from acts that created facts.",
           "The sentence to keep: a permit closes a legal question. It does not close a lender finding — and the regulator that issued it has no power to waive a standard it was never given to apply.",
         ],
+      },
+    ],
+    relatedModules: ["m2"],
+  },
+
+
+  "b1-land": {
+    title: "Land, compensation & livelihoods — PS5 on a road corridor",
+    org: "Module 3 · reading 3 of 8",
+    accent: "#f59e0b",
+    image: "/images/lm6.jpg",
+    intro:
+      "The area that stops more projects than any other. Performance Standard 5 applied to a road corridor: the two kinds of displacement, the three categories of eligible person, full replacement cost, the cut-off date, the one rule that can never be repaired afterwards — and why paying people correctly is not the same as restoring their livelihoods.",
+    sections: [
+      {
+        title: "The count that was wrong",
+        body: "A resettlement census recorded 412 affected households, professionally, over eleven days. Eight months later a verification exercise found 63 more — almost all women running informal roadside trade and pastoralist families using seasonal grazing routes, none of whom were present on the days the enumerators walked the corridor. The money was manageable. The other consequence was not: once a community learns the count was wrong, every subsequent figure the project publishes is disbelieved — the corrected register, the valuation method, the grievance mechanism. Households already correctly paid began submitting claims, reasoning that if the project was wrong once it might be wrong in their favour too. The project spent two years rebuilding a credibility it lost in one afternoon.",
+      },
+      {
+        title: "Two kinds of displacement — and the one everybody misses",
+        body: "PS5 covers physical displacement (relocation, loss of shelter) and economic displacement (loss of assets, loss of ACCESS to assets, or loss of income — without anyone necessarily moving). Physical displacement is counted correctly on most projects: a house is visible. Economic displacement is under-counted on almost all of them, and it is where most unresolved grievances originate. Eight forms routinely missed:",
+        points: [
+          "Roadside traders in the road reserve, whose entire customer base is the traffic that will be diverted.",
+          "Tenants and sub-tenants — the compensation goes to the owner; they lose the home or the premises.",
+          "Employees of a displaced business, who lose work and appear on no land register.",
+          "Sharecroppers and labourers working land they do not own.",
+          "Pastoralists whose seasonal routes are severed — their claim is temporal, so a snapshot census literally cannot see it.",
+          "Users of common property: firewood, water points, fishing access, grazing. The land belongs to nobody and is used by hundreds.",
+          "Households whose REMAINING land becomes unviable after partial acquisition — a total loss dressed as a partial one.",
+          "Businesses that survive physically but lose frontage or passing trade to an embankment, a median or a barrier. A workshop that kept every square metre of its land and lost four fifths of its turnover was economically displaced — and never assessed, because the register was built from a land schedule instead of an impact analysis.",
+        ],
+      },
+      {
+        title: "Who counts: the three categories",
+        body: "This is the provision that most sharply separates PS5 from national law. Eligibility comes in three categories:",
+        points: [
+          "(a) Formal legal rights — title, certificate of occupancy, registered lease. Compensated for land and assets at full replacement cost.",
+          "(b) Recognisable claims — no formal title, but a claim recognisable under national law, including customary rights. Same entitlement as (a).",
+          "(c) No recognisable claim — informal settlers, users of the road reserve, seasonal occupants. NOT compensated for the land itself, but compensated for structures and improvements they own, plus resettlement assistance and livelihood restoration.",
+          "Why (c) exists: the project's purpose is not to settle a property dispute — it is to ensure people are not made worse off by a development they did not choose. On most African corridors category (c) is not a fringe group; it is sometimes the MAJORITY of those affected. A register built from titles is a correct schedule of owners and a wrong schedule of impacts.",
+          "Retire the word 'squatter' from project language. It is not a PS5 category, it implies wrongdoing, and it makes it psychologically easier to leave someone off a register. The accurate term: a person without recognisable legal right or claim to the land they occupy.",
+        ],
+      },
+      {
+        title: "Full replacement cost",
+        body: "PS5 requires compensation at full replacement cost: the value required to REPLACE the asset, calculated WITHOUT deduction for depreciation and INCLUDING the transaction costs of replacing it. The test is not what the asset was worth — it is what it will cost the affected person to obtain an equivalent one. The systematic errors:",
+        points: [
+          "Structures: applying depreciation. A twenty-two year old house is valued at the cost of a NEW equivalent. Depreciation is a mechanism by which the poorest households — who own the oldest structures — receive the largest reductions.",
+          "Land: paying an administrative schedule rate that bears no relation to what land actually sells for locally. Required: land of equivalent productive potential, plus preparation, registration, transfer taxes and legal fees.",
+          "Trees: a flat rate per tree regardless of species and age. A mature mango and a two-year seedling are not the same loss — compensate lost production until a replacement reaches equivalent yield.",
+          "Crops: one season paid where the land is unusable for three.",
+          "Businesses: structure compensated, income loss ignored. Net income during transition plus relocation costs are part of the entitlement.",
+          "Transaction costs omitted entirely — which quietly puts EVERY payment below replacement cost.",
+          "Where a state valuation office applied depreciation, do not argue with the valuer, who applied national law correctly. Recalculate the shortfall against full replacement cost and pay a documented top-up. And note: a negotiated shortfall the household 'accepted' is still a shortfall — agreement does not convert it into compliance.",
+        ],
+      },
+      {
+        title: "Census, baseline and the cut-off date",
+        body: "Three separate exercises, frequently conflated: the census (WHO is affected), the inventory of losses (WHAT each person loses), and the socio-economic baseline (what standard of living existed BEFORE — the one most often skipped, and the most expensive omission: without it, restoration can never be demonstrated and the resettlement action stays open for the life of the loan). Then the cut-off date, which fixes eligibility. What makes it valid is not the setting of it — it is the COMMUNICATION:",
+        points: [
+          "Announced publicly, in advance, in the languages people actually use, through channels they actually receive — meetings, radio, markets, places of worship, notices along the corridor.",
+          "Dated evidence of every communication retained.",
+          "A visual record of what existed on the date — photographs, aerial or satellite imagery — so a late claim can be assessed rather than argued about.",
+          "A grievance window (around sixty days) for anyone wrongly omitted. It is an eligibility-correction mechanism, not a price-negotiation mechanism.",
+          "A date set internally and never announced, announced only at an official ceremony, or announced in a language people do not read, is a date the project can neither enforce against late claims nor afford to abandon — the worst of both positions.",
+        ],
+      },
+      {
+        title: "The sequencing rule: money before machines",
+        body: "PS5 requires that the project take possession of land ONLY after compensation has been MADE AVAILABLE — meaning the affected person can actually collect it. Not calculated, not approved, not budgeted, not in a court account they cannot access. This is the most frequently breached provision in the standard, almost always by people acting in good faith under programme pressure — and it is the ONLY failure in resettlement that cannot be corrected afterwards. Compensation paid later repairs the financial loss, not the breach: the person was deprived of the only leverage they had. Three phrases that should stop work:",
+        points: [
+          "'The payment is being processed.' Processing is not availability. Ask for the date the person can collect.",
+          "'The community has agreed we can start.' A community cannot waive an individual entitlement — and the person conveying the agreement is rarely the person bearing the loss.",
+          "'We will regularise it later.' Land entry cannot be regularised later. Everything else in this module can be corrected. This cannot.",
+          "Payment runs directly to the affected person — never to a committee, a chief or an intermediary. Into an account in their name where possible, with attention to WHO in the household bore the loss: where a woman's stall or garden is compensated, the payment reaches her.",
+        ],
+      },
+      {
+        title: "Livelihood restoration — measured by outcome, not by payment",
+        body: "Compensation and livelihood restoration are DIFFERENT obligations, and discharging the first does not discharge the second. The most damaging finding available: households paid correctly, on time — and demonstrably poorer two years later. Why cash alone fails: lump sums are consumed on rational immediate priorities; land prices rise when two hundred households buy at once; a farmer with capital and no land is not a farmer; and the payment reaches the household head while the lost activity was run by someone else, usually a woman. What restoration actually requires:",
+        points: [
+          "Land for land where land is the livelihood — replacement land of equivalent productive potential is the PREFERRED option under PS5. Cash is the fallback, not the default.",
+          "A restored trading position WITH FOOTFALL for traders. The commonest failure in road resettlement: a purpose-built market 600 metres from the road that no customer passes, while traders drift back to the roadside — now less safe than before. A trader's asset is the footfall, not the stall.",
+          "Transitional support until the new activity produces — a replanted farmer has no harvest for one to three seasons.",
+          "Measurement against the baseline. Restoration is a claim about a change, and a change cannot be demonstrated without a before.",
+        ],
+      },
+      {
+        title: "The ten failures — and two sentences to keep",
+        points: [
+          "1 · Depreciation applied to structures. 2 · Register built from titles, not impacts. 3 · Land entered before compensation was available — irreversible. 4 · No communicated cut-off date. 5 · Census done once, one season, one time of day. 6 · No socio-economic baseline. 7 · Payment via committees or intermediaries. 8 · Restoration treated as discharged by cash. 9 · Ancillary facilities (pits, camps, tracks) outside the resettlement instrument. 10 · Compensation grievances handled by the team that set the compensation.",
+          "Sentence one: everything in resettlement can be corrected later except one thing — entering land before the money is available.",
+          "Sentence two: a register built from titles will always be a correct schedule of owners and a wrong schedule of the people your project has affected.",
+        ],
+      },
+    ],
+    relatedModules: ["m2"],
+  },
+
+  "b2-workers": {
+    title: "Workers, subcontractors & the camp — PS2 in practice",
+    org: "Module 3 · reading 4 of 8",
+    accent: "#6366f1",
+    image: "/images/lm7.jpg",
+    intro:
+      "Labour findings are created by people who never think of themselves as making an E&S decision: a recruitment officer accepting a labour supplier's rates, a procurement officer skipping a flow-down clause, a camp manager counting beds. PS2 applied to a construction workforce — who counts as a worker, the two absolute prohibitions, the hierarchy of controls, the camp, and the labour walk.",
+    sections: [
+      {
+        title: "Twenty workers nobody employed",
+        body: "An earthworks subcontractor brings twenty men onto a section through a labour supplier. Contracts are with the supplier; they are paid in cash on Fridays by a man who visits weekly; the supplier holds their identity documents 'for safekeeping'; two look young and nobody can check, because the documents are with the supplier. Nobody in this chain believes they are doing anything wrong — and every element is a finding against the PROJECT. PS2 applies to workers engaged by third parties, and PS1 requires the client to manage and monitor third-party performance. The contractual distance between the project and these twenty men is a fact about paperwork. It is not a defence.",
+      },
+      {
+        title: "Who counts as a worker",
+        body: "PS2 defines scope by the relationship to the project, not by who signed the contract. Four categories: directly engaged employees; CONTRACTED workers (subcontractors, labour suppliers, security, catering, transport, plant hire with operators) — the project must verify the third party is legitimate, monitor its performance, and give its workers access to a grievance mechanism; PRIMARY SUPPLY CHAIN workers (quarries, asphalt plants, aggregate suppliers) — where there is child labour, forced labour or serious safety risk, the project must identify and act on it; and MIGRANT workers, engaged on substantially equivalent terms to comparable non-migrants. The two categories most projects forget:",
+        points: [
+          "Security personnel — almost always third-party, almost never in the labour assessment, and simultaneously subject to PS4 conduct requirements. A guard is a worker you owe duties to AND a risk to the community. Both sides need managing.",
+          "Drivers and operators supplied with equipment — paid by the plant owner, often working the longest hours on the project. Fatigue management for a driver hired with a truck is the project's problem: PS2 covers him, and PS4 covers the pedestrian he hits.",
+          "Exercise: list everyone on site next Tuesday and mark who appears on a payroll the project controls. The gap is usually a third to half of the workforce.",
+        ],
+      },
+      {
+        title: "Terms, pay and hours",
+        body: "Written terms, in a language the worker understands — a contract in English handed to a worker who reads only Hausa is not written terms, it is a piece of paper. Four pay checks that find most problems:",
+        points: [
+          "Is there a payslip? Cash with no payslip makes every other check impossible — usually the cheapest failure to fix.",
+          "Do deductions have a legal basis? Deductions for PPE are NEVER acceptable. Accommodation deductions are frequently excessive.",
+          "Is overtime paid at the lawful premium rate — not absorbed into a day rate that assumes twelve hours?",
+          "Are statutory contributions REMITTED, not just deducted? Deducted-and-not-remitted is a legal breach and PS2 evidence from a single failure.",
+          "Hours: the real issue is the dry-season push — twelve-hour shifts for weeks, rest days cancelled, and the same people driving plant at the end of it. Compare the busiest week's timesheets against the plant hour meters or the fuel log: where they diverge, the timesheets are the fiction.",
+        ],
+      },
+      {
+        title: "The two absolutes",
+        body: "Most of PS2 is a standard to be met. Two provisions are prohibitions that do not bend to context, cost, programme or local practice. CHILD LABOUR: no one under eighteen in hazardous work — a separate and stricter test than the national minimum working age, from ILO Convention 182. Almost everything on a civil works site IS hazardous work, so the operative threshold on a construction site is eighteen, full stop. Verify age at recruitment with documented records, extend verification to every third party, and if you find an under-eighteen in hazardous work: remove from the task immediately, but do NOT simply dismiss — dismissal moves a child to more dangerous, less visible work. Remediate. FORCED LABOUR arrives as arrangements that each look administrative:",
+        points: [
+          "Identity documents held by employer or supplier ('for safekeeping') — the worker cannot leave or seek other work. Return the same day; provide lockable storage. There is no legitimate reason to hold a worker's documents.",
+          "Recruitment fees charged to the worker — he starts in debt to the person employing him. Fees are the employer's cost. Reimburse and prohibit contractually.",
+          "Wages withheld beyond the agreed period 'to discourage absconding' — a worker owed weeks of pay cannot afford to leave, which is the purpose of the retention.",
+          "Deductions for food, transport or accommodation consuming most of the wage — the worker is working to stay, not to earn.",
+          "Restrictions on LEAVING the camp. Security controls entry; a control preventing exit is a different thing.",
+          "Act on the indicator — do not wait for certainty, and do not confront the supplier in front of the workers: the people at risk of retaliation are them, not you.",
+        ],
+      },
+      {
+        title: "Safety: the hierarchy of controls",
+        body: "The mitigation hierarchy applied to hazards, in binding order: eliminate, substitute, engineering controls, administrative controls, and PPE — LAST. A safety strategy that consists of issuing harnesses has started at step five and skipped four opportunities to make the harness unnecessary. Five things PS2 requires that sites often lack:",
+        points: [
+          "Training in a language workers understand, with comprehension verified — a signed attendance sheet records presence, not understanding.",
+          "PPE free of charge. Never deducted, never conditional. A PPE deduction is a finding by itself.",
+          "Documented incident investigation including near misses. A project reporting no near misses is a project where near misses are not reported.",
+          "Emergency preparedness TESTED, not written — drive the route from the furthest working point to a facility with surgical capability and time it. On several African corridors the honest answer is over three hours, which changes the whole plan. A plan that has never been driven is not a plan.",
+          "Specific attention to threats to women: separate, lockable, well-located sanitary facilities, and a harassment route that does not run through the line manager.",
+        ],
+      },
+      {
+        title: "The camp",
+        body: "Where the project provides accommodation, the operative reference is the joint IFC/EBRD guidance note on workers' accommodation — take the ratios from the source, because they are what an auditor measures against. The recurring failures: occupancy set by how many beds physically fit (triple bunks are not acceptable); sanitary ratios computed on nominal rather than peak occupancy; facilities that exist but are unlit and therefore unusable at night; drinking water untested; catering subcontracted and never inspected — the commonest cause of mass absence on a construction project is not injury, it is a kitchen; no women's block, which is then used to explain why no women are employed; fire extinguishers unserviced and no drill ever run with the night shift — the people asleep in the camp. The structural point: accommodation must be managed SEPARATELY from employment, so a worker who complains about the camp does not risk the bed and the job together. That one design decision does more for camp conditions than any inspection regime.",
+      },
+      {
+        title: "Grievances, subcontractors and the labour walk",
+        body: "The worker grievance mechanism is NOT the community one: different users, different confidentiality, different response times. It must reach contracted workers — the twenty men from the labour supplier — and it must not run only through the line manager, who is who a large share of grievances concern. Retaliation kills it: if the first person to use it is identified and not renewed, the channel is dead and everyone knows. And a mechanism with ZERO grievances on a workforce of hundreds is not performing — it is unknown, distrusted or unsafe. For subcontractors, the sequence that works: screen before award; flow down SPECIFIC obligations in the subcontract (written terms, age records, no fees, no document retention, PPE at employer's cost, camp standards, grievance access, right of audit); induct the subcontractor's MANAGEMENT; verify rather than rely — payroll sampling, camp inspection, worker interviews away from supervisors; and act contractually on what you find.",
+        points: [
+          "The labour walk, ninety minutes that finds most of what there is to find: ask five workers (away from supervisors) for their written terms and last payslip; ask who holds their identity documents; ask whether anyone paid to get the job; ask for age verification records — the records, not the assurance; walk the camp at night unannounced; ask three workers how they would complain about their supervisor; compare timesheets with plant hours.",
+          "The sentence to keep: subcontracting transfers the work. It does not transfer the finding, and it does not transfer the person.",
+        ],
+      },
+    ],
+    relatedModules: ["m2"],
+  },
+
+  "b3-communities": {
+    title: "Communities, traffic & labour influx — PS4 on the corridor",
+    org: "Module 3 · reading 5 of 8",
+    accent: "#0ea5e9",
+    image: "/images/lm8.jpg",
+    intro:
+      "On a road project the single largest cause of death is not on the site — it is the haulage fleet on public roads, among people who never agreed to be near it. PS4 applied to a corridor: traffic controls that are decisions rather than instructions, what a camp of three hundred does to a village of two thousand, the health pathways nobody designed, severance, and an emergency plan that has actually been driven.",
+    sections: [
+      {
+        title: "The risk that is not on your site",
+        body: "Ask a site team to name their biggest safety risk and you will hear about work at height or excavation collapse. All real, all managed — none the answer. On a road project in Sub-Saharan Africa, the activity that kills the most people is haulage on public roads: tippers, bowsers and low-loaders moving between pits, plants and the works, on roads used by pedestrians, children walking to school, traders, livestock and motorcycles. The WHO consistently records the African region as having the highest road traffic death rate of any region — and a project adds heavy vehicles, under schedule pressure, to roads that were already the most dangerous in the world. A fatality on the haul road produces everything a site fatality does, PLUS a community that lost a child to a project it did not ask for, a road block, and a relationship no engagement repairs. Three features make haulage risk different: the vehicles are heavy and the road users are not; the exposure repeats past the same points daily, so every incident was foreseeable; and the pressure is structural — cycle time drives production, so speed control must be ENGINEERED, not requested.",
+      },
+      {
+        title: "Traffic management that actually works",
+        body: "A traffic management plan is a document. What reduces risk is a small number of decisions, most taken away from the road:",
+        points: [
+          "ROUTING — the shortest route is frequently the most populated. A longer route avoiding a settlement, a school and a market removes more risk than every other control combined. It is a commercial decision and must be made as one, with the risk on the table. On one section, six minutes added per cycle was the hardest control to agree and the single most effective: every other measure reduced the severity of an encounter; the routing change removed the encounter.",
+          "TIMING — no haulage through defined zones at school opening and closing and on market days. Matched to ACTUAL school movements, not published hours.",
+          "SPEED, ENGINEERED — governors fitted, tracking data reviewed by someone with authority to act. A limit that is not monitored is an aspiration.",
+          "DRIVER HOURS — fatigue is created by the schedule, not the driver. Maximum hours, mandatory rest, rotation.",
+          "Map the hazard points by DRIVING the route twice — once at the busiest school hour, once on market day. A desk map misses the informal crossing four hundred people use every morning, because it is not a crossing, it is a gap in a hedge.",
+          "On the road itself: signage in local language and symbols, physical pedestrian separation through settlements, load covering, dust suppression beside housing (a visibility control as well as an air-quality one), and reinstatement of public roads the project damaged.",
+        ],
+      },
+      {
+        title: "Labour influx: what actually happens to a place",
+        body: "A camp of three hundred workers beside a village of two thousand is not a neutral event. The effects are documented, repeated and predictable — which is why PS4 treats them as impacts to assess, not circumstances to regret:",
+        points: [
+          "Price inflation on food, fuel, rent and transport — borne by everyone already there on a local income, hardest on marginal households.",
+          "Pressure on water — borne by women and girls, who do the collection and walk further as a direct result.",
+          "Pressure on the clinic, now serving a village plus a workforce.",
+          "Communicable disease moving both ways between a mobile workforce and a settled community.",
+          "Transactional sex across a large income gap — including, in documented cases, minors. The effect that most often becomes a serious incident (treated in full in the next reading).",
+          "Social conflict from disappointed hiring expectations and perceived favouritism.",
+          "Older children leaving school for casual work around the camp — permanently.",
+        ],
+      },
+      {
+        title: "Reduce influx, then manage it",
+        body: "The mitigation hierarchy again: reduce the number of people arriving BEFORE designing how to accommodate them. Reduce: hire locally, genuinely — every locally-filled role is one person who needs no bed and no share of the water; train to widen what 'local' means; transport workers from within commuting distance instead of accommodating them; phase the workforce to smooth the peak. Then manage: camp siting with a SEPARATE water source and separate waste — a camp sharing a village borehole is a design error no procedure corrects (one camp of 280 workers on a shared borehole: by the second dry season the queue began before dawn and women walked three kilometres; a separate borehole would have cost a fraction of the grievance settlement, the water trucking and the two years of hostility); camp self-sufficiency in food, power and health; a signed and enforced code of conduct; no-go areas agreed with the community; local procurement spread and planned so it supports the economy instead of driving the inflation; a camp clinic so the workforce does not consume the village one; and MONITORING against a baseline — staple prices, clinic attendance, water yields, school enrolment, recorded before mobilisation. Without a baseline, every influx claim is an argument rather than a finding.",
+      },
+      {
+        title: "Community health: the pathways nobody designed",
+        points: [
+          "STANDING WATER — borrow pits, poorly drained excavations and blocked culverts breeding mosquitoes within walking distance of housing. The largest health pathway a road project creates, made by earthworks staff who have no reason to think about vectors. Closure and drainage designed from the outset.",
+          "Dust — respiratory effects, contamination of drying food, reduced road visibility. Suppress at receptors, cover loads, reduce speed. Measure at the RECEPTOR, not the source.",
+          "Water contamination — camp effluent, workshop run-off, concrete washout, fuel reaching a watercourse people drink from. Monitor at the point of USE downstream, not the discharge point.",
+          "Communicable disease — screening, awareness, coordination with the district health authority rather than a parallel project system.",
+          "Open excavations — a trench left open overnight beside a footpath is a decision, not an accident. Fencing, backfilling on the same shift, lighting.",
+          "Hazardous materials in transit — routing, scheduling, spill response along the route, notification to authorities.",
+          "Noise and vibration — night piling near housing takes the NIGHT limit from the EHS Guidelines; sleep disruption is a health impact. Blasting requires pre-blast condition surveys, or every crack in every wall for two kilometres becomes the project's.",
+        ],
+      },
+      {
+        title: "Severance, access and the things people rely on",
+        body: "A new road connects places and separates others. Severance produces no land acquisition and no incident, so it appears nowhere — until it shows up years later as pedestrian fatalities at an informal crossing the design ignored, and as unassessed livelihood loss: the school on one side and the children on the other, a well across a carriageway that is hard to cross, a market cut off from its customers, a business that kept its land and lost its frontage. The controls are design controls, cheap at design stage and unaffordable after: crossings where people ACTUALLY cross, livestock crossings, service roads, median breaks where local movement requires them. The reliable method: walk the alignment with community members and ask where people cross — not where they should. Ecosystem services follow the same logic: assess borehole yield BEFORE abstracting, map the fuelwood stands people use before clearing, design culverts for fish passage, identify grazing routes by talking to herders rather than looking at a map. And the connection to PS5 is direct: removing access to a service a household depended on for income or subsistence is economic displacement — whether or not any land was acquired.",
+      },
+      {
+        title: "Emergency preparedness, with the community in it",
+        body: "PS4 requires emergency arrangements that take account of affected communities, coordinated with local authorities and communicated. The three failures: the plan covers the workforce only (a fuel tanker overturning in a settlement is a community emergency); the plan has never been driven — the transport time from the furthest working point to a facility with surgical capability is a measurable number, so measure it; and nobody outside the project knows the plan exists. What the arrangement contains: credible scenarios (a haulage collision involving community members, a spill near a settlement, a camp fire, a flood, an outbreak); a role reachable at any hour with a number the community HAS; measured transport times on a route driven at the worst time of year; coordination agreed with authorities in advance, not negotiated during an incident; and a drill actually conducted, with lessons recorded.",
+      },
+    ],
+    relatedModules: ["m2"],
+  },
+
+  "b4-conduct": {
+    title: "Harassment, security & human rights — conduct and the code",
+    org: "Module 3 · reading 6 of 8",
+    accent: "#f43f5e",
+    image: "/images/lm9.jpg",
+    intro:
+      "A project brings wages, authority and gatekeeping into a place — and therefore owns the risk that arises from them. Sexual exploitation, abuse and harassment as three distinct things; the absolute rules, including the one about minors; what a survivor-centred response means and rules out; what makes a code of conduct enforceable; and the six requirements governing the people who guard the project.",
+    sections: [
+      {
+        title: "The gap that creates the risk",
+        body: "A construction project brings several hundred people with regular wages into a place where most people have far less cash and no comparable opportunity. It brings supervisors who decide who works tomorrow, and gatekeepers who control access to jobs, to compensation files, to the grievance mechanism, to the site. Every one of those relationships contains an imbalance of power. Where something happens, it happens through that imbalance — and it is almost never announced as coercion. It appears as a supervisor mentioning that shifts are decided this week; as a gatekeeper suggesting a way of making an application progress; as an arrangement offered in exchange for food, money, a job or a file that moves; as a relationship that looks voluntary from one side and does not look that way from the other. This is treated as a distinct risk category rather than individual misconduct because the imbalance is CREATED BY THE PROJECT — which therefore owns the risk.",
+      },
+      {
+        title: "Three things, not one",
+        body: "SEA/H covers three distinct categories, separated because the relationships, rules and response pathways differ. Sexual EXPLOITATION: abuse of a position of vulnerability, power or trust for sexual purposes — a project worker and a community member, where consent cannot be assumed freely given across an imbalance the project created. Sexual ABUSE: actual or threatened physical intrusion of a sexual nature — a criminal matter in every jurisdiction, and the project's response must never obstruct or substitute for the criminal process. Sexual HARASSMENT: unwelcome sexual conduct BETWEEN project personnel — a workplace matter under PS2, and frequently the earliest visible signal that the wider environment is unsafe. Why the distinction matters: a harassment complaint between two workers goes through the worker grievance mechanism and discipline. An allegation involving a community member does not — it needs confidentiality a workplace process cannot provide, referral to health and psychosocial services, and a decision about criminal reporting that belongs to the survivor, not the project. Projects that run all three through one channel end up exposing survivors or burying complaints — usually both.",
+      },
+      {
+        title: "The absolute rules",
+        points: [
+          "RULE 1 — No sexual activity with anyone under eighteen. No exception. Mistaken belief about age is not a defence; consent by a person under eighteen is not consent for these purposes. This applies REGARDLESS of the national age of majority or consent: it is the standard the project imposes on itself and everyone it engages.",
+          "RULE 2 — No exchange of money, employment, goods, services, assistance or any project benefit for sex. Including anything presented as a gift, a favour, help with an application, or a promise about future work.",
+          "RULE 3 — No retaliation against anyone who reports, supports a report, or participates in an investigation. Retaliation is a separate and equally serious matter.",
+          "Relationships between consenting adults are not prohibited — a policy attempting that would drive everything underground. What is addressed is the IMBALANCE: a relationship between a supervisor and someone whose shifts he allocates must be declared, and the person holding the power moved out of the decision affecting the other. Not a moral position — a conflict-of-interest control that protects both people.",
+        ],
+      },
+      {
+        title: "Prevention: what has to exist before anything happens",
+        body: "Prevention is an architecture, not a training session. Seven components, all in place before mobilisation:",
+        points: [
+          "A risk assessment: where are the gatekeeping points, where does the workforce meet the community, where are the vulnerable groups, what is the state of local services?",
+          "A code of conduct signed INDIVIDUALLY by every person including third parties, explained in a language they understand.",
+          "Training that is not a signature sheet — the test is whether a worker can state the rule about minors and where to report, unprompted.",
+          "A reporting channel designed for this specifically: multiple entry points, at least one outside line management and at least one reachable WITHOUT entering a project facility. A community member cannot use a channel that runs through the gate she is afraid of.",
+          "A referral pathway that exists in advance — health, psychosocial, legal, police if the survivor wishes — identified, contacted and CONFIRMED before it is needed.",
+          "A named, trained responder. Not the community liaison officer by default, and not the line manager.",
+          "Camp and site design: lighting on routes and at sanitary facilities, lockable doors, women's accommodation not reached through male areas. Physical controls do more than any policy.",
+        ],
+      },
+      {
+        title: "The code of conduct",
+        body: "On a financed project the code is a contractual instrument, and its enforceability rests on how it was issued: signed individually, by name, before starting work — NOT accepted at company level by an employer on behalf of its workforce; explained before signature, in a language the signatory understands; flowed down to every subcontractor, labour supplier, security provider, caterer and transport operator with the same individual-signature requirement; consequences stated plainly, including dismissal and criminal referral; and applied to senior people on the same terms as everyone else — the single most important determinant of whether anyone believes it. One project held signed codes for its own workforce and main subcontractor, while the labour supplier's forty workers had 'signed' at company level: none individually, none inducted, none able to say what the code contained — the arrangement with the LEAST oversight was the one where nobody had been told the rules.",
+      },
+      {
+        title: "Survivor-centred response",
+        body: "The phrase does not mean believing every allegation. It means the person who was harmed makes the decisions about what happens next, and the project's need to establish facts never overrides their safety, dignity or choice. Four principles: SAFETY first, before any investigative step; CONFIDENTIALITY — information shared only with those who need it to act, never in a report with enough detail to identify anyone; RESPECT — the survivor decides what to report, to whom, and whether to go to the police; NON-DISCRIMINATION — the same response whoever the survivor is and however senior the accused. A first responder listens and takes the account ONCE, asks what the person needs, explains the options and who will be told before telling anyone, records minimally and securely, and refers to the trained responder. A first responder does NOT ask for details of the incident, decide for the person, promise absolute secrecy, contact family or employer without agreement, or attempt to investigate. Three things that must NEVER happen:",
+        points: [
+          "Mediation between a survivor and an accused person — it is not conflict resolution, and it re-exposes the survivor to the person who harmed them.",
+          "A settlement paid to a family for silence or withdrawal — whatever it is called locally, it is the purchase of a criminal matter and a governance failure of the first order.",
+          "An identifiable case description in any report, including internal ones. Communities are small; two details are often enough.",
+          "And note the register that is EMPTY: on a project with several hundred workers beside a host community, zero SEA/H reports is not a performance result. It is a question — usually about a channel nobody can safely use.",
+        ],
+      },
+      {
+        title: "Security personnel — and public forces",
+        body: "A guard sits in two frameworks at once: under PS2 he is a worker (usually third-party) owed lawful terms and a grievance channel; under PS4 he is a risk to the community. An underpaid guard on a twelve-hour shift with no training is both a labour finding and a community safety risk, and the two are connected. The six requirements: ASSESS the security risk first — in most civil works contexts armed security is not warranted, and arming a force that does not need arms creates the risk it was meant to address; SCREEN individuals for past abuses; TRAIN in conduct and use of force before deployment; establish RULES on force — preventive and defensive purposes only, proportionate, written, understood at every gate; provide a COMMUNITY CHANNEL for concerns about security conduct — the requirement most often missing, and it cannot be the guard post; and INVESTIGATE and act — quietly letting the provider redeploy a guard elsewhere is not action. Where the STATE deploys police or military to protect the project: the project cannot command or discipline them, but responsibility does not disappear — it changes shape. The Voluntary Principles on Security and Human Rights are the operative framework: engage on the deployment and rules of engagement, DOCUMENT what the project asked for and was told, keep a community channel open for conduct concerns including by public forces, and do not provide equipment, transport or payment in ways that make the project a participant in conduct it cannot control. Two projects may face the same incident; the one with the record of having engaged, documented and escalated will not face the same consequences.",
+      },
+    ],
+    relatedModules: ["m2"],
+  },
+
+  "b5-pollution": {
+    title: "Pollution, borrow pits & waste — PS3 and the EHS Guidelines",
+    org: "Module 3 · reading 7 of 8",
+    accent: "#10b981",
+    image: "/images/lm10.jpg",
+    intro:
+      "Pollution control is the part of E&S technical teams find most familiar — which is exactly why it fails: everyone assumes the controls are obvious, known and applied, and the third is usually false. The hierarchy applied to pollution, where the numbers come from, the borrow pit that generates findings under six standards from one omission, waste that leaves site and ends up in a field, and the greenhouse gas threshold.",
+    sections: [
+      {
+        title: "Four days and half a per cent",
+        body: "On a coastal section, earthworks ran through the rainy season with no silt fencing or settlement ponds. Sediment reached a creek used for fishing and washing; the community reported a collapse in catch and skin complaints among children. The engineering remedy — silt fences, check dams, a settlement pond — cost a fraction of one per cent of the section value and took four days to install. The omission cost a work stoppage, a lender finding with a corrective action plan, an imposed water quality monitoring programme for the remainder of construction, and a community relationship that never fully recovered. That gap between what prevention costs and what failure costs is the entire economic argument of this reading, and it holds for almost every control in it.",
+      },
+      {
+        title: "The hierarchy, and where the numbers come from",
+        body: "PS3 sets the requirement; the World Bank Group EHS Guidelines set the LEVELS — without them most of PS3 cannot be measured. Where host country regulations differ from the Guidelines, the project achieves whichever is MORE STRINGENT — compared parameter by parameter, never document by document. Where a national limit does not exist for a parameter, the Guideline level simply governs. Retain the written comparison: it is what converts a defensible position into a demonstrable one, and the first document an independent consultant asks for. And the hierarchy applies to pollution unchanged — most sites enter it at step three: teams reach immediately for the dust bowser (control) and argue about how many, when the question never asked was whether the haulage needed to pass the settlement at all (avoid) — a question that had an answer at the point the pit was selected.",
+      },
+      {
+        title: "Air, water and noise",
+        points: [
+          "Dust is the impact communities raise first. Suppress at receptors on a schedule matched to weather and traffic — a bowser running at 08:00 daily regardless of conditions is a procedure, not a control. Cover loads. Reduce speed, which cuts dust substantially and costs nothing. Measure at the RECEPTOR: a reading at the plant boundary says nothing about the house downwind.",
+          "NEVER use waste oil for dust suppression. It is a recurring practice, it is a soil and groundwater contamination event, and it is unambiguous under PS3 and the Guidelines.",
+          "Sediment is the largest water impact on a civil works site — silt fences, check dams, settlement ponds, slope stabilisation, clearance timed against the rains. Cheap, and almost always deferred.",
+          "Concrete washout: high pH, lethal to aquatic life, routinely discharged to the nearest ditch. Lined containment, residue removed as waste.",
+          "Hydrocarbons: interceptors at workshops and wash bays, bunding at fuel points, spill response that exists physically rather than in a procedure. Abstraction: establish yield and existing users BEFORE abstracting — above a threshold it usually needs a permit nobody applied for.",
+          "Noise: the EHS Guidelines set limits by receptor and by day/night, with the night limit substantially lower — many national rules set a single figure, making noise the clearest everyday example of the more-stringent rule. Night piling near housing takes the night limit. Blasting requires pre-blast condition surveys and a claims route that works.",
+        ],
+      },
+      {
+        title: "Borrow pits: six standards from one hole",
+        body: "The most under-managed environmental issue on African road projects. One unscreened pit engages: PS1 (an activity outside the assessed scope), national mining law (extraction without a mineral title — a landowner's consent does NOT confer a mineral right, which is issued by a different authority), PS3 (dust, noise, sediment, fuel), PS4 (open water and unfenced faces near housing — drowning and vector breeding), PS5 (land taken from users, including seasonal and informal ones), PS6 (clearance without habitat screening) and PS8 (chance finds nobody recorded). No other single activity on a road project does that. And CLOSURE IS A DESIGN DECISION TAKEN BEFORE EXTRACTION: a pit worked for maximum yield is deep, steep-faced and irregular, and cannot be safely closed at any price — the backfill no longer exists. A closable pit has, from day one:",
+        points: [
+          "Topsoil stripped and stockpiled separately — once driven over and mixed with overburden it is gone, and reinstatement then needs imported growing medium.",
+          "A planned final profile, battered faces and benching rather than a single deep face.",
+          "A drainage design that prevents standing water after closure — the largest, longest-lasting health pathway a road project creates.",
+          "Fencing and signage during operation — an open face near a footpath is a drowning risk, and the person most likely to be involved is a child.",
+          "A closure and reinstatement plan with a budget line, and an agreement with the landowner and users about what the land will BE when handed back. 'Handing it back to the community' as a nine-metre flooded hole with vertical faces is not a handover; it is the transfer of a hazard to people with no capacity to manage it.",
+          "Every one of these is decided before the first excavator arrives. None can be retrofitted.",
+        ],
+      },
+      {
+        title: "Waste and hazardous materials",
+        body: "PS3 requires waste avoided, then reduced, reused or recycled, then treated and disposed of soundly. The single most common failure: hazardous waste mixed into a general skip — one used oil filter converts a small quantity of controlled substance into a whole contaminated load. Streams: general (licensed disposal); inert construction material (reuse on site — the largest stream by weight and the easiest to reduce); recyclables (usually positive value); HAZARDOUS — used oil, filters, contaminated rags, batteries, paint, solvents, bitumen residues, empty chemical containers — segregated, labelled, bunded storage, licensed carrier, licensed facility, manifest retained; medical waste from the camp clinic; and wastewater sludge, forgotten until the system fails. The disposal trail answers four questions for every hazardous load: what it was, how much, who carried it, where it ended up. A carrier's receipt is NOT a disposal record — the chain must reach a licensed facility whose licence is on file. The routine failure: waste collected by a contractor paid per load whose route nobody verified; the paperwork is complete, the loads are tipped in a field, and the contaminated site eventually traces back. And empty drums: containers that held hazardous substances have local value and WILL leave site — some reused for drinking water storage, a documented and serious community health pathway. Render them unusable and route them through the hazardous stream, not the gate.",
+      },
+      {
+        title: "Fuel, spills and contaminated land",
+        body: "Prevention is most of it: bunded storage with the bund intact and FREE OF RAINWATER — the usual reason a bund fails on the day it is needed; impermeable surfaces and interceptors at refuelling points and wash bays; drip trays under static plant; controlled refuelling with a pump and a person; spill kits located where spills happen, stocked and practised. Response: stop the source, contain before it reaches a drain — minutes matter more than procedure — absorb and recover, remove contaminated soil to the depth of penetration, RECORD it including small spills (a site reporting no spills is a site not reporting spills), and investigate: a spill at the same point twice is a design failure, not an incident. At handover: workshops, fuel points and plant yards leave contaminated ground. Take a baseline BEFORE occupying the site — without it, the project cannot demonstrate what it caused and will be assumed to have caused everything found.",
+      },
+      {
+        title: "Greenhouse gases and resource efficiency",
+        body: "PS3 requires quantification of direct emissions (and relevant indirect energy emissions) where the project is expected to produce more than 25,000 tonnes of CO2-equivalent annually — a threshold a large road programme generally crosses, through plant and haulage fuel, cement, bitumen and clearance. The data almost always exists in fuel and materials records; what is missing is anyone whose job it is to convert and report it. And almost every emissions reduction available is also a cost reduction: haulage distance (pit selection is the biggest single lever), cut-to-fill balance and material reuse, cement content, plant idling, and water efficiency — which in a water-scarce area is a community relations matter as much as an environmental one.",
+      },
+    ],
+    relatedModules: ["m2"],
+  },
+
+  "b6-biodiversity": {
+    title: "Biodiversity & cultural heritage — PS6 and PS8",
+    org: "Module 3 · reading 8 of 8",
+    accent: "#22c55e",
+    image: "/images/lm12.jpg",
+    intro:
+      "PS6 and PS8 share a structure: both protect things invisible from a drawing, both are screened BEFORE work rather than managed during it, and both contain a category — critical habitat, critical cultural heritage — where the correct answer may be that the project does not proceed as designed. They also share a failure mode: screening done after clearance, which establishes only what was lost.",
+    sections: [
+      {
+        title: "Two hours on a Friday",
+        body: "A grader stripping topsoil exposes human remains. The operator stops, calls his foreman, the foreman calls the section manager — nobody knows what to do, so the machine is moved and work continues fifty metres along. By Monday the community knows: the site is now a place where a project dug up a grave and kept working, and whose grave it was has become impossible to establish, because the context was destroyed on Friday afternoon. The chance find procedure that would have prevented this takes two hours to write and five minutes to explain. Its test is not whether it appears in the ESMP — it is whether the grader operator knows what to do in the first five minutes, in his own language, without calling anyone to ask.",
+      },
+      {
+        title: "Three kinds of habitat",
+        body: "PS6 classifies habitat into three categories, with progressively stricter requirements — and classification determines everything that follows:",
+        points: [
+          "MODIFIED habitat — farmland, plantations, settled areas. Minimise conversion, improve where feasible. Most of a road corridor sits here.",
+          "NATURAL habitat — viable assemblages of largely native species. The project may proceed only where there is no feasible alternative, benefits outweigh costs, and mitigation is designed to achieve NO NET LOSS where feasible.",
+          "CRITICAL habitat — identified against defined criteria: highly threatened ecosystems, habitat of Critically Endangered and Endangered species, endemic and restricted-range species, globally significant migratory concentrations, key evolutionary processes. A demanding set of conditions must ALL be met to proceed at all, the outcome sought is a NET GAIN, and long-term monitoring is required.",
+          "The point that catches projects out: critical habitat is NOT the same as a protected area. A site can meet a critical habitat criterion without being gazetted, protected or known to any national authority — scrub that looks like nothing, holding a restricted-range species that occurs nowhere else. A project can hold every national clearance, sit inside critical habitat, and not know. That is why screening exists, and why it happens before clearance.",
+        ],
+      },
+      {
+        title: "Screening, before anything is cleared",
+        body: "Four steps, almost always compressed or skipped because they sit between a design decision and a production activity and belong to neither: DESK SCREENING against recognised sources (IBAT, the IUCN Red List, Protected Planet and the World Database on Protected Areas, national registers); FIELD SURVEY ACROSS SEASONS — a single dry-season survey misses migratory species, seasonal wetland function and much of the flora, and where seasons cannot be covered, the limitation is stated in the report rather than left for a reviewer to find; HABITAT CLASSIFICATION by someone competent, against the criteria; then the DESIGN RESPONSE — avoid, minimise, restore, offset, in that order, each rejected option documented. The screening covers EVERY footprint, not only the alignment: pits, quarries, camps, tracks, laydown and spoil areas — which is where unscreened clearance almost always occurs, because they are selected by the contractor after the assessment was written. And the useful question for any design team: when did the ecologist first see the alignment? If the answer is after approval, then avoidance — the only step that costs almost nothing — was never available.",
+      },
+      {
+        title: "No net loss is a measurement, not a statement",
+        body: "What is distinctive about PS6 is that the outcome of the hierarchy is expressed as a measurable quantity. No net loss requires: a quantified account of what is lost (habitat area by type and condition, and the values for which it matters); a quantified account of what is gained through restoration and offset, in the same units, against the same values; ADDITIONALITY — a gain that would have happened anyway is not a gain; LIKE FOR LIKE — an offset must address the values lost, not a different set that is easier to secure; and long-term security with monitoring capable of demonstrating the outcome. A payment to a conservation body is NOT an offset: an offset is a measured biodiversity outcome, and funding a thing is not achieving it. Offsets are the last resort — demanding, expensive, and frequently proposed by projects that skipped avoidance, which is the first question a reviewer asks.",
+      },
+      {
+        title: "Invasive species — the pathways you create",
+        body: "A road project is an efficient distribution system for invasive species, and most pathways are created by ordinary logistics:",
+        points: [
+          "Plant and vehicles — seeds carried in mud on tracks, tyres and tipper bodies, moved across catchments daily. Control: wash-down at defined points, especially when plant moves between sections or arrives from another project. The most efficient dispersal pathway a project operates, and the cheapest to interrupt.",
+          "Imported fill and aggregate — seed banks from an infested source. Inspect source areas.",
+          "Erosion control and landscaping — species chosen for rapid growth and hardiness, which are the same characteristics that make a species invasive. Check the specification against the national invasive species list BEFORE contract award — once it is in the bill of quantities nobody revisits it.",
+          "The corridor itself — a cleared, disturbed linear strip is ideal coloniser habitat and a highway along which they travel. Rapid native revegetation, and monitoring of corridor edges through the defects period.",
+        ],
+      },
+      {
+        title: "Cultural heritage: more than monuments",
+        body: "National antiquities law protects declared monuments and registered sites. PS8 is broader, and the difference is where the risk sits. Five forms: tangible-known (on a map, rarely missed); tangible-UNKNOWN — burials, shrines, sacred groves, unregistered deposits — on no map, found by an excavator, which is what the chance find procedure exists for; NATURAL FEATURES with cultural significance — a tree, a rock, a spring — physically unremarkable, culturally central, invisible to a survey team and obvious to anyone who lives there; INTANGIBLE — procession routes, ceremonial grounds, seasonal practices — cannot be surveyed at all; and CRITICAL cultural heritage — heritage essential to a community's identity or spiritual life — where a project may be unable to proceed as designed. Three of the five categories cannot be found by a specialist walking a corridor. They are found by ASKING people who live there — separately from whoever speaks for the community by default, with attention to the fact that some sites are known only to certain people (ask women and elders separately) and will not be disclosed at a public meeting. A heritage screening that is a desk study plus a walkover finds the monuments and misses everything that matters locally. And 'within living memory' matters: a site unused for thirty years is not thereby available — someone remembers it.",
+      },
+      {
+        title: "The chance find procedure, as a drill",
+        body: "The only part of PS8 that operates at the moment it matters, and the one content every plant operator learns regardless of role. The five steps: 1 · STOP. Switch off. Do not move the machine through the area again. 2 · Do not touch, move, collect or photograph anything. 3 · Mark and secure a radius — keep everyone out, including colleagues who want to look. 4 · Call the number — one number, on the induction card, in the cab. 5 · Nobody resumes work in that area until the named person has attended and released it. Behind those five steps must exist: a named, reachable person who attends; a relationship with the antiquities authority established BEFORE the first find; a route to the community — particularly for a burial, because the people to consult first may be related to it; a written record; and an accepted programme consequence — a procedure everyone knows will be overridden by schedule pressure will not be followed the second time. Human remains engage the police and coroner in most jurisdictions, and relocation of a burial, where unavoidable, is a consultative process with the family conducted according to their practice, at the project's cost — never a works activity. Run it as a drill: if the operator would 'call his foreman and ask', the procedure does not exist yet, however well it is written.",
       },
     ],
     relatedModules: ["m2"],
@@ -3506,423 +3909,286 @@ export const quizzes = {
   "m2": {
     "passMark": 0.8,
     "questions": [
+      // ——— Multiple choice (8 in bank, 5 served) ———
       {
-        "tag": "Two layers",
-        "prompt": "True or false: Nigerian law is the maximum standard the contractor has to meet.",
+        "fmt": "mcq", "difficulty": "medium", "tag": "Land — PS5",
+        "prompt": "A farmer keeps his title and his house, but the new embankment cuts his field in two and he can no longer reach the far half. This is…",
         "options": [
-          "True",
-          "False"
-        ],
-        "correct": 1,
-        "tip": "Local law is the minimum (the floor); lenders require international standards on top."
-      },
-      {
-        "tag": "IFC",
-        "prompt": "PS8 concerns…",
-        "options": [
-          "Cultural Heritage",
-          "Labour",
-          "Water use",
-          "Financing"
+          "Economic displacement — he has lost access to an asset and to income",
+          "Not a PS5 matter, since no land was acquired from him",
+          "A highway design issue for the engineer",
+          "Compensable only if he proves financial loss in court"
         ],
         "correct": 0,
-        "tip": "PS8 — Cultural Heritage, incl. chance-find procedures."
+        "tip": "PS5 covers loss of ACCESS to assets and loss of income, not only acquisition. 'No land transaction' is the most common professional error: it is not the absence of displacement."
       },
       {
-        "tag": "IFC",
-        "difficulty": "hard",
-        "prompt": "FPIC — central to PS7 — stands for…",
+        "fmt": "mcq", "difficulty": "medium", "tag": "Land — PS5",
+        "prompt": "A twenty-two year old house is valued at construction cost less two percent per year for age. Under PS5 this is…",
         "options": [
-          "Free, Prior and Informed Consent",
-          "Final Project Inspection Certificate",
-          "Fixed Price Import Contract",
-          "Formal Public Investment Clause"
+          "Incorrect — full replacement cost allows no deduction for depreciation",
+          "Correct, as it reflects the actual value of the asset lost",
+          "Correct if the national valuation office certified it",
+          "Acceptable if the household agreed to the figure"
         ],
         "correct": 0,
-        "tip": "FPIC applies to Indigenous Peoples (PS7)."
+        "tip": "The valuer may have applied national law correctly, and the household may have agreed — neither converts a depreciated figure into replacement cost. A negotiated shortfall is still a shortfall."
       },
       {
-        "tag": "Nigeria",
-        "image": "/images/lm5.jpg",
-        "prompt": "NESREA's role is to…",
+        "fmt": "mcq", "difficulty": "hard", "tag": "Land — PS5",
+        "prompt": "Compensation has been approved internally but not yet disbursed. The section needs the parcel next week. You may…",
         "options": [
-          "Set and enforce environmental standards",
-          "Supply electricity",
-          "Regulate banks",
-          "Build roads"
+          "Not enter the land — 'available' means the person can actually collect the money",
+          "Enter, provided disbursement follows within the month",
+          "Enter if the community leader confirms agreement in writing",
+          "Enter on the parcels where the owner is present and consenting"
         ],
         "correct": 0,
-        "tip": "NESREA is the environmental enforcement agency."
+        "tip": "The threshold is payment, not paperwork — and this is the only failure in resettlement that cannot be corrected afterwards. A leader cannot waive an individual entitlement, and consent given beside an excavator is not consent."
       },
       {
-        "tag": "Nigeria",
-        "image": "/images/esg-environment.jpg",
-        "prompt": "The EIA Act requires…",
+        "fmt": "mcq", "difficulty": "medium", "tag": "Workers — PS2",
+        "prompt": "The national minimum working age is 15. On your construction site, the operative age threshold is…",
         "options": [
-          "An approved EIA before major works begin",
-          "A tax return",
-          "A marketing plan",
-          "A dividend policy"
+          "18 — almost everything on a civil works site is hazardous work",
+          "15, since national law governs employment",
+          "16, with parental consent",
+          "Whatever the labour supplier's policy states"
         ],
         "correct": 0,
-        "tip": "An approved EIA is a precondition for major projects."
+        "tip": "The hazardous-work rule (ILO Convention 182) is a separate and stricter test from the minimum working age. A seventeen-year-old lawfully employable in the jurisdiction is still not employable at a crusher."
       },
       {
-        "tag": "Equator",
-        "prompt": "Equator Principles Category A means…",
+        "fmt": "mcq", "difficulty": "medium", "tag": "Workers — PS2",
+        "prompt": "A labour supplier holds his workers' identity documents 'for safekeeping, because the camp has no secure storage'. This is…",
         "options": [
-          "High, diverse or irreversible risk",
-          "No risk",
-          "Medium risk",
-          "Purely financial risk"
+          "A forced labour indicator — documents are returned the same day and lockable storage provided",
+          "Acceptable, since the camp genuinely lacks lockers",
+          "The supplier's internal arrangement, outside the project's scope",
+          "Acceptable if the workers signed a consent form"
         ],
         "correct": 0,
-        "tip": "A = highest E&S risk."
+        "tip": "A worker without his documents cannot leave, travel or seek other work — there is no legitimate reason to hold them. And PS2 covers workers engaged by third parties: the finding lands on the project."
       },
       {
-        "tag": "Equator",
-        "prompt": "Category C projects have…",
+        "fmt": "mcq", "difficulty": "easy", "tag": "Communities — PS4",
+        "prompt": "On a road construction project in Sub-Saharan Africa, the activity that kills the most people is…",
         "options": [
-          "Minimal or no adverse impact",
-          "The highest risk",
-          "Medium risk",
-          "Unknown risk"
+          "The haulage fleet operating on public roads",
+          "Work at height",
+          "Excavation collapse",
+          "Plant movement inside the working area"
         ],
         "correct": 0,
-        "tip": "C = minimal/no impact."
+        "tip": "The biggest safety risk is not on the site — it is tippers and bowsers among pedestrians, schoolchildren and motorcycles who never agreed to be near the project. That is why routing, timing and engineered speed control matter more than any toolbox talk."
       },
       {
-        "type": "multi",
-        "tag": "Select all",
-        "prompt": "Which of these are Nigerian legal instruments/bodies?",
+        "fmt": "mcq", "difficulty": "hard", "tag": "Pollution — PS3",
+        "prompt": "A borrow pit is opened with the landowner's written consent but no mineral title. The position is…",
         "options": [
-          "EIA Act",
-          "NESREA",
-          "IFC Performance Standards",
-          "Land Use Act"
-        ],
-        "correct": [
-          0,
-          1,
-          3
-        ],
-        "tip": "IFC PS is international, not Nigerian law."
-      },
-      {
-        "tag": "Stricter rule",
-        "prompt": "True or false: when local law and an international standard conflict, the contractor follows the cheaper option.",
-        "options": [
-          "True",
-          "False"
-        ],
-        "correct": 1,
-        "tip": "You apply the stricter, more protective requirement."
-      },
-      {
-        "tag": "Equator",
-        "prompt": "The Equator Principles are used by…",
-        "options": [
-          "Banks, to assess and monitor project finance",
-          "Road contractors, to price jobs",
-          "Tax authorities",
-          "Insurers only"
+          "Unlawful extraction under national law AND an unassessed activity under the standards — two findings from one omission",
+          "Lawful, since the landowner consented",
+          "A minor administrative gap to regularise at the next assessment revision",
+          "A PS3 matter only, about dust and sediment"
         ],
         "correct": 0,
-        "tip": "They are a lender framework."
+        "tip": "A borrow pit is a mining activity in law: the mineral right is vested separately and issued by a different authority. A landowner's consent does not confer it, and an unscreened pit can engage six standards at once."
       },
       {
-        "tag": "IFC",
-        "difficulty": "medium",
-        "prompt": "PS3 is about…",
+        "fmt": "mcq", "difficulty": "hard", "tag": "Biodiversity — PS6",
+        "prompt": "The corridor holds every national clearance and crosses no protected area. Regarding critical habitat, this means…",
         "options": [
-          "Resource Efficiency & Pollution Prevention",
-          "Cultural Heritage",
-          "Indigenous Peoples",
-          "Labour"
+          "Nothing yet — a site can meet a critical habitat criterion without being gazetted or known to any authority",
+          "Critical habitat is absent, since none is designated",
+          "Only modified habitat can be present",
+          "PS6 no longer applies to the project"
         ],
         "correct": 0,
-        "tip": "PS3 — pollution prevention, resources, emissions."
+        "tip": "Critical habitat and protected areas are different things: unremarkable scrub can hold a restricted-range species that occurs nowhere else. That is why screening happens before clearance — after it, screening only establishes what was lost."
       },
+      // ——— Multiple response (4 in bank, 2 served) ———
       {
-        "tag": "Nigeria",
-        "prompt": "Which Nigerian law requires an approved Environmental Impact Assessment before a major project proceeds?",
+        "fmt": "multi", "type": "multi", "difficulty": "medium", "tag": "Land — PS5",
+        "prompt": "Which of these are economically displaced by the road project? Select all that apply.",
         "options": [
-          "The EIA Act",
-          "The Land Use Act",
-          "The Finance Act",
-          "The Evidence Act"
+          "A trader operating in the road reserve with no papers",
+          "A tenant in an acquired compound",
+          "A sharecropper working land he does not own",
+          "A household 400 m from the alignment with no works or access nearby",
+          "Employees of a displaced business",
+          "A herder whose seasonal route is severed"
         ],
-        "correct": 0,
-        "tip": "The EIA Act makes an approved EIA a precondition for major projects."
+        "correct": [0, 1, 2, 4, 5],
+        "tip": "The household at 400 m is deliberately included: not everyone near a project is displaced, and over-inclusion undermines the credibility of the register. The other five lose income, access or livelihood — with or without a land transaction."
       },
       {
-        "tag": "Regulator",
-        "prompt": "NESREA is Nigeria's…",
+        "fmt": "multi", "type": "multi", "difficulty": "hard", "tag": "Land — PS5",
+        "prompt": "What makes a cut-off date enforceable? Select all that apply.",
         "options": [
-          "Environmental standards & regulations enforcement agency",
-          "National power utility",
-          "Stock-market regulator",
-          "Road-safety corps"
+          "Announced in advance through channels people actually receive",
+          "Announced in the languages people use",
+          "Dated evidence of each communication retained",
+          "Recorded in the resettlement action plan",
+          "A visual record of what existed on the date",
+          "A grievance window for anyone wrongly omitted"
         ],
-        "correct": 0,
-        "tip": "NESREA sets and enforces environmental standards."
+        "correct": [0, 1, 2, 4, 5],
+        "tip": "Recording the date in the plan is necessary and nowhere near sufficient. Setting a date is not the requirement — communicating it, and being able to prove you did, is."
       },
       {
-        "tag": "International",
-        "image": "/images/lm2.jpg",
-        "prompt": "The IFC Performance Standards are…",
+        "fmt": "multi", "type": "multi", "difficulty": "medium", "tag": "Workers — PS2",
+        "prompt": "Which of these are forced labour indicators? Select all that apply.",
         "options": [
-          "The international benchmark for managing ESG risk on financed projects",
-          "A Nigerian tax code",
-          "An accounting standard",
-          "A trade-union charter"
+          "Identity documents held by the employer or supplier",
+          "A recruitment fee deducted from the first month's wages",
+          "Wages retained 'to discourage absconding'",
+          "A written contract in the worker's own language",
+          "Camp rules that prevent workers leaving outside working hours",
+          "A payslip showing each deduction and its basis"
         ],
-        "correct": 0,
-        "tip": "There are eight IFC PS — the global reference for financed projects."
+        "correct": [0, 1, 2, 4],
+        "tip": "The contract and the payslip are what good practice looks like. The other four each remove the worker's ability to leave — which is exactly what 'voluntary' work means. Act on the indicator; do not wait for certainty."
       },
       {
-        "tag": "Equator",
-        "prompt": "Under the Equator Principles, lenders categorise a project by…",
+        "fmt": "multi", "type": "multi", "difficulty": "medium", "tag": "Conduct — SEA/H",
+        "prompt": "Which of these are ABSOLUTE rules under the project's code of conduct? Select all that apply.",
         "options": [
-          "Its level of ESG risk (A / B / C)",
-          "Its loan size only",
-          "The borrower's age",
-          "The time of year"
+          "No sexual activity with anyone under eighteen — mistaken belief about age is no defence",
+          "No exchange of money, employment or any project benefit for sex",
+          "No retaliation against anyone who reports or supports a report",
+          "No relationships of any kind between consenting adult workers",
+          "No contact of any kind between workers and community members"
         ],
-        "correct": 0,
-        "tip": "Category A = highest risk, C = minimal — it reflects ESG risk, not money."
+        "correct": [0, 1, 2],
+        "tip": "The code does not prohibit relationships between consenting adults — it requires declaration where a power imbalance exists, and moves the decision-holder. The three absolute rules admit no exception, no local variation and no mitigating circumstance."
       },
+      // ——— Sequencing (2 in bank, 1 served) ———
       {
-        "tag": "Stricter rule",
-        "prompt": "When Nigerian law and an international standard differ, the contractor applies…",
-        "options": [
-          "The stricter, more protective requirement",
-          "Whichever is cheaper",
-          "Only local law",
-          "Neither"
-        ],
-        "correct": 0,
-        "tip": "Lenders require the more stringent standard to be met."
-      },
-      {
-        "tag": "PS",
-        "prompt": "Which is one of the eight IFC Performance Standards?",
-        "options": [
-          "Labour & Working Conditions",
-          "Corporate Tax Planning",
-          "Advertising Standards",
-          "Shareholder Dividends"
-        ],
-        "correct": 0,
-        "tip": "PS2 is Labour & Working Conditions — the others aren't IFC PS."
-      },
-      {
-        "type": "order",
-        "tag": "Puzzle",
-        "prompt": "Order the assessment process on a project.",
+        "fmt": "order", "type": "order", "difficulty": "hard", "tag": "Land — PS5",
+        "prompt": "Your section needs access to a parcel next week. Put these five actions in the required order.",
         "items": [
-          "Assess the impacts (ESIA)",
-          "Set the controls (ESMP)",
-          "Monitor performance",
-          "Report to the lender"
+          "Confirm the parcel is inside the resettlement register",
+          "Enumerate who uses the parcel, including seasonal and informal users",
+          "Value the losses at full replacement cost",
+          "Make compensation available to every affected person",
+          "Enter the land and begin works"
         ],
-        "hint": "You can't control what you haven't assessed, and you can't report what you haven't monitored.",
-        "tip": "Assess → control → monitor → report."
+        "tip": "Four of these five can be corrected if done badly. Entering land before compensation is available cannot — 'available' means the person can collect it, not that it is calculated, approved or budgeted."
       },
       {
-        "type": "fillblank",
-        "tag": "Fill the blanks",
-        "prompt": "Complete the stricter-standard rule.",
-        "segments": [
-          "Where local law and an international standard differ, the contractor applies the ",
-          {
-            "options": [
-              "stricter",
-              "cheaper"
-            ],
-            "correct": 0
-          },
-          " requirement — usually the ",
-          {
-            "options": [
-              "international",
-              "local"
-            ],
-            "correct": 0
-          },
-          " standard."
-        ],
-        "hint": "Lenders always want the more protective option.",
-        "tip": "Apply the stricter, more protective requirement — usually the international standard."
-      },
-      {
-        "tag": "Solve it",
-        "image": "/images/lm3.jpg",
-        "difficulty": "hard",
-        "prompt": "SOLVE THE CASE: during excavation on this building site, workers uncover old pottery and carved stones. What applies, and what do you do?",
-        "options": [
-          "PS8 chance-find: stop work at that spot, protect the find, notify the authorities",
-          "Keep digging — the schedule is tight",
-          "PS6 biodiversity: relocate the stones to a forest",
-          "Sell the artifacts to fund community projects"
-        ],
-        "correct": 0,
-        "hint": "Cultural heritage has its own Performance Standard — and a fixed procedure for surprises.",
-        "tip": "PS8 Cultural Heritage: a chance-find procedure means stop at the spot, protect, and notify — works resume once cleared."
-      },
-      {
-        "tag": "Solve it",
-        "image": "/images/esg-environment.jpg",
-        "difficulty": "medium",
-        "prompt": "SOLVE THE CASE: the road alignment must cross this green corridor. Under PS6, the project's biodiversity goal is…",
-        "options": [
-          "No net loss — avoid, minimise, then restore or offset habitat",
-          "Clear it quickly before anyone objects",
-          "Pay a fine and proceed",
-          "Biodiversity only matters in national parks"
-        ],
-        "correct": 0,
-        "hint": "Think of the mitigation hierarchy applied to nature.",
-        "tip": "PS6 aims for no net loss of biodiversity — the mitigation hierarchy applied to habitats and species."
-      },
-      {
-        "type": "order",
-        "tag": "Puzzle",
-        "prompt": "Put the ESIA journey in the correct order.",
+        "fmt": "order", "type": "order", "difficulty": "medium", "tag": "Biodiversity — PS6",
+        "prompt": "Put the biodiversity screening sequence in the order PS6 requires — before anything is cleared.",
         "items": [
-          "Screening — is a full assessment needed?",
-          "Baseline studies — measure before works",
-          "Impact assessment — predict the changes",
-          "Approval — the regulator signs off"
+          "Desk screening against recognised data sources (IBAT, IUCN Red List, Protected Planet)",
+          "Field survey across seasons",
+          "Habitat classification: modified, natural or critical",
+          "Design response: avoid, then minimise, restore, offset"
         ],
-        "hint": "You can't assess impacts before you know the starting point.",
-        "tip": "Screen → baseline → assess → approve: no major works before the ESIA is approved."
+        "tip": "Screening done after clearance establishes only what was lost. And a single dry-season survey misses migratory species, seasonal wetlands and much of the flora — state the limitation rather than leaving it for a reviewer to find."
       },
+      // ——— Categorisation (3 in bank, 2 served) ———
       {
-        "type": "fillblank",
-        "tag": "Fill the blanks",
-        "prompt": "Complete the Equator categories.",
-        "segments": [
-          "Category ",
-          {
-            "options": [
-              "A",
-              "C"
-            ],
-            "correct": 0
-          },
-          " projects carry the highest ESG risk, while Category ",
-          {
-            "options": [
-              "C",
-              "A"
-            ],
-            "correct": 0
-          },
-          " projects have minimal or no adverse impacts."
-        ],
-        "hint": "The alphabet runs from most to least risky.",
-        "tip": "A = significant/irreversible risk, B = limited and manageable, C = minimal."
-      },
-      {
-        "type": "hotspot",
-        "tag": "Spot it",
-        "prompt": "The ESIA baseline team surveys this area. Tap the PROJECT FOOTPRINT itself — the corridor the works will occupy.",
-        "image": "/images/lm12.jpg",
-        "zones": [
-          {
-            "x": 47,
-            "y": 62,
-            "label": "The road corridor",
-            "correct": true
-          },
-          {
-            "x": 15,
-            "y": 45,
-            "label": "Farmland (part of the surroundings studied)"
-          },
-          {
-            "x": 85,
-            "y": 30,
-            "label": "Distant fields (wider study area)"
-          }
-        ],
-        "hint": "The footprint is the land the works themselves take — the strip being built.",
-        "tip": "The corridor is the project footprint; the ESIA studies it AND the surrounding area it affects."
-      },
-      {
-        "type": "categorize",
-        "tag": "Puzzle",
-        "prompt": "Sort each rule: Nigerian law or international standard?",
+        "fmt": "cat", "type": "categorize", "difficulty": "medium", "tag": "Land — PS5",
+        "prompt": "Physical displacement, or economic?",
         "categories": [
-          {
-            "id": "ng",
-            "label": "Nigerian law"
-          },
-          {
-            "id": "int",
-            "label": "International standard"
-          }
+          { "id": "phys", "label": "Physical" },
+          { "id": "econ", "label": "Economic" }
         ],
         "items": [
-          {
-            "text": "EIA Act approval",
-            "cat": "ng"
-          },
-          {
-            "text": "IFC PS6 no-net-loss of biodiversity",
-            "cat": "int"
-          },
-          {
-            "text": "NESREA enforcement notice",
-            "cat": "ng"
-          },
-          {
-            "text": "Equator Category A scrutiny",
-            "cat": "int"
-          }
+          { "id": "house", "text": "A house inside the right of way", "cat": "phys" },
+          { "id": "field", "text": "A field bisected by an embankment", "cat": "econ" },
+          { "id": "tenant", "text": "A tenant whose landlord's building is acquired", "cat": "phys" },
+          { "id": "stall", "text": "A roadside stall removed", "cat": "econ" },
+          { "id": "route", "text": "A grazing route severed", "cat": "econ" },
+          { "id": "shop", "text": "A workshop losing its frontage to a barrier", "cat": "econ" }
         ],
-        "hint": "Acts and agencies are national; PS and Equator come from the lenders' world.",
-        "tip": "The EIA Act and NESREA are the Nigerian floor; IFC PS and Equator are the international bar."
+        "tip": "Five of six real-world cases are economic, which matches the field: physical displacement is counted correctly on most projects, economic displacement is missed on almost all of them."
       },
       {
-        "type": "diagramtap",
-        "tag": "Tap the diagram",
-        "prompt": "The ESIA journey. Tap the step where you measure the environment BEFORE any works begin.",
+        "fmt": "cat", "type": "categorize", "difficulty": "hard", "tag": "Land — PS5",
+        "prompt": "Is this compensation correct at FULL REPLACEMENT COST — or short?",
+        "categories": [
+          { "id": "ok", "label": "Correct" },
+          { "id": "short", "label": "Short" }
+        ],
+        "items": [
+          { "id": "newhouse", "text": "Cost of an equivalent new house plus transfer fees and transport", "cat": "ok" },
+          { "id": "depr", "text": "Construction cost less two percent per year of age", "cat": "short" },
+          { "id": "trees", "text": "Flat rate per tree regardless of species and age", "cat": "short" },
+          { "id": "land", "text": "Land of equivalent productive potential plus registration costs", "cat": "ok" },
+          { "id": "crops", "text": "One season of crops where the land is unusable for three", "cat": "short" },
+          { "id": "nego", "text": "An amount the household negotiated and accepted, below replacement cost", "cat": "short" }
+        ],
+        "tip": "Depreciation is the defect everyone recognises. Omitted transaction costs and flat tree rates pass unnoticed — and agreement does not convert a shortfall into compliance."
+      },
+      {
+        "fmt": "cat", "type": "categorize", "difficulty": "medium", "tag": "Waste — PS3",
+        "prompt": "Which disposal stream does each item belong to?",
+        "categories": [
+          { "id": "haz", "label": "Hazardous stream" },
+          { "id": "gen", "label": "General / recyclable" }
+        ],
+        "items": [
+          { "id": "filter", "text": "A used oil filter", "cat": "haz" },
+          { "id": "timber", "text": "Timber offcuts", "cat": "gen" },
+          { "id": "drum", "text": "An empty bitumen drum", "cat": "haz" },
+          { "id": "rebar", "text": "Reinforcement steel offcuts", "cat": "gen" },
+          { "id": "rags", "text": "Diesel-contaminated rags and absorbents", "cat": "haz" },
+          { "id": "cardboard", "text": "Packaging cardboard", "cat": "gen" }
+        ],
+        "tip": "One used filter in a general skip contaminates the whole load. And empty drums leave site whether you intend it or not — some end up storing drinking water. Render them unusable and route them through the hazardous stream."
+      },
+      // ——— Visual / tap (2 in bank, 1 served) ———
+      {
+        "fmt": "tap", "type": "diagramtap", "difficulty": "medium", "tag": "Chance find — PS8",
+        "prompt": "A grader operator uncovers what look like human remains. Tap his correct FIRST action.",
         "boxes": [
-          "Screening",
-          "Baseline studies",
-          "Impact assessment",
-          "Approval"
+          "Stop, switch off, and not move the machine through the area again",
+          "Move the find carefully to a safe place beside the works",
+          "Photograph everything for the record before continuing",
+          "Ask the community leader what the site is"
         ],
-        "correct": 1,
-        "hint": "You need a 'before' picture to predict the changes.",
-        "tip": "Baseline studies capture the starting point — air, water, biodiversity, livelihoods — before works."
+        "correct": 0,
+        "hint": "The first five minutes decide whether anything can ever be established.",
+        "tip": "The five steps: stop — do not touch, move, collect or photograph — secure a radius — call the one number in the cab — nobody resumes until the named person attends. Moving the machine on destroyed the context; the procedure exists so it never has to be improvised."
       },
       {
-        "type": "connect",
-        "tag": "Link them",
-        "prompt": "Link each body or rule to what it does.",
-        "pairs": [
-          {
-            "l": "NESREA",
-            "r": "Enforces Nigerian environmental standards"
-          },
-          {
-            "l": "EIA Act",
-            "r": "Requires an approved study before major works"
-          },
-          {
-            "l": "IFC PS",
-            "r": "The eight lender benchmark standards"
-          },
-          {
-            "l": "Equator Principles",
-            "r": "How banks apply the standards to loans"
-          }
+        "fmt": "tap", "type": "diagramtap", "difficulty": "hard", "tag": "The camp walk",
+        "prompt": "Four things seen on a night walk of a subcontractor's camp. Three are accommodation failings — tap the one that is a FORCED LABOUR indicator.",
+        "boxes": [
+          "Triple-tier bunks in the sleeping quarters",
+          "One working shower for forty men",
+          "A gate rule preventing workers from leaving the camp off-shift",
+          "Sanitary facilities with no lighting at night"
         ],
-        "hint": "Two are Nigerian, two are international.",
-        "tip": "NESREA enforces, the EIA Act requires the study, the IFC PS set the bar, Equator applies it to finance."
+        "correct": 2,
+        "hint": "Security controls who enters. Something else controls who leaves.",
+        "tip": "Bunks, showers and lighting are accommodation findings against the IFC/EBRD guidance note. A control that prevents workers LEAVING is a different category: voluntary work means the worker can go, and a camp he cannot exit is a forced labour indicator."
+      },
+      // ——— Scenario, best first action (2 in bank, 1 served) ———
+      {
+        "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — mobilise Monday",
+        "prompt": "Your section is behind programme. The compensation file for four parcels is with the ministry and payment dates are unconfirmed. A community leader offers written confirmation that the affected households are content for work to begin. Your section manager wants to mobilise on Monday. What do you do?",
+        "options": [
+          "Do not enter. Escalate the payment delay, and resequence the works to parcels where compensation is already available",
+          "Mobilise, holding the leader's written confirmation on file",
+          "Mobilise only on parcels where the owner is present and consenting",
+          "Pay an advance directly to the households from project funds and mobilise"
+        ],
+        "correct": 0,
+        "tip": "A leader cannot waive an individual entitlement — written confirmation makes the breach documented rather than deniable. Consent given beside an excavator is not consent, and a parallel payment route outside the entitlement framework is its own serious finding. Resequencing is the answer people rarely reach for, and it is usually available."
+      },
+      {
+        "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — the grove at 14+200",
+        "prompt": "Clearance starts next week on a 6 km stretch recorded as farmland with no notable features. Walking the alignment, your liaison officer is told by an elderly woman that a 0.4-hectare stand of trees at chainage 14+200 is where the community buries its dead and holds an annual ceremony. It is unfenced, unmarked, and on no map. The clearance contractor is on standing time. Your PM asks if this can be dealt with during clearance. What do you do FIRST?",
+        "options": [
+          "Stop clearance approaching that chainage today, consult the community — including women and elders separately — and put realignment on the table",
+          "Proceed as planned: the approved assessment recorded no heritage sites",
+          "Fence the grove and clear around it while the works continue",
+          "Offer the community compensation to relocate the burials before the machines arrive"
+        ],
+        "correct": 0,
+        "tip": "Screening during clearance is not screening — it is recording. Once the trees are down, the choice collapses to the slowest, costliest option. A 0.4 ha grove at a single chainage is very often avoidable with a shift of tens of metres, and relocation of burials is a consultative process led by the family — never a works activity, and never the opening offer."
       }
     ]
   },
