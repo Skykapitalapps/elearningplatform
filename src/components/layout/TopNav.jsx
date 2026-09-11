@@ -45,7 +45,7 @@ export default function TopNav() {
           onSignOut={signOut}
           onGoEvidence={() => navigate("/evidence")}
           onChangePassword={() => navigate("/reset")}
-          onAdmin={["admin", "manager"].includes(profile?.role) ? () => navigate("/admin") : null}
+          onAdmin={profile?.role === "admin" ? () => navigate("/admin") : null}
         />
       </div>
     </header>

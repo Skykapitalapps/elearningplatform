@@ -218,7 +218,7 @@ function catLabel(q, id) {
 export default function QuizPage() {
   const { moduleId } = useParams();
   const navigate = useNavigate();
-  const { modules, completeModule } = useCourse();
+  const { modules, completeModule, reviewer } = useCourse();
 
   // The module this assessment belongs to: the URL's module, else the module
   // currently in progress, else the next unfinished quiz module.
@@ -269,7 +269,7 @@ export default function QuizPage() {
   // this module opened, and every lesson section ticked. A completed module
   // (retakes) is exempt.
   let lessonRead = true;
-  if (target && target.status !== "completed") {
+  if (target && target.status !== "completed" && !reviewer) {
     try {
       if (target.lesson?.length) {
         const ticked = JSON.parse(

@@ -49,7 +49,11 @@ function loadInitial(storageKey) {
 export function CourseProvider({ children }) {
   // Progress is stored PER ACCOUNT when signed in (fresh accounts start at
   // zero); the shared key is only used in local demo mode without auth.
-  const { enabled: authEnabled, user } = useAuth();
+  const { enabled: authEnabled, user, profile } = useAuth();
+  // Reviewers (role 'manager') see every module unlocked — full content
+  // access for review, without any user/client management rights.
+  const reviewer = authEnabled && profile?.role === "manager";
+  _reviewerUnlock = reviewer;
   const storageKey =
     authEnabled && user ? `skykapital-progress-${user.id}` : STORAGE_KEY;
 
@@ -234,6 +238,7 @@ export function CourseProvider({ children }) {
   const value = {
     modules,
     progress,
+    reviewer,
     acknowledgements,
     completeModule,
     acknowledge,
@@ -253,11 +258,13 @@ export function useCourse() {
 // DEV SWITCH: while the course content is being built and tested, every
 // module is open. Set back to false before rollout to restore path-locking.
 const UNLOCK_ALL = false;
+// Set by the provider when the signed-in account is a reviewer.
+let _reviewerUnlock = false;
 
 // A module is unlocked if it's already started/finished, it's first in the
 // path, or the module immediately before it in the path is completed.
 export function isUnlocked(modules, module) {
-  if (UNLOCK_ALL) return true;
+  if (UNLOCK_ALL || _reviewerUnlock) return true;
   if (module.status === "completed" || module.status === "in_progress") return true;
   const i = modules.findIndex((m) => m.id === module.id);
   if (i <= 0) return true;

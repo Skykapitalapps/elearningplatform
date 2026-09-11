@@ -20,7 +20,8 @@ async function openDoc(path) {
 // Home = project cards. Open a project = manage ITS users and ITS documents.
 export default function AdminPage({ standalone = false }) {
   const { profile, user, signOut } = useAuth();
-  const isStaff = ["admin", "manager"].includes(profile?.role);
+  // Reviewers (manager role) have NO access to user/client management.
+  const isStaff = profile?.role === "admin";
   const isAdmin = profile?.role === "admin";
 
   const [projects, setProjects] = useState([]);

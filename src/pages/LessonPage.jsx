@@ -43,7 +43,7 @@ function renderActivity(a, accent) {
 export default function LessonPage() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { modules, progress, completeModule, showToast } = useCourse();
+  const { modules, progress, completeModule, showToast, reviewer } = useCourse();
   const [tab, setTab] = useState("notes");
 
   // "Mark as read" per lesson section, persisted per module.
@@ -133,7 +133,7 @@ export default function LessonPage() {
     module?.status === "completed" ||
     moduleDocs.length === 0 ||
     docsReadCount === moduleDocs.length;
-  const readingDone = allRead && allDocsRead;
+  const readingDone = reviewer || (allRead && allDocsRead);
   if (!module) {
     return (
       <div className="mx-auto max-w-[1280px] p-stack-lg">
