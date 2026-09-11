@@ -4,8 +4,10 @@ import MaterialIcon from "../components/MaterialIcon.jsx";
 import Logo from "../components/Logo.jsx";
 import Confetti from "../components/Confetti.jsx";
 import { useCourse } from "../CourseContext.jsx";
+import { useAuth } from "../AuthContext.jsx";
 import { AnimatedNumber } from "../useCountUp.jsx";
 import { quizzes, platform, libraryByModule } from "../data.js";
+import { filterQuizBank, visibleDocs } from "../config/jobRoles.js";
 
 function formatTime(s) {
   const m = Math.floor(s / 60);
@@ -219,6 +221,7 @@ export default function QuizPage() {
   const { moduleId } = useParams();
   const navigate = useNavigate();
   const { modules, completeModule, reviewer } = useCourse();
+  const { profile } = useAuth();
 
   // The module this assessment belongs to: the URL's module, else the module
   // currently in progress, else the next unfinished quiz module.
@@ -228,7 +231,9 @@ export default function QuizPage() {
     modules.find((m) => m.status !== "completed" && m.type === "quiz");
 
   const activeQuiz = target ? quizzes[target.id] : null;
-  const questions = activeQuiz?.questions ?? [];
+  // Serve only the questions on this learner's pathway (job role) — untagged
+  // banks and unrestricted accounts get the full bank.
+  const questions = filterQuizBank(activeQuiz?.questions ?? [], profile);
 
   const [index, setIndex] = useState(0);
   const [deck, setDeck] = useState(() => buildDeck(drawFromBank(questions)));
@@ -277,7 +282,7 @@ export default function QuizPage() {
         );
         lessonRead = target.lesson.every((s) => ticked.includes(s.heading));
       }
-      const moduleDocs = (libraryByModule[target.id] ?? []).filter((d) => d.doc);
+      const moduleDocs = visibleDocs(libraryByModule[target.id] ?? [], profile).filter((d) => d.doc);
       if (lessonRead && moduleDocs.length > 0) {
         const opened = JSON.parse(localStorage.getItem("skykapital-docs-read") || "[]");
         lessonRead = moduleDocs.every((d) => opened.includes(d.doc));

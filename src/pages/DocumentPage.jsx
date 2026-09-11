@@ -5,6 +5,7 @@ import MaterialIcon from "../components/MaterialIcon.jsx";
 import { useAuth } from "../AuthContext.jsx";
 import { useCourse, isUnlocked } from "../CourseContext.jsx";
 import { documents, course, libraryByModule } from "../data.js";
+import { canOpenDoc, visibleDocs } from "../config/jobRoles.js";
 import RegFrameworkChart from "../components/charts/RegFrameworkChart.jsx";
 import EquatorCategories from "../components/charts/EquatorCategories.jsx";
 import PSCards from "../components/charts/PSCards.jsx";
@@ -38,8 +39,8 @@ export default function DocumentPage() {
   // Opening a reading counts it as read — this is what unlocks the games
   // back on the module page.
   useEffect(() => {
-    if (doc) markDocRead(docId);
-  }, [docId, doc]);
+    if (doc && canOpenDoc(docId, profile)) markDocRead(docId);
+  }, [docId, doc, profile]);
 
   if (!doc) {
     return (
@@ -85,11 +86,32 @@ export default function DocumentPage() {
     );
   }
 
+  // Readings outside this learner's pathway (job role) are not part of their
+  // course — point them back rather than counting stray reads.
+  if (!canOpenDoc(docId, profile)) {
+    return (
+      <div className="mx-auto flex max-w-[640px] flex-col items-center gap-4 p-margin-desktop text-center">
+        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-surface-container-high text-outline">
+          <MaterialIcon name="assignment_ind" className="text-3xl" />
+        </div>
+        <h1 className="text-headline-md text-primary">Not part of your pathway</h1>
+        <p className="text-body-md text-on-surface-variant">
+          This reading isn't assigned to your role — your course only includes the
+          readings shown on your module pages. If you think you need it, ask your
+          training administrator.
+        </p>
+        <Link to="/course" className="bg-primary px-6 py-3 text-label-md text-on-primary">
+          Go to my course
+        </Link>
+      </div>
+    );
+  }
+
   // Reading sequence WITHIN this document's own module — after the last
   // reading the learner is sent back to the module to continue (games, quiz),
   // never silently pushed into another module's readings.
   const moduleSeq = ownerModule
-    ? (libraryByModule[ownerModule.id] || [])
+    ? visibleDocs(libraryByModule[ownerModule.id] || [], profile)
         .filter((d) => d.doc && documents[d.doc])
         .map((d) => ({ slug: d.doc, title: d.title }))
     : [];

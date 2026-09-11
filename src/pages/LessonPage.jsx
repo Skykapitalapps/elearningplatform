@@ -4,6 +4,8 @@ import MaterialIcon from "../components/MaterialIcon.jsx";
 import { useCourse, statusMeta, isUnlocked } from "../CourseContext.jsx";
 import { libraryByModule } from "../data.js";
 import { docsRead } from "../lib/readingProgress.js";
+import { useAuth } from "../AuthContext.jsx";
+import { visibleDocs } from "../config/jobRoles.js";
 import SortActivity from "../components/activities/SortActivity.jsx";
 import ScenarioActivity from "../components/activities/ScenarioActivity.jsx";
 import SliderActivity from "../components/activities/SliderActivity.jsx";
@@ -44,6 +46,7 @@ export default function LessonPage() {
   const { id } = useParams();
   const navigate = useNavigate();
   const { modules, progress, completeModule, showToast, reviewer } = useCourse();
+  const { profile } = useAuth();
   const [tab, setTab] = useState("notes");
 
   // "Mark as read" per lesson section, persisted per module.
@@ -126,7 +129,7 @@ export default function LessonPage() {
 
   // THE COURSE = this module's Library readings. They must all be opened,
   // along with the lesson, before the games and the quiz unlock.
-  const moduleDocs = (libraryByModule[module?.id] ?? []).filter((d) => d.doc);
+  const moduleDocs = visibleDocs(libraryByModule[module?.id] ?? [], profile).filter((d) => d.doc);
   const docsReadList = docsRead();
   const docsReadCount = moduleDocs.filter((d) => docsReadList.includes(d.doc)).length;
   const allDocsRead =

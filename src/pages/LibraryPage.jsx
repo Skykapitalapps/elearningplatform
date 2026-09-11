@@ -2,12 +2,15 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import MaterialIcon from "../components/MaterialIcon.jsx";
 import { useCourse, isUnlocked } from "../CourseContext.jsx";
+import { useAuth } from "../AuthContext.jsx";
 import { libraryByModule } from "../data.js";
+import { visibleDocs } from "../config/jobRoles.js";
 
 // "The Library" — one line per module, unlocked in sequence. A module's
 // documents open only once the previous module is completed.
 export default function LibraryPage() {
   const { modules } = useCourse();
+  const { profile } = useAuth();
   const [open, setOpen] = useState(modules[0]?.id ?? null);
 
   return (
@@ -29,7 +32,7 @@ export default function LibraryPage() {
 
       <div className="overflow-hidden rounded-xl border border-outline-variant bg-surface-container-lowest">
         {modules.map((m, idx) => {
-          const docs = libraryByModule[m.id] ?? [];
+          const docs = visibleDocs(libraryByModule[m.id] ?? [], profile);
           const unlocked = isUnlocked(modules, m);
           const locked = !unlocked;
           const prev = modules[idx - 1];

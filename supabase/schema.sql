@@ -268,3 +268,23 @@ create policy "login_events_staff_read" on public.login_events
 
 create index if not exists login_events_user_time
   on public.login_events (user_id, created_at desc);
+
+-- ========== JOB ROLES (added 2026-09-11) ==========
+-- Every account carries a job role that decides which pathway modules
+-- (A baseline for everyone, B and C per role) the learner sees.
+-- Role keys are defined in src/config/jobRoles.js.
+alter table public.profiles
+  add column if not exists job_role text;
+
+create or replace function public.set_user_job_role(target uuid, new_job_role text)
+returns void language plpgsql security definer set search_path = public as $$
+begin
+  if not exists (select 1 from public.profiles where id = auth.uid() and role = 'admin') then
+    raise exception 'Only the administrator can assign job roles.';
+  end if;
+  if new_job_role is null or length(new_job_role) = 0 or length(new_job_role) > 64 then
+    raise exception 'Invalid job role.';
+  end if;
+  update public.profiles set job_role = new_job_role where id = target;
+end;
+$$;

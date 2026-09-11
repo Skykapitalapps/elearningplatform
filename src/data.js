@@ -1555,6 +1555,7 @@ export const libraryByModule = {
     { title: "Harassment, security & human rights", icon: "security", doc: "b4-conduct" },
     { title: "Pollution, borrow pits & waste (PS3)", icon: "recycling", doc: "b5-pollution" },
     { title: "Biodiversity & cultural heritage (PS6 & PS8)", icon: "forest", doc: "b6-biodiversity" },
+    { title: "Chance find drill — the five steps (micro-module)", icon: "construction", doc: "b6-chance-find" },
   ],
   m3: [
     { title: "Loan ESG conditions — summary", icon: "account_balance", doc: "loan-esg-conditions" },
@@ -2768,6 +2769,36 @@ export const documents = {
     relatedModules: ["m2"],
   },
 
+"b6-chance-find": {
+    title: "The chance find drill — five steps every operator knows",
+    org: "Module 3 · micro-module (from reading 8)",
+    accent: "#22c55e",
+    image: "/images/lm12.jpg",
+    intro:
+      "The one part of cultural heritage protection that operates at the moment it matters — delivered to every plant operator, whatever their pathway. Five steps, five minutes to learn, and a project saved from destroying the one thing that can never be re-established: the context of a find.",
+    sections: [
+      {
+        title: "Two hours on a Friday",
+        body: "A grader stripping topsoil exposes human remains. The operator stops, calls his foreman, the foreman calls the section manager — nobody knows what to do, so the machine is moved and work continues fifty metres along. By Monday the community knows: the site is now a place where a project dug up a grave and kept working, and whose grave it was has become impossible to establish, because the context was destroyed on Friday afternoon. The procedure that would have prevented this takes two hours to write and five minutes to explain — and its test is not whether it appears in the management plan. It is whether YOU know what to do in the first five minutes, in your own language, without calling anyone to ask.",
+      },
+      {
+        title: "The five steps",
+        points: [
+          "1 · STOP. Switch off. Do not move the machine through the area again.",
+          "2 · Do not touch, move, collect or photograph anything.",
+          "3 · Mark and secure a radius — keep everyone out, including colleagues who want to look.",
+          "4 · Call the number. One number, on the induction card, in the cab.",
+          "5 · Nobody resumes work in that area until the named person has attended and released it.",
+        ],
+      },
+      {
+        title: "Why the steps are what they are",
+        body: "A find is not known to be archaeological — or recent — until someone competent has seen it in place. Moving it, cleaning it or photographing it before that destroys the context that lets anyone establish what it was. Human remains need the greatest care and the least improvisation: in most jurisdictions their discovery also engages the police, and where a burial must ever be relocated, that is a consultative process with the family, according to their practice, at the project's cost — never a works activity. A find stops work in that area, and everyone above you has accepted that consequence in advance: nobody will be blamed for stopping. The operator who stops is the one who did it right.",
+      },
+    ],
+    relatedModules: ["m2"],
+  },
+
   "ps-reference": {
     title: "The eight Performance Standards — reference sheets",
     org: "Module 2 · reading 1 of 2",
@@ -3911,7 +3942,7 @@ export const quizzes = {
     "questions": [
       // ——— Multiple choice (8 in bank, 5 served) ———
       {
-        "fmt": "mcq", "difficulty": "medium", "tag": "Land — PS5",
+        "fmt": "mcq", "src": "b1", "difficulty": "medium", "tag": "Land — PS5",
         "prompt": "A farmer keeps his title and his house, but the new embankment cuts his field in two and he can no longer reach the far half. This is…",
         "options": [
           "Economic displacement — he has lost access to an asset and to income",
@@ -3923,7 +3954,7 @@ export const quizzes = {
         "tip": "PS5 covers loss of ACCESS to assets and loss of income, not only acquisition. 'No land transaction' is the most common professional error: it is not the absence of displacement."
       },
       {
-        "fmt": "mcq", "difficulty": "medium", "tag": "Land — PS5",
+        "fmt": "mcq", "src": "b1", "difficulty": "medium", "tag": "Land — PS5",
         "prompt": "A twenty-two year old house is valued at construction cost less two percent per year for age. Under PS5 this is…",
         "options": [
           "Incorrect — full replacement cost allows no deduction for depreciation",
@@ -3935,7 +3966,7 @@ export const quizzes = {
         "tip": "The valuer may have applied national law correctly, and the household may have agreed — neither converts a depreciated figure into replacement cost. A negotiated shortfall is still a shortfall."
       },
       {
-        "fmt": "mcq", "difficulty": "hard", "tag": "Land — PS5",
+        "fmt": "mcq", "src": "b1", "difficulty": "hard", "tag": "Land — PS5",
         "prompt": "Compensation has been approved internally but not yet disbursed. The section needs the parcel next week. You may…",
         "options": [
           "Not enter the land — 'available' means the person can actually collect the money",
@@ -3947,7 +3978,7 @@ export const quizzes = {
         "tip": "The threshold is payment, not paperwork — and this is the only failure in resettlement that cannot be corrected afterwards. A leader cannot waive an individual entitlement, and consent given beside an excavator is not consent."
       },
       {
-        "fmt": "mcq", "difficulty": "medium", "tag": "Workers — PS2",
+        "fmt": "mcq", "src": "b2", "difficulty": "medium", "tag": "Workers — PS2",
         "prompt": "The national minimum working age is 15. On your construction site, the operative age threshold is…",
         "options": [
           "18 — almost everything on a civil works site is hazardous work",
@@ -3959,7 +3990,7 @@ export const quizzes = {
         "tip": "The hazardous-work rule (ILO Convention 182) is a separate and stricter test from the minimum working age. A seventeen-year-old lawfully employable in the jurisdiction is still not employable at a crusher."
       },
       {
-        "fmt": "mcq", "difficulty": "medium", "tag": "Workers — PS2",
+        "fmt": "mcq", "src": "b2", "difficulty": "medium", "tag": "Workers — PS2",
         "prompt": "A labour supplier holds his workers' identity documents 'for safekeeping, because the camp has no secure storage'. This is…",
         "options": [
           "A forced labour indicator — documents are returned the same day and lockable storage provided",
@@ -3971,7 +4002,7 @@ export const quizzes = {
         "tip": "A worker without his documents cannot leave, travel or seek other work — there is no legitimate reason to hold them. And PS2 covers workers engaged by third parties: the finding lands on the project."
       },
       {
-        "fmt": "mcq", "difficulty": "easy", "tag": "Communities — PS4",
+        "fmt": "mcq", "src": "b3", "difficulty": "easy", "tag": "Communities — PS4",
         "prompt": "On a road construction project in Sub-Saharan Africa, the activity that kills the most people is…",
         "options": [
           "The haulage fleet operating on public roads",
@@ -3983,7 +4014,7 @@ export const quizzes = {
         "tip": "The biggest safety risk is not on the site — it is tippers and bowsers among pedestrians, schoolchildren and motorcycles who never agreed to be near the project. That is why routing, timing and engineered speed control matter more than any toolbox talk."
       },
       {
-        "fmt": "mcq", "difficulty": "hard", "tag": "Pollution — PS3",
+        "fmt": "mcq", "src": "b5", "difficulty": "hard", "tag": "Pollution — PS3",
         "prompt": "A borrow pit is opened with the landowner's written consent but no mineral title. The position is…",
         "options": [
           "Unlawful extraction under national law AND an unassessed activity under the standards — two findings from one omission",
@@ -3995,7 +4026,7 @@ export const quizzes = {
         "tip": "A borrow pit is a mining activity in law: the mineral right is vested separately and issued by a different authority. A landowner's consent does not confer it, and an unscreened pit can engage six standards at once."
       },
       {
-        "fmt": "mcq", "difficulty": "hard", "tag": "Biodiversity — PS6",
+        "fmt": "mcq", "src": "b6", "difficulty": "hard", "tag": "Biodiversity — PS6",
         "prompt": "The corridor holds every national clearance and crosses no protected area. Regarding critical habitat, this means…",
         "options": [
           "Nothing yet — a site can meet a critical habitat criterion without being gazetted or known to any authority",
@@ -4008,7 +4039,7 @@ export const quizzes = {
       },
       // ——— Multiple response (4 in bank, 2 served) ———
       {
-        "fmt": "multi", "type": "multi", "difficulty": "medium", "tag": "Land — PS5",
+        "fmt": "multi", "src": "b1", "type": "multi", "difficulty": "medium", "tag": "Land — PS5",
         "prompt": "Which of these are economically displaced by the road project? Select all that apply.",
         "options": [
           "A trader operating in the road reserve with no papers",
@@ -4022,7 +4053,7 @@ export const quizzes = {
         "tip": "The household at 400 m is deliberately included: not everyone near a project is displaced, and over-inclusion undermines the credibility of the register. The other five lose income, access or livelihood — with or without a land transaction."
       },
       {
-        "fmt": "multi", "type": "multi", "difficulty": "hard", "tag": "Land — PS5",
+        "fmt": "multi", "src": "b1", "type": "multi", "difficulty": "hard", "tag": "Land — PS5",
         "prompt": "What makes a cut-off date enforceable? Select all that apply.",
         "options": [
           "Announced in advance through channels people actually receive",
@@ -4036,7 +4067,7 @@ export const quizzes = {
         "tip": "Recording the date in the plan is necessary and nowhere near sufficient. Setting a date is not the requirement — communicating it, and being able to prove you did, is."
       },
       {
-        "fmt": "multi", "type": "multi", "difficulty": "medium", "tag": "Workers — PS2",
+        "fmt": "multi", "src": "b2", "type": "multi", "difficulty": "medium", "tag": "Workers — PS2",
         "prompt": "Which of these are forced labour indicators? Select all that apply.",
         "options": [
           "Identity documents held by the employer or supplier",
@@ -4050,7 +4081,7 @@ export const quizzes = {
         "tip": "The contract and the payslip are what good practice looks like. The other four each remove the worker's ability to leave — which is exactly what 'voluntary' work means. Act on the indicator; do not wait for certainty."
       },
       {
-        "fmt": "multi", "type": "multi", "difficulty": "medium", "tag": "Conduct — SEA/H",
+        "fmt": "multi", "src": "b4", "type": "multi", "difficulty": "medium", "tag": "Conduct — SEA/H",
         "prompt": "Which of these are ABSOLUTE rules under the project's code of conduct? Select all that apply.",
         "options": [
           "No sexual activity with anyone under eighteen — mistaken belief about age is no defence",
@@ -4064,7 +4095,7 @@ export const quizzes = {
       },
       // ——— Sequencing (2 in bank, 1 served) ———
       {
-        "fmt": "order", "type": "order", "difficulty": "hard", "tag": "Land — PS5",
+        "fmt": "order", "src": "b1", "type": "order", "difficulty": "hard", "tag": "Land — PS5",
         "prompt": "Your section needs access to a parcel next week. Put these five actions in the required order.",
         "items": [
           "Confirm the parcel is inside the resettlement register",
@@ -4076,7 +4107,7 @@ export const quizzes = {
         "tip": "Four of these five can be corrected if done badly. Entering land before compensation is available cannot — 'available' means the person can collect it, not that it is calculated, approved or budgeted."
       },
       {
-        "fmt": "order", "type": "order", "difficulty": "medium", "tag": "Biodiversity — PS6",
+        "fmt": "order", "src": "b6", "type": "order", "difficulty": "medium", "tag": "Biodiversity — PS6",
         "prompt": "Put the biodiversity screening sequence in the order PS6 requires — before anything is cleared.",
         "items": [
           "Desk screening against recognised data sources (IBAT, IUCN Red List, Protected Planet)",
@@ -4088,7 +4119,7 @@ export const quizzes = {
       },
       // ——— Categorisation (3 in bank, 2 served) ———
       {
-        "fmt": "cat", "type": "categorize", "difficulty": "medium", "tag": "Land — PS5",
+        "fmt": "cat", "src": "b1", "type": "categorize", "difficulty": "medium", "tag": "Land — PS5",
         "prompt": "Physical displacement, or economic?",
         "categories": [
           { "id": "phys", "label": "Physical" },
@@ -4105,7 +4136,7 @@ export const quizzes = {
         "tip": "Five of six real-world cases are economic, which matches the field: physical displacement is counted correctly on most projects, economic displacement is missed on almost all of them."
       },
       {
-        "fmt": "cat", "type": "categorize", "difficulty": "hard", "tag": "Land — PS5",
+        "fmt": "cat", "src": "b1", "type": "categorize", "difficulty": "hard", "tag": "Land — PS5",
         "prompt": "Is this compensation correct at FULL REPLACEMENT COST — or short?",
         "categories": [
           { "id": "ok", "label": "Correct" },
@@ -4122,7 +4153,7 @@ export const quizzes = {
         "tip": "Depreciation is the defect everyone recognises. Omitted transaction costs and flat tree rates pass unnoticed — and agreement does not convert a shortfall into compliance."
       },
       {
-        "fmt": "cat", "type": "categorize", "difficulty": "medium", "tag": "Waste — PS3",
+        "fmt": "cat", "src": "b5", "type": "categorize", "difficulty": "medium", "tag": "Waste — PS3",
         "prompt": "Which disposal stream does each item belong to?",
         "categories": [
           { "id": "haz", "label": "Hazardous stream" },
@@ -4140,7 +4171,7 @@ export const quizzes = {
       },
       // ——— Visual / tap (2 in bank, 1 served) ———
       {
-        "fmt": "tap", "type": "diagramtap", "difficulty": "medium", "tag": "Chance find — PS8",
+        "fmt": "tap", "src": "b6cf", "type": "diagramtap", "difficulty": "medium", "tag": "Chance find — PS8",
         "prompt": "A grader operator uncovers what look like human remains. Tap his correct FIRST action.",
         "boxes": [
           "Stop, switch off, and not move the machine through the area again",
@@ -4153,7 +4184,7 @@ export const quizzes = {
         "tip": "The five steps: stop — do not touch, move, collect or photograph — secure a radius — call the one number in the cab — nobody resumes until the named person attends. Moving the machine on destroyed the context; the procedure exists so it never has to be improvised."
       },
       {
-        "fmt": "tap", "type": "diagramtap", "difficulty": "hard", "tag": "The camp walk",
+        "fmt": "tap", "src": "b2", "type": "diagramtap", "difficulty": "hard", "tag": "The camp walk",
         "prompt": "Four things seen on a night walk of a subcontractor's camp. Three are accommodation failings — tap the one that is a FORCED LABOUR indicator.",
         "boxes": [
           "Triple-tier bunks in the sleeping quarters",
@@ -4167,7 +4198,7 @@ export const quizzes = {
       },
       // ——— Scenario, best first action (2 in bank, 1 served) ———
       {
-        "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — mobilise Monday",
+        "fmt": "scenario", "src": "b1", "difficulty": "hard", "tag": "Scenario — mobilise Monday",
         "prompt": "Your section is behind programme. The compensation file for four parcels is with the ministry and payment dates are unconfirmed. A community leader offers written confirmation that the affected households are content for work to begin. Your section manager wants to mobilise on Monday. What do you do?",
         "options": [
           "Do not enter. Escalate the payment delay, and resequence the works to parcels where compensation is already available",
@@ -4179,7 +4210,7 @@ export const quizzes = {
         "tip": "A leader cannot waive an individual entitlement — written confirmation makes the breach documented rather than deniable. Consent given beside an excavator is not consent, and a parallel payment route outside the entitlement framework is its own serious finding. Resequencing is the answer people rarely reach for, and it is usually available."
       },
       {
-        "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — the grove at 14+200",
+        "fmt": "scenario", "src": "b6", "difficulty": "hard", "tag": "Scenario — the grove at 14+200",
         "prompt": "Clearance starts next week on a 6 km stretch recorded as farmland with no notable features. Walking the alignment, your liaison officer is told by an elderly woman that a 0.4-hectare stand of trees at chainage 14+200 is where the community buries its dead and holds an annual ceremony. It is unfenced, unmarked, and on no map. The clearance contractor is on standing time. Your PM asks if this can be dealt with during clearance. What do you do FIRST?",
         "options": [
           "Stop clearance approaching that chainage today, consult the community — including women and elders separately — and put realignment on the table",
@@ -4189,6 +4220,121 @@ export const quizzes = {
         ],
         "correct": 0,
         "tip": "Screening during clearance is not screening — it is recording. Once the trees are down, the choice collapses to the slowest, costliest option. A 0.4 ha grove at a single chainage is very often avoidable with a shift of tens of metres, and relocation of burials is a consultative process led by the family — never a works activity, and never the opening offer."
+      }
+      ,
+      // ——— Role-pathway additions (B2–B5 coverage) ———
+      {
+        "fmt": "mcq", "src": "b2", "difficulty": "hard", "tag": "Workers — PS2",
+        "prompt": "On a workforce of several hundred, the worker grievance mechanism records ZERO grievances this quarter. This means…",
+        "options": [
+          "The channel is unknown, distrusted or unsafe — and a reviewer will read it that way",
+          "The site has no labour problems",
+          "The mechanism is working as intended",
+          "Workers are satisfied with their supervisors"
+        ],
+        "correct": 0,
+        "tip": "A mechanism with no grievances is not a functioning mechanism. Report it honestly rather than presenting it as a performance result."
+      },
+      {
+        "fmt": "mcq", "src": "b3", "difficulty": "medium", "tag": "Communities — PS4",
+        "prompt": "Haulage passes through a village with a school. The single most effective control is…",
+        "options": [
+          "Routing around the village — a commercial decision, made with the risk on the table",
+          "A toolbox talk asking drivers to slow down",
+          "A banksman posted at the school gate",
+          "A speed limit sign at the village entrance"
+        ],
+        "correct": 0,
+        "tip": "Every other measure reduces the severity of an encounter; the routing change removes the encounter. On one section, six added minutes per cycle did more than every other control combined. Speed must be ENGINEERED (governors + monitoring), not requested."
+      },
+      {
+        "fmt": "cat", "type": "categorize", "src": "b3", "difficulty": "medium", "tag": "Communities — PS4",
+        "prompt": "Labour influx: does this measure REDUCE the number of people arriving, or MANAGE those who arrive?",
+        "categories": [
+          { "id": "reduce", "label": "Reduce influx" },
+          { "id": "manage", "label": "Manage influx" }
+        ],
+        "items": [
+          { "id": "local", "text": "Hire genuinely from the local labour market", "cat": "reduce" },
+          { "id": "transport", "text": "Bus workers in daily from within commuting distance", "cat": "reduce" },
+          { "id": "phase", "text": "Smooth the workforce peak through sequencing", "cat": "reduce" },
+          { "id": "borehole", "text": "Drill a separate borehole for the camp", "cat": "manage" },
+          { "id": "clinic", "text": "Run a camp clinic so workers do not use the village one", "cat": "manage" },
+          { "id": "nogo", "text": "Agree no-go areas in the settlement with the community", "cat": "manage" }
+        ],
+        "tip": "The order matters: reduce BEFORE designing how to accommodate. Every locally-hired worker needs no bed, no clinic visit and no share of the village water."
+      },
+      {
+        "fmt": "scenario", "src": "b3", "difficulty": "hard", "tag": "Scenario — six minutes",
+        "prompt": "Four near misses with pedestrians in four months, all recorded, none acted on. The community asks for haulage to stop at school hours. Rerouting costs 9% of haulage capacity; your logistics manager says the banksman at the school gate is enough and the embankment programme is at risk. What do you do?",
+        "options": [
+          "Put the routing decision to the project director in writing — cost and fatality risk stated plainly — and impose the school-hour pause immediately as an interim measure",
+          "Accept the banksman: it addresses the point where the risk was raised",
+          "Ask the drivers to be more careful through the village at a toolbox talk",
+          "Leave it with the logistics manager, who owns the haulage cycle"
+        ],
+        "correct": 0,
+        "tip": "A decision with a foreseeable fatality at the end of it is being taken by the person optimising haulage capacity, because nobody put it in front of anyone else. Six minutes is a price — somebody with authority to pay it has to be shown the bill. The banksman is step four of the hierarchy, protecting one point, part of the day."
+      },
+      {
+        "fmt": "mcq", "src": "b4", "difficulty": "hard", "tag": "Conduct — SEA/H",
+        "prompt": "A worker is accused of exploiting a community member. Both sides say they are willing to sit down together and settle it. Mediation here is…",
+        "options": [
+          "Never appropriate — it re-exposes the survivor to the person who harmed them",
+          "A good outcome, since both parties agreed",
+          "Acceptable if the community leadership facilitates it",
+          "Acceptable if a settlement payment closes the matter"
+        ],
+        "correct": 0,
+        "tip": "Three things must never happen: mediation between survivor and accused, a payment for silence or withdrawal, and an identifiable case description in any report. This is not a dispute to resolve; the survivor makes the decisions."
+      },
+      {
+        "fmt": "mcq", "src": "b4", "difficulty": "medium", "tag": "Conduct — security",
+        "prompt": "PS4 requires a channel for the community to raise concerns about SECURITY conduct. That channel…",
+        "options": [
+          "Cannot be the guard post — it must be reachable without facing the people complained about",
+          "Is the guard post, since guards are the first point of contact",
+          "Is only needed where guards are armed",
+          "Is the responsibility of the security provider, not the project"
+        ],
+        "correct": 0,
+        "tip": "The requirement most often missing. And investigate-and-act means act: quietly letting the provider redeploy a guard elsewhere is not action."
+      },
+      {
+        "fmt": "order", "type": "order", "src": "b4", "difficulty": "hard", "tag": "Conduct — SEA/H",
+        "prompt": "Someone discloses to you that they have been harmed. Put the first-responder steps in order.",
+        "items": [
+          "Find somewhere private",
+          "Listen — take the account once, without asking for details",
+          "Ask what they need, and explain the options and who will be told",
+          "Refer to the named, trained responder",
+          "Record minimally and store securely"
+        ],
+        "tip": "You are not the investigator — each retelling causes harm. Never promise absolute secrecy, never contact family or employer without agreement, and never write a narrative into a shared folder."
+      },
+      {
+        "fmt": "mcq", "src": "b5", "difficulty": "easy", "tag": "Pollution — PS3",
+        "prompt": "The section uses waste oil to keep dust down on the haul road. This is…",
+        "options": [
+          "A soil and groundwater contamination event presented as a dust control — never acceptable",
+          "Good resource efficiency: the oil is reused",
+          "Acceptable on sections away from housing",
+          "Acceptable if the oil is filtered first"
+        ],
+        "correct": 0,
+        "tip": "A recurring practice and unambiguous under PS3 and the EHS Guidelines. Dust control is water, speed reduction, load covering and sealing — never hydrocarbons."
+      },
+      {
+        "fmt": "order", "type": "order", "src": "b5", "difficulty": "medium", "tag": "Pollution — PS3",
+        "prompt": "A diesel spill at a refuelling point. Put the response in order.",
+        "items": [
+          "Stop the source, if safe to do so",
+          "Contain it before it reaches a drain or watercourse",
+          "Absorb and recover — used absorbent goes to the hazardous stream",
+          "Remove contaminated soil to the depth of penetration",
+          "Record it, and investigate the cause"
+        ],
+        "tip": "Minutes matter more than procedure at the containment step. Record small spills too — a site reporting no spills is a site not reporting spills. And a spill at the same point twice is a design failure, not an incident."
       }
     ]
   },
