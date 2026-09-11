@@ -52,3 +52,25 @@ own branding — all from this single repository.
 Deeper per-client content (their own policies as extra modules, their legal
 jurisdiction in M2, their logo image) = extend the client config the same
 way — ask Claude to "add X to the client config".
+
+---
+
+## Custom pictures per client
+
+Each client can ship its OWN images (site photos, logo, favicon) without any
+code change:
+
+1. Copy the whole default folder once:
+   `cp -r public public-<clientkey>`   (e.g. `public-acme`)
+2. Replace any pictures inside `public-<clientkey>/images/` with the client's
+   own photos — **keep the same file names** (`course-hero.jpg`, `lm1.jpg`, …)
+   so every screen keeps working.
+3. Commit. The client's Vercel project (which has `VITE_CLIENT=<clientkey>`)
+   automatically builds with that folder instead of `public/`.
+
+Rules:
+- The folder REPLACES `public/` entirely for that client — always start from a
+  full copy, never an empty folder.
+- No `public-<clientkey>` folder = the client uses the default images. HITECH
+  currently uses the default set.
+- Recommended sizes: landscape ~1600×900, JPG, < 400 KB per image.
