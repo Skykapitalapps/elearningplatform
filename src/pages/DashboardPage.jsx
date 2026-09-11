@@ -42,7 +42,7 @@ export default function DashboardPage() {
               <MaterialIcon name="school" fill className="text-5xl text-secondary-fixed" />
               <h2 className="mt-2 text-headline-md">Welcome to your ESG pathway</h2>
               <p className="mt-1 text-body-md text-white/80">
-                7 modules · games &amp; quizzes · one certificate
+                Your assigned modules · games &amp; quizzes · one certificate
               </p>
             </div>
             <div className="space-y-3 p-stack-lg text-left">
@@ -62,7 +62,7 @@ export default function DashboardPage() {
                 onClick={() => dismissWelcome(true)}
                 className="mt-2 flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-primary-container to-[#1c3a63] py-3.5 text-label-md font-bold text-white transition-all hover:brightness-110 active:scale-[0.98]"
               >
-                Start Module 1 <MaterialIcon name="arrow_forward" />
+                Start with A1 <MaterialIcon name="arrow_forward" />
               </button>
               <button
                 onClick={() => dismissWelcome(false)}

@@ -9,6 +9,7 @@ import {
 import { modules as seedModules, moduleAccents, moduleImages } from "./data.js";
 import { useAuth } from "./AuthContext.jsx";
 import { supabase, isSupabaseConfigured } from "./lib/supabase.js";
+import { moduleAssigned } from "./config/jobRoles.js";
 
 const CourseContext = createContext(null);
 const STORAGE_KEY = "skykapital-progress-v1";
@@ -143,25 +144,33 @@ export function CourseProvider({ children }) {
     toastTimer.current = setTimeout(() => setToast(null), 3400);
   }
 
+  // The learner only sees the modules assigned to their job role: all of
+  // Pathway A, plus the Pathway B and C modules on their role's list.
+  const assignedModules = useMemo(
+    () => modules.filter((m) => moduleAssigned(m, profile)),
+    [modules, profile]
+  );
+
   const progress = useMemo(() => {
-    const completed = modules.filter((m) => m.status === "completed").length;
-    const total = modules.length;
-    const earnedQuizPoints = modules.reduce(
+    const mods = assignedModules;
+    const completed = mods.filter((m) => m.status === "completed").length;
+    const total = mods.length;
+    const earnedQuizPoints = mods.reduce(
       (sum, m) => sum + (m.score ? m.score.earned : 0),
       0
     );
-    const totalQuizPoints = modules.reduce(
-      (sum, m) => sum + (m.type === "quiz" && m.score ? m.score.total : 0),
+    const totalQuizPoints = mods.reduce(
+      (sum, m) => sum + ((m.type === "quiz" || m.type === "capstone") && m.score ? m.score.total : 0),
       0
     );
     return {
       completed,
       total,
-      percent: Math.round((completed / total) * 100),
+      percent: total ? Math.round((completed / total) * 100) : 0,
       earnedQuizPoints,
       totalQuizPoints,
     };
-  }, [modules]);
+  }, [assignedModules]);
 
   // Marks a module complete and records a quiz score if provided.
   function completeModule(id, earned) {
@@ -236,7 +245,7 @@ export function CourseProvider({ children }) {
   }
 
   const value = {
-    modules,
+    modules: assignedModules,
     progress,
     reviewer,
     acknowledgements,
@@ -261,14 +270,19 @@ const UNLOCK_ALL = false;
 // Set by the provider when the signed-in account is a reviewer.
 let _reviewerUnlock = false;
 
-// A module is unlocked if it's already started/finished, it's first in the
-// path, or the module immediately before it in the path is completed.
+// Pathway A is sequential and locks everything: A1 → … → A6, in order.
+// Once Pathway A is complete, the learner's assigned B and C modules all
+// open together and can be taken in any order.
 export function isUnlocked(modules, module) {
   if (UNLOCK_ALL || _reviewerUnlock) return true;
   if (module.status === "completed" || module.status === "in_progress") return true;
-  const i = modules.findIndex((m) => m.id === module.id);
-  if (i <= 0) return true;
-  return modules[i - 1].status === "completed";
+  const aMods = modules.filter((m) => (m.pathway || "A") === "A");
+  if ((module.pathway || "A") === "A") {
+    const i = aMods.findIndex((m) => m.id === module.id);
+    if (i <= 0) return true;
+    return aMods[i - 1].status === "completed";
+  }
+  return aMods.every((m) => m.status === "completed");
 }
 
 // Shared status → { label, classes } mapping so badges are consistent.

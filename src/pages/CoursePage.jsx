@@ -12,6 +12,14 @@ export default function CoursePage() {
     modules.find((m) => m.status === "not_started") ||
     modules[0];
 
+  // Three pathways: A is the sequential baseline for everyone; B and C are
+  // assigned by job role and open together once Pathway A is complete.
+  const pathways = [
+    { key: "A", title: "Pathway A — Foundations", note: "The baseline for everyone. Take it in order — completing it unlocks your Pathway B and C modules." },
+    { key: "B", title: "Pathway B — Site Practice", note: "Assigned by your role. All your B modules open once Pathway A is complete — take them in any order." },
+    { key: "C", title: "Pathway C — Supervisors & Leads", note: "Assigned by your role. All your C modules open once Pathway A is complete — take them in any order." },
+  ];
+
   return (
     <div className="mx-auto max-w-[1280px] px-margin-mobile py-stack-lg md:px-margin-desktop">
       {/* Breadcrumb + header */}
@@ -109,8 +117,17 @@ export default function CoursePage() {
             <h3 className="mb-stack-md border-b border-outline-variant pb-2 text-headline-md">
               Module Syllabus
             </h3>
-            <div className="space-y-4">
-              {modules.map((m) => {
+            <div className="space-y-6">
+              {pathways.map((pw) => {
+                const mods = modules.filter((mm) => (mm.pathway || "A") === pw.key);
+                if (mods.length === 0) return null;
+                return (
+                  <div key={pw.key} className="space-y-4">
+                    <div className="pt-1">
+                      <h4 className="text-label-md font-bold uppercase tracking-widest text-primary">{pw.title}</h4>
+                      <p className="text-caption text-on-surface-variant">{pw.note}</p>
+                    </div>
+              {mods.map((m) => {
                 const isCurrent = m.status === "in_progress";
                 const unlocked = isUnlocked(modules, m);
                 const locked = !unlocked;
@@ -151,7 +168,7 @@ export default function CoursePage() {
                     </div>
                     <div className="flex-1">
                       <h4 className="text-label-md text-primary">
-                        {String(m.order).padStart(2, "0")}: {m.title}
+                        {m.code} · {m.title}
                       </h4>
                       <p className="text-caption text-on-surface-variant">
                         {m.summary}
@@ -184,6 +201,9 @@ export default function CoursePage() {
                       </span>
                     )}
 
+                  </div>
+                );
+              })}
                   </div>
                 );
               })}

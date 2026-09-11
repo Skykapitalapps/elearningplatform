@@ -107,7 +107,7 @@ function NextStepMenu() {
               onMouseDown={(e) => {
                 e.preventDefault();
                 setOpen(false);
-                navigate(next.type === "capstone" ? "/capstone" : `/module/${next.id}`);
+                navigate(next.type === "capstone" ? `/capstone/${next.id}` : `/module/${next.id}`);
               }}
               className="flex w-full items-start gap-3 p-stack-md text-left transition-colors hover:bg-surface-container-low"
             >
@@ -161,7 +161,7 @@ function HelpMenu() {
               ["menu_book", "Read the lesson", "Open a module and tick each section as you read it."],
               ["extension", "Play the practice games", "Puzzles and cards to make it stick — nothing is graded."],
               ["quiz", "Pass the quiz", "80% completes the module and unlocks the next one."],
-              ["workspace_premium", "Finish all 7 modules", "Your certificate appears in “My progress”."],
+              ["workspace_premium", "Finish all your assigned modules", "Your certificate appears in “My progress”."],
             ].map(([ic, t, d]) => (
               <div key={t} className="flex items-start gap-3">
                 <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-surface-container-low">

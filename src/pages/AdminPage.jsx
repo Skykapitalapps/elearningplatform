@@ -7,7 +7,7 @@ import { useAuth } from "../AuthContext.jsx";
 import { client } from "../config/clients.js";
 import { course } from "../data.js";
 import { downloadCertificatePdf } from "../lib/certificate.js";
-import { JOB_ROLES, jobRoleByKey } from "../config/jobRoles.js";
+import { JOB_ROLES, jobRoleByKey, assignedTotal } from "../config/jobRoles.js";
 
 const DOC_CATEGORIES = ["Governance & Ethics", "HSE", "People & Community", "Management System", "Other"];
 
@@ -160,7 +160,7 @@ function Home({ projects, people, docs, progressRows, logins, email, onOpen, onO
   progressRows.forEach((r) => {
     if (r.status === "completed") doneByUser[r.user_id] = (doneByUser[r.user_id] ?? 0) + 1;
   });
-  const certified = learners.filter((u) => (doneByUser[u.id] ?? 0) >= TOTAL_MODULES).length;
+  const certified = learners.filter((u) => (doneByUser[u.id] ?? 0) >= assignedTotal(u.job_role)).length;
   const weekAgo = Date.now() - 7 * 24 * 3600 * 1000;
   const signins7d = logins.filter((e) => new Date(e.created_at).getTime() >= weekAgo).length;
   const active7d = new Set(
@@ -385,7 +385,9 @@ function TabBtn({ active, icon, onClick, children }) {
 }
 
 /* ------------------------- PROJECT · PROGRESS ------------------------- */
-const TOTAL_MODULES = 7;
+// Each learner's pathway size depends on their job role (Pathway A for all,
+// plus their assigned B and C modules) — see src/config/jobRoles.js.
+const TOTAL_MODULES = 18; // full programme, used when no job role is set
 
 // Opens the print-ready certificate page (the user's approved mockup,
 // rendered by CertificatePrintPage) in a new tab — it auto-prints.
@@ -417,10 +419,12 @@ function ProjectProgress({ project, people, logins = [] }) {
     const last = mine.map((r) => r.updated_at).sort().slice(-1)[0];
     const pts = mine.reduce((s, r) => s + (r.earned ?? 0), 0);
     const myLogins = logins.filter((e) => e.user_id === m.id);
+    const totalMods = assignedTotal(m.job_role);
     return {
       ...m,
       done: mine.length,
-      certified: mine.length >= TOTAL_MODULES,
+      totalMods,
+      certified: mine.length >= totalMods,
       last: last ? last.slice(0, 10) : "—",
       pts,
       certNo: "SKA-" + m.id.replace(/-/g, "").slice(0, 10).toUpperCase(),
@@ -437,8 +441,8 @@ function ProjectProgress({ project, people, logins = [] }) {
     const lines = per.map((p) => [
       p.full_name || "",
       p.done,
-      TOTAL_MODULES,
-      Math.round((p.done / TOTAL_MODULES) * 100),
+      p.totalMods,
+      Math.round((p.done / p.totalMods) * 100),
       p.pts,
       p.certified ? "Yes" : "No",
       p.certified ? p.certNo : "",
@@ -503,9 +507,9 @@ function ProjectProgress({ project, people, logins = [] }) {
                 <tr key={p.id} className="border-b border-surface-container last:border-0">
                   <td className="px-stack-md py-stack-md text-body-md text-primary">{p.full_name || "—"}</td>
                   <td className="px-stack-md py-stack-md">
-                    <span className="mr-2 text-body-md font-bold text-primary">{p.done}/{TOTAL_MODULES}</span>
+                    <span className="mr-2 text-body-md font-bold text-primary">{p.done}/{p.totalMods}</span>
                     <span className="inline-block h-1.5 w-28 overflow-hidden rounded-full bg-surface-container-high align-middle">
-                      <span className="block h-full rounded-full bg-secondary" style={{ width: (p.done / TOTAL_MODULES) * 100 + "%" }} />
+                      <span className="block h-full rounded-full bg-secondary" style={{ width: (p.done / p.totalMods) * 100 + "%" }} />
                     </span>
                   </td>
                   <td className="px-stack-md py-stack-md">
@@ -522,7 +526,7 @@ function ProjectProgress({ project, people, logins = [] }) {
                               date: p.last,
                               courseTitle: course.title,
                               clientShort: client.clientShort,
-                              totalModules: TOTAL_MODULES,
+                              totalModules: p.totalMods,
                             })
                           }
                           title="Download the certificate as PDF"

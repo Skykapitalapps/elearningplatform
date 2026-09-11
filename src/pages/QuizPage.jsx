@@ -4,10 +4,8 @@ import MaterialIcon from "../components/MaterialIcon.jsx";
 import Logo from "../components/Logo.jsx";
 import Confetti from "../components/Confetti.jsx";
 import { useCourse } from "../CourseContext.jsx";
-import { useAuth } from "../AuthContext.jsx";
 import { AnimatedNumber } from "../useCountUp.jsx";
 import { quizzes, platform, libraryByModule } from "../data.js";
-import { filterQuizBank, visibleDocs } from "../config/jobRoles.js";
 
 function formatTime(s) {
   const m = Math.floor(s / 60);
@@ -111,10 +109,10 @@ function buildDeck(questions) {
 // whole bank — 5 MCQ, 2 multiple response, 1 sequencing, 2 categorisation,
 // 1 visual tap, 1 scenario = 12 items. Each retake draws afresh.
 const SERVE_MIX = { mcq: 5, multi: 2, order: 1, cat: 2, tap: 1, scenario: 1 };
-function drawFromBank(questions) {
+function drawFromBank(questions, mix) {
   if (!questions.length || !questions.every((q) => q.fmt)) return questions;
   const served = [];
-  for (const [fmt, n] of Object.entries(SERVE_MIX)) {
+  for (const [fmt, n] of Object.entries(mix || SERVE_MIX)) {
     const pool = shuffle(questions.filter((q) => q.fmt === fmt));
     served.push(...pool.slice(0, n));
   }
@@ -221,7 +219,6 @@ export default function QuizPage() {
   const { moduleId } = useParams();
   const navigate = useNavigate();
   const { modules, completeModule, reviewer } = useCourse();
-  const { profile } = useAuth();
 
   // The module this assessment belongs to: the URL's module, else the module
   // currently in progress, else the next unfinished quiz module.
@@ -231,12 +228,10 @@ export default function QuizPage() {
     modules.find((m) => m.status !== "completed" && m.type === "quiz");
 
   const activeQuiz = target ? quizzes[target.id] : null;
-  // Serve only the questions on this learner's pathway (job role) — untagged
-  // banks and unrestricted accounts get the full bank.
-  const questions = filterQuizBank(activeQuiz?.questions ?? [], profile);
+  const questions = activeQuiz?.questions ?? [];
 
   const [index, setIndex] = useState(0);
-  const [deck, setDeck] = useState(() => buildDeck(drawFromBank(questions)));
+  const [deck, setDeck] = useState(() => buildDeck(drawFromBank(questions, activeQuiz?.serveMix)));
   const [answers, setAnswers] = useState(() => deck.map(blankAnswer));
   const [selChip, setSelChip] = useState(null); // categorize: selected item index
   const [selLeft, setSelLeft] = useState(null); // connect: selected left item
@@ -282,7 +277,7 @@ export default function QuizPage() {
         );
         lessonRead = target.lesson.every((s) => ticked.includes(s.heading));
       }
-      const moduleDocs = visibleDocs(libraryByModule[target.id] ?? [], profile).filter((d) => d.doc);
+      const moduleDocs = (libraryByModule[target.id] ?? []).filter((d) => d.doc);
       if (lessonRead && moduleDocs.length > 0) {
         const opened = JSON.parse(localStorage.getItem("skykapital-docs-read") || "[]");
         lessonRead = moduleDocs.every((d) => opened.includes(d.doc));
@@ -425,7 +420,7 @@ export default function QuizPage() {
   }
 
   function retake() {
-    const fresh = buildDeck(drawFromBank(questions));
+    const fresh = buildDeck(drawFromBank(questions, activeQuiz?.serveMix));
     setDeck(fresh);
     setAnswers(fresh.map(blankAnswer));
     setSelChip(null);

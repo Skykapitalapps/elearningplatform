@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import MaterialIcon from "../components/MaterialIcon.jsx";
 import Confetti from "../components/Confetti.jsx";
-import { capstoneSim } from "../data.js";
+import { capstoneSims } from "../data.js";
 import { useCourse, isUnlocked } from "../CourseContext.jsx";
 
 // One scene-setting photo per decision, in step order.
@@ -24,18 +24,30 @@ const STEP_IMAGES = [
 // The capstone (Module 6): ten ESG decisions that together decide if the
 // financing holds. Unlocks only once Module 5 is complete.
 export default function CapstonePage() {
-  const { modules, completeModule } = useCourse();
-  const module = modules.find((m) => m.id === "m6");
-  const locked = module ? !isUnlocked(modules, module) : false;
-  const prev = modules.find((m) => m.id === "m5");
+  const { simId } = useParams();
+  const moduleId = simId && capstoneSims[simId] ? simId : "m6";
+  const sim = capstoneSims[moduleId];
+  const { modules, completeModule, reviewer } = useCourse();
+  const module = modules.find((m) => m.id === moduleId);
+  // The Pathway C capstone opens once the learner's OTHER assigned C modules
+  // are done — it draws on all of them.
+  const cPending =
+    moduleId === "c6" &&
+    !reviewer &&
+    modules.some((m) => m.pathway === "C" && m.id !== "c6" && m.status !== "completed");
+  const locked = module ? !isUnlocked(modules, module) || cPending : false;
+  const prev =
+    moduleId === "c6"
+      ? modules.filter((m) => m.pathway === "C" && m.id !== "c6" && m.status !== "completed")[0]
+      : modules.find((m) => m.id === "m5");
 
   const [step, setStep] = useState(0);
   const [picked, setPicked] = useState(null);
   const [good, setGood] = useState(0);
   const [done, setDone] = useState(false);
 
-  const total = capstoneSim.steps.length;
-  const s = capstoneSim.steps[step];
+  const total = sim.steps.length;
+  const s = sim.steps[step];
   const isLast = step === total - 1;
   // Financing health: starts at 60%, each answered step nudges it.
   const answeredCount = done ? total : step + (picked != null ? 1 : 0);
@@ -43,7 +55,7 @@ export default function CapstonePage() {
     0,
     Math.min(100, 60 + good * 12 - (answeredCount - good) * 18)
   );
-  const passed = good >= capstoneSim.passNeeded;
+  const passed = good >= sim.passNeeded;
 
   function choose(i) {
     if (picked != null) return;
@@ -53,7 +65,7 @@ export default function CapstonePage() {
   function next() {
     if (isLast) {
       setDone(true);
-      if (good >= capstoneSim.passNeeded) completeModule("m6", good);
+      if (good >= sim.passNeeded) completeModule(moduleId, good);
       return;
     }
     setStep((n) => n + 1);
@@ -107,11 +119,12 @@ export default function CapstonePage() {
       </nav>
 
       <h1 className="mb-1 text-headline-lg text-primary md:text-headline-xl">
-        Capstone: keep the financing flowing
+        {sim.title || "Capstone: keep the financing flowing"}
       </h1>
       <p className="mb-stack-lg text-body-lg text-on-surface-variant">
-        {total} ESG decisions on a live PPP project. Make at least{" "}
-        {capstoneSim.passNeeded} good calls to keep the lenders on side.
+        {sim.intro ||
+          `${total} ESG decisions on a live PPP project. Make at least ${sim.passNeeded} good calls to keep the lenders on side.`}{" "}
+        Pass mark: {sim.passNeeded} of {total} good calls.
       </p>
 
       {/* Financing health meter */}
@@ -148,7 +161,7 @@ export default function CapstonePage() {
             You made {good} of {total} good ESG decisions.{" "}
             {passed
               ? "The lenders are confident — disbursements continue."
-              : `You need ${capstoneSim.passNeeded} good calls. Restart and protect the project's ESG performance.`}
+              : `You need ${sim.passNeeded} good calls. Restart and protect the project's ESG performance.`}
           </p>
           <div className="mt-stack-lg flex flex-col justify-center gap-stack-md sm:flex-row">
             {passed ? (

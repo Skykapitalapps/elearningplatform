@@ -150,6 +150,7 @@ export default function App() {
             <Route path="/evidence" element={<EvidencePage />} />
             <Route path="/admin" element={<AdminPage />} />
             <Route path="/capstone" element={<CapstonePage />} />
+            <Route path="/capstone/:simId" element={<CapstonePage />} />
             <Route path="/privacy" element={<PrivacyPage />} />
             <Route path="/terms" element={<TermsPage />} />
           </Route>

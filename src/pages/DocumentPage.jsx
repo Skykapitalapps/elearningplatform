@@ -5,7 +5,7 @@ import MaterialIcon from "../components/MaterialIcon.jsx";
 import { useAuth } from "../AuthContext.jsx";
 import { useCourse, isUnlocked } from "../CourseContext.jsx";
 import { documents, course, libraryByModule } from "../data.js";
-import { canOpenDoc, visibleDocs } from "../config/jobRoles.js";
+import { canOpenDoc } from "../config/jobRoles.js";
 import RegFrameworkChart from "../components/charts/RegFrameworkChart.jsx";
 import EquatorCategories from "../components/charts/EquatorCategories.jsx";
 import PSCards from "../components/charts/PSCards.jsx";
@@ -111,7 +111,7 @@ export default function DocumentPage() {
   // reading the learner is sent back to the module to continue (games, quiz),
   // never silently pushed into another module's readings.
   const moduleSeq = ownerModule
-    ? visibleDocs(libraryByModule[ownerModule.id] || [], profile)
+    ? (libraryByModule[ownerModule.id] || [])
         .filter((d) => d.doc && documents[d.doc])
         .map((d) => ({ slug: d.doc, title: d.title }))
     : [];

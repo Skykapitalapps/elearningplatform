@@ -4,8 +4,6 @@ import MaterialIcon from "../components/MaterialIcon.jsx";
 import { useCourse, statusMeta, isUnlocked } from "../CourseContext.jsx";
 import { libraryByModule } from "../data.js";
 import { docsRead } from "../lib/readingProgress.js";
-import { useAuth } from "../AuthContext.jsx";
-import { visibleDocs } from "../config/jobRoles.js";
 import SortActivity from "../components/activities/SortActivity.jsx";
 import ScenarioActivity from "../components/activities/ScenarioActivity.jsx";
 import SliderActivity from "../components/activities/SliderActivity.jsx";
@@ -46,7 +44,6 @@ export default function LessonPage() {
   const { id } = useParams();
   const navigate = useNavigate();
   const { modules, progress, completeModule, showToast, reviewer } = useCourse();
-  const { profile } = useAuth();
   const [tab, setTab] = useState("notes");
 
   // "Mark as read" per lesson section, persisted per module.
@@ -129,7 +126,7 @@ export default function LessonPage() {
 
   // THE COURSE = this module's Library readings. They must all be opened,
   // along with the lesson, before the games and the quiz unlock.
-  const moduleDocs = visibleDocs(libraryByModule[module?.id] ?? [], profile).filter((d) => d.doc);
+  const moduleDocs = (libraryByModule[module?.id] ?? []).filter((d) => d.doc);
   const docsReadList = docsRead();
   const docsReadCount = moduleDocs.filter((d) => docsReadList.includes(d.doc)).length;
   const allDocsRead =
@@ -204,7 +201,7 @@ export default function LessonPage() {
       <div className="mb-stack-lg flex flex-col justify-between gap-stack-md md:flex-row md:items-end">
         <div>
           <h1 className="mb-1 text-headline-lg text-on-background">
-            {module.order}. {module.title}
+            {module.code} · {module.title}
           </h1>
           <p className="text-body-md text-on-surface-variant">
             {module.duration} · {module.metaNote ?? module.type} ·{" "}
@@ -277,7 +274,7 @@ export default function LessonPage() {
         <MaterialIcon name="chevron_right" className="hidden text-outline sm:block" />
         {readingDone ? (
           <button
-            onClick={() => navigate(module.type === "capstone" ? "/capstone" : `/quiz/${module.id}`)}
+            onClick={() => navigate(module.type === "capstone" ? `/capstone/${module.id}` : `/quiz/${module.id}`)}
             className="flex flex-1 items-center gap-2 rounded-lg px-3 py-2 text-left transition-colors hover:bg-surface-container-low"
           >
             <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-secondary text-caption font-bold text-white">3</span>
@@ -631,7 +628,7 @@ export default function LessonPage() {
               </p>
               {readingDone ? (
                 <button
-                  onClick={() => navigate(module.type === "capstone" ? "/capstone" : `/quiz/${module.id}`)}
+                  onClick={() => navigate(module.type === "capstone" ? `/capstone/${module.id}` : `/quiz/${module.id}`)}
                   className="mt-stack-md inline-flex items-center gap-2 rounded-lg bg-secondary-container px-10 py-3.5 text-label-md font-bold text-on-secondary-container transition-transform hover:opacity-90 active:scale-95"
                 >
                   <MaterialIcon name={module.type === "capstone" ? "sports_esports" : "quiz"} />
@@ -688,7 +685,7 @@ export default function LessonPage() {
               </button>
             ) : module.type === "capstone" ? (
               <button
-                onClick={() => navigate("/capstone")}
+                onClick={() => navigate(`/capstone/${module.id}`)}
                 className="flex w-full items-center justify-center gap-2 bg-primary py-3 text-label-md text-on-primary transition-opacity hover:opacity-90"
               >
                 <MaterialIcon name="sports_esports" /> Launch the capstone
