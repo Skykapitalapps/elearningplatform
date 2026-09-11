@@ -24,6 +24,10 @@ export async function buildCertificatePdf({
   courseTitle,
   clientShort,
   totalModules = 6,
+  // Optional small line under the programme title — used by the per-pathway
+  // certificates to state the module list, threshold and awareness-level note
+  // (workbook rule R11) without touching the approved layout.
+  detail,
 }) {
   const [{ jsPDF }, logo, fonts] = await Promise.all([
     import("jspdf"),
@@ -93,6 +97,10 @@ export async function buildCertificatePdf({
   doc.text("Has successfully completed the", CX, 136, { align: "center" });
   doc.setFont("SS4", "bold").setFontSize(18).setTextColor(...NAVY);
   doc.text(doc.splitTextToSize(courseTitle, 220), CX, 147, { align: "center" });
+  if (detail) {
+    doc.setFont("SS4", "normal").setFontSize(9).setTextColor(...GREY);
+    doc.text(doc.splitTextToSize(detail, 232), CX, 158, { align: "center" });
+  }
 
   // Footer — date (left, narrower) and signature (right, wider) like the mockup
   const lineY = 179;

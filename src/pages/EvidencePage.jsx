@@ -15,6 +15,44 @@ export default function EvidencePage() {
     profile?.full_name || user?.user_metadata?.full_name || user?.email?.split("@")[0] || course.learner;
   const completed = modules.filter((m) => m.status === "completed");
 
+  // One certificate PER PATHWAY (workbook rule R11): pathway named, module
+  // list, threshold, date, verification reference and the awareness-level note.
+  const baseCertNo = user?.id
+    ? "SKA-" + user.id.replace(/-/g, "").slice(0, 10).toUpperCase()
+    : "SKA-DEMO";
+  const pathwayCerts = [
+    { key: "A", label: "Pathway A — Foundations" },
+    { key: "B", label: "Pathway B — Site Practice" },
+    { key: "C", label: "Pathway C — Supervisors & Leads" },
+  ]
+    .map((pw) => {
+      const mods = modules.filter((m) => (m.pathway || "A") === pw.key);
+      const done = mods.filter((m) => m.status === "completed");
+      return {
+        ...pw,
+        mods,
+        doneCount: done.length,
+        complete: mods.length > 0 && done.length === mods.length,
+        date: done.map((m) => m.completedOn).filter(Boolean).sort().slice(-1)[0] ?? null,
+      };
+    })
+    .filter((pw) => pw.mods.length > 0);
+
+  function downloadPathwayCert(pw) {
+    downloadCertificatePdf({
+      name: learnerName,
+      certNo: `${baseCertNo}-${pw.key}`,
+      date: pw.date ?? new Date().toISOString().slice(0, 10),
+      courseTitle: `${course.title} — ${pw.label}`,
+      clientShort: client.clientShort,
+      totalModules: pw.mods.length,
+      detail:
+        `${pw.mods.length} modules: ${pw.mods.map((m) => m.code).join(", ")} · ` +
+        `pass mark 80% per assessment · content v1.0 · verification ref. ${baseCertNo}-${pw.key} · ` +
+        "awareness-level training — certifies no regulated competency",
+    });
+  }
+
   return (
     <div className="mx-auto max-w-[1280px] px-margin-mobile py-stack-lg md:px-margin-desktop">
       <nav className="mb-stack-md flex items-center gap-2 text-caption text-outline">
@@ -119,11 +157,56 @@ export default function EvidencePage() {
           <MaterialIcon name="workspace_premium" className="text-3xl text-outline" />
           <p className="text-body-md text-on-surface-variant">
             Complete all {progress.total} modules to unlock your{" "}
-            <strong>certificate of completion</strong> —{" "}
-            {progress.total - progress.completed} to go.
+            <strong>full-programme certificate</strong> —{" "}
+            {progress.total - progress.completed} to go. Each pathway also earns
+            its own certificate below.
           </p>
         </div>
       )}
+
+      {/* One certificate per pathway */}
+      <div className="mb-stack-lg grid grid-cols-1 gap-gutter md:grid-cols-3">
+        {pathwayCerts.map((pw) => (
+          <div
+            key={pw.key}
+            className={`rounded-xl border p-stack-md ${
+              pw.complete
+                ? "border-secondary/60 bg-gradient-to-br from-[#fdf8ec] to-white"
+                : "border-outline-variant bg-surface-container-lowest"
+            }`}
+          >
+            <div className="mb-1 flex items-center gap-2">
+              <MaterialIcon
+                name={pw.complete ? "workspace_premium" : "lock"}
+                fill={pw.complete}
+                className={pw.complete ? "text-secondary" : "text-outline"}
+              />
+              <p className="text-label-md font-bold text-primary">{pw.label}</p>
+            </div>
+            <p className="mb-2 text-caption text-on-surface-variant">
+              {pw.doneCount}/{pw.mods.length} modules ·{" "}
+              {pw.complete
+                ? `completed ${pw.date ?? ""}`
+                : "certificate unlocks when every module is passed"}
+            </p>
+            <div className="mb-2 h-1.5 w-full overflow-hidden rounded-full bg-surface-container-high">
+              <span
+                className="block h-full rounded-full bg-secondary transition-all"
+                style={{ width: `${(pw.doneCount / pw.mods.length) * 100}%` }}
+              />
+            </div>
+            {pw.complete && (
+              <button
+                onClick={() => downloadPathwayCert(pw)}
+                className="mt-1 flex items-center gap-1.5 rounded-lg bg-primary px-4 py-2 text-caption font-bold text-on-primary transition-opacity hover:opacity-90"
+              >
+                <MaterialIcon name="download" className="text-[16px]" />
+                Download {pw.key}-pathway certificate
+              </button>
+            )}
+          </div>
+        ))}
+      </div>
 
       {/* Completed modules — visual cards */}
       {completed.length > 0 && (

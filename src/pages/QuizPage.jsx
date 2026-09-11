@@ -168,6 +168,53 @@ function isRight(ans, q) {
   return ans === q.correct;
 }
 
+// Partial credit per the assessment pack scoring rules: multiple response =
+// (good − bad) / number of correct, floor 0; categorisation, fill-blank and
+// connect = fraction placed correctly; strict sequencing, single answer and
+// tap stay all-or-nothing. Each question is worth at most 1 point.
+function creditFor(ans, q) {
+  if (q.type === "multi") {
+    if (!Array.isArray(ans) || ans.length === 0) return 0;
+    const good = ans.filter((i) => q.correct.includes(i)).length;
+    const bad = ans.length - good;
+    return Math.max(0, (good - bad) / q.correct.length);
+  }
+  if (q.type === "categorize") {
+    if (!ans) return 0;
+    const good = q.items.filter((it, i) => ans[i] === it.cat).length;
+    return good / q.items.length;
+  }
+  if (q.type === "fillblank") {
+    const segs = blankSegs(q);
+    const good = segs.filter((i) => ans && ans[i] === q.segments[i].correct).length;
+    return segs.length ? good / segs.length : 0;
+  }
+  if (q.type === "connect") {
+    const good = q.pairs.filter((_, i) => ans && ans[i] === i).length;
+    return q.pairs.length ? good / q.pairs.length : 0;
+  }
+  return isRight(ans, q) ? 1 : 0;
+}
+
+// After a failed attempt, route the learner only to the lesson sections their
+// errors came from (question tags carry the screen number, e.g. "S3 — …").
+function remediationFor(deck, answers, module) {
+  if (!module?.lesson?.length) return [];
+  const seen = new Set();
+  const out = [];
+  deck.forEach((q, i) => {
+    if (creditFor(answers[i], q) >= 1) return;
+    const m = /^S(\d+)/.exec(q.tag || "");
+    if (!m) return;
+    const idx = +m[1] - 1;
+    const sec = module.lesson[idx];
+    if (!sec || seen.has(idx)) return;
+    seen.add(idx);
+    out.push({ idx, heading: sec.heading });
+  });
+  return out.sort((a, b) => a.idx - b.idx);
+}
+
 // Human-readable answer text for the results review.
 function answerText(val, q) {
   if (q.type === "order") {
@@ -293,13 +340,18 @@ export default function QuizPage() {
   const percent = Math.round(((index + 1) / total) * 100);
   const isLast = index === total - 1;
   const isCorrect = isRight(selected, question);
+  const qCredit = creditFor(selected, question);
   const answered = isAnswered(selected, question);
   const isMulti = question.type === "multi";
 
-  const correctCount = deck.reduce(
-    (n, q, i) => n + (isRight(answers[i], q) ? 1 : 0),
+  // Score with partial credit; pass at the workbook threshold (10 of 12 for
+  // A and B, 8 of 10 for C — i.e. 80% of the served deck, rounded up).
+  const creditTotal = deck.reduce(
+    (n, q, i) => n + creditFor(answers[i], q),
     0
   );
+  const creditRounded = Math.round(creditTotal * 10) / 10;
+  const passNeeded = Math.ceil(total * 0.8);
 
   function choose(i) {
     if (revealed) return;
@@ -409,11 +461,10 @@ export default function QuizPage() {
   }
 
   function finish() {
-    const pct = Math.round((correctCount / total) * 100);
-    // Must score at least 80% to pass — only then is the module completed.
-    if (target && pct >= PASS_MARK) {
+    // Pass at the threshold (e.g. 10 of 12) — only then is the module completed.
+    if (target && creditTotal >= passNeeded - 1e-9) {
       const max = target.score?.total ?? 8;
-      const earned = Math.round((correctCount / total) * max);
+      const earned = Math.round((creditTotal / total) * max);
       completeModule(target.id, earned);
     }
     setPhase("results");
@@ -430,8 +481,8 @@ export default function QuizPage() {
     setTimeLeft(15 * 60);
   }
 
-  const scorePct = Math.round((correctCount / total) * 100);
-  const passed = scorePct >= PASS_MARK;
+  const scorePct = Math.round((creditTotal / total) * 100);
+  const passed = creditTotal >= passNeeded - 1e-9;
 
   return (
     <div className="min-h-screen bg-surface">
@@ -534,7 +585,7 @@ export default function QuizPage() {
                 <p className="text-caption text-on-surface-variant">questions</p>
               </div>
               <div className="rounded-lg bg-surface-container-low py-3">
-                <p className="text-headline-md font-bold text-primary">80%</p>
+                <p className="text-headline-md font-bold text-primary">{passNeeded}/{total}</p>
                 <p className="text-caption text-on-surface-variant">to pass</p>
               </div>
               <div className="rounded-lg bg-surface-container-low py-3">
@@ -571,10 +622,13 @@ export default function QuizPage() {
           </div>
         ) : phase === "results" ? (
           <ResultsCard
-            correct={correctCount}
+            credit={creditRounded}
+            passNeeded={passNeeded}
             total={total}
             scorePct={scorePct}
             passed={passed}
+            remediation={passed ? [] : remediationFor(deck, answers, target)}
+            moduleId={target.id}
             questions={deck}
             answers={answers}
             nextModule={modules[modules.findIndex((m) => m.id === target.id) + 1]}
@@ -1140,17 +1194,23 @@ export default function QuizPage() {
                   className={`animate-fade-up mt-stack-md flex items-start gap-3 rounded-lg p-stack-md ${
                     isCorrect
                       ? "bg-emerald-50 text-emerald-900"
+                      : qCredit > 0
+                      ? "bg-amber-50 text-amber-900"
                       : "bg-rose-50 text-rose-900"
                   }`}
                 >
                   <MaterialIcon
-                    name={isCorrect ? "verified" : "info"}
+                    name={isCorrect ? "verified" : qCredit > 0 ? "rule" : "info"}
                     fill
-                    className={isCorrect ? "text-emerald-600" : "text-rose-500"}
+                    className={isCorrect ? "text-emerald-600" : qCredit > 0 ? "text-amber-600" : "text-rose-500"}
                   />
                   <div className="min-w-0 flex-1">
                     <p className="text-label-md">
-                      {isCorrect ? "Correct!" : "Not quite."}
+                      {isCorrect
+                        ? "Correct!"
+                        : qCredit > 0
+                        ? `Partly right — ${Math.round(qCredit * 10) / 10} of 1 point.`
+                        : "Not quite."}
                     </p>
                     <p className="text-caption">{question.tip}</p>
                   </div>
@@ -1193,10 +1253,13 @@ export default function QuizPage() {
 
 // Animated results / score screen.
 function ResultsCard({
-  correct,
+  credit,
+  passNeeded,
   total,
   scorePct,
   passed,
+  remediation = [],
+  moduleId,
   questions = [],
   answers = [],
   nextModule,
@@ -1224,7 +1287,7 @@ function ResultsCard({
         className="mb-stack-md inline-block rounded-full px-4 py-1 text-label-md uppercase tracking-widest text-white"
         style={{ background: ringColor }}
       >
-        {passed ? "Assessment passed" : `Not passed · ${PASS_MARK}% needed`}
+        {passed ? "Assessment passed" : `Not passed · ${passNeeded} of ${total} needed`}
       </span>
 
       <div className="relative mx-auto mb-stack-md h-40 w-40">
@@ -1251,13 +1314,12 @@ function ResultsCard({
           />
         </svg>
         <div className="absolute inset-0 flex flex-col items-center justify-center">
-          <AnimatedNumber
-            value={scorePct}
-            suffix="%"
-            className="text-headline-lg font-bold text-primary"
-          />
+          <span className="text-headline-lg font-bold text-primary">
+            {credit}
+            <span className="text-headline-md text-on-surface-variant"> / {total}</span>
+          </span>
           <span className="text-caption text-on-surface-variant">
-            {correct}/{total} correct
+            {passNeeded} needed to pass
           </span>
         </div>
       </div>
@@ -1268,8 +1330,31 @@ function ResultsCard({
       <p className="mx-auto mb-stack-md max-w-sm text-body-md text-on-surface-variant">
         {passed
           ? "Passed — your result is logged to the training-evidence register. Review your answers, or head back to the course."
-          : `You scored ${scorePct}%, but you need ${PASS_MARK}% to pass. This module is not complete yet — review your answers and restart the test to pass.`}
+          : `You scored ${credit} of ${total}, and you need ${passNeeded} to pass. Review the sections below, then restart the test.`}
       </p>
+
+      {/* Targeted remediation: only the lesson sections the errors came from */}
+      {!passed && remediation.length > 0 && (
+        <div className="mb-stack-md rounded-xl border border-amber-200 bg-amber-50 p-stack-md text-left">
+          <p className="mb-2 flex items-center gap-1.5 text-label-md font-bold text-amber-900">
+            <MaterialIcon name="menu_book" className="text-[18px]" />
+            Your wrong answers came from these sections — reread them first:
+          </p>
+          <ul className="space-y-1">
+            {remediation.map((r) => (
+              <li key={r.idx}>
+                <Link
+                  to={`/module/${moduleId}#sec-${r.idx}`}
+                  className="flex items-center gap-2 rounded-lg px-2 py-1.5 text-body-md text-amber-900 underline-offset-2 hover:bg-amber-100 hover:underline"
+                >
+                  <MaterialIcon name="arrow_forward" className="text-[16px]" />
+                  {r.heading}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       {/* Answer review */}
       <button
@@ -1285,23 +1370,34 @@ function ResultsCard({
       {showReview && (
         <div className="mb-stack-lg space-y-2 text-left">
           {questions.map((q, i) => {
-            const ok = isRight(answers[i], q);
+            const cr = creditFor(answers[i], q);
+            const ok = cr >= 1;
+            const part = cr > 0 && cr < 1;
             return (
               <div
                 key={i}
                 className={`rounded-lg border p-stack-md ${
-                  ok ? "border-emerald-200 bg-emerald-50" : "border-rose-200 bg-rose-50"
+                  ok
+                    ? "border-emerald-200 bg-emerald-50"
+                    : part
+                    ? "border-amber-200 bg-amber-50"
+                    : "border-rose-200 bg-rose-50"
                 }`}
               >
                 <div className="flex items-start gap-2">
                   <MaterialIcon
-                    name={ok ? "check_circle" : "cancel"}
+                    name={ok ? "check_circle" : part ? "rule" : "cancel"}
                     fill
-                    className={ok ? "text-emerald-600" : "text-rose-500"}
+                    className={ok ? "text-emerald-600" : part ? "text-amber-600" : "text-rose-500"}
                   />
                   <div className="min-w-0">
                     <p className="text-label-md text-primary">
                       {i + 1}. {q.prompt}
+                      {part && (
+                        <span className="ml-2 rounded-full bg-amber-100 px-2 py-0.5 text-caption font-bold text-amber-800">
+                          {Math.round(cr * 10) / 10} of 1 pt
+                        </span>
+                      )}
                     </p>
                     {!ok && (
                       <p className="mt-1 text-caption text-rose-700">
