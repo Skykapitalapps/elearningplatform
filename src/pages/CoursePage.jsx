@@ -184,7 +184,7 @@ export default function CoursePage() {
                           </button>
                           {m.status !== "completed" && (
                             <span className="text-caption text-outline">
-                              Readings → Games → Quiz (80%) unlocks the next module
+                              Readings → Games → Quiz (70%) unlocks the next module
                             </span>
                           )}
                         </div>

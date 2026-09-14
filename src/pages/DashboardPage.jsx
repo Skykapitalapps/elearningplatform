@@ -49,7 +49,7 @@ export default function DashboardPage() {
               {[
                 ["menu_book", "Read each short, illustrated lesson"],
                 ["extension", "Play the practice games — they don't count"],
-                ["quiz", "Pass the quiz (80%) to unlock the next module"],
+                ["quiz", "Pass the quiz (70%) to unlock the next module"],
               ].map(([ic, t], i) => (
                 <p key={i} className="flex items-center gap-3 text-body-md text-on-surface">
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-surface-container-low">
@@ -126,7 +126,7 @@ export default function DashboardPage() {
               <MaterialIcon name="chevron_right" className="text-[14px] text-white/60" />
               <span className="rounded-full bg-white/15 px-2.5 py-0.5">2 · Practice games</span>
               <MaterialIcon name="chevron_right" className="text-[14px] text-white/60" />
-              <span className="rounded-full bg-white/15 px-2.5 py-0.5">3 · Quiz (80%)</span>
+              <span className="rounded-full bg-white/15 px-2.5 py-0.5">3 · Quiz (70%)</span>
               <span className="ml-1 text-white/70">{current.duration}</span>
             </span>
           </span>
@@ -144,7 +144,7 @@ export default function DashboardPage() {
             {[
               { n: "1", icon: "menu_book", t: "Read the lesson", d: "Each module starts with a short, illustrated lesson." },
               { n: "2", icon: "extension", t: "Play the practice games", d: "Puzzles and games to make it stick — no grades here." },
-              { n: "3", icon: "quiz", t: "Pass the quiz", d: "Score 80% to complete the module and unlock the next." },
+              { n: "3", icon: "quiz", t: "Pass the quiz", d: "Score 70% to complete the module and unlock the next." },
             ].map((s) => (
               <div key={s.n} className="flex items-start gap-3 rounded-lg bg-surface-container-low p-stack-md">
                 <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary-container text-label-md font-bold text-white">

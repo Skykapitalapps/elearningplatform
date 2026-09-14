@@ -114,6 +114,10 @@ function drawFromBank(questions, mix) {
   const served = [];
   for (const [fmt, n] of Object.entries(mix || SERVE_MIX)) {
     const pool = shuffle(questions.filter((q) => q.fmt === fmt));
+    // Ease the deck: prefer easy/medium items — "hard" ones are only drawn
+    // to fill a format whose pool has nothing gentler left. (Stable sort
+    // keeps the shuffled order within each difficulty group.)
+    pool.sort((a, b) => (a.difficulty === "hard") - (b.difficulty === "hard"));
     served.push(...pool.slice(0, n));
   }
   return served.length ? served : questions;
@@ -345,14 +349,15 @@ export default function QuizPage() {
   const answered = isAnswered(selected, question);
   const isMulti = question.type === "multi";
 
-  // Score with partial credit; pass at the workbook threshold (10 of 12 for
-  // A and B, 8 of 10 for C — i.e. 80% of the served deck, rounded up).
+  // Score with partial credit; pass at 70% of the served deck, rounded up
+  // (9 of 12 for A and B, 7 of 10 for C). Softened from the original 80%
+  // blueprint so learners can realistically pass.
   const creditTotal = deck.reduce(
     (n, q, i) => n + creditFor(answers[i], q),
     0
   );
   const creditRounded = Math.round(creditTotal * 10) / 10;
-  const passNeeded = Math.ceil(total * 0.8);
+  const passNeeded = Math.ceil(total * 0.7);
 
   function choose(i) {
     if (revealed) return;
@@ -597,7 +602,7 @@ export default function QuizPage() {
             <ul className="mx-auto mt-stack-md max-w-sm space-y-1.5 text-left">
               <li className="flex items-center gap-2 text-caption text-on-surface-variant"><MaterialIcon name="extension" className="text-[16px] text-secondary" /> A mix of games: puzzles, diagrams, photos and cards</li>
               <li className="flex items-center gap-2 text-caption text-on-surface-variant"><MaterialIcon name="lightbulb" className="text-[16px] text-secondary" /> Hints available on the tricky ones</li>
-              <li className="flex items-center gap-2 text-caption text-on-surface-variant"><MaterialIcon name="refresh" className="text-[16px] text-secondary" /> Not 80%? You can retake it as many times as you like</li>
+              <li className="flex items-center gap-2 text-caption text-on-surface-variant"><MaterialIcon name="refresh" className="text-[16px] text-secondary" /> Didn't pass? You can retake it as many times as you like — a fresh set of questions each time</li>
             </ul>
             {!lessonRead && (
               <p className="mx-auto mt-stack-md flex max-w-sm items-center gap-2 rounded-lg bg-amber-50 p-3 text-caption text-amber-800">

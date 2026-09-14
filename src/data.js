@@ -899,13 +899,13 @@ export const modules = [
     score: { earned: 0, total: 12 },
     icon: "sports_esports",
     summary: "Twelve live decisions that decide whether the financing holds.",
-    tldr: "No more reading — this is the game. Twelve situations from the whole course land on your desk, one by one. Every decision moves the project's financing health up or down. Get 10 of 12 right and the lenders stay with you.",
+    tldr: "No more reading — this is the game. Twelve situations from the whole course land on your desk, one by one. Every decision moves the project's financing health up or down. Get 9 of 12 right and the lenders stay with you.",
     glossary: [
       { term: "Financing health", plain: "The meter in the simulation — it stands for the lenders' confidence in the project. Good calls raise it, bad calls sink it." },
       { term: "Good call", plain: "The decision the course taught: protect people first, follow the stricter rule, report honestly, use the grievance mechanism." },
     ],
     overview:
-      "The capstone brings the whole pathway together. You play the contractor’s site ESG lead through twelve real decisions on a lender-financed PPP project — each one moves the project's financing health. Score at least 10 of 12 to pass and keep the lenders on side.",
+      "The capstone brings the whole pathway together. You play the contractor’s site ESG lead through twelve real decisions on a lender-financed PPP project — each one moves the project's financing health. Score at least 9 of 12 to pass and keep the lenders on side.",
     lesson: [
       {
         heading: "How the capstone works",
@@ -2603,12 +2603,12 @@ export const psMatchItems = [
 // Capstone simulation — 5 ESG decisions on a PPP project that together decide
 // whether the financing keeps flowing. Need `passNeeded` good calls to pass.
 // The Pathway A capstone: twelve situations drawn from Modules A1-A5.
-// Pass at 10 of 12. Per the Module A6 specification (v1.0).
+// Twelve situations; pass at 9 of 12 (softened from the spec's 10).
 export const capstoneSim = {
   title: "Capstone: keep the financing flowing",
   intro:
     "You are the site E&S lead on a financed road project. The lenders have signed, the standards are binding, and the independent consultant visits in eight weeks. Twelve situations will reach you — each one a real decision with a real cost. There is no option that costs nothing.",
-  passNeeded: 10,
+  passNeeded: 9,
   steps: [
     {
       prompt: "A wetland sits on the alignment. The design team offers four ways forward.",
@@ -2728,7 +2728,7 @@ export const c6Sim = {
   title: "Deciding under programme pressure",
   intro:
     "You are the E&S lead on Section 3, eleven weeks behind on embankment, with the lenders' independent consultant visiting in eight weeks. Ten decisions over a simulated eight weeks — every option costs something.",
-  passNeeded: 8,
+  passNeeded: 7,
   steps: [
     {
       prompt: "Week 1. A borrow pit close to the works has no mineral title and is not in the assessment. Using it would recover four weeks of programme. Your section manager wants to open it Monday.",

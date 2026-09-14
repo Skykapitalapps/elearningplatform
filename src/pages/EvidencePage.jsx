@@ -48,7 +48,7 @@ export default function EvidencePage() {
       totalModules: pw.mods.length,
       detail:
         `${pw.mods.length} modules: ${pw.mods.map((m) => m.code).join(", ")} · ` +
-        `pass mark 80% per assessment · content v1.0 · verification ref. ${baseCertNo}-${pw.key} · ` +
+        `pass mark 70% per assessment · content v1.0 · verification ref. ${baseCertNo}-${pw.key} · ` +
         "awareness-level training — certifies no regulated competency",
     });
   }

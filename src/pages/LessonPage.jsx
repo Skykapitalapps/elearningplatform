@@ -279,7 +279,7 @@ export default function LessonPage() {
           >
             <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-secondary text-caption font-bold text-white">3</span>
             <span className="text-label-md font-semibold text-primary">
-              {module.type === "capstone" ? "Run the simulation" : "Pass the quiz (80%)"}
+              {module.type === "capstone" ? "Run the simulation" : "Pass the quiz (70%)"}
             </span>
           </button>
         ) : (
@@ -289,7 +289,7 @@ export default function LessonPage() {
             </span>
             <span className="min-w-0">
               <span className="block text-label-md font-semibold text-on-surface-variant">
-                {module.type === "capstone" ? "Run the simulation" : "Pass the quiz (80%)"}
+                {module.type === "capstone" ? "Run the simulation" : "Pass the quiz (70%)"}
               </span>
               <span className="text-caption text-outline">Unlocks after the course</span>
             </span>
@@ -624,9 +624,9 @@ export default function LessonPage() {
               <p className="mx-auto mt-1 max-w-md text-body-md text-white/80">
                 {module.type === "capstone"
                   ? (module.id === "c6"
-                      ? "Run the simulation — 8 good calls out of 10 completes the pathway."
-                      : "Run the simulation — 10 good calls out of 12 keeps the financing flowing.")
-                  : "Score 80% on the quiz to complete this module and unlock the next one."}
+                      ? "Run the simulation — 7 good calls out of 10 completes the pathway."
+                      : "Run the simulation — 9 good calls out of 12 keeps the financing flowing.")
+                  : "Score 70% on the quiz to complete this module and unlock the next one."}
               </p>
               {readingDone ? (
                 <button
