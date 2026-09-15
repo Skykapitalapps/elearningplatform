@@ -19,7 +19,7 @@ export const course = {
   duration: "60–70 min",
   level: "Foundation",
   accreditation: "Logged as training evidence",
-  hero: "/images/course-hero.jpg",
+  hero: "/images/hitech-paving.webp", // HITECH works — concrete paving through the corridor
   overview:
     "Five modules take you from what ESG means on a PPP construction project, through the rules that apply, to the the contractor financing case, the management system that runs it, and the KPIs that lenders review. Work through them in order — each one builds on the last.",
   instructor: {
@@ -2267,19 +2267,19 @@ export const moduleAccents = {
 // Construction & public-infrastructure photos per module (royalty-free,
 // Unsplash). Files live in /public/images and are served from the site root.
 export const moduleImages = {
-  m1: "/images/lm4.jpg", // managed construction site, work crew
-  std: "/images/lm11.jpg", // standards in the field
+  m1: "/images/hitech-pour.webp", // HITECH — slab pour, the whole crew in PPE
+  std: "/images/hitech-dozer.webp", // HITECH — standards applied at the workface
   m2: "/images/lm5.jpg", // modern public/civic building (regulation)
   m3: "/images/lm2.jpg", // financial district (the financing)
   m4: "/images/lm3.jpg", // workers in PPE on site (ESMS in practice)
   m5: "/images/lm8.jpg", // solar array (measurable performance)
-  m6: "/images/lm14.jpg", // capstone — the whole project, aerial Lagos highway
-  b1: "/images/lm6.jpg",
+  m6: "/images/hitech-skyline.webp", // HITECH capstone — the whole project against the skyline
+  b1: "/images/hitech-embankment.webp", // HITECH — works advancing across community land
   b2: "/images/lm7.jpg",
-  b3: "/images/lm8.jpg",
+  b3: "/images/hitech-haul.webp", // HITECH — the haulage fleet on the alignment
   b4: "/images/lm9.jpg",
-  b5: "/images/lm10.jpg",
-  b6: "/images/lm12.jpg",
+  b5: "/images/hitech-borrowpit.webp", // HITECH — a live borrow pit
+  b6: "/images/hitech-fill.webp", // HITECH — fill advancing into wetland habitat
   c1: "/images/lm13.jpg",
   c2: "/images/lm14.jpg",
   c3: "/images/lm2.jpg",
