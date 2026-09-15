@@ -68,7 +68,7 @@ export default function EvidencePage() {
           My progress & evidence
         </h1>
         <p className="max-w-2xl text-body-lg text-on-surface-variant">
-          Your personal record: every module you complete and every document you sign is logged here with your name, score and date — ready for the project's training-evidence register.
+          Every module you complete and every document you sign is logged here with your name, score and date. This is the project's training-evidence record for you.
         </p>
       </div>
 
@@ -119,7 +119,7 @@ export default function EvidencePage() {
             </p>
           )}
           <p className="mt-1 max-w-xl text-body-md text-white/80">
-            has completed all {progress.total} modules of “{course.title}” —
+            has completed all {progress.total} modules of “{course.title}”,
             passing every assessment and the capstone simulation.
           </p>
           <div className="mt-stack-md flex flex-wrap items-center gap-stack-md">
@@ -187,7 +187,7 @@ export default function EvidencePage() {
               {pw.doneCount}/{pw.mods.length} modules ·{" "}
               {pw.complete
                 ? `completed ${pw.date ?? ""}`
-                : "certificate unlocks when every module is passed"}
+                : "available once every module is passed"}
             </p>
             <div className="mb-2 h-1.5 w-full overflow-hidden rounded-full bg-surface-container-high">
               <span
@@ -295,7 +295,7 @@ export default function EvidencePage() {
             {completed.length === 0 ? (
               <tr>
                 <td colSpan={4} className="px-stack-md py-stack-lg text-center text-on-surface-variant">
-                  No completed modules yet — finish a module to log evidence.
+                  Nothing here yet. Completed modules appear in this table.
                 </td>
               </tr>
             ) : (
@@ -343,8 +343,8 @@ export default function EvidencePage() {
                   colSpan={3}
                   className="px-stack-md py-stack-lg text-center text-on-surface-variant"
                 >
-                  No signed declarations yet — open a document in the Library and
-                  confirm you've read it.
+                  Nothing signed yet. Policies you confirm in the Library appear
+                  here.
                 </td>
               </tr>
             ) : (

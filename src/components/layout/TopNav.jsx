@@ -159,7 +159,7 @@ function HelpMenu() {
           <div className="space-y-3 p-stack-md">
             {[
               ["menu_book", "Read the lesson", "Open a module and tick each section as you read it."],
-              ["extension", "Play the practice games", "Puzzles and cards to make it stick — nothing is graded."],
+              ["extension", "Play the practice games", "Optional practice. Nothing here is graded."],
               ["quiz", "Pass the quiz", "70% completes the module and unlocks the next one."],
               ["workspace_premium", "Finish all your assigned modules", "Your certificate appears in “My progress”."],
             ].map(([ic, t, d]) => (

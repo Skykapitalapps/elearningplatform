@@ -383,7 +383,7 @@ export default function LessonPage() {
                           {i + 1}. {d.title}
                         </span>
                         <span className={`text-caption ${isRead ? "font-bold text-emerald-600" : "text-on-surface-variant"}`}>
-                          {isRead ? "Read ✓" : "Not read yet — open it"}
+                          {isRead ? "Read ✓" : "Not read yet"}
                         </span>
                       </span>
                       <MaterialIcon name="arrow_forward" className="shrink-0 text-outline group-hover:text-secondary" />
@@ -396,7 +396,7 @@ export default function LessonPage() {
 
           <div className="mt-stack-lg flex items-center gap-2">
             <span className="rounded-full bg-primary-container px-3 py-1 text-caption font-bold uppercase tracking-widest text-white">Step 1</span>
-            <span className="text-label-md font-bold text-primary">Then the lesson — sections tick as you scroll</span>
+            <span className="text-label-md font-bold text-primary">Then the lesson. Sections tick as you scroll</span>
             <MaterialIcon name="arrow_downward" className="text-[18px] text-secondary" />
           </div>
           <div id="lesson-notes" className="mt-2 scroll-mt-24 overflow-hidden rounded-xl border border-outline-variant bg-surface-container-lowest">
@@ -453,7 +453,7 @@ export default function LessonPage() {
                   {module.lesson?.length > 0 && (
                     <div className="mb-4">
                       <div className="mb-1 flex items-center justify-between text-caption text-on-surface-variant">
-                        <span>Your reading — sections tick automatically as you scroll</span>
+                        <span>Your reading · sections tick as you scroll</span>
                         <span className="font-semibold" style={{ color: module.accent }}>
                           {module.lesson.filter((s) => readSections.includes(s.heading)).length}
                           /{module.lesson.length} sections read
@@ -573,7 +573,7 @@ export default function LessonPage() {
             <div id="practice" className="mt-stack-lg scroll-mt-24 rounded-xl border border-outline-variant bg-surface-container-lowest p-stack-lg">
               <div className="mb-1 flex items-center gap-2">
                 <span className="rounded-full bg-primary-container px-3 py-1 text-caption font-bold uppercase tracking-widest text-white">Step 2</span>
-                <span className="text-label-md font-bold text-primary">Practice with the games — not graded</span>
+                <span className="text-label-md font-bold text-primary">Practice with the games (not graded)</span>
               </div>
               {readingDone ? (
                 <>
@@ -602,7 +602,7 @@ export default function LessonPage() {
                     The games unlock when the course is read
                   </p>
                   <p className="max-w-sm text-caption text-on-surface-variant">
-                    {moduleDocs.length > 0 ? `Readings: ${docsReadCount}/${moduleDocs.length} opened · ` : ""}Lesson: {readCount}/{module.lesson?.length ?? 0} sections — open every reading above and scroll the lesson to the end.
+                    {moduleDocs.length > 0 ? `Readings: ${docsReadCount}/${moduleDocs.length} opened · ` : ""}Lesson: {readCount}/{module.lesson?.length ?? 0} sections. Open every reading above and scroll the lesson to the end.
                   </p>
                   <a
                     href="#lesson-notes"
@@ -624,8 +624,8 @@ export default function LessonPage() {
               <p className="mx-auto mt-1 max-w-md text-body-md text-white/80">
                 {module.type === "capstone"
                   ? (module.id === "c6"
-                      ? "Run the simulation — 7 good calls out of 10 completes the pathway."
-                      : "Run the simulation — 9 good calls out of 12 keeps the financing flowing.")
+                      ? "Run the simulation. 7 good calls out of 10 completes the pathway."
+                      : "Run the simulation. 9 good calls out of 12 keeps the financing on track.")
                   : "Score 70% on the quiz to complete this module and unlock the next one."}
               </p>
               {readingDone ? (

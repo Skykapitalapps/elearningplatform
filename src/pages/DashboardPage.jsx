@@ -78,15 +78,15 @@ export default function DashboardPage() {
       {/* Greeting */}
       <section className="mb-stack-lg animate-fade-up">
         <h1 className="mb-2 text-headline-lg text-primary md:text-headline-xl">
-          Welcome back, {firstName} 👋
+          Welcome back, {firstName}
         </h1>
         <span className="mb-3 mt-1 block h-1 w-24 rounded-full bg-gradient-to-r from-secondary to-transparent" />
         <p className="text-body-lg text-on-surface-variant">
           {done
-            ? "You have completed your certification — congratulations!"
+            ? "All your modules are done. Well done."
             : started
-            ? `You are on ${current.code} — ${progress.completed} of ${progress.total} modules done.`
-            : "Your ESG training starts here. One module at a time."}
+            ? `You're on ${current.code}. ${progress.completed} of ${progress.total} modules done.`
+            : "Start with A1. The rest unlocks as you go."}
         </p>
       </section>
 
@@ -143,7 +143,7 @@ export default function DashboardPage() {
           <div className="grid grid-cols-1 gap-stack-md sm:grid-cols-3">
             {[
               { n: "1", icon: "menu_book", t: "Read the lesson", d: "Each module starts with a short, illustrated lesson." },
-              { n: "2", icon: "extension", t: "Play the practice games", d: "Puzzles and games to make it stick — no grades here." },
+              { n: "2", icon: "extension", t: "Play the practice games", d: "Not graded. A way to check yourself before the quiz." },
               { n: "3", icon: "quiz", t: "Pass the quiz", d: "Score 70% to complete the module and unlock the next." },
             ].map((s) => (
               <div key={s.n} className="flex items-start gap-3 rounded-lg bg-surface-container-low p-stack-md">

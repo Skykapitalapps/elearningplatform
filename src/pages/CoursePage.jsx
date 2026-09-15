@@ -15,9 +15,9 @@ export default function CoursePage() {
   // Three pathways: A is the sequential baseline for everyone; B and C are
   // assigned by job role and open together once Pathway A is complete.
   const pathways = [
-    { key: "A", title: "Pathway A — Foundations", note: "The baseline for everyone. Take it in order — completing it unlocks your Pathway B and C modules." },
-    { key: "B", title: "Pathway B — Site Practice", note: "Assigned by your role. All your B modules open once Pathway A is complete — take them in any order." },
-    { key: "C", title: "Pathway C — Supervisors & Leads", note: "Assigned by your role. All your C modules open once Pathway A is complete — take them in any order." },
+    { key: "A", title: "Pathway A — Foundations", note: "Everyone takes this part, in order. Finishing it opens your B and C modules." },
+    { key: "B", title: "Pathway B — Site Practice", note: "Assigned by role. These open once Pathway A is done, and can be taken in any order." },
+    { key: "C", title: "Pathway C — Supervisors & Leads", note: "Assigned by role. Same rule as B: open after Pathway A, in any order." },
   ];
 
   return (
@@ -184,7 +184,7 @@ export default function CoursePage() {
                           </button>
                           {m.status !== "completed" && (
                             <span className="text-caption text-outline">
-                              Readings → Games → Quiz (70%) unlocks the next module
+                              Readings, games, then the quiz (70%) to unlock the next module
                             </span>
                           )}
                         </div>

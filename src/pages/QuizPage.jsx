@@ -16,11 +16,11 @@ function formatTime(s) {
 // Rotating praise for correct answers — a little warmth goes a long way.
 const PRAISE = [
   "Correct!",
-  "Nice one!",
-  "Exactly right!",
-  "Spot on!",
-  "You know your stuff!",
-  "That's the one!",
+  "Nice one.",
+  "Right.",
+  "Spot on.",
+  "Good catch.",
+  "That's it.",
 ];
 
 // Difficulty tiers — a small, informative label on each question (no scoring).
@@ -595,8 +595,8 @@ export default function QuizPage() {
             </div>
             <h2 className="text-headline-md text-primary">Leave the quiz?</h2>
             <p className="mx-auto mt-1 max-w-xs text-body-md text-on-surface-variant">
-              Your answers in this attempt will not be saved — you can retake
-              the quiz anytime.
+              Your answers in this attempt won't be saved. You can retake the
+              quiz anytime.
             </p>
             <div className="mt-stack-md flex gap-2">
               <button
@@ -644,9 +644,9 @@ export default function QuizPage() {
               </div>
             </div>
             <ul className="mx-auto mt-stack-md max-w-sm space-y-1.5 text-left">
-              <li className="flex items-center gap-2 text-caption text-on-surface-variant"><MaterialIcon name="extension" className="text-[16px] text-secondary" /> A mix of games: puzzles, diagrams, photos and cards</li>
-              <li className="flex items-center gap-2 text-caption text-on-surface-variant"><MaterialIcon name="content_cut" className="text-[16px] text-secondary" /> Stuck? Two 50/50 jokers remove a wrong answer for you</li>
-              <li className="flex items-center gap-2 text-caption text-on-surface-variant"><MaterialIcon name="refresh" className="text-[16px] text-secondary" /> Didn't pass? You can retake it as many times as you like — a fresh set of questions each time</li>
+              <li className="flex items-center gap-2 text-caption text-on-surface-variant"><MaterialIcon name="extension" className="text-[16px] text-secondary" /> Questions come in different formats: cards, puzzles, photos</li>
+              <li className="flex items-center gap-2 text-caption text-on-surface-variant"><MaterialIcon name="content_cut" className="text-[16px] text-secondary" /> Two 50/50 jokers per attempt, each removes one wrong answer</li>
+              <li className="flex items-center gap-2 text-caption text-on-surface-variant"><MaterialIcon name="refresh" className="text-[16px] text-secondary" /> Retake as often as you need. The questions change every time</li>
             </ul>
             {!lessonRead && (
               <p className="mx-auto mt-stack-md flex max-w-sm items-center gap-2 rounded-lg bg-amber-50 p-3 text-caption text-amber-800">
@@ -1294,7 +1294,7 @@ export default function QuizPage() {
                       {isCorrect
                         ? PRAISE[index % PRAISE.length]
                         : qCredit > 0
-                        ? `Partly right — ${Math.round(qCredit * 10) / 10} of 1 point.`
+                        ? `Partly right: ${Math.round(qCredit * 10) / 10} of 1 point.`
                         : "Not quite."}
                       {isCorrect && streak >= 2 && (
                         <span className="inline-flex items-center rounded-full bg-emerald-100 px-2.5 py-0.5 text-caption font-bold text-emerald-800">
@@ -1415,12 +1415,12 @@ function ResultsCard({
       </div>
 
       <h1 className="mb-2 text-headline-md text-primary">
-        {passed ? "Great work!" : "Not passed yet"}
+        {passed ? "Passed" : "Not passed yet"}
       </h1>
       <p className="mx-auto mb-stack-md max-w-sm text-body-md text-on-surface-variant">
         {passed
-          ? "Passed — your result is logged to the training-evidence register. Review your answers, or head back to the course."
-          : `You scored ${credit} of ${total}, and you need ${passNeeded} to pass. Review the sections below, then restart the test.`}
+          ? "Your result is logged to the training-evidence register."
+          : `You scored ${credit} of ${total}. The pass mark is ${passNeeded}. Go over the sections below, then try again.`}
       </p>
 
       {/* Targeted remediation: only the lesson sections the errors came from */}
@@ -1428,7 +1428,7 @@ function ResultsCard({
         <div className="mb-stack-md rounded-xl border border-amber-200 bg-amber-50 p-stack-md text-left">
           <p className="mb-2 flex items-center gap-1.5 text-label-md font-bold text-amber-900">
             <MaterialIcon name="menu_book" className="text-[18px]" />
-            Your wrong answers came from these sections — reread them first:
+            Your wrong answers came from these sections:
           </p>
           <ul className="space-y-1">
             {remediation.map((r) => (
