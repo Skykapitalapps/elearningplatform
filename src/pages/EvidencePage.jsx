@@ -156,10 +156,9 @@ export default function EvidencePage() {
         <div className="mb-stack-lg flex items-center gap-3 rounded-xl border border-dashed border-outline-variant bg-surface-container-low p-stack-md">
           <MaterialIcon name="workspace_premium" className="text-3xl text-outline" />
           <p className="text-body-md text-on-surface-variant">
-            Complete all {progress.total} modules to unlock your{" "}
-            <strong>full-programme certificate</strong> —{" "}
-            {progress.total - progress.completed} to go. Each pathway also earns
-            its own certificate below.
+            {progress.total - progress.completed} modules left before your{" "}
+            <strong>full-programme certificate</strong>. Each pathway below also
+            has its own certificate.
           </p>
         </div>
       )}
