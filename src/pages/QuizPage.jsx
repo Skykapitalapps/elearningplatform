@@ -13,7 +13,15 @@ function formatTime(s) {
   return `${m}:${sec < 10 ? "0" : ""}${sec}`;
 }
 
-const PASS_MARK = 80; // % needed to pass a quiz
+// Rotating praise for correct answers — a little warmth goes a long way.
+const PRAISE = [
+  "Correct!",
+  "Nice one!",
+  "Exactly right!",
+  "Spot on!",
+  "You know your stuff!",
+  "That's the one!",
+];
 
 // Difficulty tiers — a small, informative label on each question (no scoring).
 const DIFF_META = {
@@ -289,6 +297,9 @@ export default function QuizPage() {
   const [selLeft, setSelLeft] = useState(null); // connect: selected left item
   const [showHint, setShowHint] = useState(false);
   const [revealed, setRevealed] = useState(false);
+  const [streak, setStreak] = useState(0); // consecutive fully-correct answers
+  const [lifelines, setLifelines] = useState(2); // 50/50 jokers per attempt
+  const [removed, setRemoved] = useState({}); // deck index -> [option indices taken out]
   const [phase, setPhase] = useState("intro"); // "intro" | "quiz" | "results"
   const [timeLeft, setTimeLeft] = useState(15 * 60);
   const [confirmExit, setConfirmExit] = useState(null); // route to leave to, or null
@@ -450,8 +461,38 @@ export default function QuizPage() {
     });
   }
 
+  // 50/50 joker: strike one wrong, unselected option from a choice question.
+  // One use per question, two per attempt — it is a nudge, not an answer key.
+  const isTrueFalse =
+    question.options?.length === 2 && question.options[0] === "True";
+  const lifelineUsable =
+    !revealed &&
+    lifelines > 0 &&
+    !removed[index] &&
+    Array.isArray(question.options) &&
+    question.options.length >= 3 &&
+    !isTrueFalse &&
+    (question.type === undefined || question.type === "multi");
+
+  function useLifeline() {
+    if (!lifelineUsable) return;
+    const wrong = question.options
+      .map((_, i) => i)
+      .filter((i) =>
+        isMulti
+          ? !question.correct.includes(i) &&
+            !(Array.isArray(selected) && selected.includes(i))
+          : i !== question.correct && i !== selected
+      );
+    if (!wrong.length) return;
+    const pick = wrong[Math.floor(Math.random() * wrong.length)];
+    setRemoved((prev) => ({ ...prev, [index]: [pick] }));
+    setLifelines((n) => n - 1);
+  }
+
   function primaryAction() {
     if (!revealed) {
+      setStreak(creditFor(selected, question) >= 1 - 1e-9 ? streak + 1 : 0);
       setRevealed(true);
       return;
     }
@@ -483,6 +524,9 @@ export default function QuizPage() {
     setSelChip(null);
     setIndex(0);
     setRevealed(false);
+    setStreak(0);
+    setLifelines(2);
+    setRemoved({});
     setPhase("quiz");
     setTimeLeft(15 * 60);
   }
@@ -601,7 +645,7 @@ export default function QuizPage() {
             </div>
             <ul className="mx-auto mt-stack-md max-w-sm space-y-1.5 text-left">
               <li className="flex items-center gap-2 text-caption text-on-surface-variant"><MaterialIcon name="extension" className="text-[16px] text-secondary" /> A mix of games: puzzles, diagrams, photos and cards</li>
-              <li className="flex items-center gap-2 text-caption text-on-surface-variant"><MaterialIcon name="lightbulb" className="text-[16px] text-secondary" /> Hints available on the tricky ones</li>
+              <li className="flex items-center gap-2 text-caption text-on-surface-variant"><MaterialIcon name="content_cut" className="text-[16px] text-secondary" /> Stuck? Two 50/50 jokers remove a wrong answer for you</li>
               <li className="flex items-center gap-2 text-caption text-on-surface-variant"><MaterialIcon name="refresh" className="text-[16px] text-secondary" /> Didn't pass? You can retake it as many times as you like — a fresh set of questions each time</li>
             </ul>
             {!lessonRead && (
@@ -686,6 +730,24 @@ export default function QuizPage() {
                     />
                     {DIFF_META[question._diff]?.label}
                   </span>
+                  {!revealed &&
+                    (question.type === undefined || question.type === "multi") &&
+                    Array.isArray(question.options) &&
+                    question.options.length >= 3 &&
+                    !isTrueFalse && (
+                      <button
+                        onClick={useLifeline}
+                        disabled={!lifelineUsable}
+                        title="Remove one wrong answer (two per quiz)"
+                        className="ml-auto inline-flex items-center gap-1.5 rounded-full border border-secondary/60 bg-[#fcf9ee] px-3 py-1 text-caption font-bold text-primary transition-all hover:shadow-md active:scale-95 disabled:cursor-not-allowed disabled:opacity-40"
+                      >
+                        <MaterialIcon
+                          name="content_cut"
+                          className="text-[16px] text-secondary"
+                        />
+                        50/50 · {removed[index] ? "used" : `${lifelines} left`}
+                      </button>
+                    )}
                 </div>
                 <h2 className="text-headline-md leading-snug text-primary">
                   {question.prompt}
@@ -1137,9 +1199,26 @@ export default function QuizPage() {
                   const isCorrectOpt = isMulti
                     ? question.correct.includes(i)
                     : question.correct === i;
+                  const struck = (removed[index] || []).includes(i);
                   let cls =
                     "border-outline-variant bg-surface-container-lowest hover:border-secondary";
                   let mark = null;
+                  if (struck) {
+                    return (
+                      <div
+                        key={opt}
+                        className="flex w-full items-center rounded-lg border border-dashed border-outline-variant p-stack-md opacity-40"
+                      >
+                        <MaterialIcon
+                          name="content_cut"
+                          className="mr-4 text-[18px] text-outline"
+                        />
+                        <span className="text-body-md text-on-surface line-through">
+                          {opt}
+                        </span>
+                      </div>
+                    );
+                  }
                   if (!revealed && active) {
                     cls = "border-secondary bg-[#fcf9ee]";
                   }
@@ -1211,12 +1290,17 @@ export default function QuizPage() {
                     className={isCorrect ? "text-emerald-600" : qCredit > 0 ? "text-amber-600" : "text-rose-500"}
                   />
                   <div className="min-w-0 flex-1">
-                    <p className="text-label-md">
+                    <p className="flex flex-wrap items-center gap-2 text-label-md">
                       {isCorrect
-                        ? "Correct!"
+                        ? PRAISE[index % PRAISE.length]
                         : qCredit > 0
                         ? `Partly right — ${Math.round(qCredit * 10) / 10} of 1 point.`
                         : "Not quite."}
+                      {isCorrect && streak >= 2 && (
+                        <span className="inline-flex items-center rounded-full bg-emerald-100 px-2.5 py-0.5 text-caption font-bold text-emerald-800">
+                          🔥 {streak} in a row
+                        </span>
+                      )}
                     </p>
                     <p className="text-caption">{question.tip}</p>
                   </div>
