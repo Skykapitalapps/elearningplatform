@@ -16,6 +16,7 @@ import MatchActivity from "../components/activities/MatchActivity.jsx";
 import SwipeActivity from "../components/activities/SwipeActivity.jsx";
 import MemoryActivity from "../components/activities/MemoryActivity.jsx";
 import Discussion from "../components/Discussion.jsx";
+import LessonDiagram from "../components/LessonDiagram.jsx";
 
 // Maps an activity `type` to its component.
 function renderActivity(a, accent) {
@@ -591,6 +592,9 @@ export default function LessonPage() {
                             </li>
                           ))}
                         </ul>
+                      )}
+                      {section.diagram && (
+                        <LessonDiagram diagram={section.diagram} accent={module.accent} />
                       )}
                       {section.example && (
                         <div

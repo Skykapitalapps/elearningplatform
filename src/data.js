@@ -69,6 +69,24 @@ export const modules = [
       },
       {
         heading: "What ESG actually is — three pillars, seen on site",
+        diagram: {
+          type: "cards",
+          title: "The three pillars",
+          items: [
+            {
+              t: "E — Environmental",
+              s: "Air, water, land, waste — the project's footprint on the place."
+            },
+            {
+              t: "S — Social",
+              s: "Workers, communities, land and livelihoods — its footprint on people."
+            },
+            {
+              t: "G — Governance",
+              s: "Records, decisions, integrity — the part that proves the other two."
+            }
+          ]
+        },
         body: "For most of the twentieth century a company was assessed on one question: does it make money? ESG adds a second, now asked with equal seriousness: is that money made in a way that does not destroy things, harm people, or depend on dishonesty? On a road project, the three pillars look like this:",
         points: [
           "Environmental — our effect on the physical and living world: dust over a settlement, silt in a stream, a wetland drained, a borrow pit left open, fuel in the soil, trees cleared without a count.",
@@ -360,6 +378,29 @@ export const modules = [
       },
       {
         heading: "Four rulebooks, not one",
+        diagram: {
+          type: "flow",
+          title: "Four rulebooks apply at once",
+          note: "Where they diverge, the more stringent requirement governs.",
+          items: [
+            {
+              t: "National law",
+              s: "regulators & courts"
+            },
+            {
+              t: "Lender standards",
+              s: "IFC PS · EHS Guidelines"
+            },
+            {
+              t: "The project contract",
+              s: "ESMP · the engineer"
+            },
+            {
+              t: "Good industry practice",
+              s: "what competence expects"
+            }
+          ]
+        },
         body: "Four distinct bodies of requirement apply simultaneously, from different authorities, enforced by different people:",
         points: [
           "1. National law — statutes, regulations and permit conditions. Enforced by regulators, inspectorates and courts, with criminal and administrative sanction. Protects you from prosecution.",
@@ -632,6 +673,26 @@ export const modules = [
       },
       {
         heading: "The cycle, and where you joined it",
+        diagram: {
+          type: "cycle",
+          title: "How the money keeps flowing",
+          note: "Good evidence keeps the wheel turning. A broken covenant stops it.",
+          items: [
+            {
+              t: "Lender sets conditions",
+              s: "the ESAP"
+            },
+            {
+              t: "Money is disbursed"
+            },
+            {
+              t: "Site works & produces evidence"
+            },
+            {
+              t: "IESC checks & reports"
+            }
+          ]
+        },
         example: "The project misses one quarterly E&S report. Nothing changes on site — but at the bank a covenant flag is raised, and the next drawdown needs the E&S team's sign-off before money moves.",
         points: [
           "Screening and categorisation — the project is rated A, B or C on the magnitude of its potential impacts.",
@@ -770,6 +831,28 @@ export const modules = [
       },
       {
         heading: "The loop that changes things",
+        diagram: {
+          type: "cycle",
+          title: "The ESMS loop",
+          items: [
+            {
+              t: "Plan",
+              s: "procedures, owners"
+            },
+            {
+              t: "Do",
+              s: "work to them on site"
+            },
+            {
+              t: "Check",
+              s: "inspections · KPIs · audits"
+            },
+            {
+              t: "Act",
+              s: "fix and update the plan"
+            }
+          ]
+        },
         image: "/images/hitech-pour.webp",
         caption: "A procedure only counts when the crew works to it.",
         body: "Monitoring and review is what turns documents into a system, because it is the only element that changes the others. MONITOR: data collected against defined parameters at defined frequencies by competent people — breaks when data is collected and never looked at, or collected retrospectively. ASSESS: someone compares the data against the requirement and the trend and forms a view — breaks when nobody owns the comparison. ACT: a corrective action with an owner, a date and verification that the condition changed — breaks when actions are recorded and never verified. REVIEW: management examines whether the system as a whole is working and changes it — the step most often absent entirely.",
@@ -835,6 +918,29 @@ export const modules = [
       },
       {
         heading: "Five links, and one that usually breaks",
+        diagram: {
+          type: "flow",
+          title: "From the gate to the bank",
+          note: "One broken link and the lender reads a fiction.",
+          items: [
+            {
+              t: "The form at the gate",
+              s: "VHSE"
+            },
+            {
+              t: "The site log"
+            },
+            {
+              t: "The monthly KPI table"
+            },
+            {
+              t: "The quarterly report"
+            },
+            {
+              t: "The lender's reading"
+            }
+          ]
+        },
         points: [
           "1 · THE PROCEDURE — something happens and someone records that it happened. Breaks when it is not followed, or followed and not recorded.",
           "2 · THE DATA — a form, a register, a reading, made at the time by a named person. Breaks when recorded retrospectively, which makes it fiction.",
@@ -981,6 +1087,30 @@ export const modules = [
       },
       {
         heading: "Compensation is step four, not step one",
+        diagram: {
+          type: "steps",
+          title: "Before works enter a parcel",
+          items: [
+            {
+              t: "Census & cut-off date",
+              s: "who is affected is fixed publicly"
+            },
+            {
+              t: "Valuation at full replacement cost",
+              s: "no deduction for age or wear"
+            },
+            {
+              t: "Agreement with the person"
+            },
+            {
+              t: "Payment received",
+              s: "approved is not paid"
+            },
+            {
+              t: "Works enter"
+            }
+          ]
+        },
         body: "PS5 is usually read as a compensation rulebook. It is not, or not first. It begins by requiring the project to AVOID displacement, and where avoidance is impossible to minimise it, by exploring alternative designs — the mitigation hierarchy from Pathway A, applied to people. On a road this matters enormously, because avoidance is cheap early and impossible later:",
         points: [
           "A thirty metre shift during design can remove twelve houses and four shops permanently.",
@@ -1195,6 +1325,28 @@ export const modules = [
       },
       {
         heading: "Your leverage is in the subcontract",
+        diagram: {
+          type: "flow",
+          title: "The chain of obligation",
+          note: "Same standards all the way down — the subcontract is the link you control.",
+          items: [
+            {
+              t: "Lender"
+            },
+            {
+              t: "Contractor"
+            },
+            {
+              t: "Subcontractor"
+            },
+            {
+              t: "Labour supplier"
+            },
+            {
+              t: "Every worker"
+            }
+          ]
+        },
         body: "Most of this module is not an HR subject. It is a procurement one, and that is where the leverage sits:",
         points: [
           "Screen before award — registration, licences, insurance, past performance, and whether the third party has any labour management system at all. A supplier with no written terms for its own workers will not produce them for yours.",
@@ -1344,6 +1496,26 @@ export const modules = [
       },
       {
         heading: "Three hours to a hospital",
+        diagram: {
+          type: "steps",
+          title: "An emergency plan that works",
+          items: [
+            {
+              t: "Nearest capable hospital identified"
+            },
+            {
+              t: "Transport time measured",
+              s: "measured — not estimated from distance"
+            },
+            {
+              t: "Arrangement agreed and tested"
+            },
+            {
+              t: "Known to local authorities and the community",
+              s: "a plan nobody knows cannot be activated"
+            }
+          ]
+        },
         body: "PS4 requires emergency arrangements that take account of affected communities, coordinated with local authorities and communicated to the people who would be affected. Three failures recur: the plan covers the workforce only — a fuel tanker overturning in a village is a community emergency, and a plan that mobilises the site medic and says nothing about evacuating houses is incomplete. The plan has never been driven — the time from the furthest working point to a facility with surgical capability is a measurable number; measure it. On several corridors the honest answer is over three hours, and that changes where the clinic goes and whether you work that chainage at night. And nobody outside the project knows it exists — the district health facility, the local authority and the community need to know what you will do, what you will not, and how to reach you at three in the morning.",
         points: [
           "★ An emergency plan that has never been driven is not a plan. It is a document about a plan.",
@@ -1430,6 +1602,24 @@ export const modules = [
       },
       {
         heading: "Three rules with no exceptions",
+        diagram: {
+          type: "cards",
+          title: "Three rules with no exceptions",
+          items: [
+            {
+              t: "No sex with anyone under 18",
+              s: "Believing they were older is not a defence, whatever national law says."
+            },
+            {
+              t: "No exchange of anything for sex",
+              s: "Money, work, goods, help — including anything framed as a gift or favour."
+            },
+            {
+              t: "No retaliation",
+              s: "Against anyone who reports, supports a report, or takes part in an investigation."
+            }
+          ]
+        },
         example: "A guard confiscates a worker's ID card 'until the tools come back'. That is retention of identity documents — a human-rights finding, whichever rule book he thought he was applying.",
         body: "Almost everything in this pathway involves judgement. These three do not.",
         points: [
@@ -1567,6 +1757,36 @@ export const modules = [
       },
       {
         heading: "One pit, six standards",
+        diagram: {
+          type: "cards",
+          title: "One pit, six standards",
+          items: [
+            {
+              t: "PS1",
+              s: "Assessed, planned, managed"
+            },
+            {
+              t: "PS3",
+              s: "Water, dust, fuel"
+            },
+            {
+              t: "PS4",
+              s: "Drowning risk, community safety"
+            },
+            {
+              t: "PS5",
+              s: "Whose land it is"
+            },
+            {
+              t: "PS6",
+              s: "The habitat cleared"
+            },
+            {
+              t: "PS8",
+              s: "What the digging uncovers"
+            }
+          ]
+        },
         body: "A borrow pit is the most under-managed environmental issue on African road projects, and the only single activity that can generate findings under six standards at once. Outside the assessed scope: PS1. Extraction without a mineral title: national law — in most jurisdictions a borrow pit is a MINING activity requiring a title from a different authority than the one that gave you your environmental permit. Dust, noise, sediment and fuel at the pit: PS3. An unfenced face and standing water near housing: PS4 — drowning risk and vector breeding. Land taken from users, including seasonal ones: PS5. Clearance without habitat screening: PS6. Something uncovered during excavation: PS8.",
         points: [
           "A landowner's consent does not confer a mineral right. The two are held by different authorities, and a signature from one does not substitute for the other.",
@@ -1734,6 +1954,28 @@ export const modules = [
       },
       {
         heading: "Five steps, and you need to know them cold",
+        diagram: {
+          type: "steps",
+          title: "Chance find — the five steps",
+          items: [
+            {
+              t: "STOP work at the spot"
+            },
+            {
+              t: "PROTECT it",
+              s: "mark it off, no more digging"
+            },
+            {
+              t: "REPORT through the channel"
+            },
+            {
+              t: "WAIT for clearance"
+            },
+            {
+              t: "RESUME only when cleared"
+            }
+          ]
+        },
         body: "This part applies to everyone who operates a machine, whatever else you do on this project.",
         points: [
           "1 · Stop. Switch off. Do not drive back through the area.",
@@ -1830,6 +2072,29 @@ export const modules = [
       },
       {
         heading: "What a real instruction contains",
+        diagram: {
+          type: "cards",
+          title: "A real instruction has five parts",
+          items: [
+            {
+              t: "The specific thing",
+              s: "a deliverable, not an aspiration"
+            },
+            {
+              t: "The clause it comes from"
+            },
+            {
+              t: "The evidence that closes it"
+            },
+            {
+              t: "The consequence",
+              s: "what happens if it is not done"
+            },
+            {
+              t: "The date"
+            }
+          ]
+        },
         image: "/images/hitech-pour.webp",
         caption: "The instruction lands at the workface — or not at all.",
         body: "Most instructions fail for reasons unrelated to the subject: vague, undated, unevidenced, or delivered to someone who cannot act on them. Five elements: the specific thing to be done; the date; the source of the obligation — clause, appendix or standard; the evidence that will close it; and what happens if it is not done, with its own date. Weak: 'we need to sort out the accommodation in Block B, can you look at it this week.' Strong: 'Block B has three-tier bunks and occupancy above the figure at Appendix Y. Remove the third tier and reduce occupancy to that figure by Friday 14th. Send me the revised occupancy schedule and photographs of each room by close of business Friday. If it is not done I will raise a formal non-conformity, which under clause 14 carries a seven day cure period before payment is affected.' The second is not more aggressive. It is actionable without another conversation, and it removes the question of whether the requirement exists.",
@@ -1932,6 +2197,24 @@ export const modules = [
       },
       {
         heading: "The fortnight before",
+        diagram: {
+          type: "flow",
+          title: "The visit, in three acts",
+          items: [
+            {
+              t: "The fortnight before",
+              s: "close what you can, keep the gap register honest"
+            },
+            {
+              t: "During",
+              s: "the walk, the records, the interviews"
+            },
+            {
+              t: "After",
+              s: "findings become actions with owners and dates"
+            }
+          ]
+        },
         image: "/images/esg-governance.jpg",
         caption: "The IESC visit: evidence on the table.",
         body: "DOCUMENTS: index the pack; check every plan is current and has a named owner; reconcile your registers against each other — the incident register, the monthly report, the action plan tracker and the site diary should not disagree, and where they do you want to have explained it rather than have it found. SITE: walk it yourself at the hours the activity actually happens — a camp at nine at night is a different camp from a camp at eleven in the morning. Fix what can be fixed. PEOPLE: tell the workforce the visit is happening, who is coming, and that they may be asked questions. Tell them to answer honestly — that is the only instruction anyone should give about the content of an interview. And one thing you must not do: do not create a document that should already have existed and date it as though it had.",
@@ -2013,6 +2296,31 @@ export const modules = [
     lesson: [
       {
         heading: "The first hour decides the rest",
+        diagram: {
+          type: "steps",
+          title: "When something happens",
+          items: [
+            {
+              t: "Make the scene safe"
+            },
+            {
+              t: "Notify early",
+              s: "before you are certain"
+            },
+            {
+              t: "Preserve the scene, take the accounts today"
+            },
+            {
+              t: "Investigate past the last human action"
+            },
+            {
+              t: "Write it for a stranger"
+            },
+            {
+              t: "Close it — and verify"
+            }
+          ]
+        },
         body: "Almost everything that goes wrong in an investigation was determined in the first sixty minutes, before anyone thought of themselves as investigating. Make safe first: stop the activity, isolate the energy, control the hazard that caused it and the one it created. Care for people, using the route and the travel time you measured in advance rather than working it out now. Preserve the scene: rope it off — nothing moved, cleaned, repaired or restarted, including plant that other people want back. Notify: internal, the engineer, the regulator and the lenders where the threshold is met, and the community where they are affected. Write it down now: times, names, positions, conditions, what was observed. Only then investigate.",
         image: "/images/lm2.jpg",
         caption: "Three things destroy an investigation in the first hour: the scene is cleared so work can resume, the plant is repaired before it is examined, and the people present go home before anyone takes their account.",
@@ -2120,6 +2428,29 @@ export const modules = [
       },
       {
         heading: "Five steps, and the one everyone skips",
+        diagram: {
+          type: "steps",
+          title: "A grievance, start to finish",
+          items: [
+            {
+              t: "Receive & register"
+            },
+            {
+              t: "Acknowledge",
+              s: "the step everyone skips"
+            },
+            {
+              t: "Investigate"
+            },
+            {
+              t: "Respond"
+            },
+            {
+              t: "Close",
+              s: "with the person's acknowledgement, inside the target window"
+            }
+          ]
+        },
         points: [
           "INTAKE — multiple entry points, at least one outside any project facility and one outside the line. Anonymous submission possible. Recorded on receipt with a reference given to the complainant so they can follow it up.",
           "ACKNOWLEDGEMENT — within a published period. Confirm what you understood, say what happens next and by when.",
