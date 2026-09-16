@@ -8,6 +8,7 @@ import { client } from "../config/clients.js";
 import { course, modules } from "../data.js";
 import { downloadCertificatePdf } from "../lib/certificate.js";
 import { JOB_ROLES, jobRoleByKey, assignedTotal } from "../config/jobRoles.js";
+import { downloadProgressWorkbook } from "../lib/progressWorkbook.js";
 
 const DOC_CATEGORIES = ["Governance & Ethics", "HSE", "People & Community", "Management System", "Other"];
 
@@ -541,6 +542,14 @@ function ProjectProgress({ project, people, logins = [] }) {
           className="ml-auto flex items-center gap-2 self-center rounded-lg bg-gradient-to-r from-primary-container to-[#1c3a63] px-5 py-3 text-label-md font-bold text-white transition-all hover:brightness-110 disabled:opacity-50"
         >
           <MaterialIcon name="table_view" className="text-[18px]" /> Export progress report (CSV)
+        </button>
+        <button
+          onClick={() => downloadProgressWorkbook({ project, per, rows, members, modules })}
+          disabled={per.length === 0}
+          title="Formatted Excel workbook: overview + learner-by-module matrix"
+          className="flex items-center gap-2 self-center rounded-lg border-2 border-primary px-5 py-2.5 text-label-md font-bold text-primary transition-colors hover:bg-surface-container-low disabled:opacity-50"
+        >
+          <MaterialIcon name="grid_on" className="text-[18px]" /> Export Excel workbook (.xlsx)
         </button>
       </div>
 
