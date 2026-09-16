@@ -377,6 +377,53 @@ function Workspace({ project, shared, projects, people, docs, logins, isAdmin, o
   );
 }
 
+// Search + pagination controls for the big admin tables. Keeps the DOM small
+// with 1,000+ learners: filter by name, then show one page at a time.
+const PAGE_SIZE = 50;
+function PagerBar({ query, setQuery, page, setPage, total, label }) {
+  const pages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+  const from = total === 0 ? 0 : page * PAGE_SIZE + 1;
+  const to = Math.min(total, (page + 1) * PAGE_SIZE);
+  return (
+    <div className="flex flex-wrap items-center gap-3 border-b border-outline-variant bg-surface-container-low px-stack-md py-2.5">
+      <label className="flex min-w-[220px] flex-1 items-center gap-2 rounded-lg border border-outline-variant bg-white px-3 py-1.5">
+        <MaterialIcon name="search" className="text-[18px] text-outline" />
+        <input
+          type="search"
+          value={query}
+          onChange={(e) => { setQuery(e.target.value); setPage(0); }}
+          placeholder={"Search " + label + " by name…"}
+          className="w-full bg-transparent text-body-md text-on-surface outline-none"
+        />
+      </label>
+      <span className="text-caption text-on-surface-variant">
+        {from}–{to} of {total}
+      </span>
+      <span className="flex items-center gap-1">
+        <button
+          onClick={() => setPage(Math.max(0, page - 1))}
+          disabled={page === 0}
+          className="rounded-lg border border-outline-variant p-1.5 text-on-surface-variant transition-colors hover:border-secondary disabled:opacity-40"
+          title="Previous page"
+        >
+          <MaterialIcon name="chevron_left" className="text-[18px]" />
+        </button>
+        <span className="min-w-[70px] text-center text-caption font-bold text-primary">
+          page {page + 1}/{pages}
+        </span>
+        <button
+          onClick={() => setPage(Math.min(pages - 1, page + 1))}
+          disabled={page >= pages - 1}
+          className="rounded-lg border border-outline-variant p-1.5 text-on-surface-variant transition-colors hover:border-secondary disabled:opacity-40"
+          title="Next page"
+        >
+          <MaterialIcon name="chevron_right" className="text-[18px]" />
+        </button>
+      </span>
+    </div>
+  );
+}
+
 function TabBtn({ active, icon, onClick, children }) {
   return (
     <button
@@ -406,6 +453,8 @@ function printCertificate(p) {
 function ProjectProgress({ project, people, logins = [] }) {
   const members = people.filter((u) => u.project_id === project.id && u.role !== "admin");
   const [rows, setRows] = useState(null);
+  const [query, setQuery] = useState("");
+  const [page, setPage] = useState(0);
 
   useEffect(() => {
     const ids = members.map((m) => m.id);
@@ -440,6 +489,8 @@ function ProjectProgress({ project, people, logins = [] }) {
     };
   });
   const certified = per.filter((p) => p.certified).length;
+  const filtered = per.filter((p) => (p.full_name || "").toLowerCase().includes(query.trim().toLowerCase()));
+  const paged = filtered.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE);
 
   // Progress report as a CSV the admin can attach to invoices and lender
   // reports. Semicolon-separated + BOM so Excel opens it cleanly.
@@ -494,6 +545,7 @@ function ProjectProgress({ project, people, logins = [] }) {
       </div>
 
       <div className="overflow-x-auto rounded-xl border border-outline-variant bg-surface-container-lowest">
+        <PagerBar query={query} setQuery={setQuery} page={page} setPage={setPage} total={filtered.length} label="learners" />
         <table className="w-full min-w-[760px] text-left">
           <thead>
             <tr className="border-b border-outline-variant text-caption uppercase tracking-wider text-on-surface-variant">
@@ -507,10 +559,10 @@ function ProjectProgress({ project, people, logins = [] }) {
           <tbody>
             {rows === null ? (
               <tr><td colSpan={5} className="px-stack-md py-stack-lg text-center text-on-surface-variant">Loading…</td></tr>
-            ) : per.length === 0 ? (
-              <tr><td colSpan={5} className="px-stack-md py-stack-lg text-center text-on-surface-variant">No learners in this project yet.</td></tr>
+            ) : filtered.length === 0 ? (
+              <tr><td colSpan={5} className="px-stack-md py-stack-lg text-center text-on-surface-variant">{query ? "No learner matches that search." : "No learners in this project yet."}</td></tr>
             ) : (
-              per.map((p) => (
+              paged.map((p) => (
                 <tr key={p.id} className="border-b border-surface-container last:border-0">
                   <td className="px-stack-md py-stack-md text-body-md text-primary">{p.full_name || "—"}</td>
                   <td className="px-stack-md py-stack-md">
@@ -574,6 +626,8 @@ function ProjectUsers({ project, people, isAdmin, reload }) {
   const members = people.filter((u) => u.project_id === project.id && u.role !== "admin");
   const others = people.filter((u) => u.project_id !== project.id && u.role !== "admin");
   const [addId, setAddId] = useState("");
+  const [memberQuery, setMemberQuery] = useState("");
+  const [memberPage, setMemberPage] = useState(0);
   const [form, setForm] = useState({ name: "", email: "", password: "", jobRole: "" });
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState(null);
@@ -761,6 +815,7 @@ function ProjectUsers({ project, people, isAdmin, reload }) {
 
       {/* Member list */}
       <div className="overflow-x-auto rounded-xl border border-outline-variant bg-surface-container-lowest">
+        <PagerBar query={memberQuery} setQuery={setMemberQuery} page={memberPage} setPage={setMemberPage} total={members.filter((r) => (r.full_name || "").toLowerCase().includes(memberQuery.trim().toLowerCase())).length} label="members" />
         <table className="w-full min-w-[560px] text-left">
           <thead>
             <tr className="border-b border-outline-variant text-caption uppercase tracking-wider text-on-surface-variant">
@@ -774,7 +829,10 @@ function ProjectUsers({ project, people, isAdmin, reload }) {
             {members.length === 0 ? (
               <tr><td colSpan={4} className="px-stack-md py-stack-lg text-center text-on-surface-variant">No users in this project yet.</td></tr>
             ) : (
-              members.map((r) => (
+              members
+                .filter((r) => (r.full_name || "").toLowerCase().includes(memberQuery.trim().toLowerCase()))
+                .slice(memberPage * PAGE_SIZE, (memberPage + 1) * PAGE_SIZE)
+                .map((r) => (
                 <tr key={r.id} className="border-b border-surface-container last:border-0">
                   <td className="px-stack-md py-stack-md text-body-md text-primary">{r.full_name || "—"}</td>
                   <td className="px-stack-md py-stack-md">
