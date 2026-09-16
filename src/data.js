@@ -5208,6 +5208,7 @@ export const quizzes = {
   "m1": {
     "passMark": 0.8,
     "questions": [
+      {"fmt":"mcq", "difficulty":"easy", "tag":"E for Environmental", "image":"/images/esg-pollution.jpg", "prompt":"A drum behind the workshop has been leaking fuel into the ground for a week. First and foremost this is…", "options":["An Environmental issue — contamination of soil and water", "A Governance issue", "A paperwork issue", "Nobody's issue if the ground is inside the site"], "correct":0, "tip":"E is the project's footprint on the place. The fact it went unnoticed for a week will also become a G question — but the leak itself is E."},
       // ——— E.1 Multiple choice, single answer (14 in bank, 5 served) ———
       {
         "fmt": "mcq", "difficulty": "easy", "tag": "Pillars",
@@ -6036,6 +6037,7 @@ export const quizzes = {
   "m3": {
     "passMark": 0.8,
     "questions": [
+      {"fmt":"mcq", "difficulty":"easy", "tag":"Who holds the money", "image":"/images/hitech-skyline.webp", "prompt":"If the project repeatedly breaks its E&S promises, who can actually pause the money?", "options":["The lender — payments are conditional on the promises being kept", "The site HSE officer", "The village council", "Nobody once the contract is signed"], "correct":0, "tip":"That is the whole point of this module: the E&S rules live inside the loan. Break them and the disbursements stop."},
       { "fmt": "mcq", "difficulty": "easy", "tag": "S2 — The consultant",
         "prompt": "The independent consultant (IESC) reports to…",
         "options": ["The lenders", "The borrower who pays their fees", "The engineer", "The national regulator"],
@@ -6152,6 +6154,7 @@ export const quizzes = {
   "m4": {
     "passMark": 0.8,
     "questions": [
+      {"fmt":"mcq", "difficulty":"easy", "tag":"Paper vs practice", "image":"/images/hitech-pour.webp", "prompt":"A perfect traffic procedure exists on the server. The drivers have never seen it. The ESMS is…", "options":["Not implemented — a plan nobody works to does not exist on site", "Fully compliant", "Implemented, since the document exists", "The drivers' problem"], "correct":0, "tip":"An auditor scores what happens at the workface, not what is filed. Paper without practice is the classic finding."},
       { "fmt": "mcq", "difficulty": "easy", "tag": "S2 — Seven elements",
         "prompt": "How many elements comprise the management system under PS1?",
         "options": ["Seven", "Four", "Ten", "Three"],
@@ -6256,8 +6259,8 @@ export const quizzes = {
   "m5": {
     "passMark": 0.8,
     "questions": [
-      {"fmt":"mcq", "difficulty":"easy", "tag":"S3 — What a KPI is", "prompt":"On this project, a KPI is…", "options":["A number reported regularly that shows whether the system is working", "A type of permit", "A fine from the regulator", "An annual audit"], "correct":0, "tip":"Key Performance Indicator: incidents, grievances, training hours — the project's vital signs, read as trends."},
-      {"fmt":"mcq", "difficulty":"easy", "tag":"S5 — The perfect number", "prompt":"A year of reports showing zero incidents and zero grievances should be read as…", "options":["A warning — the reporting channel is probably not working", "Proof of an excellent site", "A reason to reduce monitoring", "Normal for a well-run project"], "correct":0, "tip":"Real sites generate observations. A perfect zero usually measures silence, not safety."},
+      {"fmt":"mcq", "difficulty":"easy", "tag":"S3 — What a KPI is", "image": "/images/hitech-dozer.webp", "prompt":"On this project, a KPI is…", "options":["A number reported regularly that shows whether the system is working", "A type of permit", "A fine from the regulator", "An annual audit"], "correct":0, "tip":"Key Performance Indicator: incidents, grievances, training hours — the project's vital signs, read as trends."},
+      {"fmt":"mcq", "difficulty":"easy", "tag":"S5 — The perfect number", "image": "/images/esg-reporting.jpg", "prompt":"A year of reports showing zero incidents and zero grievances should be read as…", "options":["A warning — the reporting channel is probably not working", "Proof of an excellent site", "A reason to reduce monitoring", "Normal for a well-run project"], "correct":0, "tip":"Real sites generate observations. A perfect zero usually measures silence, not safety."},
       { "fmt": "mcq", "difficulty": "hard", "tag": "S2 — The broken link",
         "prompt": "The link in the chain that most commonly breaks is…",
         "options": ["The decision — the number is produced, reported, filed, and nobody acts", "The data", "The procedure", "The assurance"],
@@ -6363,12 +6366,12 @@ export const quizzes = {
     "passMark": 0.8,
     "questions": [
       { "fmt": "mcq", "difficulty": "medium", "tag": "S2 — Avoidance",
-        "prompt": "The cheapest resettlement measure available on a road project is usually…",
+        "image": "/images/hitech-fill.webp", "prompt": "The cheapest resettlement measure available on a road project is usually…",
         "options": ["A small alignment change agreed during design", "A higher compensation rate agreed early", "A well-run relocation site", "A generous disturbance allowance"],
         "correct": 0,
         "tip": "Avoidance is close to free during design and unavailable once the alignment is fixed." },
       { "fmt": "mcq", "difficulty": "medium", "tag": "S3 — Economic displacement",
-        "prompt": "A farmer keeps his title and his house but can no longer reach half his field. This is…",
+        "image": "/images/hitech-embankment.webp", "prompt": "A farmer keeps his title and his house but can no longer reach half his field. This is…",
         "options": ["Economic displacement, and he is an affected person", "Not a PS5 matter, since no land was acquired from him", "A drainage design question", "Compensable only through the courts"],
         "correct": 0,
         "tip": "PS5 covers loss of access to assets, not only acquisition. This is the most common professional error in the module." },
@@ -6579,7 +6582,7 @@ export const quizzes = {
     "passMark": 0.8,
     "questions": [
       { "fmt": "mcq", "difficulty": "easy", "tag": "S1 — Routine risk",
-        "prompt": "PS4 requires impacts on community health and safety to be anticipated in…",
+        "image": "/images/hitech-haul.webp", "prompt": "PS4 requires impacts on community health and safety to be anticipated in…",
         "options": ["Both routine and non-routine circumstances", "Emergency and non-routine circumstances only", "The construction phase only", "Circumstances the community raises"],
         "correct": 0,
         "tip": "Routine is the word that matters. A daily haulage cycle is routine and its risks are foreseeable." },
@@ -6614,7 +6617,7 @@ export const quizzes = {
         "correct": 0,
         "tip": "Dust ends with the works. A flooded pit breeds vectors for as long as it holds water." },
       { "fmt": "mcq", "difficulty": "easy", "tag": "S8 — Emergency",
-        "prompt": "An emergency plan is adequate when…",
+        "image": "/images/lm9.jpg", "prompt": "An emergency plan is adequate when…",
         "options": ["The transport time has been measured and the arrangement is known to local authorities and the community", "The nearest hospital has been identified and the distance recorded", "The site medic has been appointed", "It has been filed in the ESMP"],
         "correct": 0,
         "tip": "Distance is not time — and a plan nobody outside the project knows about cannot be activated by anyone outside it." },
@@ -6850,7 +6853,7 @@ export const quizzes = {
         "correct": [0, 1, 2, 4, 5],
         "tip": "Drums are frequently treated as scrap with local value — some end up holding drinking water. Render them unusable before disposal. Sharps go in a separate medical stream." },
       { "fmt": "order", "type": "order", "difficulty": "medium", "tag": "S4 — The spill",
-        "prompt": "A hydraulic hose bursts and diesel is running towards a drain. Put these in order.",
+        "image": "/images/esg-pollution.jpg", "prompt": "A hydraulic hose bursts and diesel is running towards a drain. Put these in order.",
         "items": ["Stop the source if it is safe to do so", "Contain before it reaches the drain", "Absorb and recover, treating the absorbent as hazardous waste", "Remove contaminated soil to the depth of penetration", "Record it, including the cause"],
         "tip": "Containment is where minutes matter. Everything after it can be done properly at normal pace." },
       { "fmt": "order", "type": "order", "difficulty": "hard", "tag": "S3 — The comparison",
@@ -7103,10 +7106,10 @@ export const quizzes = {
     "passMark": 0.8,
     "serveMix": { "mcq": 4, "multi": 1, "order": 1, "cat": 1, "scenario": 3 },
     "questions": [
-      {"fmt":"mcq", "difficulty":"easy", "tag":"S1 — Who they are", "prompt":"The IESC reports to…", "options":["The lender", "Your project director", "The national regulator", "The contractor's HSE manager"], "correct":0, "tip":"Independent by design: they are the bank's eyes on the project, not part of your chain of command."},
-      {"fmt":"mcq", "difficulty":"easy", "tag":"S2 — The empty register", "prompt":"Two years into works, the grievance register is completely empty. The most likely reading is…", "options":["People do not know or do not trust the channel", "The community is fully satisfied", "The project has had no impacts", "The register can be discarded"], "correct":0, "tip":"A working project generates complaints. Zero recorded means the channel is broken, not that nothing happened."},
-      {"fmt":"mcq", "difficulty":"easy", "tag":"S4 — Staging", "prompt":"Planning the visit route so it avoids the workers' camp is…", "options":["A finding in itself — the visit is about evidence, not staging", "Good preparation", "Standard practice", "Acceptable if the camp is being upgraded"], "correct":0, "tip":"Consultants recognise a staged route. What you hide tells them more than what you show."},
-      {"fmt":"mcq", "difficulty":"easy", "tag":"S5 — The gap register", "prompt":"Handing the IESC your own list of open gaps at the start of the visit…", "options":["Builds credibility — they will find the gaps anyway", "Admits liability and should be avoided", "Is only done when things go badly", "Replaces the site walk"], "correct":0, "tip":"A project that knows its own gaps is a project managing them. Discovering an unadmitted gap is a much worse finding."},
+      {"fmt":"mcq", "difficulty":"easy", "tag":"S1 — Who they are", "image": "/images/esg-governance.jpg", "prompt":"The IESC reports to…", "options":["The lender", "Your project director", "The national regulator", "The contractor's HSE manager"], "correct":0, "tip":"Independent by design: they are the bank's eyes on the project, not part of your chain of command."},
+      {"fmt":"mcq", "difficulty":"easy", "tag":"S2 — The empty register", "image": "/images/esg-reporting.jpg", "prompt":"Two years into works, the grievance register is completely empty. The most likely reading is…", "options":["People do not know or do not trust the channel", "The community is fully satisfied", "The project has had no impacts", "The register can be discarded"], "correct":0, "tip":"A working project generates complaints. Zero recorded means the channel is broken, not that nothing happened."},
+      {"fmt":"mcq", "difficulty":"easy", "tag":"S4 — Staging", "image": "/images/hitech-pour.webp", "prompt":"Planning the visit route so it avoids the workers' camp is…", "options":["A finding in itself — the visit is about evidence, not staging", "Good preparation", "Standard practice", "Acceptable if the camp is being upgraded"], "correct":0, "tip":"Consultants recognise a staged route. What you hide tells them more than what you show."},
+      {"fmt":"mcq", "difficulty":"easy", "tag":"S5 — The gap register", "image": "/images/esg-reporting.jpg", "prompt":"Handing the IESC your own list of open gaps at the start of the visit…", "options":["Builds credibility — they will find the gaps anyway", "Admits liability and should be avoided", "Is only done when things go badly", "Replaces the site walk"], "correct":0, "tip":"A project that knows its own gaps is a project managing them. Discovering an unadmitted gap is a much worse finding."},
       { "fmt": "mcq", "difficulty": "easy", "tag": "S1 — Who they work for",
         "prompt": "The IESC assesses against…",
         "options": ["The applicable standards and the project's own commitments", "National law and the permits held", "The construction contract only", "The project's annual report"],
@@ -7188,10 +7191,10 @@ export const quizzes = {
     "passMark": 0.8,
     "serveMix": { "mcq": 4, "multi": 1, "order": 1, "cat": 1, "scenario": 3 },
     "questions": [
-      {"fmt":"mcq", "difficulty":"easy", "tag":"S1 — First priority", "prompt":"Something has just happened on site. The first priority is…", "options":["Make the scene safe", "Establish who caused it", "Draft the report", "Call the insurer"], "correct":0, "tip":"People first, always. Everything else in the process assumes the danger has been stopped."},
-      {"fmt":"mcq", "difficulty":"easy", "tag":"S2 — When to notify", "prompt":"You should notify a serious incident…", "options":["Early — even before all the facts are known", "Once the investigation is complete", "Only if the lender asks", "After legal review"], "correct":0, "tip":"An early notification with facts to follow builds trust. A late, polished one looks like concealment."},
-      {"fmt":"mcq", "difficulty":"easy", "tag":"S4 — Witness accounts", "prompt":"Witness accounts are best taken…", "options":["The same day, from each person separately", "At the end of the week, together", "Only in writing from the supervisor", "After the cause is established"], "correct":0, "tip":"Memory fades and merges fast. Same-day, separate accounts are worth more than any later reconstruction."},
-      {"fmt":"mcq", "difficulty":"easy", "tag":"S3 — Past the last action", "prompt":"An investigation that stops at 'driver error' is incomplete because…", "options":["The conditions behind the last human action are where prevention lives", "Drivers are never at fault", "Blame must always go higher", "Errors cannot be recorded"], "correct":0, "tip":"Why was THAT driver, on THAT road, at THAT speed, in THAT state? The system behind the error is what you can fix."},
+      {"fmt":"mcq", "difficulty":"easy", "tag":"S1 — First priority", "image": "/images/esg-pollution.jpg", "prompt":"Something has just happened on site. The first priority is…", "options":["Make the scene safe", "Establish who caused it", "Draft the report", "Call the insurer"], "correct":0, "tip":"People first, always. Everything else in the process assumes the danger has been stopped."},
+      {"fmt":"mcq", "difficulty":"easy", "tag":"S2 — When to notify", "image": "/images/hitech-haul.webp", "prompt":"You should notify a serious incident…", "options":["Early — even before all the facts are known", "Once the investigation is complete", "Only if the lender asks", "After legal review"], "correct":0, "tip":"An early notification with facts to follow builds trust. A late, polished one looks like concealment."},
+      {"fmt":"mcq", "difficulty":"easy", "tag":"S4 — Witness accounts", "image": "/images/hitech-pour.webp", "prompt":"Witness accounts are best taken…", "options":["The same day, from each person separately", "At the end of the week, together", "Only in writing from the supervisor", "After the cause is established"], "correct":0, "tip":"Memory fades and merges fast. Same-day, separate accounts are worth more than any later reconstruction."},
+      {"fmt":"mcq", "difficulty":"easy", "tag":"S3 — Past the last action", "image": "/images/hitech-haul.webp", "prompt":"An investigation that stops at 'driver error' is incomplete because…", "options":["The conditions behind the last human action are where prevention lives", "Drivers are never at fault", "Blame must always go higher", "Errors cannot be recorded"], "correct":0, "tip":"Why was THAT driver, on THAT road, at THAT speed, in THAT state? The system behind the error is what you can fix."},
       { "fmt": "mcq", "difficulty": "easy", "tag": "S1 — First",
         "prompt": "The first action after an incident is…",
         "options": ["Make safe: control the hazard that caused it and the one it created", "Preserve the scene", "Notify the lenders", "Begin taking accounts"],
@@ -7274,10 +7277,10 @@ export const quizzes = {
     "passMark": 0.8,
     "serveMix": { "mcq": 4, "multi": 1, "order": 1, "cat": 1, "scenario": 3 },
     "questions": [
-      {"fmt":"mcq", "difficulty":"easy", "tag":"S1 — The measure", "prompt":"A grievance mechanism is ultimately judged by…", "options":["Whether people come back to use it again", "How few complaints it receives", "The thickness of its register", "How fast it says no"], "correct":0, "tip":"People return to a channel that treated them fairly — even when the answer was no. They abandon one that didn't."},
-      {"fmt":"mcq", "difficulty":"easy", "tag":"S2 — Five steps", "prompt":"Handling a grievance starts with…", "options":["Receiving and registering it", "Investigating it", "Answering it", "Deciding if it is valid"], "correct":0, "tip":"If it is not registered, it does not exist — and nothing after that can be shown to have happened."},
-      {"fmt":"mcq", "difficulty":"easy", "tag":"S2 — The skipped step", "prompt":"The step most often skipped is…", "options":["Acknowledging the complaint to the person", "Registering it", "Investigating it", "Closing it"], "correct":0, "tip":"Days of silence after a complaint feels like rejection. A simple 'we received it, here is what happens next' keeps trust."},
-      {"fmt":"mcq", "difficulty":"easy", "tag":"S5 — Saying no", "prompt":"When the answer to a grievance is no, the right way to give it is…", "options":["The reason, plus what the person can do next", "In writing only, with no discussion", "Through the village chief", "By not responding"], "correct":0, "tip":"A justified no with a route of recourse closes a case. An unexplained no reopens it somewhere worse."},
+      {"fmt":"mcq", "difficulty":"easy", "tag":"S1 — The measure", "image": "/images/esg-social.jpg", "prompt":"A grievance mechanism is ultimately judged by…", "options":["Whether people come back to use it again", "How few complaints it receives", "The thickness of its register", "How fast it says no"], "correct":0, "tip":"People return to a channel that treated them fairly — even when the answer was no. They abandon one that didn't."},
+      {"fmt":"mcq", "difficulty":"easy", "tag":"S2 — Five steps", "image": "/images/esg-social.jpg", "prompt":"Handling a grievance starts with…", "options":["Receiving and registering it", "Investigating it", "Answering it", "Deciding if it is valid"], "correct":0, "tip":"If it is not registered, it does not exist — and nothing after that can be shown to have happened."},
+      {"fmt":"mcq", "difficulty":"easy", "tag":"S2 — The skipped step", "image": "/images/esg-social.jpg", "prompt":"The step most often skipped is…", "options":["Acknowledging the complaint to the person", "Registering it", "Investigating it", "Closing it"], "correct":0, "tip":"Days of silence after a complaint feels like rejection. A simple 'we received it, here is what happens next' keeps trust."},
+      {"fmt":"mcq", "difficulty":"easy", "tag":"S5 — Saying no", "image": "/images/esg-governance.jpg", "prompt":"When the answer to a grievance is no, the right way to give it is…", "options":["The reason, plus what the person can do next", "In writing only, with no discussion", "Through the village chief", "By not responding"], "correct":0, "tip":"A justified no with a route of recourse closes a case. An unexplained no reopens it somewhere worse."},
       { "fmt": "mcq", "difficulty": "hard", "tag": "S1 — The register",
         "prompt": "An almost empty grievance register on a large corridor project means…",
         "options": ["The channel is unknown, distrusted or unsafe", "Community relations are strong", "The community has no complaints", "The liaison team is effective"],
