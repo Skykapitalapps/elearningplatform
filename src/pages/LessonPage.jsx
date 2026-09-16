@@ -519,6 +519,30 @@ export default function LessonPage() {
                           ))}
                         </ul>
                       )}
+                      {section.example && (
+                        <div
+                          className="mt-3 flex items-start gap-3 rounded-xl border p-stack-md"
+                          style={{ borderColor: `${module.accent}55`, background: `${module.accent}0d` }}
+                        >
+                          <MaterialIcon
+                            name="engineering"
+                            fill
+                            className="mt-0.5 text-[20px]"
+                            style={{ color: module.accent }}
+                          />
+                          <div>
+                            <p
+                              className="text-caption font-bold uppercase tracking-wider"
+                              style={{ color: module.accent }}
+                            >
+                              On site
+                            </p>
+                            <p className="text-body-md leading-relaxed text-on-surface">
+                              {section.example}
+                            </p>
+                          </div>
+                        </div>
+                      )}
                       {section.image && (
                         <figure className="mt-3">
                           <div className="h-40 w-full overflow-hidden rounded-lg border border-outline-variant bg-surface-container">

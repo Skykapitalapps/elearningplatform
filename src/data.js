@@ -611,6 +611,8 @@ export const modules = [
       },
       {
         heading: "Three instruments, three effects",
+        image: "/images/esg-reporting.jpg",
+        caption: "The report the lender reads before releasing money.",
         body: "The financing agreement converts environmental and social requirements into money through three devices, often confused and behaving differently. A CONDITION PRECEDENT is a gate: something that must be satisfied before an event, usually financial close or a particular disbursement. If it is not met, the event does not happen — there is nothing to cure; the gate simply has not opened. A COVENANT is a continuing obligation for the life of the loan: maintain a management system, report on a cycle, comply with the applicable standards. Failure is a breach, usually with a cure period, and persistent or material breach reaches default. THE ACTION PLAN (ESAP) is a schedule of specific corrective actions, each with an owner and a date, annexed to the agreement. Some actions are tied to a disbursement — which is how an overdue action stops a payment.",
         points: [
           "★ The distance between a foreman not running an induction and a tranche not arriving is three steps. Most people believe it is infinite.",
@@ -618,6 +620,7 @@ export const modules = [
       },
       {
         heading: "The cycle, and where you joined it",
+        example: "The project misses one quarterly E&S report. Nothing changes on site — but at the bank a covenant flag is raised, and the next drawdown needs the E&S team's sign-off before money moves.",
         points: [
           "Screening and categorisation — the project is rated A, B or C on the magnitude of its potential impacts.",
           "Due diligence — the existing studies are reviewed against the applicable standards, gaps are identified, and the action plan is first drafted.",
@@ -637,6 +640,8 @@ export const modules = [
       },
       {
         heading: "The life of an action",
+        image: "/images/hitech-skyline.webp",
+        caption: "What the financing builds — and what it can pause.",
         body: "The action plan is the instrument you are most likely to meet by name: a list of actions, each with an owner and a date, annexed to the financing agreement, which makes every line a contractual commitment. Actions open from the due diligence, from a monitoring finding, from an incident or complaint — or from the project itself disclosing something, which is the origin that reflects best and is the rarest. A well-formed action has: a SPECIFIC deliverable, not an aspiration; a named owner, not a department; a date; the EVIDENCE that will close it — the field most often left blank; and whether it is tied to a disbursement. An action closes when the agreed evidence has been produced and VERIFIED. Not when the owner says it is done, not when a tracker says closed, and not because time has passed.",
         points: [
           "★ The commonest defect in any tracker is an action marked closed with no evidence attached. A reviewer reopens every one of them — and draws a conclusion about the tracker rather than about the actions.",
@@ -723,6 +728,8 @@ export const modules = [
       },
       {
         heading: "Four words, four objects",
+        image: "/images/esg-governance.jpg",
+        caption: "The management review — where the system meets the decisions.",
         body: "Policy, plan, procedure, record are used interchangeably on most projects and describe four different things. A POLICY is what we commit to — one or two pages, signed high up; nobody uses it daily; it sets the bar. A PLAN is what we will do about a defined risk over a defined period — managers use it to organise; it is the object that goes stale when the works change. A PROCEDURE is how one task is done, step by step — the person doing the task uses it at the moment of doing it. A RECORD is evidence that something happened — everyone uses it afterwards, including every external reader. A worker who asks what to do when he uncovers a grave needs a PROCEDURE. Handing him a ninety-page heritage plan is a correct answer to a question he did not ask — and it is why he will ask his foreman instead next time.",
         points: [
           "★ The test of a system is whether the person doing a task can reach the thing that tells them how, in under a minute, in a language they read.",
@@ -730,6 +737,7 @@ export const modules = [
       },
       {
         heading: "The element that fails",
+        example: "An updated traffic plan sat on the server for six weeks while drivers kept to the old speed limits. The audit scored it 'system not implemented' — the document existed, the site didn't know.",
         body: "Of the seven, organisational capacity and competency produces the most findings and is hardest to fix, because it is not a document problem. What inadequate capacity looks like:",
         points: [
           "An E&S manager with no budget, who must ask for funds from the person whose programme the requirement affects.",
@@ -750,6 +758,8 @@ export const modules = [
       },
       {
         heading: "The loop that changes things",
+        image: "/images/hitech-pour.webp",
+        caption: "A procedure only counts when the crew works to it.",
         body: "Monitoring and review is what turns documents into a system, because it is the only element that changes the others. MONITOR: data collected against defined parameters at defined frequencies by competent people — breaks when data is collected and never looked at, or collected retrospectively. ASSESS: someone compares the data against the requirement and the trend and forms a view — breaks when nobody owns the comparison. ACT: a corrective action with an owner, a date and verification that the condition changed — breaks when actions are recorded and never verified. REVIEW: management examines whether the system as a whole is working and changes it — the step most often absent entirely.",
         points: [
           "★ Name one thing in this project's system that changed this year because of something that was monitored. If nobody can answer, you have a monitoring programme and not a management system.",
@@ -824,6 +834,8 @@ export const modules = [
       },
       {
         heading: "Four properties, and a denominator",
+        image: "/images/hitech-dozer.webp",
+        caption: "Every KPI starts as a tick on a form at the workface.",
         body: "A number missing any one of these can still be reported — and cannot be relied on. DEFINED: everyone calculating it uses the same definition, including subcontractors; a rate calculated on a different basis in two months is not a trend, it is two unrelated figures. SOURCED: traceable back to the records it came from; a number you cannot walk back to a register is an assertion. COMPLETE: covering everyone it should — an injury rate excluding the labour supplier's twenty-two workers is not your injury rate, and their absence is invisible in the number. COMPARABLE: against last period, against a target, against a benchmark. And watch the DENOMINATOR: most frequency indicators are a count divided by exposure, and the denominator is compiled separately, often by another department, and rarely checked.",
         points: [
           "★ Before comparing any rate to anything, establish that the denominator was compiled the same way. This one check finds more reporting errors than any other.",
@@ -831,6 +843,7 @@ export const modules = [
       },
       {
         heading: "Leading, lagging, and the one that is both",
+        example: "A gate guard ticks the VHSE form at 6 a.m.: four near-misses this week. That tick becomes a line in the monthly KPI table — and a trend a lender reads three weeks later.",
         body: "LAGGING indicators measure outcomes that already happened — injuries, spills, exceedances, grievances received. Reliable and countable, and they arrive too late to prevent what they measure. LEADING indicators measure the activities meant to prevent those outcomes — inspections completed, inductions delivered, permits audited, actions closed on time. Predictive, and easy to game: a hundred shallow inspections produce an excellent number and no safety, so check quality, not only quantity. THE NEAR MISS is both: a lagging indicator of an event that happened and a leading indicator of one that has not. A rising count is usually good news, because it means people are reporting. A falling count is usually bad news — and a count of zero is not a safety result.",
         points: [
           "★ How you respond to the first near miss a worker reports decides the value of that indicator for the rest of the project. Criticise the reporter once and the number is permanently worthless.",
@@ -849,6 +862,8 @@ export const modules = [
       },
       {
         heading: "A perfect number is a warning",
+        image: "/images/esg-reporting.jpg",
+        caption: "From gate form to the table a bank reads.",
         body: "This runs against instinct and it is the most important thing in this module. Zero near misses this quarter does not mean excellent safety — it means nobody is reporting. Zero grievances beside a host community does not mean strong relations — it means the mechanism is unknown or distrusted. Every monitoring result within limits every month means the monitoring points are in the wrong places, the readings are not taken at the times that matter, or the data is reconstructed. Every action closed on time means items are being marked closed without evidence — a reviewer will sample five and reopen them. An injury rate far below the sector benchmark usually means under-reporting or a padded denominator. A real project has bad numbers in it. Their presence is evidence that the system detects. Their absence is evidence that it does not.",
         points: [
           "★ When a number looks perfect, ask why before reporting it as an achievement — and say in the report what you asked and what you found.",
@@ -964,6 +979,8 @@ export const modules = [
       },
       {
         heading: "Nobody moved, so nothing happened. Wrong.",
+        image: "/images/hitech-fill.webp",
+        caption: "Works advancing onto land people used yesterday.",
         body: "Two kinds of displacement. Physical means losing your home — counted correctly on most projects, because a house is visible. Economic means losing assets, access or income, whether or not you move — missed on almost all projects, and where most unresolved grievances come from. Missed routinely:",
         points: [
           "Roadside traders in the road reserve. Tenants, while the owner is paid. Employees of a displaced business. Sharecroppers.",
@@ -982,6 +999,7 @@ export const modules = [
       },
       {
         heading: "Full replacement cost, and why depreciation is wrong",
+        example: "A farmer's maize strip sits inside the corridor. Works stop at his boundary until compensation is paid — approved is not paid. One parcel can hold a whole section.",
         body: "PS5 requires compensation at full replacement cost: what it will cost the affected person to obtain an equivalent asset, with NO deduction for depreciation, INCLUDING transaction costs. So a twenty-two year old house is compensated at the cost of building an equivalent new one — not at construction cost less two percent a year for age. This feels wrong to anyone trained in valuation, because in valuation depreciation is correct. The difference is the purpose: the project is not buying an investment from a willing seller. It is depriving someone of shelter they did not choose to give up, and they must be able to obtain equivalent shelter with what they receive. And depreciation is not a technicality here — the oldest structures belong to the poorest households, so depreciation takes the most from the people with the least.",
         points: [
           "★ Also check what is missing: transaction costs, transport, the age and species of trees, the number of seasons of crops, and business income during transition.",
@@ -996,6 +1014,8 @@ export const modules = [
       },
       {
         heading: "The average hides the people it hurts most",
+        image: "/images/lm6.jpg",
+        caption: "Agreement before entry — the meeting that unlocks the parcel.",
         body: "A resettlement programme can restore average household income and still impoverish a quarter of the people affected. Only disaggregation shows it:",
         points: [
           "Female-headed households — less likely to hold title, less likely to be recorded as the affected party, less able to reach a payment point.",
@@ -1109,6 +1129,8 @@ export const modules = [
       },
       {
         heading: "Four checks that find most pay problems",
+        image: "/images/hitech-pour.webp",
+        caption: "The crew the standards protect.",
         body: "Written terms, in a language the worker understands, are a requirement. A contract in English handed to someone who reads only Hausa is a piece of paper, not terms. Then four checks:",
         points: [
           "Is there a payslip? Cash with no payslip makes every other check impossible — for you as much as for an auditor. Usually the cheapest thing on this list to fix.",
@@ -1127,6 +1149,7 @@ export const modules = [
       },
       {
         heading: "Six arrangements that mean someone cannot leave",
+        example: "Payday Friday: a labour subcontractor pays two weeks late and the camp's mood turns. By Monday it is a strike; by Wednesday it is a line in the lender's incident log.",
         body: "Forced labour means work not performed voluntarily, exacted under threat of force or penalty. It almost never arrives labelled as such. It arrives as arrangements that each look administrative:",
         points: [
           "The employer holds identity documents — explained as safekeeping; the effect is that the worker cannot leave, travel or seek other work.",
@@ -1140,6 +1163,8 @@ export const modules = [
       },
       {
         heading: "The camp, and the one design decision that matters",
+        image: "/images/lm3.jpg",
+        caption: "Same PPE, same rules — direct hire or subcontractor.",
         body: "Where the project provides accommodation, PS2 requires policies on its quality and management. The figures come from the IFC and EBRD guidance note on workers' accommodation — read them there rather than from memory. What gets assessed: floor area and occupancy, toilets and showers per person separated by sex, lighting and lockable doors, water, food safety, ventilation and heat, women's accommodation, fire safety and drills, medical access, and any deductions for accommodation. The recurring failures are predictable: occupancy set by the number of beds that fit rather than by the ratio; triple bunks; facilities counted against nominal capacity instead of peak occupancy; showers that exist and are unlit, which makes them unusable at night; catering subcontracted and never inspected.",
         points: [
           "★ Manage the camp separately from employment, so a worker who complains about the camp is not risking the bed and the job together. That single design decision does more for camp conditions than any inspection regime.",
@@ -1240,6 +1265,7 @@ export const modules = [
       },
       {
         heading: "Why haulage is different from ordinary traffic",
+        example: "A loaded tipper passes the school at closing time at 60 km/h. Nobody is hurt — but the village chief has called the project director before the driver is back at the gate.",
         body: "Three things make it different, and each points to a different control:",
         points: [
           "The vehicles are heavy and the other road users are not. A loaded tipper meeting a pedestrian, a motorcycle or livestock is not a collision between equals — so the control cannot be shared responsibility. It has to sit with the vehicle.",
@@ -1250,6 +1276,8 @@ export const modules = [
       },
       {
         heading: "What actually reduces haulage risk",
+        image: "/images/lm9.jpg",
+        caption: "The public road is part of the site.",
         body: "A traffic management plan is a document. What reduces risk is a short list of decisions, most taken away from the road:",
         points: [
           "ROUTING. The shortest route is often the most populated. A longer route avoiding a settlement, a school and a market removes more risk than every other control combined. A commercial decision, made as one.",
@@ -1282,6 +1310,8 @@ export const modules = [
       },
       {
         heading: "The health pathways nobody designed",
+        image: "/images/esg-social.jpg",
+        caption: "Flagmen and speed control where the fleet meets the village.",
         body: "Most of the health effects a road project has on a community are created by activities undertaken for entirely unrelated reasons:",
         points: [
           "STANDING WATER. Borrow pits, poorly drained excavations and blocked culverts hold water after the rains, creating mosquito breeding sites within walking distance of housing. On a corridor through a malaria area this is the largest and longest-lasting health impact of the whole works.",
@@ -1375,6 +1405,8 @@ export const modules = [
       },
       {
         heading: "Three different things",
+        image: "/images/esg-governance.jpg",
+        caption: "Reporting channels only work when people trust them.",
         body: "The letters SEA/H cover three categories, kept separate because the people involved, the rules and the response all differ:",
         points: [
           "Sexual EXPLOITATION — abusing a position of power, trust or someone's vulnerability for sexual purposes, including profiting from it. Typically a project worker and a community member.",
@@ -1386,6 +1418,7 @@ export const modules = [
       },
       {
         heading: "Three rules with no exceptions",
+        example: "A guard confiscates a worker's ID card 'until the tools come back'. That is retention of identity documents — a human-rights finding, whichever rule book he thought he was applying.",
         body: "Almost everything in this pathway involves judgement. These three do not.",
         points: [
           "ONE. No sexual activity with anyone under eighteen. No exception. Believing someone was older is not a defence. This rule applies whatever the age of consent is in national law, because it is the rule this project sets for itself and everyone it engages.",
@@ -1410,6 +1443,8 @@ export const modules = [
       },
       {
         heading: "If someone tells you something",
+        image: "/images/lm13.jpg",
+        caption: "Security briefed on the rules of engagement.",
         body: "Most disclosures reach someone who was not expecting one. That person is often not trained. It may be you.",
         points: [
           "Move somewhere private. Listen. Take the account once, in their words.",
@@ -1501,6 +1536,8 @@ export const modules = [
       },
       {
         heading: "Where the numbers come from",
+        image: "/images/esg-pollution.jpg",
+        caption: "A washout without containment — several standards engaged at once.",
         body: "PS3 sets the requirement. The EHS Guidelines set the levels — without them most of PS3 cannot be measured. The rule is in the Guidelines themselves: where a national regulation differs from the Guideline level, you achieve whichever is stricter. Run it parameter by parameter, not document by document — a national standard may be stricter on one parameter and absent on the next. For each parameter, write down the national limit with its source and the Guideline level with its table reference. Take the stricter. Where there is no national limit, the Guideline governs and there is nothing to compare. Keep the written comparison: it is the first thing an independent consultant will ask for. And note Section 4 of the General Guidelines — construction and decommissioning — the one written for projects like yours.",
         points: [
           "★ Noise is the clearest example: many national regulations set one figure with no day and night split. The Guidelines set a lower night limit, so the night limit governs.",
@@ -1508,6 +1545,7 @@ export const modules = [
       },
       {
         heading: "Dust, water, noise",
+        example: "A washout pit overflows into the stream after one night of rain. By morning it is not housekeeping: it is PS3, a community complaint, and a photo in the next IESC report.",
         points: [
           "DUST. Suppress where there are receptors, on a schedule matched to conditions. Cover loads. Reduce speed, which costs nothing. NEVER use waste oil for suppression — it is a contamination event presented as a dust control. And measure at the RECEPTOR, not at the source: a reading at the plant boundary tells you nothing about the house downwind.",
           "WATER. Sediment is the largest impact and the cheapest to control: silt fences, check dams, settlement ponds, and timing clearance against the rains. Concrete washout is high pH and lethal to aquatic life — contain it. Treat camp and workshop effluent, and sample the receiving water where people actually use it, downstream. Establish a borehole's yield and its existing users BEFORE abstracting.",
@@ -1525,6 +1563,8 @@ export const modules = [
       },
       {
         heading: "Design the closure before you dig",
+        image: "/images/hitech-dozer.webp",
+        caption: "Plant working a pit: fuel, dust and water in one place.",
         body: "This is the counter-intuitive part, and it is the whole point of the pit screens. A pit worked for maximum yield is deep, steep-faced and irregular. It cannot be safely closed afterwards at any price, because the material to backfill it no longer exists nearby and the faces cannot be battered without removing more than the pit produced. A pit designed for closure is benched, with battered faces, a planned final profile, topsoil stripped and stockpiled separately from day one, and drainage that stops it holding water. It yields somewhat less — and it can be closed.",
         points: [
           "Six things are decided BEFORE the first excavator arrives: topsoil handling, final profile, benching, drainage, fencing during operation, and a closure budget line. None can be retrofitted.",
@@ -1628,6 +1668,8 @@ export const modules = [
       },
       {
         heading: "Screen before you clear, not after",
+        image: "/images/esg-environment.jpg",
+        caption: "Habitat at the edge of the works.",
         body: "Four steps, almost always compressed, because they sit between a design decision and a production activity and belong to neither:",
         points: [
           "Desk screening against recognised sources: the Integrated Biodiversity Assessment Tool, the IUCN Red List, Protected Planet and the World Database on Protected Areas, plus national registers. This tells you what the field survey must look for.",
@@ -1647,6 +1689,7 @@ export const modules = [
       },
       {
         heading: "Your project is a distribution system",
+        example: "An excavator uncovers old graves at the borrow pit. The operator who stops and calls it in triggers the chance find procedure. The one who keeps digging makes the national news.",
         body: "PS6 requires no intentional introduction of alien species, and measures to avoid the accidental introduction and spread of invasive ones. A road project is extremely good at spreading them, and most of the pathways are ordinary logistics:",
         points: [
           "Plant and vehicles — seed and plant material in mud on tracks, tyres and tipper bodies, moved across catchments every day. Wash down at defined points, especially when plant arrives from another section, project or country.",
@@ -1658,6 +1701,8 @@ export const modules = [
       },
       {
         heading: "Heritage is more than monuments",
+        image: "/images/hitech-borrowpit.webp",
+        caption: "The borrow pit — where chance finds happen.",
         body: "National antiquities law protects declared monuments and registered sites. PS8 is broader, and the difference is exactly where the risk sits:",
         points: [
           "Tangible and known: monuments, registered sites. Rarely missed — they are on a map.",
@@ -1773,6 +1818,8 @@ export const modules = [
       },
       {
         heading: "What a real instruction contains",
+        image: "/images/hitech-pour.webp",
+        caption: "The instruction lands at the workface — or not at all.",
         body: "Most instructions fail for reasons unrelated to the subject: vague, undated, unevidenced, or delivered to someone who cannot act on them. Five elements: the specific thing to be done; the date; the source of the obligation — clause, appendix or standard; the evidence that will close it; and what happens if it is not done, with its own date. Weak: 'we need to sort out the accommodation in Block B, can you look at it this week.' Strong: 'Block B has three-tier bunks and occupancy above the figure at Appendix Y. Remove the third tier and reduce occupancy to that figure by Friday 14th. Send me the revised occupancy schedule and photographs of each room by close of business Friday. If it is not done I will raise a formal non-conformity, which under clause 14 carries a seven day cure period before payment is affected.' The second is not more aggressive. It is actionable without another conversation, and it removes the question of whether the requirement exists.",
         points: [
           "★ Be warm about the person and immovable about the obligation, and never confuse the two. The most effective people in this role do both at once.",
@@ -1873,6 +1920,8 @@ export const modules = [
       },
       {
         heading: "The fortnight before",
+        image: "/images/esg-governance.jpg",
+        caption: "The IESC visit: evidence on the table.",
         body: "DOCUMENTS: index the pack; check every plan is current and has a named owner; reconcile your registers against each other — the incident register, the monthly report, the action plan tracker and the site diary should not disagree, and where they do you want to have explained it rather than have it found. SITE: walk it yourself at the hours the activity actually happens — a camp at nine at night is a different camp from a camp at eleven in the morning. Fix what can be fixed. PEOPLE: tell the workforce the visit is happening, who is coming, and that they may be asked questions. Tell them to answer honestly — that is the only instruction anyone should give about the content of an interview. And one thing you must not do: do not create a document that should already have existed and date it as though it had.",
         points: [
           "★ There is nothing wrong with fixing things before a visit. There is a great deal wrong with fixing them only before a visit.",
@@ -1970,6 +2019,8 @@ export const modules = [
       },
       {
         heading: "The last human action is not the cause",
+        image: "/images/esg-pollution.jpg",
+        caption: "The scene tells the story — if you get there first.",
         body: "Most site investigations stop at the last person who did something, because that is where the sequence visibly breaks and because it offers an ending. It is almost never the cause. 'He was not wearing his harness' misses why the anchor point was thirty metres away, why nobody raised it, and why the method statement assumed edge protection that was never installed. 'The procedure was not followed' misses whether the procedure was workable, whether anyone had ever done it that way, and whether following it would have stopped production. Three questions get past blame: Why did this make sense to the person at the time? Has it been done this way before — because if so, the practice was tolerated, and the tolerance is the cause? And what would have had to be true for this to be impossible?",
         points: [
           "★ If your corrective actions are retraining, a toolbox talk and a reminder, you found the last human action and stopped. A good investigation produces at least one action that changes a CONDITION rather than a behaviour.",
@@ -2068,6 +2119,8 @@ export const modules = [
       },
       {
         heading: "Four kinds that need different handling",
+        image: "/images/esg-social.jpg",
+        caption: "A grievance is data from the community.",
         points: [
           "ANONYMOUS — accept it: a mechanism that only takes named complaints excludes the people most at risk. Be honest that you cannot come back for detail or give feedback. Investigate what can be checked independently, and treat a cluster on one subject as information about a system.",
           "RETALIATORY RISK — where the complaint is about someone with power over the complainant, the first question is safety, not substance. Never put them in the same room. And follow up two to eight weeks later, because that is when retaliation appears — as a non-renewal or a reassignment nobody connects.",
@@ -2158,6 +2211,8 @@ export const modules = [
       },
       {
         heading: "Four places, one story",
+        image: "/images/esg-reporting.jpg",
+        caption: "The record that holds is the one made the same day.",
         body: "Most projects hold the same event in four or five places, and reviewers compare them because comparison is cheap and revealing. An incident sits in the incident register, the site diary, the monthly report to the lenders, the corrective action tracker and, where applicable, a regulator notification — dates and severity ratings diverge, and sometimes an event in the diary never reached the register at all. A grievance sits in the grievance register, the engagement log, the monthly report and the compensation file — the usual divergence is cases in the engagement log that were never logged as grievances. An exceedance sits in the monitoring data and should sit in the report, and often does not, because the report was compiled from a summary rather than from the data. And ESAP actions get marked closed with no evidence attached — the commonest single defect in any tracker.",
         points: [
           "★ Reconcile before someone else does. A discrepancy you found and explained is housekeeping. The same one found by a reviewer is concealment or loss of control — and they will not know which.",
@@ -7014,3 +7069,22 @@ export const quizzes = {
     ]
   }
 };
+
+// ---------------------------------------------------------------------------
+// A2's question bank predates the format tags, so the stratified draw would
+// serve the whole 27-question bank. Tag it here and give it a serve mix:
+// every learner gets 12 questions (pass 9), one of almost every game type.
+// ---------------------------------------------------------------------------
+for (const q of quizzes.m2.questions) {
+  q.fmt =
+    q.type === "categorize" ? "cat"
+    : q.type === "diagramtap" ? "tap"
+    : q.type === "fillblank" ? "fill"
+    : q.type === "hotspot" ? "spot"
+    : q.type === "connect" ? "connect"
+    : q.type === "multi" ? "multi"
+    : q.type === "order" ? "order"
+    : q.options?.length === 2 && q.options[0] === "True" ? "tf"
+    : "mcq";
+}
+quizzes.m2.serveMix = { mcq: 4, tf: 1, multi: 1, order: 1, fill: 1, cat: 1, tap: 1, spot: 1, connect: 1 };
