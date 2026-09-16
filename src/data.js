@@ -6256,6 +6256,8 @@ export const quizzes = {
   "m5": {
     "passMark": 0.8,
     "questions": [
+      {"fmt":"mcq", "difficulty":"easy", "tag":"S3 — What a KPI is", "prompt":"On this project, a KPI is…", "options":["A number reported regularly that shows whether the system is working", "A type of permit", "A fine from the regulator", "An annual audit"], "correct":0, "tip":"Key Performance Indicator: incidents, grievances, training hours — the project's vital signs, read as trends."},
+      {"fmt":"mcq", "difficulty":"easy", "tag":"S5 — The perfect number", "prompt":"A year of reports showing zero incidents and zero grievances should be read as…", "options":["A warning — the reporting channel is probably not working", "Proof of an excellent site", "A reason to reduce monitoring", "Normal for a well-run project"], "correct":0, "tip":"Real sites generate observations. A perfect zero usually measures silence, not safety."},
       { "fmt": "mcq", "difficulty": "hard", "tag": "S2 — The broken link",
         "prompt": "The link in the chain that most commonly breaks is…",
         "options": ["The decision — the number is produced, reported, filed, and nobody acts", "The data", "The procedure", "The assurance"],
@@ -7101,6 +7103,10 @@ export const quizzes = {
     "passMark": 0.8,
     "serveMix": { "mcq": 4, "multi": 1, "order": 1, "cat": 1, "scenario": 3 },
     "questions": [
+      {"fmt":"mcq", "difficulty":"easy", "tag":"S1 — Who they are", "prompt":"The IESC reports to…", "options":["The lender", "Your project director", "The national regulator", "The contractor's HSE manager"], "correct":0, "tip":"Independent by design: they are the bank's eyes on the project, not part of your chain of command."},
+      {"fmt":"mcq", "difficulty":"easy", "tag":"S2 — The empty register", "prompt":"Two years into works, the grievance register is completely empty. The most likely reading is…", "options":["People do not know or do not trust the channel", "The community is fully satisfied", "The project has had no impacts", "The register can be discarded"], "correct":0, "tip":"A working project generates complaints. Zero recorded means the channel is broken, not that nothing happened."},
+      {"fmt":"mcq", "difficulty":"easy", "tag":"S4 — Staging", "prompt":"Planning the visit route so it avoids the workers' camp is…", "options":["A finding in itself — the visit is about evidence, not staging", "Good preparation", "Standard practice", "Acceptable if the camp is being upgraded"], "correct":0, "tip":"Consultants recognise a staged route. What you hide tells them more than what you show."},
+      {"fmt":"mcq", "difficulty":"easy", "tag":"S5 — The gap register", "prompt":"Handing the IESC your own list of open gaps at the start of the visit…", "options":["Builds credibility — they will find the gaps anyway", "Admits liability and should be avoided", "Is only done when things go badly", "Replaces the site walk"], "correct":0, "tip":"A project that knows its own gaps is a project managing them. Discovering an unadmitted gap is a much worse finding."},
       { "fmt": "mcq", "difficulty": "easy", "tag": "S1 — Who they work for",
         "prompt": "The IESC assesses against…",
         "options": ["The applicable standards and the project's own commitments", "National law and the permits held", "The construction contract only", "The project's annual report"],
@@ -7182,6 +7188,10 @@ export const quizzes = {
     "passMark": 0.8,
     "serveMix": { "mcq": 4, "multi": 1, "order": 1, "cat": 1, "scenario": 3 },
     "questions": [
+      {"fmt":"mcq", "difficulty":"easy", "tag":"S1 — First priority", "prompt":"Something has just happened on site. The first priority is…", "options":["Make the scene safe", "Establish who caused it", "Draft the report", "Call the insurer"], "correct":0, "tip":"People first, always. Everything else in the process assumes the danger has been stopped."},
+      {"fmt":"mcq", "difficulty":"easy", "tag":"S2 — When to notify", "prompt":"You should notify a serious incident…", "options":["Early — even before all the facts are known", "Once the investigation is complete", "Only if the lender asks", "After legal review"], "correct":0, "tip":"An early notification with facts to follow builds trust. A late, polished one looks like concealment."},
+      {"fmt":"mcq", "difficulty":"easy", "tag":"S4 — Witness accounts", "prompt":"Witness accounts are best taken…", "options":["The same day, from each person separately", "At the end of the week, together", "Only in writing from the supervisor", "After the cause is established"], "correct":0, "tip":"Memory fades and merges fast. Same-day, separate accounts are worth more than any later reconstruction."},
+      {"fmt":"mcq", "difficulty":"easy", "tag":"S3 — Past the last action", "prompt":"An investigation that stops at 'driver error' is incomplete because…", "options":["The conditions behind the last human action are where prevention lives", "Drivers are never at fault", "Blame must always go higher", "Errors cannot be recorded"], "correct":0, "tip":"Why was THAT driver, on THAT road, at THAT speed, in THAT state? The system behind the error is what you can fix."},
       { "fmt": "mcq", "difficulty": "easy", "tag": "S1 — First",
         "prompt": "The first action after an incident is…",
         "options": ["Make safe: control the hazard that caused it and the one it created", "Preserve the scene", "Notify the lenders", "Begin taking accounts"],
@@ -7264,6 +7274,10 @@ export const quizzes = {
     "passMark": 0.8,
     "serveMix": { "mcq": 4, "multi": 1, "order": 1, "cat": 1, "scenario": 3 },
     "questions": [
+      {"fmt":"mcq", "difficulty":"easy", "tag":"S1 — The measure", "prompt":"A grievance mechanism is ultimately judged by…", "options":["Whether people come back to use it again", "How few complaints it receives", "The thickness of its register", "How fast it says no"], "correct":0, "tip":"People return to a channel that treated them fairly — even when the answer was no. They abandon one that didn't."},
+      {"fmt":"mcq", "difficulty":"easy", "tag":"S2 — Five steps", "prompt":"Handling a grievance starts with…", "options":["Receiving and registering it", "Investigating it", "Answering it", "Deciding if it is valid"], "correct":0, "tip":"If it is not registered, it does not exist — and nothing after that can be shown to have happened."},
+      {"fmt":"mcq", "difficulty":"easy", "tag":"S2 — The skipped step", "prompt":"The step most often skipped is…", "options":["Acknowledging the complaint to the person", "Registering it", "Investigating it", "Closing it"], "correct":0, "tip":"Days of silence after a complaint feels like rejection. A simple 'we received it, here is what happens next' keeps trust."},
+      {"fmt":"mcq", "difficulty":"easy", "tag":"S5 — Saying no", "prompt":"When the answer to a grievance is no, the right way to give it is…", "options":["The reason, plus what the person can do next", "In writing only, with no discussion", "Through the village chief", "By not responding"], "correct":0, "tip":"A justified no with a route of recourse closes a case. An unexplained no reopens it somewhere worse."},
       { "fmt": "mcq", "difficulty": "hard", "tag": "S1 — The register",
         "prompt": "An almost empty grievance register on a large corridor project means…",
         "options": ["The channel is unknown, distrusted or unsafe", "Community relations are strong", "The community has no complaints", "The liaison team is effective"],

@@ -173,6 +173,24 @@ function drawFromBank(questions, mix) {
     pool.sort((a, b) => (a.difficulty === "hard") - (b.difficulty === "hard"));
     served.push(...pool.slice(0, n));
   }
+  // Beginner cap: at most 2 authored-"hard" items per deck. Any extra hard
+  // draws are swapped for unused easy/medium questions from the bank (the
+  // blueprint's format mix bends so the difficulty doesn't).
+  const HARD_CAP = 2;
+  const hardIdx = served
+    .map((q, i) => (q.difficulty === "hard" ? i : -1))
+    .filter((i) => i >= 0);
+  if (hardIdx.length > HARD_CAP) {
+    const used = new Set(served);
+    const gentle = shuffle(
+      questions.filter((q) => !used.has(q) && q.difficulty !== "hard")
+    );
+    for (const i of hardIdx.slice(HARD_CAP)) {
+      const sub = gentle.pop();
+      if (!sub) break;
+      served[i] = sub;
+    }
+  }
   return served.length ? served : questions;
 }
 
