@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import MaterialIcon from "../components/MaterialIcon.jsx";
 import { useCourse, statusMeta, isUnlocked } from "../CourseContext.jsx";
-import { libraryByModule } from "../data.js";
+import { libraryByModule, quizzes } from "../data.js";
 import { docsRead } from "../lib/readingProgress.js";
 import SortActivity from "../components/activities/SortActivity.jsx";
 import ScenarioActivity from "../components/activities/ScenarioActivity.jsx";
@@ -38,6 +38,75 @@ function renderActivity(a, accent) {
     default:
       return <SortActivity {...props} />; // order / categorize
   }
+}
+
+// ---------------------------------------------------------------------------
+// QUICK CHECK — an ungraded one-tap question inside the lesson, drawn from
+// the module's own question bank (simple choice questions only). Placed after
+// roughly a third and two thirds of the sections, so the reader self-tests
+// while the idea is still fresh. Nothing is recorded; the quiz stays the test.
+// ---------------------------------------------------------------------------
+function quickChecksFor(moduleId, sectionCount) {
+  if (sectionCount < 4) return {};
+  const bank = quizzes[moduleId]?.questions ?? [];
+  const simple = bank.filter(
+    (q) =>
+      !q.type &&
+      Array.isArray(q.options) &&
+      q.options.length >= 3 &&
+      typeof q.correct === "number" &&
+      q.difficulty !== "hard"
+  );
+  if (simple.length < 2) return {};
+  const spots = [Math.floor(sectionCount / 3), Math.floor((2 * sectionCount) / 3)];
+  return { [spots[0]]: simple[0], [spots[1]]: simple[1] };
+}
+
+function QuickCheck({ q, accent }) {
+  const [picked, setPicked] = useState(null);
+  const revealed = picked !== null;
+  return (
+    <div className="mt-4 rounded-xl border border-outline-variant bg-surface-container-lowest p-stack-md">
+      <p className="mb-1 flex items-center gap-1.5 text-caption font-bold uppercase tracking-wider" style={{ color: accent }}>
+        <MaterialIcon name="bolt" fill className="text-[16px]" /> Quick check · not graded
+      </p>
+      <p className="mb-3 text-body-md font-semibold text-on-surface">{q.prompt}</p>
+      <div className="space-y-2">
+        {q.options.map((opt, i) => {
+          const isCorrect = i === q.correct;
+          let cls = "border-outline-variant bg-white hover:border-secondary";
+          if (revealed) {
+            if (isCorrect) cls = "border-emerald-500 bg-emerald-50";
+            else if (picked === i) cls = "border-rose-400 bg-rose-50";
+            else cls = "border-outline-variant bg-white opacity-60";
+          }
+          return (
+            <button
+              key={opt}
+              disabled={revealed}
+              onClick={() => setPicked(i)}
+              className={`flex w-full items-center gap-2 rounded-lg border px-3 py-2.5 text-left text-body-md text-on-surface transition-colors disabled:cursor-default ${cls}`}
+            >
+              {revealed && (
+                <MaterialIcon
+                  name={isCorrect ? "check_circle" : picked === i ? "cancel" : "radio_button_unchecked"}
+                  fill={isCorrect || picked === i}
+                  className={`text-[18px] ${isCorrect ? "text-emerald-600" : picked === i ? "text-rose-500" : "text-outline-variant"}`}
+                />
+              )}
+              {opt}
+            </button>
+          );
+        })}
+      </div>
+      {revealed && (
+        <p className={`mt-3 rounded-lg p-3 text-caption ${picked === q.correct ? "bg-emerald-50 text-emerald-900" : "bg-amber-50 text-amber-900"}`}>
+          {picked === q.correct ? "Right. " : "Not quite — the highlighted answer is the one. "}
+          {q.tip}
+        </p>
+      )}
+    </div>
+  );
 }
 
 export default function LessonPage() {
@@ -470,7 +539,9 @@ export default function LessonPage() {
                       </div>
                     </div>
                   )}
-                  {module.lesson?.map((section, secIdx) => (
+                  {module.lesson?.map((section, secIdx) => {
+                    const check = quickChecksFor(module.id, module.lesson.length)[secIdx];
+                    return (
                     <div key={section.heading} id={`sec-${secIdx}`} data-sec={section.heading} className="mb-6 scroll-mt-24">
                       <h3 className="mb-2 flex items-center gap-2 text-label-md font-bold uppercase tracking-wide text-primary">
                         <span
@@ -560,8 +631,10 @@ export default function LessonPage() {
                           )}
                         </figure>
                       )}
+                      {check && <QuickCheck q={check} accent={module.accent} />}
                     </div>
-                  ))}
+                    );
+                  })}
 
                   {module.quote && (
                     <div className="mb-2 border-l-4 border-secondary bg-surface-container px-4 py-3">
