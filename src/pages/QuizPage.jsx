@@ -7,11 +7,55 @@ import { useCourse } from "../CourseContext.jsx";
 import { AnimatedNumber } from "../useCountUp.jsx";
 import { quizzes, platform, libraryByModule } from "../data.js";
 import { downloadModuleGuidePdf } from "../lib/moduleGuide.js";
+import { glossaryForText } from "../config/glossary.js";
 
 function formatTime(s) {
   const m = Math.floor(s / 60);
   const sec = s % 60;
   return `${m}:${sec < 10 ? "0" : ""}${sec}`;
+}
+
+// Tap-chips explaining the jargon THIS question uses — the same plain-words
+// glossary as the lessons, right where a beginner meets the term. Hidden on
+// definition-style questions ("X means…"), where it would give the answer away.
+function QuizJargon({ question }) {
+  const [open, setOpen] = useState(null);
+  const defStyle = /stands for|means|is about/i.test(question.prompt || "");
+  if (defStyle) return null;
+  const text = [
+    question.tag,
+    question.prompt,
+    ...(question.options ?? []),
+    ...(question.items ?? []).map((it) => (typeof it === "string" ? it : it.text ?? "")),
+    ...(question.boxes ?? []),
+  ].join(" ");
+  const terms = glossaryForText(text);
+  if (terms.length === 0) return null;
+  return (
+    <div className="mb-stack-md">
+      <div className="flex flex-wrap items-center gap-1.5">
+        <span className="text-caption text-outline">New to a word?</span>
+        {terms.map((g, i) => (
+          <button
+            key={g.term}
+            onClick={() => setOpen(open === i ? null : i)}
+            className={`rounded-full border px-2.5 py-0.5 text-caption font-semibold transition-colors ${
+              open === i
+                ? "border-secondary bg-secondary text-white"
+                : "border-outline-variant bg-white text-on-surface-variant hover:border-secondary"
+            }`}
+          >
+            {g.term}
+          </button>
+        ))}
+      </div>
+      {open != null && (
+        <p className="animate-fade-up mt-2 rounded-lg bg-[#fcf9ee] p-3 text-caption leading-relaxed text-on-surface">
+          <strong className="text-secondary">{terms[open].term}</strong> — {terms[open].plain}
+        </p>
+      )}
+    </div>
+  );
 }
 
 // Rotating praise for correct answers — a little warmth goes a long way.
@@ -799,6 +843,8 @@ export default function QuizPage() {
                 )}
               </div>
 
+              {!revealed && <QuizJargon key={index} question={question} />}
+
               {question.hint && !revealed && (
                 <div className="mb-stack-md">
                   {!showHint ? (
@@ -1313,6 +1359,23 @@ export default function QuizPage() {
                       )}
                     </p>
                     <p className="text-caption">{question.tip}</p>
+                    {!isCorrect &&
+                      target?.lesson &&
+                      /^S(\d+)/.test(question.tag || "") &&
+                      (() => {
+                        const n = +/^S(\d+)/.exec(question.tag)[1];
+                        const sec = target.lesson[n - 1];
+                        return sec ? (
+                          <Link
+                            to={`/module/${target.id}#sec-${n - 1}`}
+                            target="_blank"
+                            className="mt-1.5 inline-flex items-center gap-1 text-caption font-bold underline"
+                          >
+                            Reread: {sec.heading}
+                            <MaterialIcon name="open_in_new" className="text-[14px]" />
+                          </Link>
+                        ) : null;
+                      })()}
                   </div>
                 </div>
               )}

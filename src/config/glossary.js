@@ -37,6 +37,10 @@ export const GLOBAL_GLOSSARY = [
   { term: "ILO", cat: "standards", re: /\bILO\b/, plain: "International Labour Organization — the UN body whose core conventions set the floor for workers' rights worldwide." },
   { term: "Borrow pit", cat: "land", re: /borrow pits?/i, plain: "A hole dug to take sand, gravel or fill for the works. Small hole, big rules: land, water, safety and closure all apply." },
   { term: "Stakeholder engagement", cat: "system", re: /stakeholder/i, plain: "Talking WITH the people the project affects — informing, listening and answering — not just notifying them." },
+  { term: "FPIC", cat: "standards", re: /FPIC/, plain: "Free, Prior and Informed Consent — the agreement PS7 requires from Indigenous Peoples before a project affects them: no pressure, before the decision, with full information." },
+  { term: "Mitigation hierarchy", cat: "standards", re: /mitigation hierarchy|avoidance/i, plain: "The fixed order for dealing with any impact: 1 AVOID it, 2 MINIMISE it, 3 RESTORE what was affected, 4 COMPENSATE for what remains. You must show you tried each step before moving to the next." },
+  { term: "Hierarchy of controls", cat: "system", re: /hierarchy of controls/i, plain: "The safety ladder: ELIMINATE the danger, ENGINEER it away, CONTROL it with rules and permits — and only then PPE. Equipment on the worker is the last line of defence, never the plan." },
+  { term: "Survivor-centred", cat: "system", re: /survivor-?cent(?:red|ered)/i, plain: "In harassment and abuse cases: the person harmed decides what happens next — their safety and dignity come before establishing the facts. The investigation still happens, on their terms." },
 ];
 
 // The terms present in this module's lesson (authored glossary first, then
@@ -76,4 +80,10 @@ export function termUsage(modules) {
     }
   }
   return usage;
+}
+
+// The glossary terms present in an arbitrary piece of text (e.g. one quiz
+// question). Same tap-chips as the lessons, next to where the jargon appears.
+export function glossaryForText(text) {
+  return GLOBAL_GLOSSARY.filter((g) => g.re.test(text)).map(({ term, plain }) => ({ term, plain }));
 }

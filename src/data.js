@@ -1747,6 +1747,18 @@ export const modules = [
       },
       {
         heading: "Dust, water, noise",
+        diagram: {
+          type: "steps",
+          title: "The spill drill — diesel heading for a drain",
+          note: "Containment is where minutes matter. Everything after it can be done properly at normal pace.",
+          items: [
+            { t: "Stop the source", s: "if it is safe to do so" },
+            { t: "Contain it before the drain" },
+            { t: "Absorb and recover", s: "used absorbent is hazardous waste" },
+            { t: "Remove contaminated soil", s: "to the depth of penetration" },
+            { t: "Record it, including the cause" }
+          ]
+        },
         example: "A washout pit overflows into the stream after one night of rain. By morning it is not housekeeping: it is PS3, a community complaint, and a photo in the next IESC report.",
         points: [
           "DUST. Suppress where there are receptors, on a schedule matched to conditions. Cover loads. Reduce speed, which costs nothing. NEVER use waste oil for suppression — it is a contamination event presented as a dust control. And measure at the RECEPTOR, not at the source: a reading at the plant boundary tells you nothing about the house downwind.",
