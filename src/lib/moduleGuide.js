@@ -23,11 +23,29 @@ export function downloadModuleGuidePdf(module, quiz) {
       y = 20;
     }
   };
-  const text = (str, size, color, style = "normal", extraGap = 1.5) => {
+  // The built-in PDF fonts only cover Latin-1: swap the symbols the course
+  // text uses for safe equivalents, and drop anything else exotic.
+  const clean = (str) =>
+    String(str ?? "")
+      .replace(/→|⇒/g, "->")
+      .replace(/[★☆]s*/g, "")
+      .replace(/[✓✔]/g, "v")
+      .replace(/…/g, "...")
+      .replace(/[^ -~ -ÿ–—‘’“”·]/g, "-");
+  const text = (str, size, color, style = "normal", extraGap = 1.5, indent = 0) => {
     doc.setFont("helvetica", style).setFontSize(size).setTextColor(color);
-    const lines = doc.splitTextToSize(str, WIDTH);
+    const lines = doc.splitTextToSize(clean(str), WIDTH - indent);
     ensure(lines.length * size * 0.42 + extraGap);
-    doc.text(lines, MARGIN, y);
+    doc.text(lines, MARGIN + indent, y);
+    y += lines.length * size * 0.42 + extraGap;
+  };
+  // A bullet with a hanging indent: wrapped lines align under the text.
+  const bullet = (str, size, color, style = "normal", extraGap = 1.2) => {
+    doc.setFont("helvetica", style).setFontSize(size).setTextColor(color);
+    const lines = doc.splitTextToSize(clean(str), WIDTH - 4.5);
+    ensure(lines.length * size * 0.42 + extraGap);
+    doc.text("•", MARGIN, y);
+    doc.text(lines, MARGIN + 4.5, y);
     y += lines.length * size * 0.42 + extraGap;
   };
   const heading = (str) => {
@@ -63,7 +81,7 @@ export function downloadModuleGuidePdf(module, quiz) {
     const takeaways =
       s.points?.slice(0, 3) ??
       (s.body ? [s.body.split(/(?<=\.)\s+/).slice(0, 2).join(" ")] : []);
-    takeaways.forEach((t) => text(`•  ${t}`, 9, "#333333", "normal", 1));
+    takeaways.forEach((t) => bullet(t, 9, "#333333", "normal", 1));
     if (s.example) text(`On site: ${s.example}`, 9, GREY, "italic", 1);
     y += 1.5;
   });
@@ -89,7 +107,7 @@ export function downloadModuleGuidePdf(module, quiz) {
     "Every answer is in the sections above — no outside knowledge is needed.",
     "Two 50/50 jokers per attempt each remove one wrong answer.",
     "If you don't pass, the results screen lists exactly which sections your mistakes came from. Reread those, then retake — as many times as you need.",
-  ].forEach((t) => text(`•  ${t}`, 9.5, "#333333", "normal", 1.2));
+  ].forEach((t) => bullet(t, 9.5, "#333333"));
 
   // Footer on each page
   const pages = doc.getNumberOfPages();
