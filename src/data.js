@@ -619,6 +619,18 @@ export const modules = [
         ],
       },
       {
+        heading: "Anatomy of an ESAP action",
+        body:
+          "The ESAP is a table, and every line follows the same anatomy. A well-formed action has four parts: a specific deliverable (not an aspiration), a named owner (a person, not a department), a date, and the evidence that will close it. That last field is the one most often left blank — and without agreed closing evidence, an action cannot be verified and stays open forever. Some actions carry a fifth detail: whether the next disbursement is tied to them.",
+        points: [
+          "The life of an action: a gap is identified (due diligence or a monitoring visit) → the action is written with its four parts → the work is done and the agreed evidence produced → the evidence is verified → only then is it closed.",
+          "Not closed when the owner says it is done. Not closed when the tracker says closed. Closed when the evidence is verified.",
+          "'Improve worker welfare' is an aspiration. 'Install 12 latrines at Camp 2, photos + inspection report by 30 June, owner: camp manager' is an action.",
+        ],
+        example:
+          "A fortnight before the monitoring visit, three actions are marked 'closed' with no evidence attached. To the IESC they are not closed — they are three findings about the tracker itself.",
+      },
+      {
         heading: "The cycle, and where you joined it",
         example: "The project misses one quarterly E&S report. Nothing changes on site — but at the bank a covenant flag is raised, and the next drawdown needs the E&S team's sign-off before money moves.",
         points: [

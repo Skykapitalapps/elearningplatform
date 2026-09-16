@@ -14,6 +14,7 @@ import LessonPage from "./pages/LessonPage.jsx";
 import LibraryPage from "./pages/LibraryPage.jsx";
 import DocumentPage from "./pages/DocumentPage.jsx";
 import ResourcesPage from "./pages/ResourcesPage.jsx";
+import GlossaryPage from "./pages/GlossaryPage.jsx";
 import EvidencePage from "./pages/EvidencePage.jsx";
 import CapstonePage from "./pages/CapstonePage.jsx";
 import QuizPage from "./pages/QuizPage.jsx";
@@ -147,6 +148,7 @@ export default function App() {
             <Route path="/library/:docId" element={<DocumentPage />} />
             <Route path="/resources" element={<ResourcesPage />} />
             <Route path="/resources/:docId" element={<DocumentPage />} />
+            <Route path="/glossary" element={<GlossaryPage />} />
             <Route path="/evidence" element={<EvidencePage />} />
             <Route path="/admin" element={<AdminPage />} />
             <Route path="/capstone" element={<CapstonePage />} />

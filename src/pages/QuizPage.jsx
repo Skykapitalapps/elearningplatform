@@ -6,6 +6,7 @@ import Confetti from "../components/Confetti.jsx";
 import { useCourse } from "../CourseContext.jsx";
 import { AnimatedNumber } from "../useCountUp.jsx";
 import { quizzes, platform, libraryByModule } from "../data.js";
+import { downloadModuleGuidePdf } from "../lib/moduleGuide.js";
 
 function formatTime(s) {
   const m = Math.floor(s / 60);
@@ -647,6 +648,15 @@ export default function QuizPage() {
               <li className="flex items-center gap-2 text-caption text-on-surface-variant"><MaterialIcon name="extension" className="text-[16px] text-secondary" /> Questions come in different formats: cards, puzzles, photos</li>
               <li className="flex items-center gap-2 text-caption text-on-surface-variant"><MaterialIcon name="content_cut" className="text-[16px] text-secondary" /> Two 50/50 jokers per attempt, each removes one wrong answer</li>
               <li className="flex items-center gap-2 text-caption text-on-surface-variant"><MaterialIcon name="refresh" className="text-[16px] text-secondary" /> Retake as often as you need. The questions change every time</li>
+              {target.lesson?.length > 2 && (
+                <li className="flex items-center gap-2 text-caption text-on-surface-variant">
+                  <MaterialIcon name="download" className="text-[16px] text-secondary" />
+                  <button onClick={() => downloadModuleGuidePdf(target, activeQuiz)} className="font-semibold text-secondary hover:underline">
+                    Download the study guide (PDF)
+                  </button>
+                  {" "}— the whole module on one sheet
+                </li>
+              )}
             </ul>
             {!lessonRead && (
               <p className="mx-auto mt-stack-md flex max-w-sm items-center gap-2 rounded-lg bg-amber-50 p-3 text-caption text-amber-800">

@@ -9,6 +9,7 @@ const MOBILE_ITEMS = [
   { to: "/", label: "Home", icon: "home", end: true },
   { to: "/course", label: "Course", icon: "school" },
   { to: "/resources", label: "Documents", icon: "folder_open" },
+  { to: "/glossary", label: "Glossary", icon: "translate" },
   { to: "/evidence", label: "Progress", icon: "verified" },
 ];
 

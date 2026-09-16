@@ -10,6 +10,7 @@ const NAV_ITEMS = [
   { to: "/", label: "Home", icon: "home", end: true },
   { to: "/course", label: "My course", icon: "school" },
   { to: "/resources", label: "Documents", icon: "folder_open" },
+  { to: "/glossary", label: "Glossary", icon: "translate" },
   { to: "/evidence", label: "My progress", icon: "verified" },
 ];
 

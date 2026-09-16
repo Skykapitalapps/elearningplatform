@@ -3,6 +3,8 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import MaterialIcon from "../components/MaterialIcon.jsx";
 import { useCourse, statusMeta, isUnlocked } from "../CourseContext.jsx";
 import { libraryByModule, quizzes } from "../data.js";
+import { glossaryFor } from "../config/glossary.js";
+import { downloadModuleGuidePdf } from "../lib/moduleGuide.js";
 import { docsRead } from "../lib/readingProgress.js";
 import SortActivity from "../components/activities/SortActivity.jsx";
 import ScenarioActivity from "../components/activities/ScenarioActivity.jsx";
@@ -515,8 +517,8 @@ export default function LessonPage() {
                   <p className="mb-6 text-body-md leading-relaxed text-on-surface-variant">
                     {module.overview}
                   </p>
-                  {module.glossary?.length > 0 && (
-                    <GlossaryChips glossary={module.glossary} accent={module.accent} />
+                  {glossaryFor(module).length > 0 && (
+                    <GlossaryChips glossary={glossaryFor(module)} accent={module.accent} />
                   )}
 
                   {module.lesson?.length > 0 && (
@@ -742,6 +744,15 @@ export default function LessonPage() {
                   Finish the course first{moduleDocs.length > 0 ? ` — readings ${docsReadCount}/${moduleDocs.length}` : ""} · sections {readCount}/{module.lesson.length}
                 </a>
               )}
+              {module.type !== "capstone" && module.lesson?.length > 2 && (
+                <button
+                  onClick={() => downloadModuleGuidePdf(module, quizzes[module.id])}
+                  className="mx-auto mt-3 flex items-center gap-1.5 text-caption font-bold text-white/85 hover:text-white hover:underline"
+                >
+                  <MaterialIcon name="download" className="text-[16px]" />
+                  Download the study guide (PDF) — the whole module on one sheet
+                </button>
+              )}
             </div>
           )}
         </div>
@@ -820,6 +831,9 @@ function GlossaryChips({ glossary, accent }) {
       <p className="mb-2 flex items-center gap-1.5 text-caption font-bold uppercase tracking-widest text-on-surface-variant">
         <MaterialIcon name="translate" className="text-[16px]" style={{ color: accent }} />
         Jargon buster — tap a word
+        <Link to="/glossary" className="ml-auto font-semibold normal-case tracking-normal text-secondary hover:underline">
+          All terms →
+        </Link>
       </p>
       <div className="flex flex-wrap gap-1.5">
         {glossary.map((g, i) => (
