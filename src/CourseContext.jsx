@@ -53,7 +53,10 @@ export function CourseProvider({ children }) {
   const { enabled: authEnabled, user, profile } = useAuth();
   // Reviewers (role 'manager') see every module unlocked — full content
   // access for review, without any user/client management rights.
-  const reviewer = authEnabled && profile?.role === "manager";
+  // Reviewers (manager) AND administrators browse the learner side with no
+  // locks: every module open, no reading gates — full-platform preview access.
+  const reviewer =
+    authEnabled && (profile?.role === "manager" || profile?.role === "admin");
   _reviewerUnlock = reviewer;
   const storageKey =
     authEnabled && user ? `skykapital-progress-${user.id}` : STORAGE_KEY;
