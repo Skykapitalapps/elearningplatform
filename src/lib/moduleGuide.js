@@ -6,6 +6,7 @@
 import { jsPDF } from "jspdf";
 import { client } from "../config/clients.js";
 import { glossaryFor } from "../config/glossary.js";
+import { LOGO_WHITE } from "./logo.js";
 
 const NAVY = "#0d1c32";
 const GOLD = "#b28c1e";
@@ -59,6 +60,7 @@ export function downloadModuleGuidePdf(module, quiz) {
   // Header band
   doc.setFillColor(NAVY);
   doc.rect(0, 0, 210, 30, "F");
+  doc.addImage(LOGO_WHITE, "PNG", 210 - MARGIN - 13, 8.5, 13, 13);
   doc.setFont("helvetica", "bold").setFontSize(9).setTextColor("#e9c349");
   doc.text(`${client.clientShort} · ${client.courseTitle.toUpperCase()}`, MARGIN, 12);
   doc.setFontSize(15).setTextColor("#ffffff");
