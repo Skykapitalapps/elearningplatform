@@ -5,7 +5,7 @@ import Logo from "../components/Logo.jsx";
 import { supabase, isSupabaseConfigured, adminCreateAccount } from "../lib/supabase.js";
 import { useAuth } from "../AuthContext.jsx";
 import { client } from "../config/clients.js";
-import { course } from "../data.js";
+import { course, modules } from "../data.js";
 import { downloadCertificatePdf } from "../lib/certificate.js";
 import { JOB_ROLES, jobRoleByKey, assignedTotal } from "../config/jobRoles.js";
 
@@ -355,6 +355,11 @@ function Workspace({ project, shared, projects, people, docs, logins, isAdmin, o
         <TabBtn active={tab === "docs"} icon="folder_open" onClick={() => setTab("docs")}>
           Resources documents
         </TabBtn>
+        {!shared && isAdmin && (
+          <TabBtn active={tab === "setup"} icon="tune" onClick={() => setTab("setup")}>
+            Client setup
+          </TabBtn>
+        )}
       </div>
 
       {tab === "progress" && !shared ? (
@@ -363,6 +368,8 @@ function Workspace({ project, shared, projects, people, docs, logins, isAdmin, o
         <ProjectUsers project={project} projects={projects} people={people} isAdmin={isAdmin} reload={reload} />
       ) : tab === "activity" && !shared ? (
         <ProjectActivity project={project} people={people} />
+      ) : tab === "setup" && !shared && isAdmin ? (
+        <ClientSetup />
       ) : (
         <ProjectDocs pid={pid} shared={shared} docs={docs.filter((d) => (shared ? !d.project_id : d.project_id === pid))} reload={reload} />
       )}
@@ -927,6 +934,125 @@ function ProjectActivity({ project, people }) {
       <p className="text-caption text-on-surface-variant">
         Recorded automatically at every sign-in, kept in the central database — part of the training-evidence trail.
       </p>
+    </div>
+  );
+}
+
+/* --------------------------- CLIENT · SETUP ----------------------------- */
+// Read-only summary of the active client's white-label configuration:
+// identity, photos and the role matrix. The values live in
+// src/config/clients.js and are baked in at build time (VITE_CLIENT).
+function ClientSetup() {
+  const heroImg = client.images?.hero;
+  const moduleOverrides = Object.entries(client.images?.modules || {});
+  const codeOf = (id) =>
+    modules.find((m) => m.id === id)?.code ?? id.toUpperCase();
+
+  return (
+    <div className="space-y-gutter">
+      <p className="text-body-md text-on-surface-variant">
+        This platform is built for one client at a time. Everything below comes
+        from this client's block in <code className="rounded bg-surface-container-low px-1.5 py-0.5 text-caption">src/config/clients.js</code>{" "}
+        and is fixed at deployment. Each client runs as its own deployment with
+        its own database, so none of this is shared between clients.
+      </p>
+
+      {/* Identity */}
+      <div className="rounded-xl border border-outline-variant bg-surface-container-lowest p-stack-lg">
+        <h2 className="mb-stack-md flex items-center gap-2 text-headline-md text-primary">
+          <MaterialIcon name="badge" className="text-secondary" /> Client identity
+        </h2>
+        <dl className="grid grid-cols-1 gap-x-gutter gap-y-3 sm:grid-cols-2">
+          {[
+            ["Client key (VITE_CLIENT)", client.key],
+            ["Short name", client.clientShort],
+            ["Legal name", client.clientLegal],
+            ["Course title", course.title],
+            ["Course subtitle", client.courseSubtitle],
+            ["Code of Conduct", client.codeOfConduct.ref],
+            ["Code of Conduct owner", client.codeOfConduct.owner],
+            ["Code of Conduct PDF", client.codeOfConduct.pdf ? client.codeOfConduct.pdf : "Not uploaded yet"],
+          ].map(([k, v]) => (
+            <div key={k}>
+              <dt className="text-caption uppercase tracking-wider text-on-surface-variant">{k}</dt>
+              <dd className="text-body-md text-primary">{v}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+
+      {/* Photos */}
+      <div className="rounded-xl border border-outline-variant bg-surface-container-lowest p-stack-lg">
+        <h2 className="mb-1 flex items-center gap-2 text-headline-md text-primary">
+          <MaterialIcon name="photo_library" className="text-secondary" /> Client photos
+        </h2>
+        <p className="mb-stack-md text-caption text-on-surface-variant">
+          {moduleOverrides.length > 0 || heroImg
+            ? "The client's own photography, used on the covers below. Modules without a photo here use the neutral stock set."
+            : "No client photos configured — the neutral stock set is used everywhere."}
+        </p>
+        <div className="grid grid-cols-2 gap-gutter sm:grid-cols-3 lg:grid-cols-4">
+          {heroImg && (
+            <figure>
+              <img src={heroImg} alt="" className="h-24 w-full rounded-lg object-cover" loading="lazy" />
+              <figcaption className="mt-1 text-caption font-bold text-primary">
+                Hero — login &amp; course banner
+              </figcaption>
+            </figure>
+          )}
+          {moduleOverrides.map(([id, src]) => (
+            <figure key={id}>
+              <img src={src} alt="" className="h-24 w-full rounded-lg object-cover" loading="lazy" />
+              <figcaption className="mt-1 text-caption font-bold text-primary">
+                {codeOf(id)}
+                <span className="ml-1 font-normal text-on-surface-variant">
+                  · {modules.find((m) => m.id === id)?.title ?? "The Standards library"}
+                </span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+
+      {/* Role matrix */}
+      <div className="overflow-x-auto rounded-xl border border-outline-variant bg-surface-container-lowest p-stack-lg">
+        <h2 className="mb-1 flex items-center gap-2 text-headline-md text-primary">
+          <MaterialIcon name="account_tree" className="text-secondary" /> Role matrix
+        </h2>
+        <p className="mb-stack-md text-caption text-on-surface-variant">
+          {JOB_ROLES.length > 0
+            ? `${JOB_ROLES.length} job roles. Every role takes Pathway A (6 modules); B and C are assigned per role below. A learner without a role sees the full programme.`
+            : "No role matrix configured — every learner sees the full 18-module programme."}
+        </p>
+        {JOB_ROLES.length > 0 && (
+          <table className="w-full min-w-[560px] text-left">
+            <thead>
+              <tr className="border-b border-outline-variant text-caption uppercase tracking-wider text-on-surface-variant">
+                <th className="py-2 pr-3 font-semibold">Role</th>
+                <th className="py-2 pr-3 font-semibold">Pathway B</th>
+                <th className="py-2 pr-3 font-semibold">Pathway C</th>
+                <th className="py-2 font-semibold">Total modules</th>
+              </tr>
+            </thead>
+            <tbody>
+              {JOB_ROLES.map((r) => (
+                <tr key={r.key} className="border-b border-surface-container last:border-0">
+                  <td className="py-2.5 pr-3 text-body-md text-primary">{r.label}</td>
+                  <td className="py-2.5 pr-3 text-body-md text-on-surface-variant">
+                    {r.b.map((id) => codeOf(id)).join(", ") || "—"}
+                  </td>
+                  <td className="py-2.5 pr-3 text-body-md text-on-surface-variant">
+                    {r.c.map((id) => codeOf(id)).join(", ") || "—"}
+                  </td>
+                  <td className="py-2.5 text-body-md font-semibold text-primary">
+                    {assignedTotal(r.key)}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+      </div>
     </div>
   );
 }

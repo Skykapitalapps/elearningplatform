@@ -116,7 +116,7 @@ export default function LoginPage() {
     <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-surface px-margin-mobile py-stack-lg">
       {/* Backdrop */}
       <img
-        src="/images/hitech-paving.webp"
+        src={course.hero}
         alt=""
         className="absolute inset-0 h-full w-full object-cover"
       />

@@ -17,8 +17,18 @@ own branding — all from this single repository.
 ## Launch checklist for a new client (~30 minutes)
 
 1. **Add the client config** — duplicate a block in
-   `src/config/clients.js` (key, `clientShort`, `clientLegal`, course title,
-   Code of Conduct ref/owner). Commit & push.
+   `src/config/clients.js` and fill in:
+   - key, `clientShort`, `clientLegal`, course title/subtitle,
+     Code of Conduct ref/owner;
+   - `jobRoles`: the client's role matrix (who takes which B/C modules —
+     Pathway A is always the baseline). Omit it and every learner sees the
+     full 18-module programme;
+   - `images`: the client's own photos — `hero` (login backdrop + course
+     banner) and `modules` overrides per module cover. Drop the files in
+     `public/images/` prefixed with the client key (e.g. `acme-site.webp`).
+     No `images` entry = neutral stock photos everywhere. Screen every
+     photo: no identifiable children, workers wearing correct PPE.
+   Commit & push.
 
 2. **Client documents** — drop their signed Code of Conduct PDF into
    `public/docs/` and set its path in the config (`codeOfConduct.pdf`).
@@ -43,11 +53,16 @@ own branding — all from this single repository.
 
 ## What is shared vs. per-client (today)
 
-| Shared (same for all clients)            | Per-client                        |
-|-------------------------------------------|-----------------------------------|
-| The 6 ESG modules, quizzes, games, capstone| Name/branding across the platform |
-| Photos, videos, library guides             | Code of Conduct (PDF + details)   |
-| Platform features & security               | Users, progress, evidence (own DB)|
+| Shared (same for all clients)              | Per-client                          |
+|--------------------------------------------|-------------------------------------|
+| The 18 ESG modules, quizzes, games, capstones | Name/branding across the platform |
+| Videos, library guides, neutral stock photos  | Code of Conduct (PDF + details)   |
+| Platform features & security                  | Job-role matrix (module assignment) |
+|                                               | Photos (hero + module covers)     |
+|                                               | Users, progress, evidence (own DB)|
+
+An admin can review the active client's full setup — identity, photos and
+role matrix — in the platform under **Admin → Client setup**.
 
 Deeper per-client content (their own policies as extra modules, their legal
 jurisdiction in M2, their logo image) = extend the client config the same
