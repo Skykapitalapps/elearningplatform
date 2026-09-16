@@ -177,8 +177,22 @@ export default function DashboardPage() {
           />
         </div>
 
-        <ol className="space-y-2">
-          {modules.map((m) => {
+        <div className="space-y-6">
+          {[
+            { key: "A", title: "Pathway A — Foundations", note: "Everyone takes this part, in order." },
+            { key: "B", title: "Pathway B — Site Practice", note: "Assigned by your role. Opens once Pathway A is done — any order." },
+            { key: "C", title: "Pathway C — Supervisors & Leads", note: "Assigned by your role. Same rule as B: opens after Pathway A." },
+          ].map((pw) => {
+            const mods = modules.filter((mm) => (mm.pathway || "A") === pw.key);
+            if (mods.length === 0) return null;
+            return (
+              <div key={pw.key}>
+                <h3 className="text-label-md font-bold uppercase tracking-widest text-primary">
+                  {pw.title}
+                </h3>
+                <p className="mb-2 text-caption text-on-surface-variant">{pw.note}</p>
+                <ol className="space-y-2">
+                  {mods.map((m) => {
             const unlocked = isUnlocked(modules, m);
             const isDone = m.status === "completed";
             const isCurrent = !isDone && unlocked && m.id === current.id;
@@ -208,7 +222,7 @@ export default function DashboardPage() {
                       unlocked ? "text-primary" : "text-outline"
                     }`}
                   >
-                    {m.type === "capstone" ? `${m.title} — final simulation` : m.title}
+                    {m.code} · {m.title}
                   </span>
                   <span className="text-caption text-on-surface-variant">
                     {isDone
@@ -219,7 +233,9 @@ export default function DashboardPage() {
                       ? m.type === "read"
                         ? m.duration
                         : `${m.duration} · Lesson → Practice games → Quiz`
-                      : "Finish the previous module to unlock"}
+                      : (m.pathway || "A") === "A"
+                      ? "Finish the previous module to unlock"
+                      : "Opens when Pathway A is complete"}
                   </span>
                 </span>
                 {isCurrent && (
@@ -252,10 +268,14 @@ export default function DashboardPage() {
                 )}
               </li>
             );
+                  })}
+                </ol>
+              </div>
+            );
           })}
 
           {/* Final step: the certificate */}
-          <li>
+          <div>
             {done ? (
               <Link
                 to="/evidence"
@@ -283,8 +303,8 @@ export default function DashboardPage() {
                 </span>
               </div>
             )}
-          </li>
-        </ol>
+          </div>
+        </div>
       </section>
     </div>
   );
