@@ -759,6 +759,16 @@ export default function LessonPage() {
               )}
             </div>
           )}
+          {/* Completed modules keep the study guide handy for revision */}
+          {module.status === "completed" && module.type !== "capstone" && module.lesson?.length > 2 && (
+            <button
+              onClick={() => downloadModuleGuidePdf(module, quizzes[module.id])}
+              className="mx-auto mt-stack-lg flex items-center gap-1.5 text-caption font-bold text-secondary hover:underline"
+            >
+              <MaterialIcon name="download" className="text-[16px]" />
+              Download the study guide (PDF) — the whole module on one sheet
+            </button>
+          )}
         </div>
 
         {/* Sidebar: notes / transcript + progress */}
