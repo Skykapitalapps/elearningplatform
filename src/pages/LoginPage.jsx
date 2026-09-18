@@ -40,18 +40,13 @@ export default function LoginPage() {
     }
   }
 
-  async function forgotPassword() {
+  // Resets are handled by the administrator (no reset emails are sent —
+  // the platform launches without its own email sender).
+  function forgotPassword() {
     setError(null);
-    setNotice(null);
-    if (!email.trim())
-      return setError("Type your email above first, then click Forgot password.");
-    if (!isSupabaseConfigured) return;
-    const { error: err } = await supabase.auth.resetPasswordForEmail(
-      email.trim(),
-      { redirectTo: window.location.origin + "/reset" }
+    setNotice(
+      "Ask your administrator to reset your password — they'll send you a new one to sign in with."
     );
-    if (err) return setError(err.message);
-    setNotice("Reset link sent — check your inbox (and spam folder).");
   }
 
   async function submit(e) {
