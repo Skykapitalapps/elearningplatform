@@ -16,7 +16,6 @@ import DocumentPage from "./pages/DocumentPage.jsx";
 import ResourcesPage from "./pages/ResourcesPage.jsx";
 import GlossaryPage from "./pages/GlossaryPage.jsx";
 import EvidencePage from "./pages/EvidencePage.jsx";
-import CapstonePage from "./pages/CapstonePage.jsx";
 import QuizPage from "./pages/QuizPage.jsx";
 import CertificatePrintPage from "./pages/CertificatePrintPage.jsx";
 import { PrivacyPage, TermsPage } from "./pages/LegalPage.jsx";
@@ -151,8 +150,6 @@ export default function App() {
             <Route path="/glossary" element={<GlossaryPage />} />
             <Route path="/evidence" element={<EvidencePage />} />
             <Route path="/admin" element={<AdminPage />} />
-            <Route path="/capstone" element={<CapstonePage />} />
-            <Route path="/capstone/:simId" element={<CapstonePage />} />
             <Route path="/privacy" element={<PrivacyPage />} />
             <Route path="/terms" element={<TermsPage />} />
           </Route>

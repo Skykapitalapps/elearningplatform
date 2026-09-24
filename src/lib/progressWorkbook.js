@@ -63,7 +63,7 @@ export async function downloadProgressWorkbook({ project, per, rows, members, mo
   per.forEach((p, i) => {
     const row = ov.addRow([
       p.full_name || "—",
-      p.job_role || "no role — sees all 18",
+      p.job_role || "no role — sees all 16",
       p.done,
       p.totalMods,
       Math.round((p.done / p.totalMods) * 100) / 100,

@@ -48,7 +48,7 @@ const CLIENTS = {
       },
     },
     // HITECH's role matrix (from the course author's configuration workbook).
-    // Pathway A (A1–A6) is the baseline for every role. B3 and B4 are
+    // Pathway A (A1–A5) is the baseline for every role. B3 and B4 are
     // assigned to ALL personnel. `chanceFind` marks roles that take the
     // chance-find micro-module (extract of B6).
     jobRoles: [
@@ -105,13 +105,13 @@ const CLIENTS = {
         key: "site-manager",
         label: "Site manager / section manager",
         b: ["b1", "b2", "b3", "b4", "b5", "b6"],
-        c: ["c1", "c2", "c3", "c4", "c5", "c6"],
+        c: ["c1", "c2", "c3", "c4", "c5"],
       },
       {
         key: "project-director",
         label: "Project director, commercial manager",
         b: ["b1", "b2", "b3", "b4"],
-        c: ["c1", "c2", "c3", "c4", "c5", "c6"],
+        c: ["c1", "c2", "c3", "c4", "c5"],
       },
       {
         key: "subcontractor-supervision",
@@ -158,7 +158,7 @@ const CLIENTS = {
         key: "management",
         label: "Site & project management",
         b: ["b1", "b2", "b3", "b4", "b5", "b6"],
-        c: ["c1", "c2", "c3", "c4", "c5", "c6"],
+        c: ["c1", "c2", "c3", "c4", "c5"],
       },
     ],
   },

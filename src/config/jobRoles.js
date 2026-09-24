@@ -5,7 +5,7 @@
 // the active client's entry). This module reads the active client's matrix
 // and provides the helpers the app uses to gate modules and documents.
 //
-// Pathway A (A1–A6) is the BASELINE: every role takes all of it, in order.
+// Pathway A (A1–A5) is the BASELINE: every role takes all of it, in order.
 // Pathways B and C are assigned per role and unlock together once Pathway A
 // is complete (they can be taken in any order).
 //
@@ -23,8 +23,8 @@ export function jobRoleByKey(key) {
 }
 
 // Number of modules in Pathway A — the baseline everyone takes.
-export const PATHWAY_A_COUNT = 6;
-const ALL_MODULES_COUNT = PATHWAY_A_COUNT + 6 + 6; // A + B + C = 18
+export const PATHWAY_A_COUNT = 5;
+const ALL_MODULES_COUNT = PATHWAY_A_COUNT + 6 + 5; // A + B + C = 16
 
 // How many modules this job role is assigned in total (certificate threshold).
 // Unknown / unassigned role: the full programme.

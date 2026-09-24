@@ -107,7 +107,7 @@ function NextStepMenu() {
               onMouseDown={(e) => {
                 e.preventDefault();
                 setOpen(false);
-                navigate(next.type === "capstone" ? `/capstone/${next.id}` : `/module/${next.id}`);
+                navigate(`/module/${next.id}`);
               }}
               className="flex w-full items-start gap-3 p-stack-md text-left transition-colors hover:bg-surface-container-low"
             >

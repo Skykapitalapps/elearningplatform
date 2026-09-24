@@ -623,7 +623,7 @@ export const modules = [
     code: "A3",
     order: 3,
     pathway: "A",
-    title: "How the Money Works",
+    title: "How Project Financing Works",
     type: "quiz",
     duration: "13–16 min",
     status: "not_started",
@@ -675,7 +675,7 @@ export const modules = [
         heading: "The cycle, and where you joined it",
         diagram: {
           type: "cycle",
-          title: "How the money keeps flowing",
+          title: "The disbursement cycle",
           note: "Good evidence keeps the wheel turning. A broken covenant stops it.",
           items: [
             {
@@ -1018,50 +1018,6 @@ export const modules = [
           { text: "A hundred inspections is proof of a strong safety culture.", truth: false, tip: "Myth — leading indicators are easy to game. An inspection that never finds anything is not an inspection." },
         ],
       },
-    ],
-  },
-  {
-    id: "m6",
-    code: "A6",
-    order: 6,
-    pathway: "A",
-    title: "Capstone: the full ESG simulation",
-    type: "capstone",
-    duration: "20–25 min",
-    status: "not_started",
-    score: { earned: 0, total: 12 },
-    icon: "sports_esports",
-    summary: "Twelve live decisions that decide whether the financing holds.",
-    tldr: "No more reading — this is the game. Twelve situations from the whole course land on your desk, one by one. Every decision moves the project's financing health up or down. Get 9 of 12 right and the lenders stay with you.",
-    glossary: [
-      { term: "Financing health", plain: "The meter in the simulation — it stands for the lenders' confidence in the project. Good calls raise it, bad calls sink it." },
-      { term: "Good call", plain: "The decision the course taught: protect people first, follow the stricter rule, report honestly, use the grievance mechanism." },
-    ],
-    overview:
-      "The capstone brings the whole pathway together. You play the contractor’s site ESG lead through twelve real decisions on a lender-financed PPP project — each one moves the project's financing health. Score at least 9 of 12 to pass and keep the lenders on side.",
-    lesson: [
-      {
-        heading: "How the capstone works",
-        body: "There is no reading here — this module IS the simulation. You'll face twelve situations drawn from Modules A1–A5: environmental impacts, the rules, the financing, the ESMS and the KPIs. Choose wisely; the lenders are watching.",
-        image: "/images/course-hero.jpg",
-        caption: "Twelve live decisions on a financed project — everything you've learned, applied.",
-      },
-      {
-        heading: "What you'll need",
-        points: [
-          "The mitigation hierarchy and E vs S impacts (A1).",
-          "The stricter-standard rule and the four rulebooks (A2).",
-          "Conditions, covenants and the action plan (A3).",
-          "The ESMS: documents vs machinery (A4).",
-          "Honest KPIs, and why a perfect number is a warning (A5).",
-        ],
-        image: "/images/lm2.jpg",
-        caption: "Five modules of knowledge, one project to protect.",
-      },
-    ],
-    objectives: [
-      "Apply ESG judgement across the whole project lifecycle.",
-      "Protect the project's financing through good ESG decisions.",
     ],
   },
   {
@@ -2625,29 +2581,6 @@ export const modules = [
       },
     ],
   },
-  {
-    id: "c6",
-    code: "C6",
-    order: 18,
-    pathway: "C",
-    title: "Deciding Under Programme Pressure",
-    type: "capstone",
-    duration: "25–35 min",
-    status: "not_started",
-    score: { earned: 0, total: 10 },
-    icon: "balance",
-    summary: "The Pathway C capstone: ten decisions, all of which cost something.",
-    tldr: "You are the E&S lead on Section 3, eleven weeks behind on embankment, with an IESC visit in eight weeks. Over a simulated eight weeks you take ten decisions. Each costs something — programme, money, relationship or exposure. There is no path that pays nothing.",
-    overview: "A branching simulation that tests not whether you know the standards — Pathways A and B tested that — but whether you can act on them when acting is expensive, when someone credible disagrees, and when the cheap option is available and nobody would immediately know.",
-    lesson: [
-      {
-        heading: "Before you start",
-        body: "You are the E&S lead on Section 3, a 52 km package. You joined nine weeks ago. Earthworks are 48 percent complete and the section is eleven weeks behind on embankment, which your project director has raised in the last two progress meetings. Around you: a competent section manager under pressure, a logistics manager measured on haulage cycle time, an earthworks subcontractor who is ahead of programme and uses a labour supplier, a well-regarded but overstretched community liaison officer, and a director who has never worked with an E&S function that raised anything difficult. The lenders' independent consultant visits in eight weeks. Every decision costs something — programme, money, relationship or exposure. There is no path that pays nothing. One thing to carry out of it: nearly every failure in this programme was a reasonable decision, taken under real pressure, by someone who was never shown the trade they were actually making. Your job, more than anything technical, is to put that trade in front of whoever has authority to make it.",
-        image: "/images/lm1.jpg",
-        caption: "Ten decisions, eight weeks, four currencies — and some costs that are irreversible.",
-      },
-    ],
-  },
 ];
 
 // A distinct accent colour per module (by id). Used for icon tiles, chart
@@ -2659,7 +2592,6 @@ export const moduleAccents = {
   m3: "#10b981", // emerald — financing
   m4: "#a855f7", // purple — the ESMS
   m5: "#3b82f6", // blue — KPIs & reporting
-  m6: "#c99a2e", // gold — capstone
   b1: "#f59e0b",
   b2: "#6366f1",
   b3: "#0ea5e9",
@@ -2671,7 +2603,6 @@ export const moduleAccents = {
   c3: "#ef4444",
   c4: "#f59e0b",
   c5: "#64748b",
-  c6: "#d4a72c",
 };
 
 // Construction & public-infrastructure photos per module (royalty-free,
@@ -2685,7 +2616,6 @@ const DEFAULT_MODULE_IMAGES = {
   m3: "/images/lm2.jpg", // financial district (the financing)
   m4: "/images/lm3.jpg", // workers in PPE on site (ESMS in practice)
   m5: "/images/lm8.jpg", // solar array (measurable performance)
-  m6: "/images/lm14.jpg", // capstone — the whole project
   b1: "/images/lm6.jpg",
   b2: "/images/lm7.jpg",
   b3: "/images/lm8.jpg",
@@ -2697,7 +2627,6 @@ const DEFAULT_MODULE_IMAGES = {
   c3: "/images/lm2.jpg",
   c4: "/images/lm3.jpg",
   c5: "/images/lm4.jpg",
-  c6: "/images/lm1.jpg",
 };
 export const moduleImages = {
   ...DEFAULT_MODULE_IMAGES,
@@ -2759,7 +2688,7 @@ export const libraryByModule = {
     { title: "Jurisdiction file: Nigeria — law vs lender standards", icon: "gavel", doc: "nigeria-legal" },
   ],
   m3: [
-    { title: "Reference pack — How the money works", icon: "account_balance", doc: "a3-money" },
+    { title: "Reference pack — Project financing", icon: "account_balance", doc: "a3-money" },
   ],
   m4: [
     { title: "Reference pack — The ESMS", icon: "schema", doc: "a4-esms" },
@@ -2767,9 +2696,6 @@ export const libraryByModule = {
   ],
   m5: [
     { title: "Reference pack — KPIs and reporting", icon: "monitoring", doc: "a5-kpis" },
-  ],
-  m6: [
-    { title: "Launch the capstone simulation", icon: "sports_esports", to: "/capstone" },
   ],
   b1: [{ title: "Reference pack — Land, compensation & livelihoods", icon: "home_work", doc: "b1-land" }],
   b2: [{ title: "Reference pack — Workers, subcontractors & the camp", icon: "engineering", doc: "b2-workers" }],
@@ -2782,7 +2708,6 @@ export const libraryByModule = {
   c3: [{ title: "Reference pack — Investigating an incident", icon: "troubleshoot", doc: "c3-incident" }],
   c4: [{ title: "Reference pack — Handling a sensitive grievance", icon: "forum", doc: "c4-grievance" }],
   c5: [{ title: "Reference pack — Building a record that holds", icon: "fact_check", doc: "c5-records" }],
-  c6: [{ title: "Launch the Pathway C simulation", icon: "sports_esports", to: "/capstone/c6" }],
 };
 
 // Company policies & official documents, grouped by category. An item with a
@@ -3017,231 +2942,6 @@ export const psMatchItems = [
   },
 ];
 
-// Capstone simulation — 5 ESG decisions on a PPP project that together decide
-// whether the financing keeps flowing. Need `passNeeded` good calls to pass.
-// The Pathway A capstone: twelve situations drawn from Modules A1-A5.
-// Twelve situations; pass at 9 of 12 (softened from the spec's 10).
-export const capstoneSim = {
-  title: "Capstone: keep the financing flowing",
-  intro:
-    "You are the site E&S lead on a financed road project. The lenders have signed, the standards are binding, and the independent consultant visits in eight weeks. Twelve situations will reach you — each one a real decision with a real cost. There is no option that costs nothing.",
-  passNeeded: 9,
-  steps: [
-    {
-      prompt: "A wetland sits on the alignment. The design team offers four ways forward.",
-      options: [
-        { text: "Ask first whether the alignment can shift to miss the wetland, and cost that option before any other", good: true, feedback: "Avoidance is step one, close to free during design, and unavailable later. The others are steps two to four — legitimate only once avoidance has been considered and documented." },
-        { text: "Fund a wetland offset elsewhere", good: false, feedback: "Offset is the LAST step, and a reviewer's first question will be what avoidance you considered. Cash to a conservation body is not even an offset — it is how one might be funded." },
-        { text: "Bridge the wetland rather than embank it", good: false, feedback: "Better than an embankment — but it is minimisation, step two. Nobody has yet asked whether the crossing is needed at all." },
-        { text: "Cross now and restore the wetland afterwards", good: false, feedback: "Restoration is step three, and hydrological function rarely restores to what it was. The hierarchy exists precisely to stop this jump." },
-      ],
-    },
-    {
-      prompt: "Your environmental permit is valid. A community member tells your liaison officer the compensation schedule applied depreciation to every structure.",
-      options: [
-        { text: "Treat it as an open PS5 issue: check the valuation method, quantify any shortfall against full replacement cost, and plan top-ups", good: true, feedback: "A valid permit closes a legal question and no lender finding. Depreciation is the classic gap between national practice and PS5 — recalculate and top up, documented as such." },
-        { text: "Point to the valid permit — the regulator approved the schedule", good: false, feedback: "The permit answers tier 1. The lender standards are a separate tier, and the regulator has no power to waive a standard it was never given to apply." },
-        { text: "Refer the community member to the valuation office", good: false, feedback: "The valuation office applied national law correctly. The gap is the project's to close, not theirs." },
-        { text: "Wait to see if a formal grievance is lodged", good: false, feedback: "If depreciation was applied across the register, this is a systematic finding, not a case. Waiting converts one correction into a hundred claims." },
-      ],
-    },
-    {
-      prompt: "A subcontractor's labour supplier holds his workers' identity documents — 'for safekeeping, the camp has no lockers'.",
-      options: [
-        { text: "Require the documents returned today, provide lockable storage, and address the supplier contractually", good: true, feedback: "A forced labour indicator, acted on regardless of intent. PS2 covers workers engaged by third parties — the contractual distance is paperwork, not a defence." },
-        { text: "Treat it as the supplier's internal arrangement", good: false, feedback: "The finding lands on the project. PS2 applies to contracted workers, and PS1 requires you to manage and monitor third parties." },
-        { text: "Ask the subcontractor to confirm in writing that the workers consent", good: false, feedback: "A consent letter for a forced labour indicator makes it worse: there is no legitimate reason to hold a worker's documents, and now the file proves you knew." },
-        { text: "Note it for the next audit", good: false, feedback: "The correction costs nothing and removes a real harm today. Deferring it leaves twenty men unable to leave for another quarter." },
-      ],
-    },
-    {
-      prompt: "An ESAP action tied to the next disbursement is overdue. Work on it has started. Your PM wants it reported as 'on track'.",
-      options: [
-        { text: "Report it as overdue with a dated completion plan — progress is not closure, and the closing evidence has not been produced", good: true, feedback: "Right. An action closes on verified evidence, and an honest overdue with a plan is a manageable conversation. A false 'on track' discovered later is not." },
-        { text: "Report it 'on track' — work has started", good: false, feedback: "Progress is not closure. When the disbursement is requested, the evidence will be asked for, and the report will be shown to have been wrong." },
-        { text: "Mark it closed and finish the work before anyone checks", good: false, feedback: "A reviewer samples closed actions and asks for the evidence. One reopened action puts the whole tracker in doubt." },
-        { text: "Ask for the action to be removed from the ESAP", good: false, feedback: "The ESAP is annexed to the financing agreement. Site does not amend it — and the request itself signals the project negotiates its commitments." },
-      ],
-    },
-    {
-      prompt: "The traffic management plan refers to haul routes changed eleven months ago. The consultant visits in three weeks.",
-      options: [
-        { text: "Revise it now, dated today, brief the drivers this week, and disclose both the gap and the correction", good: true, feedback: "Plans go stale when works change — ordinary, and fixable. Fixing it now and saying so demonstrates the system working." },
-        { text: "Revise it and date it to when the routes changed", good: false, feedback: "IRREVERSIBLE. Back-dating converts a routine finding into an integrity one, it is usually detectable, and it poisons every other document you hold." },
-        { text: "Leave it — the plan is approved and the routes work fine", good: false, feedback: "An approved stale plan is the textbook sign of documents without machinery, and it is the first thing a reviewer checks for currency." },
-        { text: "Withdraw the plan from the document pack", good: false, feedback: "A missing mandatory plan is more conspicuous than a stale one, and the omission reads as deliberate." },
-      ],
-    },
-    {
-      prompt: "Your E&S officer asks for budget to fence three borrow pits near footpaths. Production says it is not in the price.",
-      options: [
-        { text: "Escalate it as a decision: the exposure quantified, the cost, the options — to someone with authority over the money", good: true, feedback: "Capacity is decided above you: money, reporting lines, authority. An unfenced pit beside a footpath is a life-safety exposure today, and 'not in the price' is an answer only a director can accept in writing." },
-        { text: "Accept the answer — production owns the budget", good: false, feedback: "This is the capacity failure PS1 names: an E&S function that must beg funds from the person whose programme the requirement affects." },
-        { text: "Tell the officer to keep asking", good: false, feedback: "Persuasion is what remains when the function has no authority. Six more weeks of asking is six more weeks of open pits." },
-        { text: "Log it as a risk and move on", good: false, feedback: "A risk register entry does not fence a pit. The exposure is physical and daily." },
-      ],
-    },
-    {
-      prompt: "Four weeks of monitoring sheets were completed in one sitting, in one hand. The technician says he transcribed a notebook that no longer exists.",
-      options: [
-        { text: "Disclose the retrospective transcription, resume contemporaneous recording, and note it on the gap register", good: true, feedback: "The lapse is ordinary; concealing it is what turns it into a credibility finding that reaches every record the project holds." },
-        { text: "Have the sheets redone with varied handwriting", good: false, feedback: "IRREVERSIBLE. Falsification — the worst option available, and the one most often suggested in the room." },
-        { text: "Submit them as they are", good: false, feedback: "One hand, one pen, values that do not move with conditions that did: it is detectable, and the whole document set becomes assertion rather than evidence." },
-        { text: "Remove the four weeks from the series", good: false, feedback: "An unexplained gap in a monitoring series is more conspicuous than the sheets, and the omission reads as deliberate." },
-      ],
-    },
-    {
-      prompt: "The grievance register shows zero entries this quarter — 400 workers, a host community, a live corridor.",
-      options: [
-        { text: "Report it as an open question about the channel, and test it: can a villager name the person she would tell, without entering the gate?", good: true, feedback: "An empty register is not a performance result. It usually means the channel is unknown, distrusted or unsafe — and a reviewer reads it that way whatever the covering note says." },
-        { text: "Report it as a community relations achievement", good: false, feedback: "A perfect number is a warning. A project that cannot see its own operation is the conclusion the reviewer draws." },
-        { text: "Report it without comment", good: false, feedback: "Silence invites the reviewer's own conclusion. Say what you checked and what you found." },
-        { text: "Add a few informal complaints to make it look realistic", good: false, feedback: "Fabricating register entries is falsification — the same act as back-dating a document." },
-      ],
-    },
-    {
-      prompt: "The quarterly injury rate looks excellent — and you notice the hours exclude the labour supplier's 22 workers.",
-      options: [
-        { text: "Recalculate with everyone included, state the change of basis, and restate the prior period the same way", good: true, feedback: "A rate that excludes contracted workers is not the project's rate, and the exclusion is invisible in the number. PS2 covers workers engaged by third parties." },
-        { text: "Accept it — they are not direct employees", good: false, feedback: "Scope is defined by the relationship to the project, not the contract. Incomplete numbers misstate the project's exposure." },
-        { text: "Report both versions and let the reader choose", good: false, feedback: "Two versions of one indicator is exactly the document position a project must never hold." },
-        { text: "Keep the basis and footnote it", good: false, feedback: "A footnote does not make an incomplete number complete. Fix the number, not the caption." },
-      ],
-    },
-    {
-      prompt: "The community asks that haulage stop during school hours. It costs nine percent of capacity. Your logistics manager says the banksman at the gate is enough.",
-      options: [
-        { text: "Impose the school-hour pause as an interim measure, and put the routing decision to the project director in writing, with cost and risk stated", good: true, feedback: "A decision with a foreseeable fatality at the end of it cannot sit with the person optimising haulage capacity. Six minutes is a price — someone with authority has to be shown the bill." },
-        { text: "Let the logistics manager decide", good: false, feedback: "He has no authority to accept a fatality risk, and asking him to carry it is how the decision goes unmade." },
-        { text: "Accept the banksman as the control", good: false, feedback: "Step four of the hierarchy: one point, part of the day, nothing for the two kilometres of shoulder the children walk." },
-        { text: "Promise the community a study", good: false, feedback: "The interim measure costs nothing today. A study is how the exposure keeps running with a clear conscience." },
-      ],
-    },
-    {
-      prompt: "The independent consultant arrives. You hold a gap register with eleven open items, four of them high severity.",
-      options: [
-        { text: "Hand it over at the start — owners, dates, corrective actions, including the item you have not solved", good: true, feedback: "It changes what is assessed: from whether you know your position to whether your plan is adequate. And it protects the findings you missed — disclose eleven and miss one, and you are a project with a working system and a gap." },
-        { text: "Hold it back and answer questions well", good: false, feedback: "Answering well protects nothing once the first undisclosed item is found. Their most damaging question is not what went wrong — it is whether you knew." },
-        { text: "Disclose the comfortable seven and hold the four high-severity items", good: false, feedback: "Partial disclosure is discovered the same way as none, and it converts the seven disclosed items into camouflage." },
-        { text: "Present the project's achievements first", good: false, feedback: "A curated opening is read as exactly that. The gap register IS the context." },
-      ],
-    },
-    {
-      prompt: "Your director asks you to confirm in writing that the project's E&S position is satisfactory.",
-      options: [
-        { text: "Decline, and offer the honest alternative: the gap register with owners, dates and corrective actions — the position, controlled", good: true, feedback: "A director shown a controlled path usually takes it. A written certification you know to be false converts technical findings into a personal integrity finding." },
-        { text: "Sign it — the big items are in hand", good: false, feedback: "IRREVERSIBLE. It destroys the credibility of everything the E&S function says afterwards, and it will be quoted back at the worst moment." },
-        { text: "Sign it with caveats noting the open items", good: false, feedback: "Worse than either alternative: the caveats prove you saw the problem and signed anyway." },
-        { text: "Avoid answering until after the visit", good: false, feedback: "The question does not go away, and avoidance spends the credibility you will need at the closeout meeting." },
-      ],
-    },
-  ],
-};
-
-// Pathway C capstone: "Deciding under programme pressure". You are the E&S
-// lead on Section 3 — 52 km, 48% complete, eleven weeks behind on embankment,
-// IESC visit in eight weeks. Ten decisions; every option costs something.
-export const c6Sim = {
-  title: "Deciding under programme pressure",
-  intro:
-    "You are the E&S lead on Section 3, eleven weeks behind on embankment, with the lenders' independent consultant visiting in eight weeks. Ten decisions over a simulated eight weeks — every option costs something.",
-  passNeeded: 7,
-  steps: [
-    {
-      prompt: "Week 1. A borrow pit close to the works has no mineral title and is not in the assessment. Using it would recover four weeks of programme. Your section manager wants to open it Monday.",
-      options: [
-        { text: "Do not open it: start the title application and screening now, and put the recovery option to the director with both the gain and the exposure stated", good: true, feedback: "Right. Regularising later leaves an unlawful extraction on the record for the whole period — and one unscreened pit can engage six standards plus national mining law." },
-        { text: "Open it and regularise the title in parallel — permitting takes weeks you do not have", good: false, feedback: "Every day of extraction before the title is unlawful extraction on the record. 'Regularising later' feels proportionate and is the trap." },
-        { text: "Open it, but limit extraction to what the embankment strictly needs", good: false, feedback: "A smaller unlawful extraction is still an unlawful extraction, and still an unassessed activity under PS1." },
-        { text: "Refuse outright and absorb the four weeks without telling anyone why", good: false, feedback: "The refusal may be right, but a decision with a four-week programme cost taken silently by the E&S lead will not survive — put the trade in front of the person with authority to make it." },
-      ],
-    },
-    {
-      prompt: "Week 2. The compensation file for four parcels is with the ministry. The community leader offers written confirmation that the households are content for work to start.",
-      options: [
-        { text: "Do not enter. Escalate the payment delay and resequence the works to parcels where compensation is available", good: true, feedback: "Resequencing is available and nobody suggests it. A leader cannot waive an individual entitlement — the letter documents the breach rather than preventing it." },
-        { text: "Take the letter and start — the community has agreed", good: false, feedback: "IRREVERSIBLE. Land entered before compensation is available cannot be corrected afterwards, and the letter makes the breach documented rather than deniable." },
-        { text: "Start on the two parcels whose owners are present and consenting", good: false, feedback: "Consent given beside an excavator, before the money is available, is not consent in any sense a reviewer will accept." },
-        { text: "Pay the households an advance from project funds and start", good: false, feedback: "A parallel, undocumented payment route outside the entitlement framework is its own serious finding." },
-      ],
-    },
-    {
-      prompt: "Week 3. Four pedestrian near misses on the haul road in four months — all recorded, none acted on. Rerouting costs nine percent of haulage capacity. The logistics manager says the banksman at the school gate is enough.",
-      options: [
-        { text: "Impose the school-hour pause today as an interim measure, and put the routing decision to the director in writing with cost and fatality risk stated", good: true, feedback: "Right. A decision with a foreseeable fatality at the end of it cannot sit with the person optimising haulage capacity — and four recorded events with no response is a PS1 system finding." },
-        { text: "Accept the banksman and close the community request", good: false, feedback: "The banksman is step four of the hierarchy: one point, part of the day. It does nothing for the two kilometres of shoulder the children walk." },
-        { text: "Let the logistics manager choose between rerouting and timed stoppages", good: false, feedback: "He cannot authorise a nine percent capacity reduction and should not be asked to carry this decision. That is exactly how it went unmade for four months." },
-        { text: "Commission a road safety study reporting in six weeks", good: false, feedback: "Reasonable in isolation — and it leaves the exposure running for the length of the study, when the interim measure costs nothing today." },
-      ],
-    },
-    {
-      prompt: "Week 3. The labour supplier holds 22 workers' identity documents and charged placement fees. The subcontractor threatens to withdraw the crew if you interfere.",
-      options: [
-        { text: "Require the documents returned today, provide lockable storage, and write the decision up for the director with the programme implication attached", good: true, feedback: "The correction costs almost nothing and removes the harm today. His leverage rests on the arrangement itself: you are removing his control over the workers, not the workers." },
-        { text: "Concede for now — the section is ahead of programme and the visit is in five weeks", good: false, feedback: "A section ahead of programme carrying a forced labour indicator is an undisclosed liability sitting on a good production figure. It will be found." },
-        { text: "Escalate in the room: tell the manager his subcontract will be terminated", good: false, feedback: "Escalating in the room makes it personal and commits you to a position you cannot back out of. Write it up and move the decision to whoever has authority." },
-        { text: "Report the supplier to the labour inspectorate and wait", good: false, feedback: "A legitimate later step, and it does nothing this week for 22 people who cannot leave." },
-      ],
-    },
-    {
-      prompt: "Week 4, Friday 16:20. A grader exposes possible human remains. The named chance find contact does not answer. The section manager suggests marking the spot and continuing thirty metres along until Monday.",
-      options: [
-        { text: "Secure the radius, stop work in that area entirely, escalate to the next named contact, and inform the community liaison officer tonight", good: true, feedback: "Working thirty metres away is still working in the area — it is how context is destroyed and how a community learns the project kept going. The upstream failure (one contact, no alternate) gets fixed next week." },
-        { text: "Mark it and continue thirty metres along, as suggested", good: false, feedback: "IRREVERSIBLE. By Monday, whose grave it was can no longer be established — and the site becomes a place where the project dug up a grave and kept working." },
-        { text: "Have the operator photograph it so a specialist can assess remotely over the weekend", good: false, feedback: "Photographing is handling, and it creates a circulating record of a sensitive site." },
-        { text: "Backfill to protect the find and resume Monday", good: false, feedback: "Backfilling disturbs the find and looks, to anyone who learns of it later, indistinguishable from concealment." },
-      ],
-    },
-    {
-      prompt: "Week 5. Your liaison officer reports, without names, that compensation files are believed to move faster for those who visit a member of the land team at his accommodation. The grievance register is empty; its only intake point is the project office, where the land team sits.",
-      options: [
-        { text: "Remove the individual's discretion over file sequencing today, stand up a reporting route outside the project office, and confirm the referral pathway", good: true, feedback: "The control failure is actionable with no allegation at all: one person holding discretionary control over a benefit, with a route by which that discretion is believed to be traded." },
-        { text: "Interview the women in the village to establish whether there is a case", good: false, feedback: "Seeking accounts before any confidentiality architecture, trained responder or referral pathway exists creates risk for the people who speak to you — and produces material you cannot handle safely." },
-        { text: "Put it to the individual directly and record his response", good: false, feedback: "Achieves nothing evidentially and creates a retaliation risk against women he can identify from the substance of the question." },
-        { text: "Ask the community leadership to look into it discreetly", good: false, feedback: "Delegates a matter the project owns to people who may be part of the gatekeeping, and removes every confidentiality protection at once." },
-      ],
-    },
-    {
-      prompt: "Week 6. You discover four weeks of dust monitoring sheets were completed in one sitting, in one hand. The technician says he transcribed them from a notebook that no longer exists. The IESC visit is in three weeks.",
-      options: [
-        { text: "Disclose that the four weeks were transcribed retrospectively and the source is lost, resume contemporaneous recording, and note it on the gap register", good: true, feedback: "Right. The underlying lapse is ordinary; hiding it is what turns it into a credibility finding that reaches every record the project holds." },
-        { text: "Have the technician redo the sheets with varied handwriting and pens", good: false, feedback: "IRREVERSIBLE. That is falsification — the single worst option available, and the one most often suggested in the room." },
-        { text: "Remove the four weeks from the monitoring pack", good: false, feedback: "An unexplained four-week gap in a monitoring series is more conspicuous than the sheets, and the omission reads as deliberate." },
-        { text: "Submit the sheets as they are — the monitoring was probably done", good: false, feedback: "It is detectable: one hand, one pen, values that do not move with conditions that did. Submitting it converts a record-keeping problem into a credibility problem." },
-      ],
-    },
-    {
-      prompt: "Week 6. It is the driest month. The camp of 400 draws from a borehole shared with the village; the queue now starts before dawn and women are walking three kilometres to another source. No grievance has been submitted.",
-      options: [
-        { text: "Arrange interim water supply now, start a separate camp source, and go to the community before they come to you", good: true, feedback: "The agreement was made in the wet season by people who could not know what 400 daily users would mean now. A separate borehole costs a fraction of the grievance settlement, the water trucking and the two years of hostility." },
-        { text: "Wait for a grievance so the response can be properly documented", good: false, feedback: "Waiting for the grievance is waiting for the relationship to break." },
-        { text: "Reduce camp water use and monitor the yield weekly", good: false, feedback: "Necessary and insufficient — demand reduction will not restore a yield already failing at the wrong end of the dry season." },
-        { text: "Nothing — the arrangement was agreed with the leadership", good: false, feedback: "Consent given without the information does not hold, and the community has not yet connected the queue to the project. It will." },
-      ],
-    },
-    {
-      prompt: "Week 7. Your director asks you to confirm in writing that the section's E&S position is satisfactory ahead of the visit.",
-      options: [
-        { text: "Decline the confirmation, and offer the honest alternative: the gap register with owners, dates and corrective actions — the position, controlled", good: true, feedback: "A confirmation you know to be false converts technical findings into a personal integrity finding. A director shown a controlled path usually takes it." },
-        { text: "Sign it — the big items are being corrected anyway", good: false, feedback: "IRREVERSIBLE. A written certification of a position you knew to be false destroys the credibility of everything the E&S function says afterwards." },
-        { text: "Sign it with caveats noting the outstanding items", good: false, feedback: "The caveat does not cure it — it demonstrates that you saw the problem and signed anyway. Worse than either alternative." },
-        { text: "Avoid answering until after the visit", good: false, feedback: "The question does not go away, and avoidance spends the credibility you will need in the closeout meeting." },
-      ],
-    },
-    {
-      prompt: "Week 8. The visit. The reviewer sits down and asks how you would like to begin.",
-      options: [
-        { text: "Hand over the gap register: every open item, four high severity, owners and dates — including the one you have not solved, on which you ask her view", good: true, feedback: "It changes what is being assessed: from whether you know your position to whether your plan is adequate. And it protects the findings you missed — a project that discloses eleven and misses one has a working system and a gap." },
-        { text: "Hand over nothing, and answer questions well as they come", good: false, feedback: "Answering well protects nothing once the first undisclosed finding is discovered. Their most damaging question is not what went wrong — it is whether you knew." },
-        { text: "Present the section's achievements first to set the context", good: false, feedback: "Reviewers read a curated opening as exactly that. The gap register IS the context." },
-        { text: "Disclose the comfortable items and hold back the compensation shortfall", good: false, feedback: "A quantified shortfall exists in a spreadsheet somebody has. Once found, the disclosed items stop being evidence of a working system." },
-      ],
-    },
-  ],
-};
-
-// Simulations by module id (m6 = Pathway A capstone, c6 = Pathway C capstone).
-export const capstoneSims = { m6: capstoneSim, c6: c6Sim };
 
 
 // Reference documents rendered as in-app readings. `keyPoints` is a faithful
@@ -3478,7 +3178,7 @@ export const documents = {
         title: "What good performance buys",
         points: [
           "Fewer people are harmed — the first reason, and it needs no financial justification.",
-          "The money keeps flowing — disbursement is conditional, and meeting E&S conditions is what converts a signed facility into cash.",
+          "Disbursement is conditional — meeting the E&S conditions is what converts a signed facility into cash.",
           "The programme holds — blockades, stop-work notices and investigations are among the largest AND most preventable sources of delay.",
           "The next contract becomes winnable — E&S performance is now a prequalification criterion on most donor-funded and PPP tenders.",
           "It is cheaper — prevention costs are small, known and budgetable; remediation costs are large, unbudgeted, and arrive with legal and reputational consequences attached.",
@@ -4443,7 +4143,7 @@ export const documents = {
   },
 
 "a3-money": {
-    title: "How the money works — reference pack",
+    title: "Project financing — reference pack",
     org: "Module A3 reference pack",
     accent: "#0ea5e9",
     image: "/images/lm2.jpg",

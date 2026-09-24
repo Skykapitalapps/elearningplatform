@@ -754,7 +754,7 @@ export default function QuizPage() {
             questions={deck}
             answers={answers}
             nextModule={modules[modules.findIndex((m) => m.id === target.id) + 1]}
-            onNext={(m) => navigate(m.type === "capstone" ? "/capstone" : `/module/${m.id}`)}
+            onNext={(m) => navigate(`/module/${m.id}`)}
             onReview={() => navigate("/course")}
             onLesson={() => navigate(`/module/${target.id}`)}
             onRetake={retake}

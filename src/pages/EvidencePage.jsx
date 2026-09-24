@@ -120,7 +120,7 @@ export default function EvidencePage() {
           )}
           <p className="mt-1 max-w-xl text-body-md text-white/80">
             has completed all {progress.total} modules of “{course.title}”,
-            passing every assessment and the capstone simulation.
+            passing every assessment.
           </p>
           <div className="mt-stack-md flex flex-wrap items-center gap-stack-md">
             <span className="flex items-center gap-1 text-caption text-white/80">
@@ -259,14 +259,6 @@ export default function EvidencePage() {
                         className="text-caption font-bold text-secondary hover:underline"
                       >
                         Retake quiz
-                      </Link>
-                    )}
-                    {m.type === "capstone" && (
-                      <Link
-                        to="/capstone"
-                        className="text-caption font-bold text-secondary hover:underline"
-                      >
-                        Replay
                       </Link>
                     )}
                     <span className="ml-auto text-caption text-outline">
