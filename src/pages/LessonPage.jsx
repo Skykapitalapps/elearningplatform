@@ -572,6 +572,17 @@ export default function LessonPage() {
                           />
                         </button>
                       </h3>
+                      {/* One-line beginner summary: the section's point in
+                          plain words, before the full text. */}
+                      {section.plain && (
+                        <p
+                          className="mb-2 rounded-lg border-l-4 px-3 py-2 text-body-md font-medium text-on-surface"
+                          style={{ borderColor: module.accent, background: `${module.accent}0d` }}
+                        >
+                          <span className="font-bold" style={{ color: module.accent }}>In plain words: </span>
+                          {section.plain}
+                        </p>
+                      )}
                       {section.body && (
                         <p className="text-body-md leading-relaxed text-on-surface-variant">
                           {section.body}

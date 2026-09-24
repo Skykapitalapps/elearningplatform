@@ -63,6 +63,7 @@ export const modules = [
     lesson: [
       {
         heading: "Why this module exists",
+        plain: "One 'quick win' — like an unchecked borrow pit — can end up costing far more than it saved. This course exists so you can spot that before it happens.",
         body: "A contractor opens a borrow pit to win laterite for an embankment. The land is scrubby, apparently unused, and nobody complains at first. Six weeks later the pit is twelve metres deep and full of standing water. Two children drown in it. The community blocks the haul road; work stops on a fourteen-kilometre section. The lender's monitoring consultant finds no management plan, no closure design, no fencing, and no record that anyone ever asked who used that land. The technical work was sound — the embankment was well built — but the project failed anyway: months of delay, a suspended disbursement, a compensation claim, and a story that follows the contractor into its next tender. Nothing in that sequence required specialist knowledge to prevent. It required someone to ask, before the first excavator arrived: Who uses this land? What happens to this hole when we finish? Who has agreed to this?",
         image: "/images/course-hero.jpg",
         caption: "One unplanned borrow pit can stop a fourteen-kilometre section.",
@@ -98,6 +99,7 @@ export const modules = [
       },
       {
         heading: "The correction that matters most: E&S is not ESG minus the G",
+        plain: "ESG is investor language; E&S is project language. On this project the lenders check your E&S performance — it is not a slimmed-down ESG.",
         body: "You will often hear that E&S is simply ESG without governance. That is wrong, and the mistake causes real confusion. E&S is not a smaller version of ESG — it is a different unit of analysis. ESG assesses an organisation; E&S assesses a project. Governance is fully present at project level, under different names: management system, organisational capacity, competency, accountability, monitoring, reporting. IFC Performance Standard 1 requires an Environmental and Social Management System whose elements — policy, risk identification, management programmes, capacity and competency, emergency preparedness, stakeholder engagement, monitoring and review — ARE governance, described in project language. The honest formulation: E&S is the project-level, contractually binding scope that lenders assess and monitor. ESG is the broader corporate-level lens, much of which is voluntary. Governance runs through both. And do not confuse either with CSR: a school built as a goodwill gesture is a choice; a resettlement obligation under a financing agreement is a debt.",
         image: "/images/esg-governance.jpg",
         caption: "A company can score well on ESG and still fail an E&S audit — ratings measure disclosure; audits measure reality.",
@@ -171,6 +173,7 @@ export const modules = [
       },
       {
         heading: "G for Governance — and what a failure actually costs",
+        plain: "Governance is whether the rules are real: honest records, no bribes, someone accountable. When it fails, the money stops.",
         body: "Governance determines whether the other two pillars are real or decorative. Four components: ethics and anti-corruption (a facilitation payment is unlawful under most financing agreements, whatever local practice tolerates); record integrity (a falsified record is treated more seriously than the failure it hides); accountability (an E&S manager with no budget and no authority is a documented non-conformity); and speak-up channels (if the first person to use one is punished, the channel is dead and everyone knows it). And forget the myth that one small bribe collapses the loan overnight. The real mechanism is slower and more sobering:",
         points: [
           "1. Detection — audit, complaint, supervision engineer, or the lenders' IESC on a site visit.",
@@ -414,6 +417,7 @@ export const modules = [
       },
       {
         heading: "EP4 Principle 3: the two categories of country",
+        plain: "In most African countries the lenders apply the IFC standards on top of national law — so your project must satisfy BOTH.",
         body: "The Equator Principles are how the Performance Standards reach commercial bank financing, and Principle 3 is the single most consequential provision for anyone working in Africa. It divides the world into Designated Countries (essentially the high-income OECD, where national law is deemed sufficient) and Non-Designated Countries. Every country in Sub-Saharan Africa is Non-Designated. The consequence is not a matter of interpretation: the Performance Standards apply in full, in addition to national law, contractually. A team that has read the national statute and stopped has read about one quarter of what applies to it. And a point of self-respect worth holding: the classification concerns the enforcement environment, not the quality of national legislation — and its practical effect is that communities on these projects receive MORE protection than national law alone would give them, particularly on land and labour. Arguing against it would be arguing for less protection for the people living beside the alignment.",
         image: "/images/course-hero.jpg",
         caption: "Non-Designated status means a higher standard of protection for the people beside the alignment.",
@@ -459,6 +463,7 @@ export const modules = [
       },
       {
         heading: "Gap 1 — the assessment is environmental, not environmental AND social",
+        plain: "National permits often check nature only; the lenders also check people — land, workers, communities. That gap is yours to fill.",
         body: "Most national regimes are ENVIRONMENTAL impact assessment regimes: the statute, the schedules and the reviewing authority are oriented to biophysical impact. The lender expects an environmental AND SOCIAL assessment where the social analysis is a full parallel workstream: displacement and land, livelihoods, labour, community health and safety, gender, vulnerable groups, cultural heritage, engagement and grievance. The consequence is structural: a perfectly compliant national EIA can contain no resettlement analysis, no labour risk assessment and no engagement plan. It is not deficient against the law it was written for — it is answering a narrower question. The same is true of engagement: national law requires a participation EVENT (a display period, a hearing); PS1 requires a continuous PROCESS across the project life — which is why a project can hold every permit and have no functioning engagement at the moment it starts affecting people.",
         image: "/images/esg-social.jpg",
         caption: "A statutory hearing at design stage is an event. PS1 requires a process.",
@@ -501,12 +506,14 @@ export const modules = [
       },
       {
         heading: "Closing the gap: supplementary assessment or corrective framing",
+        plain: "Not started building yet? Do an extra assessment. Already building? Assess what is there, fix what is wrong, with dates.",
         body: "What to do about the gaps depends on one fact: whether construction has started. BEFORE construction, the normal instrument is a supplementary assessment — it does not reopen the national approval; it addresses, to lender scope, what the national instrument did not cover: social impact, resettlement instrument, engagement plan, grievance mechanism, labour assessment, community safety, biodiversity, heritage, cumulative impacts, and a consolidated ESMP. Holding a national EIA plus a supplementary ESIA is normal practice, not failure. AFTER construction has started, the analysis cannot be presented as pre-construction due diligence, because it is not — any competent reviewer sees through that framing and it damages everything else in the submission. The correct posture is corrective: state what occurred, assess what can still be avoided on the remaining works, quantify what must be restored or compensated, and set a time-bound plan with owners. Lenders penalise the disguise, not the fact. And on sequencing: analytical work before approval (counting assets, verifying schedules) is defensible; acts that create facts (paying compensation, taking land, clearing vegetation) are not. Counting is not taking.",
         image: "/images/lm2.jpg",
         caption: "Counting is not taking — the distinction reviewers examine on the dates.",
       },
       {
         heading: "Jurisdiction file: Nigeria",
+        plain: "One page per country: what national law requires, and where the lenders' standards ask for more. Nigeria is the worked example.",
         body: "Nigeria in one paragraph — the same exercise should be run and documented for every country you work in. Nigerian law requires: an EIA before listed projects (EIA Act, Cap E12 — an environmental statute; it requires no resettlement plan and no engagement plan); NESREA enforcement and sectoral regulations, PLUS state-level agencies with independent powers — a federal approval does not dispose of state requirements; a MINERAL TITLE for extracting laterite, sand or rock (Minerals and Mining Act 2007) — a borrow pit without one is unlawful extraction and an unassessed activity at the same time; compensation on revocation of a right of occupancy (Land Use Act 1978) — directed at unexhausted improvements, not bare land value; core employment protections (Labour Act) with a narrower 'worker' definition than PS2; verified remittance of pension, social insurance and levies; and lawful handling of personal data (NDPA 2023) — which covers your resettlement census and grievance register. What Nigerian law does NOT require: a RAP, full replacement cost without depreciation, eligibility without title, a communicated cut-off date, livelihood restoration, an engagement plan, or a grievance mechanism. All seven exist on a financed Nigerian project because the Performance Standards exist and the financing agreement makes them binding.",
         image: "/images/lm5.jpg",
         caption: "Seven requirements that exist only because the financing agreement says so.",
@@ -635,6 +642,7 @@ export const modules = [
     lesson: [
       {
         heading: "The payment that did not arrive",
+        plain: "A finished, certified milestone can still go unpaid if E&S actions are overdue — that is the whole point of this module.",
         body: "A contractor completes a milestone, certifies it, and invoices. Three weeks later nothing has been paid. The client is not disputing the works. The engineer has signed. The construction is fine. What happened is that the lenders have not released the tranche, because four actions on the project's action plan are overdue and one of them is attached to this disbursement. None of the four is a construction matter: one is a resettlement register, one a grievance mechanism, one a set of accommodation standards, one a monitoring report that went in late. This module exists because most people on a construction project do not know this mechanism is there — and so cannot see how what they do connects to whether the project gets paid.",
         image: "/images/lm2.jpg",
         caption: "Nobody on this project is more than three steps from the money.",
@@ -652,6 +660,7 @@ export const modules = [
       },
       {
         heading: "Three instruments, three effects",
+        plain: "Three tools: a gate before money moves (condition precedent), an ongoing promise (covenant), and a to-do list with dates (the action plan).",
         image: "/images/esg-reporting.jpg",
         caption: "The report the lender reads before releasing money.",
         body: "The financing agreement converts environmental and social requirements into money through three devices, often confused and behaving differently. A CONDITION PRECEDENT is a gate: something that must be satisfied before an event, usually financial close or a particular disbursement. If it is not met, the event does not happen — there is nothing to cure; the gate simply has not opened. A COVENANT is a continuing obligation for the life of the loan: maintain a management system, report on a cycle, comply with the applicable standards. Failure is a breach, usually with a cure period, and persistent or material breach reaches default. THE ACTION PLAN (ESAP) is a schedule of specific corrective actions, each with an owner and a date, annexed to the agreement. Some actions are tied to a disbursement — which is how an overdue action stops a payment.",
@@ -706,6 +715,7 @@ export const modules = [
       },
       {
         heading: "Category A, and what it brings",
+        plain: "Category A = a big, high-risk project — so more rules: yearly audits, an independent consultant, public reporting.",
         body: "EP4 Principle 1 requires every project to be categorised on the magnitude of its potential impacts. Category A means potential significant adverse impacts that are diverse, irreversible or unprecedented — major road corridors, ports, large hydropower, anything with significant resettlement or critical habitat. Category B means limited impacts, few in number, largely site-specific and reversible; Category C means minimal or none. Category A brings: a full assessment to lender scope, independent review before financial close, independent monitoring for the life of the loan, INFORMED consultation and participation rather than mere consultation, and public reporting. Almost every project in this programme is Category A.",
         points: [
           "★ If the requirements seem heavy, the accurate answer is that they match the risk category the project sits in — and the category was set by what the project does, not by anyone's preference.",
@@ -713,6 +723,7 @@ export const modules = [
       },
       {
         heading: "The life of an action",
+        plain: "Every action has an owner, a date, and needs proof when done. 'Done' without evidence does not count.",
         image: "/images/hitech-skyline.webp",
         caption: "What the financing builds — and what it can pause.",
         body: "The action plan is the instrument you are most likely to meet by name: a list of actions, each with an owner and a date, annexed to the financing agreement, which makes every line a contractual commitment. Actions open from the due diligence, from a monitoring finding, from an incident or complaint — or from the project itself disclosing something, which is the origin that reflects best and is the rarest. A well-formed action has: a SPECIFIC deliverable, not an aspiration; a named owner, not a department; a date; the EVIDENCE that will close it — the field most often left blank; and whether it is tied to a disbursement. An action closes when the agreed evidence has been produced and VERIFIED. Not when the owner says it is done, not when a tracker says closed, and not because time has passed.",
@@ -733,6 +744,7 @@ export const modules = [
       },
       {
         heading: "Where you sit",
+        plain: "Whatever your job on site, you are at most three steps away from the lenders' money.",
         body: "The point is not that you should read a financing agreement. It is that you should be able to place your own work in a chain that ends at a bank. Operating plant, driving, labouring: you are the last link, and what you do is the performance — everything above it is a plan. Supervising: you turn a plan into an instruction and a record — whether the induction happened, whether the register is contemporaneous, whether a problem is raised or absorbed. HR, procurement, camp management: you hold several action plan items without necessarily knowing it — contracts, age records, payslips, accommodation, subcontract clauses. E&S and HSE: you are the interface with the action plan and the consultant. Management: you decide what the trade is when a requirement costs programme or money — and whether the person who raised it is supported.",
         points: [
           "★ The induction that did not happen becomes an overdue action, and the overdue action becomes a tranche that does not arrive.",
@@ -782,6 +794,7 @@ export const modules = [
     lesson: [
       {
         heading: "The plan nobody used",
+        plain: "Plans that live in a folder protect nobody. A system is only real if people use it — and it changes when the site changes.",
         body: "A project holds a complete management system. Policy, procedures, plans for traffic, waste, borrow pits, camps, community engagement. Several hundred pages, approved, current, indexed. On site, the traffic management plan refers to two haul routes changed eleven months ago. The waste procedure names a disposal facility the project stopped using. The camp plan was written for 180 workers and there are 340. No supervisor has opened any of them. Nothing here was done in bad faith — the plans were produced by people who knew what they were doing and approved by people who read them. Then the project started, and the plans stopped. A management system is not a set of documents. It is the machinery that keeps the documents true and makes them operate.",
         image: "/images/lm3.jpg",
         caption: "When people say a project has a system but it does not work, what they mean is that it has the documents and not the machinery.",
@@ -801,6 +814,7 @@ export const modules = [
       },
       {
         heading: "Four words, four objects",
+        plain: "Policy = what we commit to. Plan = what we will do. Procedure = how to do it. Record = proof we did it.",
         image: "/images/esg-governance.jpg",
         caption: "The management review — where the system meets the decisions.",
         body: "Policy, plan, procedure, record are used interchangeably on most projects and describe four different things. A POLICY is what we commit to — one or two pages, signed high up; nobody uses it daily; it sets the bar. A PLAN is what we will do about a defined risk over a defined period — managers use it to organise; it is the object that goes stale when the works change. A PROCEDURE is how one task is done, step by step — the person doing the task uses it at the moment of doing it. A RECORD is evidence that something happened — everyone uses it afterwards, including every external reader. A worker who asks what to do when he uncovers a grave needs a PROCEDURE. Handing him a ninety-page heritage plan is a correct answer to a question he did not ask — and it is why he will ask his foreman instead next time.",
@@ -824,6 +838,7 @@ export const modules = [
       },
       {
         heading: "Has anyone driven it?",
+        plain: "An emergency plan is real when someone has tested it: real scenarios, named people, working phone numbers, a practice run.",
         body: "The difference between a real emergency arrangement and a written one is four things. The scenarios are CREDIBLE for this project — a haulage collision involving community members, a bitumen spill in a settlement, a blasting incident, a camp fire, a flood affecting works and community together; not a generic fire-and-first-aid plan. The times are MEASURED, not assumed — drive from the furthest working point to the nearest facility with surgical capability and time it; on several corridors the honest answer is over three hours, which changes where the clinic goes and whether you work that chainage at night. People OUTSIDE the project know it exists — the health facility, the local authority and the community need to know what you will do, what you will not, and how to reach you at three in the morning. And it has been RUN — a drill, with the night shift included, with the lessons recorded.",
         points: [
           "★ A plan that has never been exercised is a description of an intention.",
@@ -831,6 +846,7 @@ export const modules = [
       },
       {
         heading: "The loop that changes things",
+        plain: "Measure, compare, fix, update the plan. That loop is what turns paper into a working system.",
         diagram: {
           type: "cycle",
           title: "The ESMS loop",
@@ -912,6 +928,7 @@ export const modules = [
     lesson: [
       {
         heading: "The form at the gate",
+        plain: "KPIs start life as ordinary site paperwork — every register and form you fill becomes a number the lenders read.",
         body: "A storeman signs an induction register. A driver reports that he nearly hit someone at a junction. A supervisor records a bund full of rainwater. A liaison officer logs a complaint about dust. None of those four thinks of themselves as producing data — each is filling in a form because they were told to. Eleven weeks later a page in a report to the lenders shows that near misses rose through the dry season, that they cluster at three junctions, and that two of the three are on a haul route the project changed in February. A decision follows: the route changes again, or the hours change, or somebody accepts a risk in writing.",
         image: "/images/lm14.jpg",
         caption: "Indicators are how what a driver noticed becomes something a manager can act on and a lender can rely on.",
@@ -952,6 +969,7 @@ export const modules = [
       },
       {
         heading: "Four properties, and a denominator",
+        plain: "A number you can trust is defined the same way by everyone, complete, on time, and compared against the same base.",
         image: "/images/hitech-dozer.webp",
         caption: "Every KPI starts as a tick on a form at the workface.",
         body: "A number missing any one of these can still be reported — and cannot be relied on. DEFINED: everyone calculating it uses the same definition, including subcontractors; a rate calculated on a different basis in two months is not a trend, it is two unrelated figures. SOURCED: traceable back to the records it came from; a number you cannot walk back to a register is an assertion. COMPLETE: covering everyone it should — an injury rate excluding the labour supplier's twenty-two workers is not your injury rate, and their absence is invisible in the number. COMPARABLE: against last period, against a target, against a benchmark. And watch the DENOMINATOR: most frequency indicators are a count divided by exposure, and the denominator is compiled separately, often by another department, and rarely checked.",
@@ -961,6 +979,7 @@ export const modules = [
       },
       {
         heading: "Leading, lagging, and the one that is both",
+        plain: "Lagging = counting what already went wrong. Leading = what you do to prevent it. Near misses are both — that is why they matter.",
         example: "A gate guard ticks the VHSE form at 6 a.m.: four near-misses this week. That tick becomes a line in the monthly KPI table — and a trend a lender reads three weeks later.",
         body: "LAGGING indicators measure outcomes that already happened — injuries, spills, exceedances, grievances received. Reliable and countable, and they arrive too late to prevent what they measure. LEADING indicators measure the activities meant to prevent those outcomes — inspections completed, inductions delivered, permits audited, actions closed on time. Predictive, and easy to game: a hundred shallow inspections produce an excellent number and no safety, so check quality, not only quantity. THE NEAR MISS is both: a lagging indicator of an event that happened and a leading indicator of one that has not. A rising count is usually good news, because it means people are reporting. A falling count is usually bad news — and a count of zero is not a safety result.",
         points: [
@@ -980,6 +999,7 @@ export const modules = [
       },
       {
         heading: "A perfect number is a warning",
+        plain: "Numbers that look too good — zero near misses, 100% within limits — usually mean nobody is reporting, not that nothing is wrong. Ask why before you celebrate.",
         image: "/images/esg-reporting.jpg",
         caption: "From gate form to the table a bank reads.",
         body: "This runs against instinct and it is the most important thing in this module. Zero near misses this quarter does not mean excellent safety — it means nobody is reporting. Zero grievances beside a host community does not mean strong relations — it means the mechanism is unknown or distrusted. Every monitoring result within limits every month means the monitoring points are in the wrong places, the readings are not taken at the times that matter, or the data is reconstructed. Every action closed on time means items are being marked closed without evidence — a reviewer will sample five and reopen them. An injury rate far below the sector benchmark usually means under-reporting or a padded denominator. A real project has bad numbers in it. Their presence is evidence that the system detects. Their absence is evidence that it does not.",
@@ -989,6 +1009,7 @@ export const modules = [
       },
       {
         heading: "One set of numbers, five readers",
+        plain: "Site, managers, client, lenders, community — five readers, ONE set of honest numbers. Never a special version for anyone.",
         body: "The site wants to know where to act this week, and fixes the thing the number points at before it becomes an incident. Project management wants to know where to put resources and what to escalate, and moves people and money. The borrower and the client want to know whether the project is deliverable and defensible, and answer to their own board or ministry. The lenders want to know whether the conditions attached to the money are being met, and release or withhold accordingly. And the independent consultant wants to know whether the picture the numbers paint matches the site — where the two diverge, the divergence is the finding. One set of honest numbers serves all five.",
         points: [
           "★ Two sets — a working one and a presentable one — is the worst document a project can hold. The existence of two versions is itself the finding, and no explanation survives it.",
@@ -1037,6 +1058,7 @@ export const modules = [
     lesson: [
       {
         heading: "The count that was wrong",
+        plain: "Even a careful census misses people — usually women traders and users without papers. Plan to find and add them; never deny them.",
         body: "A census recorded 412 affected households on a section. It was done properly, over eleven days, by a competent firm. Eight months later, 63 more were found — almost all women running roadside trade, and pastoralist families whose grazing routes crossed the alignment. Neither group was present on the days the enumerators walked the corridor. The money was manageable. The credibility was not: once a community learns the count was wrong, every later figure is disbelieved, including the correct ones. Households already paid began to submit claims, reasoning that if the project was wrong once it might be wrong in their favour. The project spent two years rebuilding trust it lost in one afternoon.",
         image: "/images/lm6.jpg",
         caption: "A register built from titles is a correct list of owners — and a wrong list of the people your project has affected.",
@@ -1090,6 +1112,7 @@ export const modules = [
       },
       {
         heading: "Three categories, and the third is the one that matters",
+        plain: "People with titles are compensated; people without titles are compensated; and people with no claim to the land still get help to move and recover.",
         body: "PS5 sets out who is eligible, in three categories. (a) Formal legal rights, such as a certificate of occupancy: compensated for land and assets at full replacement cost. (b) No formal title but a claim recognisable under national law, including customary rights: same entitlement. (c) No recognisable legal right or claim to the land they occupy: not compensated for the land, but compensated for their structures and assets, and entitled to resettlement assistance and livelihood restoration. That third category is where PS5 departs furthest from national law, and on many African corridors it is a LARGE share of those affected. The reasoning is simple: her legal position decides whether she is paid for land. It does not decide whether your project has taken away her income.",
         points: [
           "★ Do not use the word 'squatter'. It is not a legal category, it implies wrongdoing, and it makes it easier to leave someone off a register. Say: a person without recognisable legal claim to the land they occupy.",
@@ -1097,6 +1120,7 @@ export const modules = [
       },
       {
         heading: "Full replacement cost, and why depreciation is wrong",
+        plain: "Pay what it costs to get an equivalent NEW asset, fees included. Deducting for age leaves people worse off — never do it.",
         example: "A farmer's maize strip sits inside the corridor. Works stop at his boundary until compensation is paid — approved is not paid. One parcel can hold a whole section.",
         body: "PS5 requires compensation at full replacement cost: what it will cost the affected person to obtain an equivalent asset, with NO deduction for depreciation, INCLUDING transaction costs. So a twenty-two year old house is compensated at the cost of building an equivalent new one — not at construction cost less two percent a year for age. This feels wrong to anyone trained in valuation, because in valuation depreciation is correct. The difference is the purpose: the project is not buying an investment from a willing seller. It is depriving someone of shelter they did not choose to give up, and they must be able to obtain equivalent shelter with what they receive. And depreciation is not a technicality here — the oldest structures belong to the poorest households, so depreciation takes the most from the people with the least.",
         points: [
@@ -1105,6 +1129,7 @@ export const modules = [
       },
       {
         heading: "Paying correctly is not the same as restoring a livelihood",
+        plain: "Paying is step one. The real test is whether the person can earn a living again — you check the outcome, not the payment.",
         body: "Two separate obligations — discharging the first does not discharge the second. PS5 requires that livelihoods are restored, and where possible improved; the measure is the OUTCOME, not the payment. Cash alone usually fails, and not because people spend badly: a lump sum meets urgent, rational needs first — fees, medicine, a debt, a roof. Land prices rise when two hundred households seek replacement land at once. A farmer with money and no land is not a farmer. And the payment often reaches the household head while the lost activity was run by someone else, usually a woman. Restoration means land for land where land is the livelihood, a trading position with actual footfall, transitional support until the new activity produces, and measurement against a baseline.",
         points: [
           "★ A market built 600 metres from the traffic is a correct payment and a destroyed livelihood. The trader's asset was the footfall, not the stall.",
@@ -1136,6 +1161,7 @@ export const modules = [
       },
       {
         heading: "One thing here cannot be undone",
+        plain: "Never let machines onto land before the person can actually collect their money. Everything else is fixable — that is not.",
         body: "Almost everything in this module can be corrected later. A depreciated valuation can be recalculated and topped up. A missing trader can be enumerated and paid. An unassessed borrow pit can be assessed. One thing cannot. PS5 requires that land is taken only after compensation has been MADE AVAILABLE — meaning the person can actually collect the money. Not calculated. Not approved. Not budgeted. Not sitting in an account they cannot reach. Once an excavator moves onto land that has not been paid for, every negotiation that follows happens with the works already there, and the person has lost the only leverage they had. Paying afterwards repairs the money and not the breach.",
         points: [
           "Three sentences that should stop work: 'The payment is being processed.' 'The community has agreed we can start.' 'We will regularise it later.'",
@@ -1209,6 +1235,7 @@ export const modules = [
     lesson: [
       {
         heading: "Twenty workers nobody employed",
+        plain: "Workers hired through a labour supplier are still YOUR project's responsibility — same rules on pay, age, documents and safety.",
         body: "A subcontractor brings twenty men onto your section through a labour supplier. Their contracts are with the supplier. They are paid in cash on Fridays by a man who visits once a week. He holds their identity documents, he says for safekeeping, because the camp has no lockers. A foreman mentions that two of them look young. He is told they are nineteen and twenty. Nobody can check, because the documents are with the supplier. Nobody here thinks they are doing anything wrong. And what is present is: retained documents, unverifiable ages on a hazardous site, cash with no payslip so no way to know whether the wage is lawful, no written terms, and no way for these men to raise anything with anyone.",
         image: "/images/lm7.jpg",
         caption: "Every one of those is a finding against your project. PS2 covers workers engaged by third parties — the contract distance is paperwork, not a defence.",
@@ -1240,6 +1267,7 @@ export const modules = [
       },
       {
         heading: "On a construction site, the age is eighteen",
+        plain: "Simple rule: nobody under 18 does construction work. Check ages yourself — do not take the supplier's word for it.",
         body: "PS2 prohibits employing children in work that is exploitative, hazardous, harmful to health or development, or that interferes with education. It also applies a separate and stricter test, drawn from ILO Convention 182: nobody under eighteen in hazardous work. Almost everything on a civil works site IS hazardous work — operating or working near plant, work at height, confined spaces, electrical work, crushing, blasting, night shifts, heavy manual handling, solvents, bitumen, fuels. So the operative threshold on your site is eighteen, whatever the national minimum working age says. Verify at recruitment, with a documented method, and extend the verification to every third party — a supplier's assurance is not verification.",
         points: [
           "★ If you find someone under eighteen in hazardous work, remove them from that work and REMEDIATE. Do not simply dismiss them: a child dismissed from a site moves to work that is more dangerous and less visible.",
@@ -1261,6 +1289,7 @@ export const modules = [
       },
       {
         heading: "The camp, and the one design decision that matters",
+        plain: "A decent camp means space, proper beds (two tiers maximum), water — and workers keeping their own documents.",
         image: "/images/lm3.jpg",
         caption: "Same PPE, same rules — direct hire or subcontractor.",
         body: "Where the project provides accommodation, PS2 requires policies on its quality and management. The figures come from the IFC and EBRD guidance note on workers' accommodation — read them there rather than from memory. What gets assessed: floor area and occupancy, toilets and showers per person separated by sex, lighting and lockable doors, water, food safety, ventilation and heat, women's accommodation, fire safety and drills, medical access, and any deductions for accommodation. The recurring failures are predictable: occupancy set by the number of beds that fit rather than by the ratio; triple bunks; facilities counted against nominal capacity instead of peak occupancy; showers that exist and are unlit, which makes them unusable at night; catering subcontracted and never inspected.",
@@ -1379,6 +1408,7 @@ export const modules = [
     lesson: [
       {
         heading: "The biggest risk is not on your site",
+        plain: "The biggest killer on a road project is your trucks on public roads. Manage haulage like the top risk it is.",
         body: "Ask a site team what the biggest safety risk is and you will hear about work at height, or excavations, or plant movement. All real. None of them is the answer. On a road project in this region, the activity that kills the most people is haulage on public roads: tippers, bowsers and low-loaders, on roads used by children walking to school, traders, livestock and motorcycles. The World Health Organization reports the African region as having the highest road traffic death rate of any region in the world — and a construction project adds heavy vehicles, driven under schedule pressure, to those roads. PS4 requires the project to anticipate and avoid impacts on community health and safety in ROUTINE circumstances. A daily haulage cycle is routine. Its risks are foreseeable.",
         image: "/images/lm8.jpg",
         caption: "A fatality inside the fence produces an investigation. A fatality on the haul road produces that, plus a community that has lost a child to a project it did not ask for.",
@@ -1423,6 +1453,7 @@ export const modules = [
       },
       {
         heading: "Reduce the number before you manage the camp",
+        plain: "Fewer incoming workers beats a better camp for them: hire locally first, genuinely.",
         body: "It is the mitigation hierarchy again: fewer people arriving beats better accommodation for the people who arrive. REDUCE: hire locally, genuinely — every role filled locally is one person who does not arrive, does not need a bed, and does not need a share of the water. Train to widen what 'local' means. Transport rather than accommodate, where the workforce is within commuting distance. Phase the workforce, because peak numbers are usually short. THEN MANAGE: camp siting away from the settlement, with its own water and its own waste; self-sufficiency in food, power and health; a signed code of conduct; agreed no-go areas; local buying that is spread and given notice, so it supports the economy instead of inflating it.",
         points: [
           "★ A camp connected to the village borehole is a design error that no management procedure corrects.",
@@ -1445,6 +1476,7 @@ export const modules = [
       },
       {
         heading: "A road connects places and cuts others in half",
+        plain: "A new road can cut a village off from its school, market or clinic. Look for the crossings people NEED, not just the easy ones.",
         body: "Severance is a real impact and it is usually unassessed, because it produces no land acquisition and no construction incident. A settlement split, with the school on one side and most of the children on the other. A field or a well now across a carriageway that is hard to cross. A market cut off from the people who used to walk to it. A footpath ending at an embankment. It appears years later, as a pattern of pedestrian deaths at an informal crossing the design did not provide for. The controls are design controls: crossings where people ACTUALLY cross, underpasses or livestock crossings where the flow justifies them, service roads keeping local access, median breaks where local movement needs them. Cheap at design stage. Unaffordable afterwards.",
         points: [
           "★ Walk the alignment with community members and ask where people cross, not where they should cross. Informal crossings appear on no drawing — and that is where the deaths happen.",
@@ -1452,6 +1484,7 @@ export const modules = [
       },
       {
         heading: "Three hours to a hospital",
+        plain: "Emergency plans must cover the community too: know where the nearest real care is, agree it with local authorities, and tell people.",
         diagram: {
           type: "steps",
           title: "An emergency plan that works",
@@ -1532,6 +1565,7 @@ export const modules = [
     lesson: [
       {
         heading: "Before we start",
+        plain: "This module is about protecting people from exploitation and abuse. It is practical, not graphic — read it calmly.",
         body: "This module covers sexual exploitation, abuse and harassment, and the conduct of people who guard the project. It contains no graphic descriptions and no images of people. It does describe situations that some people will recognise from their own lives. You can stop at any point and come back, or not come back — nobody is told whether you completed it in one sitting. If anything here affects you personally, support is available: the project's named responder and referral pathway can be reached through your training administrator, including outside working hours. The reason this module exists is simple: a project like this one creates situations that put some people at risk. Everyone working here needs to know the rules, and everyone needs to know where to report.",
         points: [
           "★ You do not need to be the person affected to use the reporting route. If you see something, or are told something, it is yours to pass on.",
@@ -1539,6 +1573,7 @@ export const modules = [
       },
       {
         heading: "Why this is about the project, not about individuals",
+        plain: "The project changes the local balance of power — wages, gatekeepers, guards. So prevention is designed into the project, not left to individuals.",
         body: "This project brought several hundred regular wages into a place where most people have far less cash. It brought supervisors who decide who works tomorrow. It brought gatekeepers who control access to jobs, to compensation files, to the grievance channel and to the site. Every one of those relationships holds an imbalance of power. Most of the time nothing happens. Where something does happen, it happens through that imbalance, and it almost never looks like force. It looks like a supervisor mentioning that shifts are being decided this week. A gatekeeper suggesting a way to make an application move. An arrangement offered in exchange for food, for work, or for a file to progress. That imbalance was created by the project. So the risk arising from it belongs to the project, not only to whoever acts on it.",
         image: "/images/lm9.jpg",
         caption: "This is why it is treated as a risk to be designed out, not only as misconduct to be punished after the fact.",
@@ -1616,6 +1651,7 @@ export const modules = [
       },
       {
         heading: "The people who guard the project",
+        plain: "A guard is both a worker with rights AND a risk to the community — screen, train, supervise, and give people a way to complain.",
         body: "A guard sits in two frameworks at once. Under PS2 he is a worker, usually engaged through a third party, owed written terms, lawful pay, reasonable hours and a grievance channel. Under PS4 he is a risk to the community. Projects that manage only one half manage neither. Six requirements: assess the security risk first, which usually establishes that arming the guard force is not warranted; screen individuals for past abuses; train in conduct and use of force before deployment; set written rules — force only for preventive and defensive purposes, proportionate to the threat; give the community a way to raise concerns about security conduct, and make sure it is NOT the guard post — the requirement most often missing; and investigate allegations. Quietly removing a guard so the provider can redeploy him elsewhere is not action.",
         points: [
           "★ Where the state deploys police or military to protect the project, you do not command them. You are still expected to engage on the deployment, document what you asked for, and escalate what you hear.",
@@ -1623,6 +1659,7 @@ export const modules = [
       },
       {
         heading: "An empty register is a question, not a result",
+        plain: "Zero complaints does not mean no problem — it usually means people do not trust or know the channel. Check the channel.",
         body: "A project with several hundred workers beside a host community, reporting no complaints of this kind in a quarter, has not demonstrated that nothing is happening. It has demonstrated that nobody used the channel — which usually means one of three things: the channel is unknown, it is not trusted, or using it is not safe. The most common failure in this area is not a cover-up. It is a project that waits for a complaint it has made structurally impossible to submit, and then reports a clean register in good faith. So the questions to ask are not about the numbers. Can a woman in the village name the person she would tell? Can she reach them without entering the gate? Does she believe anything would happen? And does everyone on this project, including the labour supplier's people, know the three rules?",
         points: [
           "★ Report an empty register as an open question about the channel, not as a performance result. A reviewer will read it that way regardless of your covering note.",
@@ -1681,12 +1718,14 @@ export const modules = [
     lesson: [
       {
         heading: "Four days, and half a per cent",
+        plain: "A cheap prevention skipped (silt fencing) became a long, expensive problem. Prevention costs less — every time.",
         body: "On a coastal section, earthworks ran through the rainy season with no silt fencing and no settlement ponds. Sediment reached a creek used for fishing and washing. The community reported a collapse in catch and skin complaints among children. The fix was silt fences, check dams and a settlement pond — a fraction of one per cent of the section value, four days to install. What the omission cost: a work stoppage, a lender finding with a corrective action plan, a water monitoring programme imposed for the rest of construction, and a community relationship that never fully recovered. Almost every control in this module has that same shape: small, known, cheap, and deferred.",
         image: "/images/lm10.jpg",
         caption: "The gap between what prevention costs and what failure costs is the whole economic argument for this module.",
       },
       {
         heading: "Most sites start at step three",
+        plain: "Order matters: first try to AVOID the pollution (route, source, design), then reduce it — do not jump straight to cleaning up.",
         body: "PS3 requires pollution to be avoided or minimised, and the hierarchy applies unchanged. Take dust from a haul road past a settlement. AVOID: route the haulage away, source material from a pit on the works side, or seal the section permanently. MINIMISE: reduce speed — which cuts dust more than most people expect — fewer trips, covered loads. CONTROL: bowsers on a schedule matched to weather and traffic, not to a fixed timetable; screens at the closest houses. COMPENSATE: what is left, and what is owed for it. Teams reach straight for the bowser, which is step three, and then argue about how many bowsers. The question nobody asked was whether the haulage needed to pass the settlement at all — and that question had an answer when the pit was chosen.",
         points: [
           "★ A control applied at step three is not wrong. It is incomplete if steps one and two were never considered and written down.",
@@ -1694,6 +1733,7 @@ export const modules = [
       },
       {
         heading: "Where the numbers come from",
+        plain: "PS3 says 'do not pollute'; the EHS Guidelines give the actual limits. Between two rules, the stricter one wins.",
         image: "/images/esg-pollution.jpg",
         caption: "A washout without containment — several standards engaged at once.",
         body: "PS3 sets the requirement. The EHS Guidelines set the levels — without them most of PS3 cannot be measured. The rule is in the Guidelines themselves: where a national regulation differs from the Guideline level, you achieve whichever is stricter. Run it parameter by parameter, not document by document — a national standard may be stricter on one parameter and absent on the next. For each parameter, write down the national limit with its source and the Guideline level with its table reference. Take the stricter. Where there is no national limit, the Guideline governs and there is nothing to compare. Keep the written comparison: it is the first thing an independent consultant will ask for. And note Section 4 of the General Guidelines — construction and decommissioning — the one written for projects like yours.",
@@ -1725,6 +1765,7 @@ export const modules = [
       },
       {
         heading: "One pit, six standards",
+        plain: "One unassessed borrow pit can break six standards at once — land, nature, people, safety, pollution, heritage. Treat pits seriously.",
         diagram: {
           type: "cards",
           title: "One pit, six standards",
@@ -1774,6 +1815,7 @@ export const modules = [
       },
       {
         heading: "One filter contaminates the whole skip",
+        plain: "One oily filter in a general skip makes ALL of it hazardous waste. Separate waste at the point where it is created.",
         body: "PS3 requires waste to be avoided, then reduced, reused or recycled, then treated and disposed of properly. The most common waste failure on a construction site is a single act: someone puts a used oil filter in a general skip. Hazardous mixed with general contaminates the whole load, turning a small quantity of controlled waste into a large one. Segregate: general, inert construction, recyclable, hazardous, medical from the camp clinic, and sludge from treatment systems and interceptors. For every hazardous load, the record answers four questions: what it was, how much, who carried it, and where it ended up. A carrier's receipt is not a disposal record — verify the facility and keep its licence on file. And empty drums have local value; some end up holding drinking water. Render hazardous containers unusable before they leave site.",
         points: [
           "★ A site reporting no spills is a site not reporting spills, and an auditor reads it exactly that way.",
@@ -1781,6 +1823,7 @@ export const modules = [
       },
       {
         heading: "The data already exists",
+        plain: "The fuel records you already keep ARE your emissions data — someone just has to add them up.",
         body: "PS3 requires greenhouse gas emissions to be reduced, and quantified where the project is expected to exceed 25,000 tonnes of CO2-equivalent a year — a threshold a large road programme generally crosses. The sources are plant and haulage fuel, generator and purchased power, cement, lime and bitumen, and land clearance. The data almost always exists already, because the commercial team records fuel and materials for cost reasons; what is usually missing is anyone whose job it is to convert it. The reductions available are also cost reductions: haulage distance is the biggest lever on a road project, and pit selection decides it. Then material reuse and cut-to-fill balance, cement content where the specification allows, and plant idling — invisible in cost reporting and large in aggregate.",
         points: [
           "★ Every significant emissions reduction on a road project is also a cost reduction. The obstacle is not data and not money — it is that nobody owns the conversion.",
@@ -1852,6 +1895,7 @@ export const modules = [
     lesson: [
       {
         heading: "Two hours on a Friday",
+        plain: "If you dig up remains or artefacts: stop that spot, protect it, call the named contact. Never 'deal with it on Monday'.",
         body: "A grader stripping topsoil for a haul road exposes human remains. The operator stops, calls his foreman, the foreman calls the section manager. Nobody knows what happens next, so the machine is moved and work continues fifty metres along while someone tries to find out. By Monday the community knows. The site is now a place where a project dug up a grave and kept working. What that grave was, whose it was, and whether it was even recent has become impossible to establish, because the context was destroyed on Friday afternoon. The procedure that would have prevented this takes about two hours to write and five minutes to explain: stop, do not touch, secure a radius, call the number, nobody resumes until the named person attends.",
         image: "/images/lm12.jpg",
         caption: "The test is not whether the procedure is in the management plan. It is whether the operator knows what to do in the first five minutes, in his own language, without calling anyone to ask.",
@@ -1882,6 +1926,7 @@ export const modules = [
       },
       {
         heading: "No net loss is a measurement",
+        plain: "For nature, 'no net loss' is counted, not promised — avoid first, then minimise, restore, and offset only what is left.",
         body: "The hierarchy applies here as everywhere. What is different about PS6 is that the result is expressed as a quantity. AVOID: realign around the wetland, the forest patch, the movement corridor; site the pit outside natural habitat; delete a spur. Close to free, and available only for a short window during design. MINIMISE: narrow the crossing, bridge rather than embank, restrict clearance width, work outside breeding seasons, no night lighting near water — most of the practical gains sit here. RESTORE: reinstate water flow, revegetate with native species, replant temporary access and pits (this needs the topsoil that Module B5 explained how projects lose). OFFSET: a measured biodiversity gain elsewhere — additional, like for like, secured long term and monitored. A payment to a conservation body is NOT an offset: cash is how an offset might be funded, and funding a thing is not achieving it.",
         points: [
           "★ A reviewer will ask what avoidance options you considered and expect a written answer. An offset proposed by a project that skipped step one is the hardest position to defend in this module.",
@@ -1915,6 +1960,7 @@ export const modules = [
       },
       {
         heading: "Within living memory",
+        plain: "A place can be sacred even if it looks abandoned — if elders remember it being used, it counts. Ask before clearing.",
         body: "PS8 requires consultation with affected communities who use, or have used WITHIN LIVING MEMORY, the heritage in question. That phrase matters on a corridor: a site not used for thirty years is not thereby available. Someone remembers it, and that someone is often not at the meeting. A heritage screening that is a desk study plus a walkover will find the monuments and miss everything that matters locally — the structured consultation is not an optional refinement; it is the survey method for three of the five categories. Ask separately of women, of elders, and of any minority or settler group. Accept that some sites are known only to certain people, that some will not be named to a stranger, and that a public meeting is the wrong setting for several of them.",
         points: [
           "★ If nobody has asked anyone who lives there, the heritage screening has not started — however many specialists walked the line.",
@@ -2023,6 +2069,7 @@ export const modules = [
     lesson: [
       {
         heading: "The clause that has never worked",
+        plain: "'Comply with all laws' in a subcontract prevents nothing. Specific requirements, checked on site, do.",
         body: "Every subcontract in the industry says the subcontractor will comply with all applicable laws and with the main contract. That clause has never once prevented retained identity documents, unverified ages, a camp with one shower for forty men, or a payroll with no payslips. Not because subcontractors are dishonest — because a general clause hands someone the job of working out what compliance means, and they have no reason to interpret it generously and often no capacity to interpret it at all. Compare: 'Comply with all applicable labour law' against 'Provide every worker with written terms and a payslip showing gross pay, each deduction with its basis, and net pay.' The second one gets done.",
         image: "/images/lm13.jpg",
         caption: "Specificity is the entire point of a flow-down clause. Everything else in this module depends on it.",
@@ -2040,6 +2087,7 @@ export const modules = [
       },
       {
         heading: "What a real instruction contains",
+        plain: "A real instruction says: the exact thing to do, by when, by whom, what proof — and what happens if it is not done.",
         diagram: {
           type: "cards",
           title: "A real instruction has five parts",
@@ -2083,6 +2131,7 @@ export const modules = [
       },
       {
         heading: "When they threaten to pull the workers",
+        plain: "Take the threat seriously, but never trade away the law — put the choice, with its costs, to the person with authority.",
         body: "Three things are usually true at once, and holding all three is what lets you respond well. The threat may be real — sections do stop and programmes do slip, and pretending otherwise makes you easy to dismiss. The exposure runs the other way — a section ahead of programme carrying a forced labour indicator is not a strong position; it is an undisclosed liability sitting on a good production figure, and it will be found. And their leverage often rests on the arrangement itself — where the issue is retained documents or withheld wages, fixing it does not remove their workers; it removes their CONTROL over those workers, which is a different thing, and not one the project needs to protect. So: 'I hear you, and I am not going to resolve this here. The requirement is in your subcontract and I cannot waive it. I will write up what we have discussed and put it to the person who can decide, with the programme implication attached.'",
         points: [
           "★ If the supplier does withdraw, that is information about him — and it is better obtained now than during an audit.",
@@ -2090,6 +2139,7 @@ export const modules = [
       },
       {
         heading: "Escalate the decision, not the frustration",
+        plain: "Escalate like this: 'a decision is needed, here are the options, here is what each costs' — not 'they are impossible'.",
         body: "Escalation is a skill, not an admission that you failed. Escalate the DECISION: a decision is required, here are the options, here is what each costs — not 'the subcontractor is being difficult'. QUANTIFY: an unquantified risk is an opinion. 'Forty workers with no age verification records' lands differently from 'concerns about the labour supplier'. Give OPTIONS with costs, and a recommendation: a director shown a controlled path usually takes it; a director shown only a compliance failure looks for a way around it. And ONE PAGE: situation, exposure, options, recommendation, date a decision is needed. Longer than one page and the decision moves to whoever summarises it.",
         points: [
           "★ The framing that works is not that a rule has been broken. It is that an unquantified liability is sitting on the project and somebody with authority needs to decide what to do about it.",
@@ -2148,6 +2198,7 @@ export const modules = [
     lesson: [
       {
         heading: "They do not work for you",
+        plain: "The IESC is the lenders' consultant, not yours. You do not manage them — you help them see clearly.",
         body: "The Independent Environmental and Social Consultant is appointed by the lenders and reports to the lenders. EP4 Principle 7 covers review before financial close, Principle 9 covers monitoring for the life of the loan. So three things follow. They are not your adviser: they may say useful things, and they are not there to help you pass. They are not the regulator: they assess against the applicable standards and your own commitments, not national law alone. And their report drives money, through the action plan and ultimately through disbursement. They use three sources and they triangulate: documents tell them whether the system exists, the site tells them whether it operates, and people tell them how to read the other two. Where the three disagree, the disagreement is the finding.",
         image: "/images/lm14.jpg",
         caption: "A complete document set with nothing behind it is the easiest thing to produce and the least convincing on its own.",
@@ -2165,6 +2216,7 @@ export const modules = [
       },
       {
         heading: "The fortnight before",
+        plain: "Two weeks out: index the documents, update the plans, reconcile the registers, walk the site, brief people to answer honestly.",
         diagram: {
           type: "flow",
           title: "The visit, in three acts",
@@ -2204,6 +2256,7 @@ export const modules = [
       },
       {
         heading: "Hand them the gap register first",
+        plain: "Open with your own list of what is not right and what you are doing about it. Honesty first buys trust for everything after.",
         body: "The highest-value thing available to you on the day is an honest gap register handed over at the start: what you know is not compliant, what you are doing about each item, who owns it, by when — including the uncomfortable ones. This is not about goodwill. It changes what is being assessed: they stop testing whether you know your own position and start testing whether your corrective plan is adequate, which is a far better conversation. It also protects the findings you missed: disclose eleven and miss one, and you are a project with a working system and a gap. Disclose nothing and have twelve found, and you are a project with no system. Try: 'before we start, here is our current gap register, eleven open items, four high severity. Three have corrective actions under way with dates. One we have not solved and I would value your view. I would rather you hear it from us than find it on Thursday.'",
         points: [
           "★ It removes their most damaging question — which is not what went wrong, but whether you knew.",
@@ -2211,6 +2264,7 @@ export const modules = [
       },
       {
         heading: "During, and afterwards",
+        plain: "Answer what is asked, say 'I don't know' when it is true, and deliver what you promised by the date you promised.",
         body: "Answer what is asked. Do not volunteer a defence to a question nobody put, which tells them where to look. If you do not know, say so, offer a time, and come back by it. At the closeout, listen and take notes; disagree on facts with evidence; do not argue about severity ratings in the room. On the draft report, correct errors of fact and attach the evidence. Do not try to soften the wording of a finding you accept — reviewers notice, and the attempt reads as an admission. Then work the action plan: a finding you accepted and have not closed by the next visit is worse than the original finding, because two visits make a pattern, and a pattern is what changes a disbursement conversation.",
         points: [
           "★ The visit is not the event. What you do with the report between visits is what the next report will say about you.",
@@ -2264,6 +2318,7 @@ export const modules = [
     lesson: [
       {
         heading: "The first hour decides the rest",
+        plain: "In the first hour: make people safe, freeze the scene, tell who must be told. The quality of the investigation is decided here.",
         diagram: {
           type: "steps",
           title: "When something happens",
@@ -2307,6 +2362,7 @@ export const modules = [
       },
       {
         heading: "The last human action is not the cause",
+        plain: "Do not stop at 'he didn't clip on' — ask what made that the normal way to work. The system behind the act is the real cause.",
         image: "/images/esg-pollution.jpg",
         caption: "The scene tells the story — if you get there first.",
         body: "Most site investigations stop at the last person who did something, because that is where the sequence visibly breaks and because it offers an ending. It is almost never the cause. 'He was not wearing his harness' misses why the anchor point was thirty metres away, why nobody raised it, and why the method statement assumed edge protection that was never installed. 'The procedure was not followed' misses whether the procedure was workable, whether anyone had ever done it that way, and whether following it would have stopped production. Three questions get past blame: Why did this make sense to the person at the time? Has it been done this way before — because if so, the practice was tolerated, and the tolerance is the cause? And what would have had to be true for this to be impossible?",
@@ -2316,6 +2372,7 @@ export const modules = [
       },
       {
         heading: "Take the accounts today",
+        plain: "Talk to witnesses separately, today — by tomorrow they will all remember the same (wrong) story.",
         body: "People who discuss an event converge on a shared version within hours. After that it is nobody's account. So: separately, and early — everyone who was present, as soon as they are able. Open questions first: ask them to describe what happened in their own words, uninterrupted, before you ask anything specific. No leading questions — 'was he wearing his harness' produces a different answer from 'what was he wearing'. Without their supervisor present, and say why: you want their account, not a version agreed with anyone. Say what the interview is for — where people expect blame, an account given in fear of dismissal is not information. Then read it back and have it confirmed.",
         points: [
           "★ Collect the scene, the plant data, the paperwork and the hours worked in the preceding days on the same day. All four degrade or disappear.",
@@ -2336,6 +2393,7 @@ export const modules = [
       },
       {
         heading: "Then close it, and verify",
+        plain: "A fix needs a name, a date, and proof that it worked. Otherwise it is a wish, not a corrective action.",
         body: "A corrective action without an owner and a date is a sentiment. One without a verification step is a hope. For each action: who by name, by when, and what evidence will show it is done. Then somebody checks the evidence on the date, and closes it or does not. Verify that it WORKED, not only that it happened: edge protection installed is evidence the action was completed; edge protection present at the next three inspections is evidence the condition changed. Share what was learned beyond the section where it happened — the same conditions usually exist on all of them. And check back at three months: most corrective actions decay, and the decay is invisible unless somebody looks.",
         points: [
           "★ A finding closed on paper and reopened in practice is worse than one that stayed open, because it also proves your verification does not work.",
@@ -2390,6 +2448,7 @@ export const modules = [
     lesson: [
       {
         heading: "Judged by whether they come back",
+        plain: "A grievance system works when people use it AND come back. Silence is failure, not success.",
         body: "Almost every project has a grievance mechanism. Most do not work, for consistent reasons. Nobody uses it — which is not good performance but an unknown, distrusted or unsafe channel. Intake sits with the wrong people: the only box is inside the gate, or the team receiving complaints is the team delivering project messaging. Investigation is done by the people complained about, so a correct outcome is disbelieved. And nobody tells the complainant what happened — so from their side, nothing happened at all. Every design decision follows from one test: will a person with a problem use this a second time?",
         image: "/images/lm3.jpg",
         caption: "High closure rates with low resolution rates means closure is recorded when the project decided — not when the complainant was told.",
@@ -2442,6 +2501,7 @@ export const modules = [
       },
       {
         heading: "Three different compensation complaints",
+        plain: "'Compensation complaint' hides three questions: am I on the list? was the amount right? was I actually paid? Answer each one separately.",
         body: "A compensation grievance usually merges three questions, and answering them as one produces a response that addresses none of them. Am I eligible at all? — a question about the register and the eligibility categories. Was everything counted? — the inventory of losses. Was it valued correctly? — full replacement cost. Separate them, and investigate against the entitlement framework and the register — not against what the neighbour received, which is the comparison the complainant will make and which is usually not a like comparison. And watch for the moment the complaint stops being individual: if depreciation was applied across the whole register, this is not a grievance. It is a finding.",
         points: [
           "★ Treating a systematic error as a series of individual cases is how a project pays a hundred claims one at a time instead of correcting once.",
@@ -2449,6 +2509,7 @@ export const modules = [
       },
       {
         heading: "How to say no",
+        plain: "You can say no and keep trust: show you understood, explain the reason, say what they can do next — in writing.",
         body: "Most training assumes grievances are valid. Many are not, and how you say no decides whether the mechanism survives. Confirm what was claimed, in their words, so they can see you understood it. Say what you checked and against what — name the document, the register, the measurement. Give the reason SPECIFICALLY: not 'the claim was not substantiated', but 'the structure is forty metres outside the right of way and the register records the boundary at this chainage'. Say what would change the answer, if anything would. And tell them what they can do next, including outside the project — PS1 requires that the mechanism not impede access to other remedies, so a mechanism presenting itself as the only avenue is neither credible nor compliant.",
         points: [
           "★ Often the right answer is a no to the question they asked and a yes to a question they did not know to ask. Loss of access is not land acquisition — and it is compensable.",
@@ -2456,6 +2517,7 @@ export const modules = [
       },
       {
         heading: "When it leaves your hands",
+        plain: "Crime, security forces, very senior people, or a pattern across the register — those go beyond your mechanism, and quickly.",
         body: "Escalate outside the project when any of these are true: an allegation of criminal conduct — your process does not replace the criminal one, and for SEA/H the decision to report belongs to the survivor. The subject is senior enough that no internal investigator is independent of them. The complaint concerns the conduct of public security forces. A pattern has crossed from cases into a systemic finding — at which point it belongs in the action plan and in the report to the lenders, not in a case file. Or the complainant has gone to an accountability mechanism, the press or a court — at that point your task is to cooperate and fix the underlying issue, not to manage the complaint. And follow up on retaliation: it appears weeks later, and nobody connects it unless somebody is looking.",
         points: [
           "★ A complainant who goes outside the mechanism is telling you the mechanism failed. That is the finding, whatever the merits of their complaint turn out to be.",
@@ -2509,12 +2571,14 @@ export const modules = [
     lesson: [
       {
         heading: "Five readers, none of them you",
+        plain: "Write records for the stranger who reads them in two years — a lender, an auditor, a lawyer — not for the filing cabinet.",
         body: "Teams keep records because they are required to, and that framing produces records that satisfy a requirement and fail every other use they are put to. Your record will be read by one of five people: an independent consultant judging your management system, a lender deciding on a disbursement, a regulator considering enforcement, an accountability mechanism assessing a community complaint, or a court. None of them will have you there to explain it. Four properties make a record hold. Contemporaneous: made at the time. Attributable: who made it and when. Complete: including the entries that reflect badly. Consistent: agreeing with the other places the same event appears. Miss any one and the record still exists. It just stops being evidence.",
         image: "/images/lm4.jpg",
         caption: "A register with no bad entries is not a good register. A reviewer who notices a gap will assume the worst available explanation.",
       },
       {
         heading: "Filled in on Friday for the whole week",
+        plain: "Backfilling a week of forms on Friday quietly destroys their value — record things when they happen, even imperfectly.",
         body: "This is the most damaging record-keeping failure there is, and it is almost never done to deceive. A supervisor is behind on paperwork. On Friday he completes the week's monitoring sheets, toolbox records and inspection log from memory and from what was probably true. The activity may genuinely have happened. The record is still false. And it is detectable: one handwriting, one pen, no variation between entries, readings that do not move with conditions that did. What it costs is not the finding about that week — it is the conclusion that your records cannot be relied on, which reaches every other record you hold, including the accurate ones. After that, everything has to be established from the site and from people. Slower, and almost never in your favour.",
         points: [
           "★ The fix is a design fix: make recording take less time than avoiding it, put the register where the work is, and never criticise anyone for an honest bad entry. A sheet marked 'not taken, plant down' is a STRONGER record than an invented value.",
@@ -2522,6 +2586,7 @@ export const modules = [
       },
       {
         heading: "Four places, one story",
+        plain: "The same event must tell the same story in every register and report — reviewers WILL compare them.",
         image: "/images/esg-reporting.jpg",
         caption: "The record that holds is the one made the same day.",
         body: "Most projects hold the same event in four or five places, and reviewers compare them because comparison is cheap and revealing. An incident sits in the incident register, the site diary, the monthly report to the lenders, the corrective action tracker and, where applicable, a regulator notification — dates and severity ratings diverge, and sometimes an event in the diary never reached the register at all. A grievance sits in the grievance register, the engagement log, the monthly report and the compensation file — the usual divergence is cases in the engagement log that were never logged as grievances. An exceedance sits in the monitoring data and should sit in the report, and often does not, because the report was compiled from a summary rather than from the data. And ESAP actions get marked closed with no evidence attached — the commonest single defect in any tracker.",
@@ -2531,6 +2596,7 @@ export const modules = [
       },
       {
         heading: "Registers full of named people",
+        plain: "Registers hold real people's names and troubles — lock them down; share categories and counts, never identities.",
         body: "Several registers this programme requires are databases of named individuals and their circumstances: the compensation register, the grievance register, worker records, consultation attendance, and SEA/H case files. In every jurisdiction here, that is personal data, and in most it falls under a national data protection regime — including the Nigeria Data Protection Act 2023. So: a lawful basis and a defined purpose. Access control — not everyone who can open the shared drive should be able to open the compensation register. Secure transmission — circulating a full register by unsecured email is a breach and a personal risk to the people in it. Retention limits. And minimisation in reporting: report numbers and categories. A case narrative with a location and a role identifies somebody in a small community.",
         points: [
           "★ A SEA/H case file is the most sensitive document your project will ever hold. Restricted by name, no narrative in any report, no copy anywhere else.",
@@ -2538,6 +2604,7 @@ export const modules = [
       },
       {
         heading: "Would a stranger understand it?",
+        plain: "No local shorthand, no bare abbreviations — write so a stranger in two years understands without asking anyone.",
         body: "Write for someone reading it in two years with nobody available to explain it. Abbreviations that everybody here knows. Local shorthand. A chainage with no indication of which section. An initial with no name against it anywhere. A reference to 'what we agreed' with no record of the agreement. None of these survive. The same applies to what is left out: an entry that makes sense only if you know something that is not written down is an entry that will be misread — and it will be misread against you, because the reader fills the gap with the explanation that fits their concern. Read your own register as if you had never seen the project; the entries that need you to interpret them are the ones to rewrite.",
         points: [
           "★ The test is not whether it is accurate. It is whether it is accurate to someone who was not there.",
@@ -2545,6 +2612,7 @@ export const modules = [
       },
       {
         heading: "Write it as though it will be disclosed",
+        plain: "Assume every record will one day be read outside the project — facts only, no speculation, no guessing about blame.",
         body: "Because it will be — to a lender, a regulator, an accountability mechanism, or in a dispute. Which means: no speculation stated as fact. No conclusions about liability. Nothing you would be uncomfortable having read aloud. And NO SECOND VERSION: a project that keeps a real record and a presentable one has created the worst document in its possession, because the existence of two versions is itself the finding, and no explanation survives it. This is not about caution. A record written honestly from the first draft is faster to produce, easier to defend and more useful to you — because it is the one that tells you what is actually happening on your project.",
         points: [
           "★ The record is not the compliance task. It is the instrument that lets you see your own operation — and a project that cannot see its own operation is managing something else.",
@@ -5286,7 +5354,7 @@ export const quizzes = {
       },
       // ——— E.6 Scenario, best first action (2 in bank, 1 served) ———
       {
-        "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — Km 214",
+        "fmt": "scenario", "difficulty": "medium", "hint": "Before any deal about land, find out who really uses it — a leader's letter is not consent.", "tag": "Scenario — Km 214",
         "prompt": "You are eleven weeks behind on embankment. Your quarry manager finds a laterite source 800 m off the alignment that would recover five weeks. A community leader says the land is unused, offers a letter of consent, and asks for a payment to the community development committee. The site is not in the approved assessment. The IESC visits in six weeks. What do you do FIRST?",
         "options": [
           "Establish who actually uses the land, independently of the leader, before anything else",
@@ -5298,7 +5366,7 @@ export const quizzes = {
         "tip": "Option b fails on three counts at once: a lump payment to a committee is not compensation, one interested signature is not consultation, and a later revision does not make the activity assessed. Option c creates two findings from one decision. Option d is not wrong — just premature: you cannot know if the site is usable until someone establishes who uses it."
       },
       {
-        "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — the labour supplier",
+        "fmt": "scenario", "difficulty": "medium", "hint": "Withheld ID documents and possibly under-age workers are stop-now issues — people first, contracts second.", "tag": "Scenario — the labour supplier",
         "prompt": "Your earthworks subcontractor brought in twenty workers through a labour supplier. Your foreman reports two of them look young, and the supplier holds their identity documents. The subcontractor says this is the supplier's arrangement and none of your business. What do you do FIRST?",
         "options": [
           "Suspend the affected workers' deployment, verify ages directly, require the documents returned — then address the supplier contractually",
@@ -5816,7 +5884,7 @@ export const quizzes = {
           { "id": "agent", "text": "The lenders' agent bank", "cat": "rep" }
         ],
         "tip": "The consultant's consequences arrive later, through the money — never through an instruction on the day." },
-      { "fmt": "cat", "type": "categorize", "difficulty": "hard", "tag": "S3 — Gate or obligation?",
+      { "fmt": "cat", "type": "categorize", "difficulty": "medium", "hint": "'Before' something happens = condition precedent (a gate). 'Throughout', 'at all times', 'quarterly' = covenant (an ongoing promise).", "tag": "S3 — Gate or obligation?",
         "prompt": "Condition precedent, or covenant?",
         "categories": [{ "id": "cp", "label": "Condition precedent" }, { "id": "cov", "label": "Covenant" }],
         "items": [
@@ -5834,17 +5902,17 @@ export const quizzes = {
         "correct": 3,
         "hint": "Specific deliverable, named owner, date, closing evidence.",
         "tip": "A reviewer reopens every action closed without evidence — and draws a conclusion about the tracker as a whole rather than about the actions." },
-      { "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — the overdue action",
+      { "fmt": "scenario", "difficulty": "medium", "hint": "Report honestly with a dated plan — an action is not complete until it is done AND evidenced.", "tag": "Scenario — the overdue action",
         "prompt": "An ESAP action tied to the next disbursement — 'worker grievance mechanism implemented and communicated' — falls due Friday. The boxes are installed but no worker has been told and no procedure is published. Your PM wants it reported as complete since 'the work is done'.",
         "options": ["Report it honestly as overdue with a dated completion plan, and finish the communication this week — the closing evidence is what counts", "Report it complete: the boxes are installed", "Report it 'on track' without a date", "Remove it from this month's report"],
         "correct": 0,
         "tip": "An action closes when the agreed evidence has been produced and verified. Reporting it complete creates a record the reviewer can disprove by asking one worker where to complain." },
-      { "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — the unresourced action",
+      { "fmt": "scenario", "difficulty": "medium", "hint": "When money blocks an E&S action, turn it into a decision for someone with authority — cost and risk spelled out.", "tag": "Scenario — the unresourced action",
         "prompt": "Your E&S officer asks for a budget to fence three borrow pits — an open ESAP action. Production says it is not in the price and the request dies there. The pits sit near footpaths.",
         "options": ["Escalate it as a decision: the exposure quantified, the cost, the disbursement link, and a date a decision is needed", "Accept the answer — production owns the budget", "Fence one pit with materials on hand and close the action", "Wait for the consultant to raise it at the next visit"],
         "correct": 0,
         "tip": "This is a capacity decision and it belongs above you. An unfunded action is still a contractual commitment — and an unfenced pit beside a footpath is a life-safety exposure today." },
-      { "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — before the visit",
+      { "fmt": "scenario", "difficulty": "medium", "hint": "Fix the record honestly and say so — reopening with evidence beats a closed item with none.", "tag": "Scenario — before the visit",
         "prompt": "Reviewing the ESAP a fortnight before the monitoring visit, you find three actions marked closed with no evidence attached — by a predecessor, in good faith.",
         "options": ["Reopen the three, attach or produce the evidence where it exists, and disclose the correction at the visit", "Leave them closed — reopening looks worse", "Attach retrospective memos dated last year", "Delete the tracker history and start a clean version"],
         "correct": 0,
@@ -5921,7 +5989,7 @@ export const quizzes = {
           { "id": "register", "text": "An induction attendance register", "cat": "rec" }
         ],
         "tip": "Four different objects with four different lifespans. Confusing them is why people get handed a document that does not answer their question." },
-      { "fmt": "cat", "type": "categorize", "difficulty": "hard", "tag": "S7 — Which system?",
+      { "fmt": "cat", "type": "categorize", "difficulty": "medium", "hint": "A WORKING system answers with dates, changes and real events; a DOCUMENTED one answers with document numbers.", "tag": "S7 — Which system?",
         "prompt": "Is this the answer of a WORKING system, or a DOCUMENTED one?",
         "categories": [{ "id": "work", "label": "Working system" }, { "id": "docd", "label": "Documented system" }],
         "items": [
@@ -5939,17 +6007,17 @@ export const quizzes = {
         "correct": 3,
         "hint": "One of these gives a name and a route that works.",
         "tip": "Current, named, reachable — that is what real looks like. The other three are documents describing intentions." },
-      { "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — the stale plan",
+      { "fmt": "scenario", "difficulty": "medium", "hint": "Fix now, date honestly, disclose both the gap and the correction.", "tag": "Scenario — the stale plan",
         "prompt": "Nine days before a monitoring visit you find the traffic management plan predates two haul route changes, and no briefing records exist for the new routes.",
         "options": ["Revise the plan now, dated today, deliver the briefings this week, and disclose both the gap and the correction", "Revise the plan and date it to when the routes changed", "Leave it and explain if asked", "Remove the plan from the document pack"],
         "correct": 0,
         "tip": "The underlying issue is ordinary — plans go stale when works change. Back-dating is what turns it into an integrity finding." },
-      { "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — the refused budget",
+      { "fmt": "scenario", "difficulty": "medium", "hint": "Quantify the exposure and escalate to whoever holds the money — asking again is not a control.", "tag": "Scenario — the refused budget",
         "prompt": "Your E&S lead has requested a budget three times to fence open excavations near a footpath. Production has refused each time — 'not in the price'. Nothing has happened for six weeks.",
         "options": ["Escalate it as a capacity decision: quantify the exposure, name the cost, and put it to someone with authority over money and reporting lines", "Keep asking production", "Note it in the monthly report and wait", "Have the E&S lead buy materials from petty cash"],
         "correct": 0,
         "tip": "Capacity improves only by a decision about money, reporting lines and authority, taken by someone senior. Six weeks of persuasion IS the capacity finding." },
-      { "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — the data nobody read",
+      { "fmt": "scenario", "difficulty": "medium", "hint": "Monitoring only works when someone compares the numbers to the limits and acts — close the loop and name an owner.", "tag": "Scenario — the data nobody read",
         "prompt": "You discover six months of dust monitoring data, properly collected, showing a worsening trend at two houses — and no evidence anyone ever looked at it. No exceedance was reported because nobody compared the numbers to the limit.",
         "options": ["Assess the data now against the limits, act on the exceedances with dated corrective actions, and fix the loop by naming an owner for the monthly comparison", "File the data — collection is what the plan requires", "Restart monitoring from this month with a clean series", "Report the trend without acting, to keep the record consistent"],
         "correct": 0,
@@ -6027,7 +6095,7 @@ export const quizzes = {
           { "id": "closed", "text": "Action plan items closed on time", "cat": "lead" }
         ],
         "tip": "Most projects discover they report almost entirely lagging indicators — every number describes something that already went wrong." },
-      { "fmt": "cat", "type": "categorize", "difficulty": "hard", "tag": "S6 — What the reviewer reads",
+      { "fmt": "cat", "type": "categorize", "difficulty": "medium", "hint": "Honest bad news, handled, reads as performance; perfect numbers with nothing ever wrong read as a warning.", "tag": "S6 — What the reviewer reads",
         "prompt": "Does this figure read as PERFORMANCE — or as a WARNING SIGN?",
         "categories": [{ "id": "perf", "label": "Performance" }, { "id": "warn", "label": "Warning sign" }],
         "items": [
@@ -6045,17 +6113,17 @@ export const quizzes = {
         "correct": 3,
         "hint": "Defined, sourced, complete, comparable — and acted on.",
         "tip": "The near-miss trend is the chain working: data, indicator, comparison, decision. The other four each break one of the four properties." },
-      { "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — the perfect quarter",
+      { "fmt": "scenario", "difficulty": "medium", "hint": "A perfect number is a warning — ask why before you celebrate it.", "tag": "Scenario — the perfect quarter",
         "prompt": "Your dry-season quarter shows zero near misses across a fleet of 22 tippers on public roads. Last quarter there were nine. Your PM wants it highlighted as an achievement in the lender report.",
         "options": ["Ask why before reporting it: check whether reporting collapsed after a driver was criticised, and say in the report what you checked and found", "Highlight it as requested — the number is the number", "Report it without comment", "Adjust last quarter's figure downward for consistency"],
         "correct": 0,
         "tip": "A falling near-miss count usually means reporting fell, not risk. A reviewer who sees a perfect number with no explanation forms a conclusion about the reporting rather than the performance." },
-      { "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — the changed denominator",
+      { "fmt": "scenario", "difficulty": "medium", "hint": "Never change how a number is measured without saying so — state the change and restate the past on the same basis.", "tag": "Scenario — the changed denominator",
         "prompt": "The injury rate improved 40% this quarter. Digging in, you find HR started including the labour supplier's hours in the denominator in April — the incidents counted did not change.",
         "options": ["Report the rate with the method change stated, restate the prior quarter on the same basis, and fix the definition so it cannot silently change again", "Report the improvement — the new method is more complete", "Revert to the old denominator", "Report both numbers and let the reader choose"],
         "correct": 0,
         "tip": "The new basis is actually the right one — but an unexplained 'improvement' from a denominator change is exactly the kind of trend a reviewer dismantles in one question." },
-      { "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — the second version",
+      { "fmt": "scenario", "difficulty": "medium", "hint": "One honest set of numbers with the explanation attached — never a 'presentable' second version.", "tag": "Scenario — the second version",
         "prompt": "Ahead of the lender report, your director asks for 'a presentable version' of the indicator tables — the working set shows two exceedances and a rising grievance count.",
         "options": ["Refuse the second version: send the honest set with the exceedances, their closure actions, and a note on what the grievance trend means", "Produce both versions and keep the working one internal", "Smooth the two exceedances into next month", "Delay the report until the numbers improve"],
         "correct": 0,
@@ -6128,7 +6196,7 @@ export const quizzes = {
         "prompt": "Twelve houses sit on the alignment. Put these in the order PS5 requires.",
         "items": ["Shift the alignment thirty metres to miss them", "Narrow the right of way so only four are affected", "Restore access and reinstate disturbed land around the retained houses", "Compensate the households at full replacement cost"],
         "tip": "The mitigation hierarchy applied to people. Resettlement is step four, and a project that starts there has skipped the only step that was nearly free." },
-      { "fmt": "cat", "type": "categorize", "difficulty": "hard", "tag": "S6 — Correct or short?",
+      { "fmt": "cat", "type": "categorize", "difficulty": "medium", "hint": "Full replacement cost = new-for-old plus the fees to actually replace it. Any deduction or flat rate = short.", "tag": "S6 — Correct or short?",
         "prompt": "Is this compensation correct at full replacement cost — or short?",
         "categories": [{ "id": "ok", "label": "Correct" }, { "id": "short", "label": "Short" }],
         "items": [
@@ -6158,12 +6226,12 @@ export const quizzes = {
         "correct": 6,
         "hint": "Not everyone near a project is displaced.",
         "tip": "Over-inclusion has its own cost: a register that includes everyone is as hard to defend as one that excludes the people it should have found." },
-      { "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — the section already paid",
+      { "fmt": "scenario", "difficulty": "medium", "hint": "Never certify what you have not verified — and stop land entry while the shortfall is real.", "tag": "Scenario — the section already paid",
         "prompt": "You take over a section where compensation is 'complete': 512 households paid from the state valuation schedule with depreciation applied, no baseline, no cut-off date on file. Walking the corridor you count ninety trading positions, fourteen on the register. Works are 55% complete; the IESC visits in seven weeks. Your director asks you to confirm in writing that resettlement is finished. What do you do?",
         "options": ["Decline; stop further land entry, stand up an independent grievance route, enumerate the corridor, quantify the shortfall, and hand a dated corrective plan to the IESC on arrival", "Confirm it, since the compensation programme was completed and closed", "Decline, and commission an independent audit to report in three months", "Confirm it with a caveat noting the outstanding items"],
         "correct": 0,
         "tip": "A confirmation — with or without a caveat — creates a written record that the E&S function certified a position it knew to be false. The audit is the right instinct at the wrong speed: land entry and the missing traders are getting worse daily." },
-      { "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — mobilise Monday",
+      { "fmt": "scenario", "difficulty": "medium", "hint": "No entry before compensation is actually available to the person — a leader's letter does not replace payment.", "tag": "Scenario — mobilise Monday",
         "prompt": "The compensation file for four parcels is with the ministry; payment dates are unconfirmed. A community leader offers written confirmation that the households are content for work to begin. Your section manager wants to mobilise on Monday.",
         "options": ["Do not enter. Escalate the payment delay, and resequence the works to parcels where compensation is available", "Mobilise, holding the leader's written confirmation on file", "Mobilise only on parcels where the owner is present and consenting", "Pay an advance directly to the households from project funds"],
         "correct": 0,
@@ -6266,12 +6334,12 @@ export const quizzes = {
         "correct": 3,
         "hint": "One of these is also the answer to the identity-document problem.",
         "tip": "Lockable personal storage is correct as built — and it removes the 'no secure storage' excuse for holding workers' documents. Not everything in a camp is a finding." },
-      { "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — the supplier's documents",
+      { "fmt": "scenario", "difficulty": "medium", "hint": "Workers keep their own ID documents, whoever employs them — fix that first, argue contracts after.", "tag": "Scenario — the supplier's documents",
         "prompt": "A labour supplier holds the identity documents of 22 workers on a section that is ahead of programme. The subcontractor says this is standard regional practice and that if you interfere the supplier will withdraw the workers. Your director has praised the section's progress twice this month. What do you do FIRST?",
         "options": ["Require the documents returned today and provide lockable storage, then address the supplier contractually", "Raise it in the next monthly subcontractor meeting", "Report the supplier to the labour inspectorate and await the outcome", "Accept it for now and write it into the next audit plan"],
         "correct": 0,
         "tip": "The corrective action costs almost nothing and removes the harm today. The supplier's leverage rests on the arrangement itself: returning documents removes his control over the workers, not the workers — and if he withdraws, that is information about him." },
-      { "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — no payslips",
+      { "fmt": "scenario", "difficulty": "medium", "hint": "PS2 follows the worker, not the employer — require payslips and check them yourself.", "tag": "Scenario — no payslips",
         "prompt": "Three workers from different gangs tell you, separately and unprompted, that they have never received a payslip and are not sure how their overtime is calculated. All three are paid in cash by their subcontractor. Your own employees are all on payroll.",
         "options": ["Require payslips from the subcontractor within a defined period, and sample the payroll yourself", "Nothing — your own workforce is compliant", "Ask the subcontractor to confirm in writing that it pays lawfully", "Raise it with the workers' union representative"],
         "correct": 0,
@@ -6344,7 +6412,7 @@ export const quizzes = {
         "prompt": "Put these labour influx measures in the required order.",
         "items": ["Hire and train from the local labour market", "Bus workers daily from within commuting distance", "Give the camp its own borehole and waste system", "Agree no-go areas and a signed code of conduct"],
         "tip": "The first two reduce the number of arrivals. The last two manage the people who still arrive. Reduction comes first." },
-      { "fmt": "cat", "type": "categorize", "difficulty": "hard", "tag": "S3 — Decision or instruction?",
+      { "fmt": "cat", "type": "categorize", "difficulty": "medium", "hint": "If it changes routes, hours or the fleet, it is a management decision; if a crew can do it today, it is a site instruction.", "tag": "S3 — Decision or instruction?",
         "prompt": "A management decision, or a site instruction?",
         "categories": [{ "id": "mgmt", "label": "Management decision" }, { "id": "site", "label": "Site instruction" }],
         "items": [
@@ -6374,12 +6442,12 @@ export const quizzes = {
         "correct": 4,
         "hint": "Not everything on a corridor is a finding.",
         "tip": "Dust suppression beside housing is both an air quality and a visibility control — exactly what is expected. The other four are findings." },
-      { "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — six minutes",
+      { "fmt": "scenario", "difficulty": "medium", "hint": "Take the interim protection you can take today, and put the bigger trade-off in writing to the person with authority.", "tag": "Scenario — six minutes",
         "prompt": "Four recorded near misses with pedestrians in four months, none of which produced any change. The community asks you to stop haulage at school times. Rerouting costs 9% of haulage capacity, timed stoppages 11%. Your logistics manager says either puts the embankment programme at risk, and points out a banksman is already posted at the school gate.",
         "options": ["Impose the timing restriction now as an interim measure, and put the routing decision in writing to the project director with cost and risk stated", "Accept the banksman as the control and record the community request as closed", "Ask the logistics manager to decide between the two options", "Commission a road safety study and decide when it reports"],
         "correct": 0,
         "tip": "A logistics manager cannot authorise a 9% capacity reduction and should not be asked to carry a decision with a foreseeable fatality at the end of it. And the more serious finding is that reporting works and response does not — a PS1 management system finding." },
-      { "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — the borehole in February",
+      { "fmt": "scenario", "difficulty": "medium", "hint": "No grievance does not mean no problem — if the project causes the queue, fix the water before they complain.", "tag": "Scenario — the borehole in February",
         "prompt": "It is February. Your camp of 400 workers draws from a borehole shared with the nearest village — an arrangement agreed with the community leadership in the wet season. The queue now starts before dawn and women are walking to a source three kilometres away. No grievance has been submitted.",
         "options": ["Arrange interim water supply now, start a separate camp source, and go to the community before they come to you", "Nothing yet — the arrangement was agreed and no grievance has been raised", "Wait for a grievance so the response can be properly documented", "Reduce camp water use and monitor the yield"],
         "correct": 0,
@@ -6452,7 +6520,7 @@ export const quizzes = {
         "prompt": "Put these prevention steps in the order they must happen.",
         "items": ["Assess where the gatekeeping and contact points are", "Confirm the referral pathway and name the responder", "Explain the code and take individual signatures", "Mobilise the workforce"],
         "tip": "Every one of the first three comes before mobilisation. A project that mobilises first will do all of them afterwards — in response to something." },
-      { "fmt": "cat", "type": "categorize", "difficulty": "hard", "tag": "S6 — Never acceptable",
+      { "fmt": "cat", "type": "categorize", "difficulty": "medium", "hint": "Anything that names, exposes, confronts or pays off is never acceptable; support, referral and careful records are.", "tag": "S6 — Never acceptable",
         "prompt": "Acceptable, or never acceptable?",
         "categories": [{ "id": "ok", "label": "Acceptable" }, { "id": "never", "label": "Never acceptable" }],
         "items": [
@@ -6482,12 +6550,12 @@ export const quizzes = {
         "correct": 4,
         "hint": "One of these is exactly the requirement.",
         "tip": "An entry point that can be used without entering the facility is exactly what the standard asks for. The other four are findings." },
-      { "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — the file that moved",
+      { "fmt": "scenario", "difficulty": "medium", "hint": "Survivor-centred: remove the opportunity and open a safe reporting route — do not start by interrogating people.", "tag": "Scenario — the file that moved",
         "prompt": "A liaison officer tells you, without names, that people in one village believe compensation files move faster for those willing to visit a member of the land team at his accommodation. Nothing is in the grievance register — whose only intake point is the project office, where the land team sits. There is no separate SEA/H channel and no confirmed referral pathway.",
         "options": ["Remove the individual's discretion over file sequencing, stand up a reporting route outside the project office, and confirm the referral pathway", "Interview the women in the village to establish whether there is a case", "Put it to the individual directly and record his response", "Ask the community leadership to look into it and report back"],
         "correct": 0,
         "tip": "The control failure is actionable with no allegation at all: one person holding discretionary control over a benefit. Seeking accounts before a confidentiality architecture exists creates risk for the people who speak to you." },
-      { "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — the police detachment",
+      { "fmt": "scenario", "difficulty": "medium", "hint": "You do not command public security, but you must engage, document, and keep a channel for their conduct.", "tag": "Scenario — the police detachment",
         "prompt": "The state has deployed a police detachment to protect your project. You do not select, command or discipline them. Your liaison officer reports that people are avoiding a section of road where the detachment operates a checkpoint, and two households have asked to move their market trading elsewhere.",
         "options": ["Engage on the deployment, document what you asked for and what you were told, maintain a community channel covering their conduct, and escalate what it receives", "Nothing — the deployment is a government matter outside the project's control", "Withdraw the liaison officer from that section until the situation settles", "Provide the detachment with vehicles so they can patrol rather than stand at a checkpoint"],
         "correct": 0,
@@ -6590,12 +6658,12 @@ export const quizzes = {
         "correct": 4,
         "hint": "Sediment control at the downslope edge is expected.",
         "tip": "The silt fence is exactly what should be there. The other four are findings — and the open face beside a footpath is the one that is a life safety risk today." },
-      { "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — the pit at month fourteen",
+      { "fmt": "scenario", "difficulty": "medium", "hint": "Make it safe today, make it legal fast, and disclose with a dated plan — quietly finishing is the trap.", "tag": "Scenario — the pit at month fourteen",
         "prompt": "A pit worked for fourteen months: nine metres deep, vertical faces, unfenced, holds water, a footpath along its edge to a settlement 400 m away. Not in the approved assessment, no mineral title. Four months of embankment remain and this pit has the material; the alternative is a licensed quarry 31 km away through two villages.",
         "options": ["Fence and sign the pit today, start the title application, work the remaining extraction to a closable profile, and disclose the position with a corrective plan", "Continue to completion, then apply for the title retrospectively", "Stop extraction immediately and switch to the commercial quarry", "Continue and address it in the next assessment revision"],
         "correct": 0,
         "tip": "The unfenced nine-metre face beside a footpath is the only life-safety risk today and needs no approval to fix. Switching to the quarry is a real option to compare — it imports 31 km of haulage through two villages — but continuing by default, undecided, is what is actually happening." },
-      { "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — just past the junction",
+      { "fmt": "scenario", "difficulty": "medium", "hint": "Paper that says the right thing is not proof — when the story and the paperwork disagree, stop and verify where the waste actually goes.", "tag": "Scenario — just past the junction",
         "prompt": "Your waste contractor is paid per load and collects hazardous waste weekly. Manifests are complete and signed. A driver mentions in passing that the disposal site is 'just past the junction' — 40 km closer than the licensed facility named on the manifests.",
         "options": ["Suspend hazardous collections, verify the disposal facility and its licence, and inspect the route end to end", "Nothing — the manifests are complete and signed", "Ask the contractor to confirm in writing that it uses the licensed facility", "Raise it at the next contract review"],
         "correct": 0,
@@ -6698,12 +6766,12 @@ export const quizzes = {
         "correct": 4,
         "hint": "One of these interrupts an invasive pathway.",
         "tip": "The wash-down point is exactly what is expected when machines move between sections. The other four are the classic screening failures." },
-      { "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — the grove at 14+200",
+      { "fmt": "scenario", "difficulty": "medium", "hint": "Stop before you destroy what cannot be replaced — consult, assess, then run the hierarchy starting with avoidance.", "tag": "Scenario — the grove at 14+200",
         "prompt": "Clearance starts next week on 6 km recorded as farmland and degraded bush, from a four-day February survey. Your liaison officer is told a 0.4 ha stand of trees is where the community buries its dead and holds an annual ceremony. Separately, a drainage team notes a depression that holds water in the wet season, recorded as dry ground. The clearance contractor is on standing time.",
         "options": ["Stop clearance approaching that chainage, consult properly on the grove, assess the depression, and run the hierarchy with realignment as step one", "Clear as planned and deal with both during clearance", "Fence the grove and clear around it", "Proceed and record both in the next assessment revision"],
         "correct": 0,
         "tip": "Screening during clearance is not screening — it is recording. And fencing a burial ground without asking anyone what it is, is its own finding. The two discoveries share a cause: seasonality and community knowledge are systematic blind spots — re-run the screening for the remaining alignment." },
-      { "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — Friday, 16:20",
+      { "fmt": "scenario", "difficulty": "medium", "hint": "A chance find stops work in that area, full stop — and you escalate past a contact who does not answer.", "tag": "Scenario — Friday, 16:20",
         "prompt": "An operator exposes what may be a burial at 16:20 on a Friday. He stops and calls his foreman. The named chance find contact does not answer. The section manager, under pressure to finish the formation before the rains, suggests marking the spot, continuing thirty metres further along, and dealing with it on Monday.",
         "options": ["Secure the radius, stop work in that area entirely, escalate to the next named contact, and inform the community liaison officer tonight", "Mark it and continue thirty metres along as suggested", "Have the operator photograph it so the specialist can assess remotely", "Backfill the area to protect the find and resume on Monday"],
         "correct": 0,
@@ -6775,27 +6843,27 @@ export const quizzes = {
           { "id": "interview", "text": "The project may interview workers without a supervisor present on 24 hours' notice", "cat": "spec" }
         ],
         "tip": "The left column is what most subcontracts say. The right column is what gets done." },
-      { "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — the documents",
+      { "fmt": "scenario", "difficulty": "medium", "hint": "Withheld ID documents are corrected today, not at the next meeting.", "tag": "Scenario — the documents",
         "prompt": "Your earthworks subcontractor's labour supplier holds 22 workers' identity documents. The manager says it is standard regional practice, the supplier will withdraw the crew if you interfere, and the section is ahead of programme. Your director has praised the section twice this month.",
         "options": ["Require the documents returned today, provide lockable storage, and write it up for the director with the programme implication attached", "Raise it at the monthly subcontractor meeting", "Report the supplier to the labour inspectorate and await the outcome", "Accept it and include it in the next audit plan"],
         "correct": 0,
         "tip": "The meeting and the audit plan both leave 22 people unable to leave for another month. The corrective action costs almost nothing and removes the harm today." },
-      { "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — no payroll system",
+      { "fmt": "scenario", "difficulty": "medium", "hint": "Instruct AND enable — give the format, set a date, verify by sampling.", "tag": "Scenario — no payroll system",
         "prompt": "You instruct a subcontractor to produce payslips. He tells you he has no payroll system capable of it and pays 38 people in cash every Friday. He is not defensive — he appears to be telling the truth.",
         "options": ["Provide a payslip template and a payroll format, set a date two weeks out, and verify by sampling on that date", "Issue a non-conformity notice with a seven day cure period", "Accept cash payment and require a signed receipt book instead", "Escalate to the director as a breach"],
         "correct": 0,
         "tip": "A capability problem treated as resistance produces a dispute rather than payslips. And a receipt book records that money changed hands — not gross pay, deductions or their basis, which is what makes the payslip the control." },
-      { "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — the bunks came back",
+      { "fmt": "scenario", "difficulty": "medium", "hint": "A repeat finding means the fix did not hold — induct the responsible person formally and apply the contractual consequence.", "tag": "Scenario — the bunks came back",
         "prompt": "A camp inspection finds three-tier bunks in the subcontractor's block. You raise it; it is corrected within a week. Six weeks later the third tier is back, and occupancy is higher than before.",
         "options": ["Instruct again — and this time induct the subcontractor's camp manager formally with a signed record, and act on the contractual consequence for the repeat", "Instruct again, with a firmer deadline", "Escalate immediately to termination", "Accept that occupancy fluctuates and monitor monthly"],
         "correct": 0,
         "tip": "A repeat after correction is not an instruction problem. It is evidence that the person taking the decision was never inducted and that the first instruction carried no consequence." },
-      { "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — no access clause",
+      { "fmt": "scenario", "difficulty": "medium", "hint": "Fix today by agreement; fix the clause forever in the contract.", "tag": "Scenario — no access clause",
         "prompt": "A subcontractor refuses to let you interview his workers without a supervisor present. The right of audit in his subcontract is a general cooperation clause with no specific access provision.",
         "options": ["Note that the flow-down is deficient, secure access by agreement for now, and fix the access provision for this and every future subcontract", "Insist, on the basis of the cooperation clause", "Suspend his payment until access is granted", "Conduct the interviews with supervisors present"],
         "correct": 0,
         "tip": "Insisting rests on a clause that does not say what you need it to say — and losing that argument once makes the next one harder. Interviews with supervisors present are worse than none: they generate a record that looks like verification." },
-      { "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — the cheap quarry",
+      { "fmt": "scenario", "difficulty": "medium", "hint": "A primary supplier is inside PS2 — set requirements with a date and line up an alternative source.", "tag": "Scenario — the cheap quarry",
         "prompt": "A quarry supplying most of your aggregate quotes well below every other supplier. A site visit finds no written terms, no age verification, and workers breaking rock by hand without eye protection.",
         "options": ["Treat it as a primary supply chain matter under PS2: raise specific requirements with a date, verify, and prepare an alternative source in case they cannot or will not comply", "Nothing — they are a supplier, not a subcontractor", "Terminate immediately and source elsewhere", "Report them to the minerals authority"],
         "correct": 0,
@@ -6859,7 +6927,7 @@ export const quizzes = {
         "prompt": "Put the visit preparation in a sensible order.",
         "items": ["Index the requested pack and check every plan for currency and ownership", "Reconcile the registers against each other and explain any differences", "Walk the site at the hours activity actually happens, and fix what can be fixed", "Brief the workforce that the visit is happening and to answer honestly", "Finalise the gap register and hand it over at the start"],
         "tip": "The gap register comes last because it collects everything the other steps surfaced — and first on the day." },
-      { "fmt": "cat", "type": "categorize", "difficulty": "hard", "tag": "S2 — What it tells them",
+      { "fmt": "cat", "type": "categorize", "difficulty": "medium", "hint": "A finding YOU caught and were already fixing = the system works; anything they find first, or too-perfect records = doubt.", "tag": "S2 — What it tells them",
         "prompt": "What does this tell the reviewer about your management system?",
         "categories": [{ "id": "works", "label": "The system works" }, { "id": "doubt", "label": "The system is in doubt" }],
         "items": [
@@ -6870,17 +6938,17 @@ export const quizzes = {
           { "id": "owned", "text": "Plans current, owned by a named person, visibly used", "cat": "works" }
         ],
         "tip": "Same facts, opposite conclusions. A finding you disclosed proves the system works; the same finding discovered proves it does not." },
-      { "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — the shortfall",
+      { "fmt": "scenario", "difficulty": "medium", "hint": "Disclose everything with its plan — a reviewer who finds it first stops trusting the rest.", "tag": "Scenario — the shortfall",
         "prompt": "Your gap register has eleven open items, four high severity. One is a compensation shortfall you have quantified but not yet funded, and your director would prefer it not be raised until funding is agreed.",
         "options": ["Disclose all eleven, including the shortfall, and say that funding is not yet agreed", "Disclose ten and hold the shortfall until funding is confirmed", "Disclose the shortfall verbally but not in the register", "Disclose nothing and answer questions as they come"],
         "correct": 0,
         "tip": "Holding it back will be discovered — a quantified shortfall exists in a spreadsheet somebody has. Once found, the ten disclosed items stop being evidence of a working system. Disclosed with no funding agreed, it is an open item. Withheld, it is a credibility finding." },
-      { "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — six workers of her choosing",
+      { "fmt": "scenario", "difficulty": "medium", "hint": "The reviewer chooses the workers, the room and the moment — and you withdraw.", "tag": "Scenario — six workers of her choosing",
         "prompt": "The reviewer asks to interview six workers of her choosing, without supervisors present, in a location she picks. Your HSE manager is uncomfortable and suggests providing a list of six experienced workers and a meeting room in the office.",
         "options": ["Facilitate exactly what she asked for, and say proactively that you will withdraw", "Provide the list and the room as suggested", "Provide the list but allow her to choose others if she wishes", "Ask the lenders to clarify the scope of her access"],
         "correct": 0,
         "tip": "A curated sample is treated as one — and asking the lenders to intervene reads as obstruction. The access she asked for is ordinary practice under Principle 9." },
-      { "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — nine days out",
+      { "fmt": "scenario", "difficulty": "medium", "hint": "Fix now, date today, disclose the gap and the correction — never backdate.", "tag": "Scenario — nine days out",
         "prompt": "Preparing the pack, you find the traffic management plan was last revised before two haul routes changed, and no toolbox record exists for the revised routes. The visit is in nine days.",
         "options": ["Revise the plan now, dated today, deliver the briefings this week, and disclose both the gap and the correction", "Revise the plan and date it to when the routes changed", "Leave it and explain if asked", "Revise the plan and omit the missing briefing records from the pack"],
         "correct": 0,
@@ -6956,17 +7024,17 @@ export const quizzes = {
           { "id": "home", "text": "Send the people present home to rest before taking accounts", "cat": "dont" }
         ],
         "tip": "Three things destroy an investigation in the first hour: the scene cleared, the plant repaired, and the witnesses gone home." },
-      { "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — the haul road",
+      { "fmt": "scenario", "difficulty": "medium", "hint": "People, then scene, then notifications — the scene is evidence and stays closed.", "tag": "Scenario — the haul road",
         "prompt": "A tipper has struck a pedestrian on the haul road. The casualty has been taken to hospital. Traffic is backing up, the community is gathering, and your logistics manager wants the vehicle moved and the road opened.",
         "options": ["Keep the scene closed, photograph and measure, notify internally and externally, and arrange a diversion", "Move the vehicle and open the road, then photograph from memory of the positions", "Move the vehicle only, marking its position first", "Open the road on police instruction and take accounts later"],
         "correct": 0,
         "tip": "The vehicle's position is the single most important physical fact, and marking it does not preserve the surface evidence around it. A diversion is recoverable; the scene is not. A police instruction is followed — and it does not remove your duty to record what you can first." },
-      { "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — the fall",
+      { "fmt": "scenario", "difficulty": "medium", "hint": "The root cause is what made the unsafe way the normal way — not the last person who did not clip on.", "tag": "Scenario — the fall",
         "prompt": "A worker fell from a bridge deck. He was not clipped on. The nearest anchor point was 30 m away. The method statement assumed edge protection that was never installed because the section was behind programme. Three other workers say everybody works that way there.",
         "options": ["Root cause: edge protection omitted under programme pressure, creating a working method in which clipping on was impractical and tolerated — install edge protection, review the method statement against actual practice, and examine why the omission was never raised", "Root cause: failure to use fall protection — retraining and disciplinary process", "Root cause: inadequate supervision — add a supervisor", "Root cause: anchor point spacing — install more anchor points"],
         "correct": 0,
         "tip": "'He was not clipped on' is the last human action, and stopping there guarantees recurrence, because the condition that made it sensible is untouched." },
-      { "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — the brake",
+      { "fmt": "scenario", "difficulty": "medium", "hint": "A report states what is established, what is not yet known, and when it will be known.", "tag": "Scenario — the brake",
         "prompt": "Your draft report states that the brake was defective. The plant is quarantined but not yet tested; the assessment is based on the driver's account and the maintenance backlog.",
         "options": ["State what is established, state that the brake has not yet been tested, and record it in the 'what we do not know' section with a date for the test", "State that the brake was defective, as the evidence points that way", "Omit the brake question until the test is complete", "State that the brake was probably defective"],
         "correct": 0,
@@ -7030,7 +7098,7 @@ export const quizzes = {
         "prompt": "Put the five grievance steps in order.",
         "items": ["Record on receipt and give a reference", "Acknowledge within the published period", "Investigate", "Decide and remedy", "Tell the complainant the outcome and the reason"],
         "tip": "The last step is the one most projects skip — and the one that decides whether anybody uses the mechanism again." },
-      { "fmt": "cat", "type": "categorize", "difficulty": "hard", "tag": "S6 — Inside or outside?",
+      { "fmt": "cat", "type": "categorize", "difficulty": "medium", "hint": "Routine complaints stay inside; crime, security forces, very senior people or a register-wide pattern go beyond the mechanism.", "tag": "S6 — Inside or outside?",
         "prompt": "Handled inside the mechanism, or escalated beyond it?",
         "categories": [{ "id": "in", "label": "Inside the mechanism" }, { "id": "out", "label": "Escalate beyond it" }],
         "items": [
@@ -7042,17 +7110,17 @@ export const quizzes = {
           { "id": "systemic", "text": "A pattern revealing depreciation across the whole register", "cat": "out" }
         ],
         "tip": "The systemic pattern goes to the ESAP and the report to the lenders — it has stopped being a case." },
-      { "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — the workshop owner",
+      { "fmt": "scenario", "difficulty": "medium", "hint": "'No land taken' can still be economic displacement — blocked access to trade is assessed, not dismissed.", "tag": "Scenario — the workshop owner",
         "prompt": "A workshop owner complains he should have been compensated. His land was not acquired; the new embankment and barrier have blocked his frontage and his trade has collapsed. He is not on the land schedule, and the register is correct.",
         "options": ["Explain that the land question is correctly answered no, and open a separate assessment of loss of access and trade as economic displacement, with a date to come back to him", "Explain that no land was acquired and close the case", "Refer him to the courts", "Offer a goodwill payment to close the matter"],
         "correct": 0,
         "tip": "Closing the case answers the question he asked and misses the one he did not know to ask — loss of access and income is economic displacement under PS5. And a goodwill payment converts an entitlement into a favour, outside the entitlement framework." },
-      { "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — the anonymous note",
+      { "fmt": "scenario", "difficulty": "medium", "hint": "Check what records can show before anyone is confronted — and never hunt for the source.", "tag": "Scenario — the anonymous note",
         "prompt": "An anonymous note alleges that a foreman is taking money from workers in exchange for shifts. No names, no dates. Your HR manager says nothing can be done without a complainant.",
         "options": ["Investigate what can be checked independently: shift allocation records, patterns in who works, and confidential interviews across the gang, without identifying the source", "Record it and close it as unsubstantiated", "Ask the foreman directly", "Ask the gang who wrote it"],
         "correct": 0,
         "tip": "A great deal can be checked without a complainant — allocation patterns are records, and records do not need a name. Confronting the foreman or hunting the author creates a retaliation risk against someone you cannot identify and therefore cannot protect." },
-      { "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — 38 closed files",
+      { "fmt": "scenario", "difficulty": "medium", "hint": "A grievance is not closed until the person is told the outcome — and that is recorded.", "tag": "Scenario — 38 closed files",
         "prompt": "Your register shows 46 grievances received, 41 closed, average closure 9 days. Reviewing the files, you find that 38 of the 41 have no record of what the complainant was told.",
         "options": ["Report that 38 cases were closed without recorded feedback, treat it as a mechanism failure, and go back to those complainants", "Report the closure rate and the average time, which are good", "Add a feedback field to the form for future cases", "Record feedback retrospectively from the case officers' recollection"],
         "correct": 0,
@@ -7123,17 +7191,17 @@ export const quizzes = {
           { "id": "shared", "text": "A SEA/H case file on the project shared drive", "cat": "breach" }
         ],
         "tip": "A location, a role and a gender identify one person in a small community. Report numbers and categories, never narratives." },
-      { "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — four weeks in one hand",
+      { "fmt": "scenario", "difficulty": "medium", "hint": "Disclose the flaw in the record and fix the practice — never improve paperwork after the fact.", "tag": "Scenario — four weeks in one hand",
         "prompt": "Preparing for a visit you find four weeks of dust monitoring sheets completed in one sitting, in one hand, with almost identical values. The monitoring was probably done; the technician says he recorded it in a notebook and transferred it later — and the notebook no longer exists.",
         "options": ["Disclose that these four weeks were transcribed retrospectively and the source is lost, resume proper contemporaneous recording, and re-monitor going forward", "Submit the sheets as they are", "Have the technician redo the sheets with more varied handwriting", "Omit the four weeks from the pack"],
         "correct": 0,
         "tip": "Redoing the sheets is falsification — the single worst option available, and the one most often suggested in the room. And an unexplained four-week gap in a series is more conspicuous than the sheets." },
-      { "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — three versions of one event",
+      { "fmt": "scenario", "difficulty": "medium", "hint": "Reconcile to what actually happened and correct every copy with a dated note.", "tag": "Scenario — three versions of one event",
         "prompt": "Your incident register records a plant collision on the 14th, rated minor. The site diary records it on the 13th and describes a worker taken to hospital. The monthly report does not mention it. All three were compiled by different people.",
         "options": ["Establish what actually happened, correct all three with a dated reconciliation note, and treat the absence from the monthly report as a reporting failure to investigate", "Correct the register to match the diary and move on", "Leave it, since each document has a different purpose", "Remove the diary entry, which is the informal record"],
         "correct": 0,
         "tip": "Destroying the record that disagrees is the most serious response available — and the diary is usually the most reliable of the three, because it is the most contemporaneous." },
-      { "fmt": "scenario", "difficulty": "hard", "tag": "Scenario — the grievance summary",
+      { "fmt": "scenario", "difficulty": "medium", "hint": "Sensitive cases appear in reports as a category and a count — the detail stays in the restricted file.", "tag": "Scenario — the grievance summary",
         "prompt": "Your monthly report to the lenders includes a grievance summary. A colleague has drafted an entry reading: 'complaint from a female trader at Km 14 regarding conduct of a security guard at the north gate, under investigation.'",
         "options": ["Replace with a category and a number, and hold the detail in the restricted case file", "Publish as drafted, since no name is given", "Remove the entry entirely", "Publish with the location removed but the role retained"],
         "correct": 0,
