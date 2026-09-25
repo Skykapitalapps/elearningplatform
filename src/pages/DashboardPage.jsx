@@ -16,12 +16,19 @@ function ModuleCard({ m, modules, size = "md" }) {
   const done = m.status === "completed";
   const inner = (
     <div
-      className={`flex h-full items-start gap-3 rounded-2xl border p-4 transition-all ${
+      className={`flex h-full flex-col overflow-hidden rounded-2xl border transition-all ${
         unlocked
           ? "border-outline-variant bg-surface-container-lowest hover:-translate-y-0.5 hover:border-secondary hover:shadow-md"
           : "border-outline-variant/60 bg-surface-container-low opacity-70"
       }`}
     >
+      {m.cover && (
+        <div className="relative h-24 w-full shrink-0">
+          <img src={m.cover} alt="" loading="lazy" className={`h-full w-full object-cover ${unlocked ? "" : "grayscale"}`} />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary-container/70 to-transparent" />
+        </div>
+      )}
+      <div className="flex flex-1 items-start gap-3 p-4">
       <span
         className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ${
           done ? "bg-secondary-container text-on-secondary-container" : "bg-primary-container text-white"
@@ -39,6 +46,7 @@ function ModuleCard({ m, modules, size = "md" }) {
         <span className={`mt-1.5 inline-flex rounded-full px-2 py-0.5 text-caption font-semibold ${meta.pill}`}>
           {meta.label}
         </span>
+      </div>
       </div>
     </div>
   );

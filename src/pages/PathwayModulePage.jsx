@@ -7,7 +7,7 @@ import MaterialIcon from "../components/MaterialIcon.jsx";
 import Confetti from "../components/Confetti.jsx";
 
 // A little joy, none of it scored: praise varies, streaks catch fire.
-const PRAISE = ["Nice one!", "Spot on!", "Exactly right!", "You've got this!", "Sharp eye!", "That's it!"];
+const PRAISE = ["🎯 Spot on!", "💪 Nice one!", "🌟 Exactly right!", "🚀 You've got this!", "👌 Sharp eye!", "✅ That's it!"];
 const praiseFor = (i) => PRAISE[i % PRAISE.length];
 
 // ============================================================================
@@ -91,6 +91,7 @@ function LightQuiz({ module, onDone }) {
   const [choice, setChoice] = useState(null); // single: option index · tf: true/false
   const [reason, setReason] = useState(null); // tf second stage
   const [streak, setStreak] = useState(0); // display only — never recorded
+  const [hits, setHits] = useState(0); // display only — a perfect round earns a star
   const [praiseIdx, setPraiseIdx] = useState(0);
   const q = module.quiz[index];
   const isLast = index === module.quiz.length - 1;
@@ -98,7 +99,7 @@ function LightQuiz({ module, onDone }) {
   function next() {
     setChoice(null);
     setReason(null);
-    if (isLast) onDone();
+    if (isLast) onDone(hits === module.quiz.length);
     else setIndex(index + 1);
   }
 
@@ -111,7 +112,10 @@ function LightQuiz({ module, onDone }) {
   // Streak bookkeeping happens at the moment of the final tap.
   function settle(correct) {
     setStreak((s) => (correct ? s + 1 : 0));
-    if (correct) setPraiseIdx((i) => i + 1);
+    if (correct) {
+      setPraiseIdx((i) => i + 1);
+      setHits((h) => h + 1);
+    }
   }
 
   // Wrong-answer explanation: the per-option text when the pack wrote one,
@@ -176,7 +180,7 @@ function LightQuiz({ module, onDone }) {
 
       {q.format === "tf" && (
         <>
-          <div className="flex gap-2">
+          <div className="flex gap-3">
             {[true, false].map((v) => {
               const picked = choice === v;
               const correct = v === q.answer;
@@ -185,16 +189,19 @@ function LightQuiz({ module, onDone }) {
                   key={String(v)}
                   disabled={choice !== null}
                   onClick={() => setChoice(v)}
-                  className={`flex-1 rounded-xl border p-3.5 text-label-md font-bold transition-colors ${
+                  className={`flex flex-1 items-center justify-center gap-2 rounded-2xl border-2 p-5 text-headline-md font-black transition-all active:scale-95 ${
                     choice === null
-                      ? "border-outline-variant bg-surface-container-lowest hover:border-secondary"
+                      ? v
+                        ? "border-emerald-300 bg-emerald-50/60 text-emerald-700 hover:-translate-y-0.5 hover:border-emerald-500 hover:shadow-md"
+                        : "border-rose-300 bg-rose-50/60 text-rose-700 hover:-translate-y-0.5 hover:border-rose-500 hover:shadow-md"
                       : correct
-                        ? "border-emerald-500 bg-emerald-50 text-emerald-900"
+                        ? "border-emerald-500 bg-emerald-50 text-emerald-800"
                         : picked
-                          ? "border-rose-400 bg-rose-50 text-rose-900"
-                          : "border-outline-variant opacity-60"
+                          ? "border-rose-400 bg-rose-50 text-rose-800 opacity-80"
+                          : "border-outline-variant bg-surface-container-low text-outline opacity-50"
                   }`}
                 >
+                  <MaterialIcon name={v ? "thumb_up" : "thumb_down"} fill className="text-[26px]" />
                   {v ? "True" : "False"}
                 </button>
               );
@@ -276,6 +283,7 @@ export default function PathwayModulePage() {
   const [screen, setScreen] = useState(0);
   const [phase, setPhase] = useState("read"); // read | quiz | done
   const [quizKey, setQuizKey] = useState(0); // bumped on retry
+  const [perfect, setPerfect] = useState(false); // 4/4 first taps — display only
 
   const assigned = useMemo(() => modules.some((m) => m.id === id), [modules, id]);
   const nextModule = useMemo(() => {
@@ -316,7 +324,8 @@ export default function PathwayModulePage() {
   const isLastScreen = screen === total - 1;
   const hasQuiz = module.quiz.length > 0;
 
-  function finishModule() {
+  function finishModule(perfectRound = false) {
+    setPerfect(perfectRound === true);
     if (module.status !== "completed") completeModule(module.id);
     setPhase("done");
   }
@@ -420,6 +429,16 @@ export default function PathwayModulePage() {
             <h2 className="mt-3 text-headline-md text-primary">
               {module.block === "welcome" ? "You're set." : `${module.title} — done`}
             </h2>
+            {perfect && (
+              <p className="animate-pop mx-auto mt-2 inline-flex items-center gap-1.5 rounded-full bg-secondary-container px-4 py-1.5 text-label-md font-black text-on-secondary-container">
+                ⭐ Perfect round — 4 out of 4, first try!
+              </p>
+            )}
+            {module.id === "s5" && (
+              <p className="mx-auto mt-2 max-w-md text-body-lg font-bold text-secondary">
+                🎉 Core complete — your role modules are now open.
+              </p>
+            )}
             <p className="mx-auto mt-2 max-w-md text-body-md text-on-surface-variant">{module.closing}</p>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
               {nextModule && (

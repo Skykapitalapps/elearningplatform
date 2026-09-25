@@ -39,6 +39,7 @@ export const OSP_MODULES = [
   // ──────────────────────────────────────────────────────────── WELCOME ──
   {
     id: "w",
+    cover: "/images/hitech-skyline.webp",
     code: "W",
     block: "welcome",
     order: 0,
@@ -59,6 +60,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "How the pathway works",
+        photo: "/images/esg-social.jpg",
         body: [
           "Five core modules first, for everyone: what this is about, who lends to us, the documents, how we are checked, and a day on this project. About fifty minutes.",
           "Then your role modules — one or two, assigned to your job: Community, Health and Safety, Environment, or Security and conduct.",
@@ -68,6 +70,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "Before you start",
+        photo: "/images/lm6.jpg",
         body: [
           "Every new term is explained on the screen where it appears — look for the jargon buster.",
           "The glossary and the memo sheets stay available from the menu at any time, during and after the pathway.",
@@ -83,6 +86,7 @@ export const OSP_MODULES = [
   // ──────────────────────────────────────────────────────────────── S1 ──
   {
     id: "s1",
+    cover: "/images/hitech-pour.webp",
     code: "S1",
     block: "core",
     order: 1,
@@ -131,6 +135,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "And the third letter",
+        photo: "/images/esg-governance.jpg",
         body: [
           "You will also hear ESG. The G is Governance: whether our systems and our records are honest.",
           "A register filled in on Friday for the whole week. An inspection recorded that nobody carried out. A payment made to move a permit along.",
@@ -190,6 +195,7 @@ export const OSP_MODULES = [
       {
         format: "tf",
         stem: "A trader on the road reserve with no papers for the spot is not affected by our project.",
+        image: "/images/lm12.jpg",
         answer: false,
         reasons: [
           "Having no papers does not mean having no rights, and the lenders treat her as affected.",
@@ -202,6 +208,7 @@ export const OSP_MODULES = [
       {
         format: "single",
         stem: "A supervisor fills in a week of inspection records on Friday, from memory. The work was actually done. What is the problem?",
+        image: "/images/lm11.jpg",
         options: [
           "There is none, since the work was done.",
           "The record is false, and once one record is doubted they all are.",
@@ -232,6 +239,7 @@ export const OSP_MODULES = [
   // ──────────────────────────────────────────────────────────────── S2 ──
   {
     id: "s2",
+    cover: "/images/hitech-paving.webp",
     code: "S2",
     block: "core",
     order: 2,
@@ -254,6 +262,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "Who is actually lending",
+        photo: "/images/esg-reporting.jpg",
         body: [
           "Not one bank. A group, and the word for it is a syndicate.",
           "It includes development finance institutions, which are public bodies lending for development.",
@@ -269,6 +278,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "Eight standards, and what they cover",
+        photo: "/images/lm5.jpg",
         body: [
           "The rules the lenders apply are the IFC Performance Standards. IFC is the International Finance Corporation, part of the World Bank Group.",
           "There are eight, numbered 1 to 8. You will hear them called PS1 to PS8.",
@@ -284,6 +294,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "How the standards reach a bank",
+        photo: "/images/esg-governance.jpg",
         body: [
           "A commercial bank is not obliged by the IFC to do anything. So how do the standards reach it?",
           "Through the Equator Principles, a framework banks adopt voluntarily. You will hear EP4, the fourth version.",
@@ -310,6 +321,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "When the two differ, the stricter one wins",
+        photo: "/images/lm7.jpg",
         body: [
           "Where national law and the lender standard say different things about the same requirement, we follow the stricter one.",
           "Take night noise near houses. If the national limit is one figure day and night, and the lender standard sets a lower limit at night, we work to the night limit.",
@@ -342,6 +354,7 @@ export const OSP_MODULES = [
       {
         format: "single",
         stem: "Why does a lender take an interest in our worker camp?",
+        image: "/images/lm3.jpg",
         options: ["Curiosity.", "Because conditions on how we build are attached to the money itself.", "Because the camp is expensive.", "It does not, only the regulator does."],
         correct: 1,
         feedback: {
@@ -351,6 +364,7 @@ export const OSP_MODULES = [
       {
         format: "tf",
         stem: "We hold a valid environmental permit, so the environmental question is settled.",
+        image: "/images/lm5.jpg",
         answer: false,
         reasons: [
           "The permit answers Nigerian law and the lenders require more.",
@@ -373,6 +387,7 @@ export const OSP_MODULES = [
       {
         format: "single",
         stem: "How many IFC Performance Standards are there?",
+        image: "/images/esg-governance.jpg",
         options: ["Four.", "Six.", "Eight.", "Ten."],
         correct: 2,
         general: "Eight, and seven of them apply here. PS7 on Indigenous Peoples does not apply to these corridors.",
@@ -384,6 +399,7 @@ export const OSP_MODULES = [
   // ──────────────────────────────────────────────────────────────── S3 ──
   {
     id: "s3",
+    cover: "/images/lm13.jpg",
     code: "S3",
     block: "core",
     order: 3,
@@ -394,6 +410,7 @@ export const OSP_MODULES = [
     screens: [
       {
         heading: "Four documents, and one of them is yours",
+        photo: "/images/lm13.jpg",
         body: [
           "People throw four sets of initials around on this project. They are not the same thing and they do not do the same job.",
           "The ESIA is the study. The ESDD is the lenders' check. The ESMP is our plan. The ESAP is our list of corrections.",
@@ -420,6 +437,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "The lenders' check",
+        photo: "/images/esg-reporting.jpg",
         body: [
           "Before lending, the lenders send their own specialists to examine the project. That examination is the Environmental and Social Due Diligence, or ESDD.",
           "They read the ESIA, look at the site, and compare what exists against what the standards require.",
@@ -434,6 +452,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "Our plan, and the plans under it",
+        photo: "/images/lm4.jpg",
         body: [
           "The Environmental and Social Management Plan, the ESMP, is how we will meet our obligations during construction.",
           "It does not stand alone. Under it sit the plans that run daily work: traffic management, waste management, borrow pit management, camp management, community engagement, emergency response.",
@@ -463,6 +482,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "From a policy to a piece of evidence",
+        photo: "/images/lm9.jpg",
         body: [
           "Four levels, and they connect.",
           "A policy says what the company commits to. A plan says what we will do about a defined risk. A procedure says how one task is done, step by step. A record proves it happened.",
@@ -495,6 +515,7 @@ export const OSP_MODULES = [
       {
         format: "single",
         stem: "Which document tells your site what to do during construction?",
+        image: "/images/lm13.jpg",
         options: ["The ESIA.", "The ESDD.", "The ESMP.", "The ESAP."],
         correct: 2,
         feedback: {
@@ -504,6 +525,7 @@ export const OSP_MODULES = [
       {
         format: "single",
         stem: "An ESAP action is marked closed. What must exist for that to be true?",
+        image: "/images/lm9.jpg",
         options: ["The owner's confirmation.", "The date has passed.", "The agreed evidence, checked by someone.", "An entry in the tracker."],
         correct: 2,
         feedback: {
@@ -514,6 +536,7 @@ export const OSP_MODULES = [
       {
         format: "tf",
         stem: "A plan and a procedure are the same thing written at different lengths.",
+        image: "/images/lm4.jpg",
         answer: false,
         reasons: [
           "A plan organises a risk over a period; a procedure tells one person how to do one task, now.",
@@ -538,6 +561,7 @@ export const OSP_MODULES = [
   // ──────────────────────────────────────────────────────────────── S4 ──
   {
     id: "s4",
+    cover: "/images/hitech-dozer.webp",
     code: "S4",
     block: "core",
     order: 4,
@@ -548,6 +572,7 @@ export const OSP_MODULES = [
     screens: [
       {
         heading: "Four sets of eyes",
+        photo: "/images/lm10.jpg",
         body: [
           "Our own people check first: HSE inspections, supervisor checks, the monthly report we produce ourselves.",
           "The client's engineer checks, and can instruct us and sometimes stop an activity.",
@@ -559,6 +584,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "What we check ourselves",
+        photo: "/images/lm3.jpg",
         body: [
           "Self-monitoring is not a formality. It is the first and most frequent check, and it is ours.",
           "Inspections against the plans. Monitoring of dust, noise, water and effluent against limits. Registers of incidents, near misses and grievances.",
@@ -570,6 +596,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "The consultant the lenders send",
+        photo: "/images/esg-governance.jpg",
         body: [
           "They are called the Independent Environmental and Social Consultant, or IESC.",
           "They are appointed by the lenders and report to the lenders. They are not our adviser and they are not the regulator.",
@@ -596,6 +623,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "What happens afterwards",
+        photo: "/images/lm8.jpg",
         body: [
           "They write a report. It goes to the lenders, and we get to comment on the facts.",
           "Each finding gets a severity and a corrective action, with an owner and a date. Those go onto the ESAP.",
@@ -640,6 +668,7 @@ export const OSP_MODULES = [
       {
         format: "single",
         stem: "Who does the independent consultant work for?",
+        image: "/images/esg-governance.jpg",
         options: ["Us.", "The client.", "The lenders.", "The regulator."],
         correct: 2,
         feedback: {
@@ -649,6 +678,7 @@ export const OSP_MODULES = [
       {
         format: "tf",
         stem: "A grievance register with no entries this quarter is a good result.",
+        image: "/images/lm6.jpg",
         answer: false,
         reasons: [
           "It usually means nobody knows the channel, does not trust it, or does not feel safe using it.",
@@ -672,6 +702,7 @@ export const OSP_MODULES = [
       {
         format: "single",
         stem: "What usually causes a payment to be held?",
+        image: "/images/esg-reporting.jpg",
         options: ["One severe finding.", "A list of actions nobody closed.", "A regulator's fine.", "A community complaint."],
         correct: 1,
         general: "Each of the others can contribute. The common cause is overdue actions, and each of those has a name against it.",
@@ -683,6 +714,7 @@ export const OSP_MODULES = [
   // ──────────────────────────────────────────────────────────────── S5 ──
   {
     id: "s5",
+    cover: "/images/lm2.jpg",
     code: "S5",
     block: "core",
     order: 5,
@@ -693,6 +725,7 @@ export const OSP_MODULES = [
     screens: [
       {
         heading: "Where the evidence is born",
+        photo: "/images/lm2.jpg",
         body: [
           "Everything the lenders read starts as something somebody did on an ordinary day.",
           "An induction signed. A permit issued. An inspection walked. A near miss reported. A complaint written down.",
@@ -728,6 +761,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "The record, and what makes it good",
+        photo: "/images/lm11.jpg",
         body: [
           "Four things. Written at the time, or as close as the work allows. Signed, so it has an author. Complete, including the entries that look bad. And consistent with the other places the same event appears.",
           "A week of sheets filled in on Friday fails the first. An unsigned entry fails the second.",
@@ -739,6 +773,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "When something goes wrong",
+        photo: "/images/lm14.jpg",
         body: [
           "Stop, and make it safe. That comes before anything else, including the record.",
           "Tell someone. Your supervisor, the HSE officer, whoever the procedure names. Do not wait for the end of the shift.",
@@ -750,6 +785,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "Where your day ends up",
+        photo: "/images/esg-reporting.jpg",
         body: [
           "Those records are collected and become our monthly report to the lenders.",
           "The same records show whether the measures in the ESMP are actually being applied, or only written.",
@@ -782,6 +818,7 @@ export const OSP_MODULES = [
       {
         format: "single",
         stem: "What is a permit to work actually for?",
+        image: "/images/lm5.jpg",
         options: ["Paperwork.", "Checking that the control exists before the work starts.", "Recording who was on site.", "Satisfying the regulator."],
         correct: 1,
         feedback: {
@@ -791,6 +828,7 @@ export const OSP_MODULES = [
       {
         format: "tf",
         stem: "A week of inspection sheets completed on Friday is acceptable if the inspections were done.",
+        image: "/images/lm11.jpg",
         answer: false,
         reasons: [
           "The record is not contemporaneous, and it is usually recognisable, which puts every other record in doubt.",
@@ -811,6 +849,7 @@ export const OSP_MODULES = [
       {
         format: "single",
         stem: "Your daily records eventually prove which of these?",
+        image: "/images/esg-reporting.jpg",
         options: [
           "That the ESMP measures are applied and that ESAP actions can close.",
           "That the ESIA was accurate.",
@@ -827,6 +866,7 @@ export const OSP_MODULES = [
   // ──────────────────────────────────────────────────────────────── R1 ──
   {
     id: "r1",
+    cover: "/images/hitech-embankment.webp",
     code: "C",
     block: "role",
     order: 6,
@@ -849,6 +889,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "Who counts as affected",
+        photo: "/images/lm12.jpg",
         body: [
           "Anyone who loses land, assets, access or income because of this project. Three groups, and only the first has papers.",
           "People with a title or a certificate of occupancy.",
@@ -861,6 +902,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "Paying correctly is not the end of it",
+        photo: "/images/esg-social.jpg",
         body: [
           "Two rules decide whether compensation was right.",
           "It is calculated at the cost of replacing the asset, with nothing taken off for age. A twenty-year-old house is paid at the price of building an equivalent new one.",
@@ -885,6 +927,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "The community grievance mechanism",
+        photo: "/images/lm6.jpg",
         body: [
           "Every affected person must have a way to raise a problem with us and get an answer. That is the community grievance mechanism.",
           "It is run by the community relations manager and the liaison officers. The workers' channel is a separate one, run by Human Resources, and is covered in the Health and Safety module.",
@@ -900,6 +943,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "Engagement is a process, not an event",
+        photo: "/images/esg-social.jpg",
         body: [
           "A public meeting held two years ago at design stage satisfied a legal requirement. It is not engagement.",
           "Engagement means knowing who is affected, telling them what is coming before it arrives, and listening while the works are running.",
@@ -911,6 +955,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "The plans and procedures behind all this",
+        photo: "/images/lm13.jpg",
         body: [
           "This module is not advice. Each part of it sits in a document you can open.",
           "The stakeholder engagement plan says who we talk to, about what, and how often.",
@@ -944,6 +989,7 @@ export const OSP_MODULES = [
       {
         format: "single",
         stem: "A woman has traded on the road reserve for fifteen years with no papers. Is she affected?",
+        image: "/images/lm12.jpg",
         options: [
           "No, she has no right to be there.",
           "Yes, and she is compensated for her structure and helped to restore her living.",
@@ -971,6 +1017,7 @@ export const OSP_MODULES = [
       {
         format: "single",
         stem: "Which step of the grievance process is most often skipped?",
+        image: "/images/lm6.jpg",
         options: ["Logging the complaint.", "Investigating it.", "Telling the complainant the outcome.", "Acknowledging receipt."],
         correct: 2,
         general: "And from the complainant's side, a case closed without being told is a case where nothing happened.",
@@ -978,6 +1025,7 @@ export const OSP_MODULES = [
       {
         format: "single",
         stem: "What is the first control for the effects of several hundred workers arriving?",
+        image: "/images/hitech-skyline.webp",
         options: ["A better camp.", "Fewer arrivals: hire and train locally, transport people in.", "A community fund.", "More security."],
         correct: 1,
         general: "Camp design matters and comes second. Reducing the number of people arriving is the control with the largest effect.",
@@ -989,6 +1037,7 @@ export const OSP_MODULES = [
   // ──────────────────────────────────────────────────────────────── R2 ──
   {
     id: "r2",
+    cover: "/images/lm10.jpg",
     code: "H&S",
     block: "role",
     order: 7,
@@ -1013,6 +1062,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "Every person on this site, whoever pays them",
+        photo: "/images/lm4.jpg",
         body: [
           "Our employees. The subcontractor's people. The labour supplier's men. The caterers, the drivers, the guards.",
           "All of them must have written terms in a language they understand, and a payslip showing what they earned and what was taken off.",
@@ -1024,6 +1074,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "Six arrangements that mean a man cannot leave",
+        photo: "/images/lm9.jpg",
         body: [
           "These rarely look like coercion. They look like administration.",
           "His employer holds his identity documents, for safekeeping.",
@@ -1037,6 +1088,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "Occupational health and the clinic",
+        photo: "/images/lm10.jpg",
         body: [
           "Occupational health is not the same function as safety, and on this project it runs its own clinic.",
           "It holds health surveillance: who is exposed to dust, noise, chemicals or heat, and what that exposure is doing to them over time.",
@@ -1049,6 +1101,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "The camp",
+        photo: "/images/lm3.jpg",
         body: [
           "Where we accommodate people, the standard covers floor space per person, toilets and showers per person, lighting, water, food safety and ventilation.",
           "Occupancy is set by the standard, not by how many beds fit in the room. Three-tier bunks are not acceptable.",
@@ -1063,6 +1116,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "The worker grievance channel",
+        photo: "/images/lm8.jpg",
         body: [
           "Workers need their own way to raise a problem, and it is not the community mechanism.",
           "Ours is run by Human Resources, with worker representatives, including union representatives where they are present.",
@@ -1087,6 +1141,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "The plans and procedures behind all this",
+        photo: "/images/lm13.jpg",
         body: [
           "The traffic management plan sets routes, hours, speeds and driver rules.",
           "The camp management plan sets accommodation, catering, water and waste.",
@@ -1120,6 +1175,7 @@ export const OSP_MODULES = [
       {
         format: "single",
         stem: "A worker is at risk of falling from a bridge deck. What is the first thing to consider?",
+        image: "/images/lm2.jpg",
         options: ["Issue a harness.", "Assemble at ground level so nobody works at the edge.", "Post a supervisor.", "Write a permit."],
         correct: 1,
         feedback: {
@@ -1129,6 +1185,7 @@ export const OSP_MODULES = [
       {
         format: "tf",
         stem: "The labour supplier holds his men's identity documents for safekeeping, so it is not our concern.",
+        image: "/images/lm9.jpg",
         answer: false,
         reasons: [
           "It is a sign a man cannot leave, and anyone on our site is our responsibility.",
@@ -1141,6 +1198,7 @@ export const OSP_MODULES = [
       {
         format: "single",
         stem: "How many grievance channels does this project have?",
+        image: "/images/lm8.jpg",
         options: ["One, for everybody.", "Two: one for workers, one for the community.", "One per section.", "Three."],
         correct: 1,
         general: "Running them together either exposes people or buries complaints, and usually both.",
@@ -1160,6 +1218,7 @@ export const OSP_MODULES = [
   // ──────────────────────────────────────────────────────────────── R3 ──
   {
     id: "r3",
+    cover: "/images/hitech-borrowpit.webp",
     code: "E",
     block: "role",
     order: 8,
@@ -1182,6 +1241,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "Dust, water and noise",
+        photo: "/images/esg-pollution.jpg",
         body: [
           "Dust. Suppress where people live, on a schedule matched to the weather and the traffic, not a fixed time. Cover loads. Slow down, which cuts dust and costs nothing. Never use waste oil on a road.",
           "Water. Silt fences and settlement ponds before the rains, not after the first storm. Contain concrete washout, which is lethal to fish. Treat camp and workshop effluent, and sample downstream where people draw water.",
@@ -1192,6 +1252,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "The batching plant",
+        photo: "/images/hitech-paving.webp",
         body: [
           "We are building a concrete pavement, so the batching plants are the largest environmental operation on this project.",
           "Wash water from drums and chutes is strongly alkaline and kills fish. It is contained and settled, never sent to a ditch.",
@@ -1204,6 +1265,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "Waste, fuel and the whole skip",
+        photo: "/images/esg-pollution.jpg",
         body: [
           "One used oil filter dropped into a general skip turns the whole load into hazardous waste.",
           "So segregate: general, inert rubble, recyclable, hazardous, clinical waste from the clinic, and sludge from treatment. Clinical waste never enters the general stream.",
@@ -1227,6 +1289,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "Look before you clear",
+        photo: "/images/esg-environment.jpg",
         body: [
           "Before any clearance, on the alignment or at a pit or a camp, somebody checks what is there.",
           "Habitat, protected species, wetlands that are dry in February and full in August, and the trees and plants people actually use.",
@@ -1238,6 +1301,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "If you uncover something",
+        photo: "/images/lm1.jpg",
         body: [
           "Graves, shrines, pots, old walls. Most of what matters is on no map, because nobody ever recorded it.",
           "Five steps, and they are the same for everyone who operates a machine.",
@@ -1249,6 +1313,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "The plans and procedures behind all this",
+        photo: "/images/lm13.jpg",
         body: [
           "The waste management plan sets the streams, the storage and the disposal route.",
           "The borrow pit management and closure plan sets extraction, working method and the final profile.",
@@ -1282,6 +1347,7 @@ export const OSP_MODULES = [
       {
         format: "single",
         stem: "When should the closure of a borrow pit be designed?",
+        image: "/images/lm7.jpg",
         options: ["When extraction finishes.", "Before extraction starts.", "When the landowner asks.", "At handover."],
         correct: 1,
         feedback: {
@@ -1304,6 +1370,7 @@ export const OSP_MODULES = [
       {
         format: "single",
         stem: "A used oil filter is dropped into a general waste skip. What happens?",
+        image: "/images/esg-pollution.jpg",
         options: ["Nothing, it is one filter.", "The whole load becomes hazardous waste.", "It is removed at the landfill.", "It only matters if inspected."],
         correct: 1,
         general: "One small item turns a small quantity of controlled waste into a large one. That is the mechanism behind most waste findings.",
@@ -1311,6 +1378,7 @@ export const OSP_MODULES = [
       {
         format: "single",
         stem: "Your bucket exposes what looks like a grave. What do you do first?",
+        image: "/images/lm1.jpg",
         options: ["Photograph it.", "Stop and switch off.", "Call your foreman and keep working nearby.", "Cover it over."],
         correct: 1,
         general: "Then do not touch it, secure a radius, call the number, and nobody works there until the named person attends.",
