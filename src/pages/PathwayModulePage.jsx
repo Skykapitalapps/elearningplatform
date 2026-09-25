@@ -14,6 +14,157 @@ const praiseFor = (i) => PRAISE[i % PRAISE.length];
 const PASS_PCT = 0.75;
 export const passNeededFor = (quiz) => Math.ceil(quiz.length * PASS_PCT);
 
+function shuffled(n) {
+  const a = Array.from({ length: n }, (_, i) => i);
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  // never start on the right answer
+  return a.every((v, i) => v === i) ? a.reverse() : a;
+}
+
+// "Put the steps in order" — tap the arrows, then check. All-or-nothing.
+function OrderQuestion({ q, revealed, onChecked }) {
+  const [arr, setArr] = useState(() => shuffled(q.items.length));
+  const move = (pos, dir) => {
+    if (revealed) return;
+    const next = [...arr];
+    const to = pos + dir;
+    if (to < 0 || to >= next.length) return;
+    [next[pos], next[to]] = [next[to], next[pos]];
+    setArr(next);
+  };
+  return (
+    <div>
+      <div className="space-y-2">
+        {arr.map((itemIdx, pos) => {
+          const right = revealed && itemIdx === pos;
+          const wrong = revealed && itemIdx !== pos;
+          return (
+            <div
+              key={itemIdx}
+              className={`flex items-center gap-2 rounded-xl border p-3 text-body-md transition-colors ${
+                right ? "border-emerald-500 bg-emerald-50 text-emerald-900"
+                : wrong ? "border-rose-400 bg-rose-50 text-rose-900"
+                : "border-outline-variant bg-surface-container-lowest"
+              }`}
+            >
+              <span className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-caption font-black ${right ? "bg-emerald-500 text-white" : wrong ? "bg-rose-400 text-white" : "bg-primary-container text-white"}`}>
+                {pos + 1}
+              </span>
+              <span className="flex-1">{q.items[itemIdx]}</span>
+              {revealed && wrong && (
+                <span className="text-caption font-bold text-rose-500">→ {itemIdx + 1}</span>
+              )}
+              {!revealed && (
+                <span className="flex flex-col">
+                  <button onClick={() => move(pos, -1)} disabled={pos === 0} className="text-outline hover:text-primary disabled:opacity-20" aria-label="Move up">
+                    <MaterialIcon name="keyboard_arrow_up" className="text-[20px]" />
+                  </button>
+                  <button onClick={() => move(pos, 1)} disabled={pos === arr.length - 1} className="text-outline hover:text-primary disabled:opacity-20" aria-label="Move down">
+                    <MaterialIcon name="keyboard_arrow_down" className="text-[20px]" />
+                  </button>
+                </span>
+              )}
+            </div>
+          );
+        })}
+      </div>
+      {!revealed && (
+        <button
+          onClick={() => onChecked(arr.every((v, i) => v === i))}
+          className="mt-4 inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-3 text-label-md font-bold text-on-primary transition-opacity hover:opacity-90"
+        >
+          <MaterialIcon name="checklist" /> Check my order
+        </button>
+      )}
+    </div>
+  );
+}
+
+// "Sort into buckets" — tap a chip, tap its bucket; tap a placed chip to
+// take it back. Check unlocks once everything is placed.
+function CatQuestion({ q, revealed, onChecked }) {
+  const [placed, setPlaced] = useState({}); // itemIdx -> catId
+  const [sel, setSel] = useState(null);
+  const unplaced = q.items.map((_, i) => i).filter((i) => placed[i] === undefined);
+  const place = (catId) => {
+    if (revealed || sel === null) return;
+    setPlaced({ ...placed, [sel]: catId });
+    setSel(null);
+  };
+  const takeBack = (i) => {
+    if (revealed) return;
+    const next = { ...placed };
+    delete next[i];
+    setPlaced(next);
+  };
+  return (
+    <div>
+      {unplaced.length > 0 && (
+        <div className="mb-3 flex flex-wrap gap-2">
+          {unplaced.map((i) => (
+            <button
+              key={i}
+              onClick={() => setSel(sel === i ? null : i)}
+              className={`rounded-full border px-3 py-1.5 text-caption font-semibold transition-all ${
+                sel === i ? "scale-105 border-secondary bg-secondary-container text-on-secondary-container shadow-md" : "border-outline-variant bg-surface-container-lowest text-on-surface hover:border-secondary"
+              }`}
+            >
+              {q.items[i].text}
+            </button>
+          ))}
+        </div>
+      )}
+      {sel !== null && <p className="mb-2 text-caption font-semibold text-secondary">Now tap the right bucket ↓</p>}
+      <div className={`grid gap-3 ${q.cats.length === 3 ? "sm:grid-cols-3" : "sm:grid-cols-2"}`}>
+        {q.cats.map((c) => (
+          <button
+            key={c.id}
+            onClick={() => place(c.id)}
+            disabled={revealed || sel === null}
+            className={`min-h-24 rounded-xl border-2 border-dashed p-3 text-left transition-colors ${
+              sel !== null && !revealed ? "border-secondary bg-secondary-container/20" : "border-outline-variant bg-surface-container-low"
+            }`}
+          >
+            <span className="mb-2 block text-caption font-black uppercase tracking-wider text-primary">{c.label}</span>
+            <span className="flex flex-wrap gap-1.5">
+              {q.items.map((it, i) => {
+                if (placed[i] !== c.id) return null;
+                const right = revealed && it.cat === c.id;
+                const wrong = revealed && it.cat !== c.id;
+                return (
+                  <span
+                    key={i}
+                    onClick={(e) => { e.stopPropagation(); takeBack(i); }}
+                    className={`rounded-full px-2.5 py-1 text-caption font-semibold ${
+                      right ? "bg-emerald-100 text-emerald-800"
+                      : wrong ? "bg-rose-100 text-rose-800 line-through"
+                      : "bg-surface-container-highest text-on-surface"
+                    }`}
+                  >
+                    {it.text}
+                  </span>
+                );
+              })}
+            </span>
+          </button>
+        ))}
+      </div>
+      {!revealed && (
+        <button
+          onClick={() => onChecked(q.items.every((it, i) => placed[i] === it.cat))}
+          disabled={unplaced.length > 0}
+          className="mt-4 inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-3 text-label-md font-bold text-on-primary transition-opacity hover:opacity-90 disabled:opacity-40"
+        >
+          <MaterialIcon name="checklist" /> Check my sorting {unplaced.length > 0 ? `(${unplaced.length} left)` : ""}
+        </button>
+      )}
+    </div>
+  );
+}
+
 // ============================================================================
 // OUR SUSTAINABILITY PATHWAY — module player.
 // One screen at a time (the copy is pasted as-is from the module packs and
@@ -95,23 +246,28 @@ function LightQuiz({ module, onDone }) {
   const [choice, setChoice] = useState(null); // single: option index · tf: true/false
   const [reason, setReason] = useState(null); // tf second stage
   const [streak, setStreak] = useState(0); // display only — never recorded
-  const [hits, setHits] = useState(0); // display only — a perfect round earns a star
+  const [hits, setHits] = useState(0); // right answers this attempt
   const [praiseIdx, setPraiseIdx] = useState(0);
+  const [checkedResult, setCheckedResult] = useState(null); // order/cat outcome
   const q = module.quiz[index];
   const isLast = index === module.quiz.length - 1;
 
   function next() {
     setChoice(null);
     setReason(null);
+    setCheckedResult(null);
     if (isLast) onDone(hits);
     else setIndex(index + 1);
   }
 
-  const revealed = q.format === "single" ? choice !== null : reason !== null;
+  const revealed =
+    q.format === "single" ? choice !== null
+    : q.format === "tf" ? reason !== null
+    : checkedResult !== null;
   const gotIt =
-    q.format === "single"
-      ? choice === q.correct
-      : choice === q.answer && reason === q.correctReason;
+    q.format === "single" ? choice === q.correct
+    : q.format === "tf" ? choice === q.answer && reason === q.correctReason
+    : checkedResult === true;
 
   // Streak bookkeeping happens at the moment of the final tap.
   function settle(correct) {
@@ -180,6 +336,24 @@ function LightQuiz({ module, onDone }) {
             );
           })}
         </div>
+      )}
+
+      {q.format === "order" && (
+        <OrderQuestion
+          key={index}
+          q={q}
+          revealed={revealed}
+          onChecked={(correct) => { setCheckedResult(correct); settle(correct); }}
+        />
+      )}
+
+      {q.format === "cat" && (
+        <CatQuestion
+          key={index}
+          q={q}
+          revealed={revealed}
+          onChecked={(correct) => { setCheckedResult(correct); settle(correct); }}
+        />
       )}
 
       {q.format === "tf" && (
@@ -261,9 +435,9 @@ function LightQuiz({ module, onDone }) {
               {wrongText(choice)}
             </p>
           )}
-          {(q.format === "single" ? q.general : q.feedback) && (
+          {(q.format === "tf" ? q.feedback : q.general) && (
             <p className="rounded-xl bg-surface-container-low p-stack-md text-body-md leading-relaxed text-on-surface">
-              {q.format === "single" ? q.general : q.feedback}
+              {q.format === "tf" ? q.feedback : q.general}
             </p>
           )}
           <button
