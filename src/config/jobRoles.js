@@ -1,42 +1,48 @@
 // ============================================================================
-// JOB ROLES — who is assigned which modules of the pathway.
+// PATHWAY ROLES — who is assigned which modules of Our Sustainability Pathway.
 //
-// The role matrix itself is PER CLIENT and lives in clients.js (jobRoles on
-// the active client's entry). This module reads the active client's matrix
-// and provides the helpers the app uses to gate modules and documents.
+// The role matrix is PER CLIENT and lives in clients.js (pathwayRoles on the
+// active client's entry): the 12 trades of the "Where you come in" screen,
+// each mapped to its role modules (r1 Community, r2 Health & Safety,
+// r3 Environment, r4 Security & conduct).
 //
-// Pathway A (A1–A5) is the BASELINE: every role takes all of it, in order.
-// Pathways B and C are assigned per role and unlock together once Pathway A
-// is complete (they can be taken in any order).
+// Everyone takes the welcome + the five core modules (S1–S5), in order.
+// Role modules unlock together once the core is complete.
 //
-// A learner with NO job role assigned (older accounts, demo mode) sees
-// everything — as does a client with no jobRoles configured. Reviewers
-// (role 'manager') and admins are never restricted.
+// A learner with NO role on record (older accounts, demo mode) sees the full
+// programme. Reviewers (role 'manager') and admins are never restricted.
+// The old 18-module reference course is now the open "Go further" library —
+// it is not assigned, not gated and not counted in anyone's progress.
 // ============================================================================
 import { isSupabaseConfigured } from "../lib/supabase.js";
 import { client } from "./clients.js";
+import { OSP_MODULES } from "../data/osp.js";
 
+export const PATHWAY_ROLES = client.pathwayRoles ?? [];
+
+// Kept for the admin summary of the legacy reference matrix.
 export const JOB_ROLES = client.jobRoles ?? [];
 
-export function jobRoleByKey(key) {
-  return JOB_ROLES.find((r) => r.key === key) || null;
+export function pathwayRoleByKey(key) {
+  return PATHWAY_ROLES.find((r) => r.key === key) || null;
 }
+// Back-compat alias used by older imports.
+export const jobRoleByKey = pathwayRoleByKey;
 
-// Number of modules in Pathway A — the baseline everyone takes.
-export const PATHWAY_A_COUNT = 5;
-const ALL_MODULES_COUNT = PATHWAY_A_COUNT + 6 + 5; // A + B + C = 16
+const BASELINE_COUNT = OSP_MODULES.filter((m) => m.block !== "role").length; // welcome + core
+const ALL_MODULES_COUNT = OSP_MODULES.length;
 
-// How many modules this job role is assigned in total (certificate threshold).
+// How many modules this trade is assigned in total (certificate threshold).
 // Unknown / unassigned role: the full programme.
-export function assignedTotal(jobRoleKey) {
-  const role = jobRoleByKey(jobRoleKey);
+export function assignedTotal(roleKey) {
+  const role = pathwayRoleByKey(roleKey);
   if (!role) return ALL_MODULES_COUNT;
-  return PATHWAY_A_COUNT + role.b.length + role.c.length;
+  return BASELINE_COUNT + role.modules.length;
 }
 
-// The job role that restricts what this signed-in person sees.
+// The trade that restricts what this signed-in person sees.
 // Staff (admin) and reviewers (manager) are never restricted; in demo mode a
-// localStorage override ("skk-demo-jobrole") lets a role be previewed locally.
+// localStorage override ("skk-demo-jobrole") lets a trade be previewed locally.
 export function pathwayRole(profile) {
   if (profile?.role === "admin" || profile?.role === "manager") return null;
   const key =
@@ -50,40 +56,20 @@ export function pathwayRole(profile) {
           }
         })()
       : null);
-  return jobRoleByKey(key);
+  return pathwayRoleByKey(key);
 }
 
-// Is this module part of the learner's assigned pathway?
-// Pathway A modules always are; B and C follow the role's lists.
+// Is this pathway module part of the learner's assignment?
+// Welcome and core always are; role modules follow the trade's list.
 export function moduleAssigned(module, profile) {
-  const pw = module.pathway || "A";
-  if (pw === "A") return true;
+  if (module.block !== "role") return true;
   const role = pathwayRole(profile);
-  if (!role) return true; // no role on record: full programme
-  return [...role.b, ...role.c].includes(module.id);
+  if (!role) return true; // no trade on record: full programme
+  return role.modules.includes(module.id);
 }
 
-// Reference documents that belong to a role-assigned module. A doc not listed
-// here (core course readings, the reference library, the chance find drill)
-// is open to everyone who has reached it.
-const GATED_DOCS = {
-  "b1-land": "b1",
-  "b2-workers": "b2",
-  "b3-communities": "b3",
-  "b4-conduct": "b4",
-  "b5-pollution": "b5",
-  "b6-biodiversity": "b6",
-  "c1-instructing": "c1",
-  "c2-iesc": "c2",
-  "c3-incident": "c3",
-  "c4-grievance": "c4",
-  "c5-records": "c5",
-};
-
-export function canOpenDoc(slug, profile) {
-  const mod = GATED_DOCS[slug];
-  if (!mod) return true;
-  const role = pathwayRole(profile);
-  if (!role) return true;
-  return [...role.b, ...role.c].includes(mod);
+// The library ("Go further") is open reading for everyone; nothing is gated
+// on a document any more.
+export function canOpenDoc() {
+  return true;
 }

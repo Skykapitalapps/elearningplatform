@@ -7,7 +7,8 @@ import { useAuth } from "../AuthContext.jsx";
 import { client } from "../config/clients.js";
 import { course, modules } from "../data.js";
 import { downloadCertificatePdf } from "../lib/certificate.js";
-import { JOB_ROLES, jobRoleByKey, assignedTotal } from "../config/jobRoles.js";
+import { PATHWAY_ROLES as JOB_ROLES, pathwayRoleByKey as jobRoleByKey, assignedTotal } from "../config/jobRoles.js";
+import { OSP_MODULES, OSP_BY_ID } from "../data/osp.js";
 import { downloadProgressWorkbook } from "../lib/progressWorkbook.js";
 
 const DOC_CATEGORIES = ["Governance & Ethics", "HSE", "People & Community", "Management System", "Other"];
@@ -114,7 +115,7 @@ function Shell({ children, standalone, onSignOut }) {
       {standalone && (
         <header className="glass-bar fixed left-0 right-0 top-0 z-50 flex h-20 items-center justify-between border-b border-outline-variant/70 px-margin-mobile md:px-margin-desktop">
           <div className="flex items-center gap-2.5">
-            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary-container to-[#1c3a63] shadow-sm">
+            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary-container to-[#2e6b45] shadow-sm">
               <Logo className="h-6 w-6 text-white" />
             </span>
             <span className="text-headline-md font-bold text-primary">Skykapital Admin</span>
@@ -159,7 +160,7 @@ function Home({ projects, people, docs, progressRows, logins, email, onOpen, onO
   const learners = people.filter((u) => u.role !== "admin");
   const doneByUser = {};
   progressRows.forEach((r) => {
-    if (r.status === "completed") doneByUser[r.user_id] = (doneByUser[r.user_id] ?? 0) + 1;
+    if (r.status === "completed" && OSP_BY_ID[r.module_id]) doneByUser[r.user_id] = (doneByUser[r.user_id] ?? 0) + 1;
   });
   const certified = learners.filter((u) => (doneByUser[u.id] ?? 0) >= assignedTotal(u.job_role)).length;
   const weekAgo = Date.now() - 7 * 24 * 3600 * 1000;
@@ -205,7 +206,7 @@ function Home({ projects, people, docs, progressRows, logins, email, onOpen, onO
         <button
           type="submit"
           disabled={busy}
-          className="flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-primary-container to-[#1c3a63] px-8 py-3 text-label-md font-bold text-white transition-all hover:brightness-110 disabled:opacity-60"
+          className="flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-primary-container to-[#2e6b45] px-8 py-3 text-label-md font-bold text-white transition-all hover:brightness-110 disabled:opacity-60"
         >
           <MaterialIcon name="add_business" className="text-[18px]" /> Create project
         </button>
@@ -223,7 +224,7 @@ function Home({ projects, people, docs, progressRows, logins, email, onOpen, onO
               onClick={() => onOpen(p)}
               className="lift soft-shadow group rounded-xl border border-outline-variant bg-surface-container-lowest p-stack-lg text-left"
             >
-              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-primary-container to-[#1c3a63] text-white">
+              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-primary-container to-[#2e6b45] text-white">
                 <MaterialIcon name="apartment" />
               </span>
               <h2 className="mt-3 text-headline-md text-primary group-hover:text-secondary">{p.name}</h2>
@@ -289,7 +290,7 @@ function Workspace({ project, shared, projects, people, docs, logins, isAdmin, o
       </button>
       <div className="mb-stack-md flex flex-wrap items-center justify-between gap-stack-md">
         <div className="flex items-center gap-3">
-          <span className={`flex h-11 w-11 items-center justify-center rounded-xl text-white ${shared ? "bg-secondary" : "bg-gradient-to-br from-primary-container to-[#1c3a63]"}`}>
+          <span className={`flex h-11 w-11 items-center justify-center rounded-xl text-white ${shared ? "bg-secondary" : "bg-gradient-to-br from-primary-container to-[#2e6b45]"}`}>
             <MaterialIcon name={shared ? "public" : "apartment"} />
           </span>
           <h1 className="text-headline-lg text-primary">{title}</h1>
@@ -300,7 +301,7 @@ function Workspace({ project, shared, projects, people, docs, logins, isAdmin, o
           </button>
         )}
         {confirmDel && (
-          <div className="fixed inset-0 z-[90] flex items-center justify-center bg-[#0d1c32]/60 px-6 backdrop-blur-sm" onClick={() => { setConfirmDel(false); setDelName(""); }}>
+          <div className="fixed inset-0 z-[90] flex items-center justify-center bg-[#0f3d24]/60 px-6 backdrop-blur-sm" onClick={() => { setConfirmDel(false); setDelName(""); }}>
             <div className="animate-pop w-full max-w-sm rounded-2xl bg-white p-stack-lg text-center shadow-2xl" onClick={(e) => e.stopPropagation()}>
               <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-rose-50">
                 <MaterialIcon name="delete_forever" className="text-3xl text-rose-500" />
@@ -472,7 +473,7 @@ function ProjectProgress({ project, people, logins = [] }) {
   }, [project.id, people.length]);
 
   const per = members.map((m) => {
-    const mine = (rows ?? []).filter((r) => r.user_id === m.id && r.status === "completed");
+    const mine = (rows ?? []).filter((r) => r.user_id === m.id && r.status === "completed" && OSP_BY_ID[r.module_id]);
     const last = mine.map((r) => r.updated_at).sort().slice(-1)[0];
     const pts = mine.reduce((s, r) => s + (r.earned ?? 0), 0);
     const myLogins = logins.filter((e) => e.user_id === m.id);
@@ -484,7 +485,7 @@ function ProjectProgress({ project, people, logins = [] }) {
       certified: mine.length >= totalMods,
       last: last ? last.slice(0, 10) : "—",
       pts,
-      certNo: "SKA-" + m.id.replace(/-/g, "").slice(0, 10).toUpperCase(),
+      certNo: "OSP-" + m.id.replace(/-/g, "").slice(0, 10).toUpperCase(),
       lastSignIn: myLogins.length ? myLogins[0].created_at.slice(0, 10) : "—",
       signIns: myLogins.length,
     };
@@ -496,13 +497,12 @@ function ProjectProgress({ project, people, logins = [] }) {
   // Progress report as a CSV the admin can attach to invoices and lender
   // reports. Semicolon-separated + BOM so Excel opens it cleanly.
   function exportCsv() {
-    const head = ["Learner", "Modules completed", "Total modules", "Progress %", "Quiz points", "Certified", "Certificate no.", "Completion date", "Last sign-in", "Total sign-ins"];
+    const head = ["Learner", "Modules completed", "Total modules", "Progress %", "Certified", "Certificate no.", "Completion date", "Last sign-in", "Total sign-ins"];
     const lines = per.map((p) => [
       p.full_name || "",
       p.done,
       p.totalMods,
       Math.round((p.done / p.totalMods) * 100),
-      p.pts,
       p.certified ? "Yes" : "No",
       p.certified ? p.certNo : "",
       p.certified ? p.last : "",
@@ -539,12 +539,12 @@ function ProjectProgress({ project, people, logins = [] }) {
           onClick={exportCsv}
           disabled={per.length === 0}
           title="Download this table as a CSV progress report"
-          className="ml-auto flex items-center gap-2 self-center rounded-lg bg-gradient-to-r from-primary-container to-[#1c3a63] px-5 py-3 text-label-md font-bold text-white transition-all hover:brightness-110 disabled:opacity-50"
+          className="ml-auto flex items-center gap-2 self-center rounded-lg bg-gradient-to-r from-primary-container to-[#2e6b45] px-5 py-3 text-label-md font-bold text-white transition-all hover:brightness-110 disabled:opacity-50"
         >
           <MaterialIcon name="table_view" className="text-[18px]" /> Export progress report (CSV)
         </button>
         <button
-          onClick={() => downloadProgressWorkbook({ project, per, rows, members, modules })}
+          onClick={() => downloadProgressWorkbook({ project, per, rows, members, modules: OSP_MODULES })}
           disabled={per.length === 0}
           title="Formatted Excel workbook: overview + learner-by-module matrix"
           className="flex items-center gap-2 self-center rounded-lg border-2 border-primary px-5 py-2.5 text-label-md font-bold text-primary transition-colors hover:bg-surface-container-low disabled:opacity-50"
@@ -745,7 +745,7 @@ function ProjectUsers({ project, people, isAdmin, reload }) {
             ))}
           </select>
           <button type="submit" disabled={busy}
-            className="flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-primary-container to-[#1c3a63] px-6 py-3 text-label-md font-bold text-white transition-all hover:brightness-110 disabled:opacity-60 sm:col-span-2 sm:w-auto">
+            className="flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-primary-container to-[#2e6b45] px-6 py-3 text-label-md font-bold text-white transition-all hover:brightness-110 disabled:opacity-60 sm:col-span-2 sm:w-auto">
             <MaterialIcon name="person_add" className="text-[18px]" />
             {busy ? "Creating & sending invite…" : "Create account & send invitation"}
           </button>
@@ -874,7 +874,7 @@ function ProjectUsers({ project, people, isAdmin, reload }) {
 
       {/* Remove-from-project confirmation — paid accounts are never one click away */}
       {confirmRemove && (
-        <div className="fixed inset-0 z-[90] flex items-center justify-center bg-[#0d1c32]/60 px-6 backdrop-blur-sm" onClick={() => setConfirmRemove(null)}>
+        <div className="fixed inset-0 z-[90] flex items-center justify-center bg-[#0f3d24]/60 px-6 backdrop-blur-sm" onClick={() => setConfirmRemove(null)}>
           <div className="animate-pop w-full max-w-sm rounded-2xl bg-white p-stack-lg text-center shadow-2xl" onClick={(e) => e.stopPropagation()}>
             <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-amber-50">
               <MaterialIcon name="person_remove" className="text-3xl text-amber-500" />
@@ -1088,16 +1088,15 @@ function ClientSetup() {
         </h2>
         <p className="mb-stack-md text-caption text-on-surface-variant">
           {JOB_ROLES.length > 0
-            ? `${JOB_ROLES.length} job roles. Every role takes Pathway A (6 modules); B and C are assigned per role below. A learner without a role sees the full programme.`
-            : "No role matrix configured — every learner sees the full 18-module programme."}
+            ? `${JOB_ROLES.length} trades — the twelve of the "Where you come in" screen. Every trade takes the welcome + the five core modules; the role modules are assigned below. A learner without a trade sees the full pathway.`
+            : "No role matrix configured — every learner sees the full pathway."}
         </p>
         {JOB_ROLES.length > 0 && (
           <table className="w-full min-w-[560px] text-left">
             <thead>
               <tr className="border-b border-outline-variant text-caption uppercase tracking-wider text-on-surface-variant">
-                <th className="py-2 pr-3 font-semibold">Role</th>
-                <th className="py-2 pr-3 font-semibold">Pathway B</th>
-                <th className="py-2 pr-3 font-semibold">Pathway C</th>
+                <th className="py-2 pr-3 font-semibold">Trade</th>
+                <th className="py-2 pr-3 font-semibold">Role modules</th>
                 <th className="py-2 font-semibold">Total modules</th>
               </tr>
             </thead>
@@ -1106,10 +1105,7 @@ function ClientSetup() {
                 <tr key={r.key} className="border-b border-surface-container last:border-0">
                   <td className="py-2.5 pr-3 text-body-md text-primary">{r.label}</td>
                   <td className="py-2.5 pr-3 text-body-md text-on-surface-variant">
-                    {r.b.map((id) => codeOf(id)).join(", ") || "—"}
-                  </td>
-                  <td className="py-2.5 pr-3 text-body-md text-on-surface-variant">
-                    {r.c.map((id) => codeOf(id)).join(", ") || "—"}
+                    {r.modules.map((id) => OSP_BY_ID[id]?.title ?? id).join(" · ") || "—"}
                   </td>
                   <td className="py-2.5 text-body-md font-semibold text-primary">
                     {assignedTotal(r.key)}
@@ -1197,7 +1193,7 @@ function ProjectDocs({ pid, shared, docs, reload }) {
           <input type="file" accept="application/pdf" onChange={(e) => setFile(e.target.files?.[0] ?? null)}
             className="text-body-md file:mr-3 file:rounded-lg file:border-0 file:bg-primary file:px-4 file:py-2.5 file:text-label-md file:text-on-primary" />
           <button type="submit" disabled={busy}
-            className="flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-primary-container to-[#1c3a63] px-6 py-3 text-label-md font-bold text-white transition-all hover:brightness-110 disabled:opacity-60">
+            className="flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-primary-container to-[#2e6b45] px-6 py-3 text-label-md font-bold text-white transition-all hover:brightness-110 disabled:opacity-60">
             <MaterialIcon name="cloud_upload" className="text-[18px]" />
             {busy ? "Uploading…" : "Publish to Resources"}
           </button>

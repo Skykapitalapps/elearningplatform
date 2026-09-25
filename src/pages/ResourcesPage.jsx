@@ -123,7 +123,7 @@ export default function ResourcesPage() {
                       <div
                         className="flex h-12 w-12 items-center justify-center rounded-lg text-white transition-transform group-hover:scale-105"
                         style={{
-                          background: `linear-gradient(135deg, ${item.accent}, #0d1c32)`,
+                          background: `linear-gradient(135deg, ${item.accent}, #0f3d24)`,
                         }}
                       >
                         <MaterialIcon name={item.icon} />

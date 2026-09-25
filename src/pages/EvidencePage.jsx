@@ -1,371 +1,148 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import MaterialIcon from "../components/MaterialIcon.jsx";
 import { useCourse } from "../CourseContext.jsx";
-import { course } from "../data.js";
 import { useAuth } from "../AuthContext.jsx";
-import { downloadCertificatePdf } from "../lib/certificate.js";
+import { course } from "../data.js";
 import { client } from "../config/clients.js";
+import { downloadCertificatePdf } from "../lib/certificate.js";
+import MaterialIcon from "../components/MaterialIcon.jsx";
+import { Link } from "react-router-dom";
 
-// Training-evidence register — completed modules logged as project record.
+// ============================================================================
+// MY PROGRESS — the training-evidence register for Our Sustainability Pathway.
+// Completion records that a person went through a module and answered its
+// questions. No scores exist anywhere on this pathway — by design.
+// ============================================================================
 export default function EvidencePage() {
   const { modules, progress, acknowledgements } = useCourse();
   const { profile, user } = useAuth();
-  const learnerName =
-    profile?.full_name || user?.user_metadata?.full_name || user?.email?.split("@")[0] || course.learner;
+  const learnerName = profile?.full_name || course.learner;
   const completed = modules.filter((m) => m.status === "completed");
+  const done = progress.percent === 100 && progress.total > 0;
 
-  // One certificate PER PATHWAY (workbook rule R11): pathway named, module
-  // list, threshold, date, verification reference and the awareness-level note.
-  const baseCertNo = user?.id
-    ? "SKA-" + user.id.replace(/-/g, "").slice(0, 10).toUpperCase()
-    : "SKA-DEMO";
-  const pathwayCerts = [
-    { key: "A", label: "Pathway A — Foundations" },
-    { key: "B", label: "Pathway B — Site Practice" },
-    { key: "C", label: "Pathway C — Supervisors & Leads" },
-  ]
-    .map((pw) => {
-      const mods = modules.filter((m) => (m.pathway || "A") === pw.key);
-      const done = mods.filter((m) => m.status === "completed");
-      return {
-        ...pw,
-        mods,
-        doneCount: done.length,
-        complete: mods.length > 0 && done.length === mods.length,
-        date: done.map((m) => m.completedOn).filter(Boolean).sort().slice(-1)[0] ?? null,
-      };
-    })
-    .filter((pw) => pw.mods.length > 0);
-
-  function downloadPathwayCert(pw) {
-    downloadCertificatePdf({
-      name: learnerName,
-      certNo: `${baseCertNo}-${pw.key}`,
-      date: pw.date ?? new Date().toISOString().slice(0, 10),
-      courseTitle: `${course.title} — ${pw.label}`,
-      clientShort: client.clientShort,
-      totalModules: pw.mods.length,
-      detail:
-        `${pw.mods.length} modules: ${pw.mods.map((m) => m.code).join(", ")} · ` +
-        `pass mark 70% per assessment · content v1.0 · verification ref. ${baseCertNo}-${pw.key} · ` +
-        "awareness-level training — certifies no regulated competency",
-    });
-  }
+  const certOpts = {
+    name: learnerName,
+    certNo: user?.id
+      ? "OSP-" + user.id.replace(/-/g, "").slice(0, 10).toUpperCase()
+      : "OSP-DEMO",
+    date:
+      completed.map((m) => m.completedOn).filter(Boolean).sort().slice(-1)[0] ??
+      new Date().toISOString().slice(0, 10),
+    courseTitle: course.title,
+    clientShort: client.clientShort,
+    totalModules: progress.total,
+  };
 
   return (
-    <div className="mx-auto max-w-[1280px] px-margin-mobile py-stack-lg md:px-margin-desktop">
-      <nav className="mb-stack-md flex items-center gap-2 text-caption text-outline">
-        <Link to="/" className="hover:text-primary">
-          Home
-        </Link>
-        <MaterialIcon name="chevron_right" className="text-[14px]" />
-        <span className="text-on-surface">My progress</span>
-      </nav>
+    <div className="mx-auto max-w-[900px] px-margin-mobile py-8">
+      <h1 className="text-headline-lg text-primary">My progress</h1>
+      <p className="mb-6 mt-1 max-w-xl text-body-md text-on-surface-variant">
+        Every module you complete is logged here with your name and the date.
+        This is the project's training-evidence record for you — nothing on
+        this pathway is scored.
+      </p>
 
-      <div className="mb-stack-lg">
-        <h1 className="mb-2 text-headline-lg text-primary md:text-headline-xl">
-          My progress & evidence
-        </h1>
-        <p className="max-w-2xl text-body-lg text-on-surface-variant">
-          Every module you complete and every document you sign is logged here with your name, score and date. This is the project's training-evidence record for you.
-        </p>
-      </div>
-
-      <div className="mb-stack-lg flex flex-wrap gap-gutter">
-        <div className="rounded-xl border border-outline-variant bg-surface-container-lowest px-stack-lg py-stack-md">
-          <p className="text-caption uppercase tracking-wider text-on-surface-variant">
-            Modules complete
-          </p>
-          <p className="text-headline-lg text-primary">
+      {/* Counter */}
+      <div className="mb-6 flex flex-wrap gap-4">
+        <div className="rounded-2xl border border-outline-variant bg-surface-container-lowest px-6 py-4">
+          <p className="text-headline-lg font-black text-primary">
             {progress.completed}
             <span className="text-headline-md text-outline">/{progress.total}</span>
           </p>
+          <p className="text-caption text-on-surface-variant">modules completed</p>
         </div>
-        <div className="rounded-xl border border-outline-variant bg-surface-container-lowest px-stack-lg py-stack-md">
-          <p className="text-caption uppercase tracking-wider text-on-surface-variant">
-            Quiz points earned
-          </p>
-          <p className="text-headline-lg text-primary">
-            {progress.earnedQuizPoints}
-            <span className="text-headline-md text-outline">
-              /{progress.totalQuizPoints}
-            </span>
-          </p>
-        </div>
-        <div className="rounded-xl border border-outline-variant bg-surface-container-lowest px-stack-lg py-stack-md">
-          <p className="text-caption uppercase tracking-wider text-on-surface-variant">
-            Declarations signed
-          </p>
-          <p className="text-headline-lg text-primary">{acknowledgements.length}</p>
+        <div className="rounded-2xl border border-outline-variant bg-surface-container-lowest px-6 py-4">
+          <p className="text-headline-lg font-black text-primary">{progress.percent}%</p>
+          <p className="text-caption text-on-surface-variant">of your pathway</p>
         </div>
       </div>
 
-      {/* Certificate — appears once the whole pathway is complete */}
-      {progress.percent === 100 ? (
-        <div className="relative mb-stack-lg overflow-hidden rounded-xl bg-gradient-to-br from-primary-container to-[#1c3a63] p-stack-lg text-white shadow-xl">
-          <MaterialIcon
-            name="workspace_premium"
-            fill
-            className="pointer-events-none absolute -right-6 -top-6 text-[160px] text-white/10"
+      {/* Certificate */}
+      {done ? (
+        <div className="relative mb-8 overflow-hidden rounded-3xl bg-primary-container p-stack-lg text-white">
+          <div
+            className="absolute inset-y-0 right-0 w-1/2 bg-secondary-container/80"
+            style={{ clipPath: "polygon(45% 0, 100% 0, 100% 100%, 15% 100%)" }}
           />
-          <p className="text-caption font-bold uppercase tracking-widest text-secondary-fixed">
-            Certificate of completion
-          </p>
-          <h2 className="mt-1 text-headline-lg">{learnerName}</h2>
-          {user?.id && (
-            <p className="mt-0.5 text-caption tracking-widest text-secondary-fixed">
-              Certificate no. SKA-{user.id.replace(/-/g, "").slice(0, 10).toUpperCase()}
+          <div className="relative">
+            <p className="text-caption font-bold uppercase tracking-[0.25em] text-secondary-fixed">
+              Certificate of completion
             </p>
-          )}
-          <p className="mt-1 max-w-xl text-body-md text-white/80">
-            has completed all {progress.total} modules of “{course.title}”,
-            passing every assessment.
-          </p>
-          <div className="mt-stack-md flex flex-wrap items-center gap-stack-md">
-            <span className="flex items-center gap-1 text-caption text-white/80">
-              <MaterialIcon name="event" className="text-[16px]" />
-              {completed.map((m) => m.completedOn).filter(Boolean).sort().slice(-1)[0] ?? "—"}
-            </span>
-            <span className="flex items-center gap-1 text-caption text-white/80">
-              <MaterialIcon name="stars" className="text-[16px]" />
-              {progress.earnedQuizPoints}/{progress.totalQuizPoints} quiz points
-            </span>
+            <h2 className="mt-1 text-headline-lg">{learnerName}</h2>
+            <p className="mt-1 max-w-md text-body-md text-white/85">
+              has completed all {progress.total} modules of “{course.title}”,
+              passing every assessment.
+            </p>
             <button
-              onClick={() =>
-                downloadCertificatePdf({
-                  name: learnerName,
-                  certNo: user?.id
-                    ? "SKA-" + user.id.replace(/-/g, "").slice(0, 10).toUpperCase()
-                    : "SKA-DEMO",
-                  date:
-                    completed.map((m) => m.completedOn).filter(Boolean).sort().slice(-1)[0] ??
-                    new Date().toISOString().slice(0, 10),
-                  courseTitle: course.title,
-                  clientShort: client.clientShort,
-                  totalModules: progress.total,
-                })
-              }
-              className="ml-auto flex items-center gap-2 rounded-lg bg-secondary-container px-5 py-2.5 text-label-md font-bold text-on-secondary-container transition-transform hover:opacity-90 active:scale-95"
+              onClick={() => downloadCertificatePdf(certOpts)}
+              className="mt-4 flex items-center gap-2 rounded-xl bg-white px-6 py-3 text-label-md font-bold text-primary transition-transform hover:-translate-y-0.5"
             >
               <MaterialIcon name="download" className="text-[18px]" /> Download PDF certificate
             </button>
           </div>
         </div>
       ) : (
-        <div className="mb-stack-lg flex items-center gap-3 rounded-xl border border-dashed border-outline-variant bg-surface-container-low p-stack-md">
+        <div className="mb-8 flex items-center gap-3 rounded-2xl border border-dashed border-outline-variant bg-surface-container-low p-stack-md">
           <MaterialIcon name="workspace_premium" className="text-3xl text-outline" />
           <p className="text-body-md text-on-surface-variant">
-            {progress.total - progress.completed} modules left before your{" "}
-            <strong>full-programme certificate</strong>. Each pathway below also
-            has its own certificate.
+            {progress.total - progress.completed} module{progress.total - progress.completed !== 1 ? "s" : ""} left
+            before your certificate.{" "}
+            <Link to="/" className="font-bold text-secondary hover:underline">Continue the pathway →</Link>
           </p>
         </div>
       )}
 
-      {/* One certificate per pathway */}
-      <div className="mb-stack-lg grid grid-cols-1 gap-gutter md:grid-cols-3">
-        {pathwayCerts.map((pw) => (
-          <div
-            key={pw.key}
-            className={`rounded-xl border p-stack-md ${
-              pw.complete
-                ? "border-secondary/60 bg-gradient-to-br from-[#fdf8ec] to-white"
-                : "border-outline-variant bg-surface-container-lowest"
-            }`}
-          >
-            <div className="mb-1 flex items-center gap-2">
-              <MaterialIcon
-                name={pw.complete ? "workspace_premium" : "lock"}
-                fill={pw.complete}
-                className={pw.complete ? "text-secondary" : "text-outline"}
-              />
-              <p className="text-label-md font-bold text-primary">{pw.label}</p>
-            </div>
-            <p className="mb-2 text-caption text-on-surface-variant">
-              {pw.doneCount}/{pw.mods.length} modules ·{" "}
-              {pw.complete
-                ? `completed ${pw.date ?? ""}`
-                : "available once every module is passed"}
-            </p>
-            <div className="mb-2 h-1.5 w-full overflow-hidden rounded-full bg-surface-container-high">
-              <span
-                className="block h-full rounded-full bg-secondary transition-all"
-                style={{ width: `${(pw.doneCount / pw.mods.length) * 100}%` }}
-              />
-            </div>
-            {pw.complete && (
-              <button
-                onClick={() => downloadPathwayCert(pw)}
-                className="mt-1 flex items-center gap-1.5 rounded-lg bg-primary px-4 py-2 text-caption font-bold text-on-primary transition-opacity hover:opacity-90"
-              >
-                <MaterialIcon name="download" className="text-[16px]" />
-                Download {pw.key}-pathway certificate
-              </button>
-            )}
-          </div>
-        ))}
+      {/* Register */}
+      <div className="overflow-hidden rounded-2xl border border-outline-variant bg-surface-container-lowest">
+        <table className="w-full text-left text-body-md">
+          <thead>
+            <tr className="border-b border-outline-variant bg-surface-container-low text-caption font-bold uppercase tracking-wider text-on-surface-variant">
+              <th className="px-4 py-3">Module</th>
+              <th className="px-4 py-3">Block</th>
+              <th className="px-4 py-3">Status</th>
+              <th className="px-4 py-3">Completed on</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-outline-variant/50">
+            {modules.map((m) => (
+              <tr key={m.id}>
+                <td className="px-4 py-3 font-semibold text-primary">
+                  {m.code} · {m.title}
+                </td>
+                <td className="px-4 py-3 capitalize text-on-surface-variant">{m.block}</td>
+                <td className="px-4 py-3">
+                  {m.status === "completed" ? (
+                    <span className="inline-flex items-center gap-1 rounded-full bg-secondary-container px-2.5 py-0.5 text-caption font-bold text-on-secondary-container">
+                      <MaterialIcon name="check" className="text-[14px]" /> Answered & completed
+                    </span>
+                  ) : (
+                    <span className="text-caption text-outline">Not yet</span>
+                  )}
+                </td>
+                <td className="px-4 py-3 text-on-surface-variant">{m.completedOn ?? "—"}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
 
-      {/* Completed modules — visual cards */}
-      {completed.length > 0 && (
-        <div className="mb-stack-lg grid grid-cols-1 gap-gutter sm:grid-cols-2 lg:grid-cols-3">
-          {completed.map((m) => {
-            const pct = m.score?.total
-              ? Math.round((m.score.earned / m.score.total) * 100)
-              : null;
-            return (
-              <div
-                key={m.id}
-                className="soft-shadow overflow-hidden rounded-xl border border-outline-variant bg-surface-container-lowest"
-              >
-                <div className="relative h-24 overflow-hidden">
-                  <img
-                    src={m.image}
-                    alt=""
-                    loading="lazy"
-                    className="absolute inset-0 h-full w-full object-cover"
-                  />
-                  <div
-                    className="absolute inset-0 opacity-75 mix-blend-multiply"
-                    style={{ background: `linear-gradient(135deg, ${m.accent}, #0d1c32)` }}
-                  />
-                  <span className="absolute left-3 top-3 flex items-center gap-1 rounded-full bg-emerald-500 px-2.5 py-0.5 text-caption font-bold text-white">
-                    <MaterialIcon name="check" className="text-[14px]" /> Completed
-                  </span>
-                  {pct != null && (
-                    <span className="absolute bottom-3 right-3 rounded-full bg-white/90 px-2.5 py-0.5 text-caption font-bold text-primary">
-                      {pct}%
-                    </span>
-                  )}
-                </div>
-                <div className="p-stack-md">
-                  <p className="text-caption font-bold uppercase tracking-wider" style={{ color: m.accent }}>
-                    {m.code}
+      {/* Acknowledgements (signed documents) */}
+      {acknowledgements.length > 0 && (
+        <div className="mt-8">
+          <h2 className="mb-3 text-headline-md text-primary">Signed documents</h2>
+          <div className="space-y-2">
+            {acknowledgements.map((a) => (
+              <div key={a.id} className="flex items-center gap-3 rounded-xl border border-outline-variant bg-surface-container-lowest p-3">
+                <MaterialIcon name="history_edu" className="text-secondary" />
+                <div className="flex-1">
+                  <p className="font-semibold text-primary">{a.title}</p>
+                  <p className="text-caption text-on-surface-variant">
+                    Signed {a.name} · {a.date}
                   </p>
-                  <p className="truncate text-label-md font-semibold text-primary">
-                    {m.title}
-                  </p>
-                  <div className="mt-3 flex items-center gap-3">
-                    <Link
-                      to={`/module/${m.id}`}
-                      className="text-caption font-bold text-secondary hover:underline"
-                    >
-                      Review
-                    </Link>
-                    {m.type === "quiz" && (
-                      <Link
-                        to={`/quiz/${m.id}`}
-                        className="text-caption font-bold text-secondary hover:underline"
-                      >
-                        Retake quiz
-                      </Link>
-                    )}
-                    <span className="ml-auto text-caption text-outline">
-                      {m.completedOn ?? ""}
-                    </span>
-                  </div>
                 </div>
               </div>
-            );
-          })}
+            ))}
+          </div>
         </div>
       )}
-
-      <div className="overflow-x-auto rounded-xl border border-outline-variant bg-surface-container-lowest">
-        <table className="w-full min-w-[560px] text-left">
-          <thead>
-            <tr className="border-b border-outline-variant text-caption uppercase tracking-wider text-on-surface-variant">
-              <th className="px-stack-md py-stack-sm font-semibold">Learner</th>
-              <th className="px-stack-md py-stack-sm font-semibold">Module</th>
-              <th className="px-stack-md py-stack-sm font-semibold">Score</th>
-              <th className="px-stack-md py-stack-sm font-semibold">Date</th>
-            </tr>
-          </thead>
-          <tbody>
-            {completed.length === 0 ? (
-              <tr>
-                <td colSpan={4} className="px-stack-md py-stack-lg text-center text-on-surface-variant">
-                  Nothing here yet. Completed modules appear in this table.
-                </td>
-              </tr>
-            ) : (
-              completed.map((m) => (
-                <tr
-                  key={m.id}
-                  className="border-b border-surface-container last:border-0"
-                >
-                  <td className="px-stack-md py-stack-md text-body-md text-primary">
-                    {learnerName}
-                  </td>
-                  <td className="px-stack-md py-stack-md text-body-md text-on-surface-variant">
-                    {m.code} · {m.title}
-                  </td>
-                  <td className="px-stack-md py-stack-md text-body-md text-on-surface-variant">
-                    {m.score ? `${m.score.earned}/${m.score.total}` : "Read"}
-                  </td>
-                  <td className="px-stack-md py-stack-md text-body-md text-on-surface-variant">
-                    {m.completedOn ?? "—"}
-                  </td>
-                </tr>
-              ))
-            )}
-          </tbody>
-        </table>
-      </div>
-
-      {/* Signed declarations / acknowledgements */}
-      <h2 className="mb-stack-md mt-stack-lg text-headline-md text-primary">
-        Signed declarations
-      </h2>
-      <div className="overflow-x-auto rounded-xl border border-outline-variant bg-surface-container-lowest">
-        <table className="w-full min-w-[560px] text-left">
-          <thead>
-            <tr className="border-b border-outline-variant text-caption uppercase tracking-wider text-on-surface-variant">
-              <th className="px-stack-md py-stack-sm font-semibold">Signed by</th>
-              <th className="px-stack-md py-stack-sm font-semibold">Document</th>
-              <th className="px-stack-md py-stack-sm font-semibold">Date</th>
-            </tr>
-          </thead>
-          <tbody>
-            {acknowledgements.length === 0 ? (
-              <tr>
-                <td
-                  colSpan={3}
-                  className="px-stack-md py-stack-lg text-center text-on-surface-variant"
-                >
-                  Nothing signed yet. Policies you confirm in the Library appear
-                  here.
-                </td>
-              </tr>
-            ) : (
-              acknowledgements.map((a) => (
-                <tr
-                  key={a.id}
-                  className="border-b border-surface-container last:border-0"
-                >
-                  <td className="px-stack-md py-stack-md text-body-md text-primary">
-                    <span className="inline-flex items-center gap-1">
-                      <MaterialIcon
-                        name="verified"
-                        fill
-                        className="text-[16px] text-secondary"
-                      />
-                      {a.name}
-                    </span>
-                  </td>
-                  <td className="px-stack-md py-stack-md text-body-md text-on-surface-variant">
-                    {a.title}
-                  </td>
-                  <td className="px-stack-md py-stack-md text-body-md text-on-surface-variant">
-                    {a.date}
-                  </td>
-                </tr>
-              ))
-            )}
-          </tbody>
-        </table>
-      </div>
     </div>
   );
 }

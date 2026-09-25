@@ -20,7 +20,7 @@ export default function TopNav() {
           title="Back to home"
           className="flex items-center gap-2.5 transition-opacity hover:opacity-80 active:scale-[0.98]"
         >
-          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary-container to-[#1c3a63] shadow-sm">
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary-container to-[#2e6b45] shadow-sm">
             <Logo className="h-6 w-6 text-white" />
           </span>
           <span className="text-headline-md font-bold text-primary">
@@ -107,13 +107,13 @@ function NextStepMenu() {
               onMouseDown={(e) => {
                 e.preventDefault();
                 setOpen(false);
-                navigate(`/module/${next.id}`);
+                navigate(`/pathway/${next.id}`);
               }}
               className="flex w-full items-start gap-3 p-stack-md text-left transition-colors hover:bg-surface-container-low"
             >
               <span
                 className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-white"
-                style={{ background: next.accent ?? "#0d1c32" }}
+                style={{ background: next.accent ?? "#1B4D3E" }}
               >
                 <MaterialIcon name={next.icon} className="text-[22px]" />
               </span>
@@ -122,7 +122,7 @@ function NextStepMenu() {
                   {next.status === "in_progress" ? "Continue" : "Start"} {next.code}: {next.title}
                 </span>
                 <span className="mt-0.5 block text-caption text-on-surface-variant">
-                  {progress.completed} of {progress.total} modules done · {next.duration}
+                  {progress.completed} of {progress.total} modules done · {next.minutes} min
                 </span>
               </span>
               <MaterialIcon name="arrow_forward" className="shrink-0 self-center text-secondary" />

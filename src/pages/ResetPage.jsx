@@ -125,7 +125,7 @@ export default function ResetPage() {
               <button
                 type="submit"
                 disabled={busy}
-                className="w-full rounded-lg bg-gradient-to-r from-primary-container to-[#1c3a63] py-3.5 text-label-md font-bold text-white transition-all hover:brightness-110 disabled:opacity-60"
+                className="w-full rounded-lg bg-gradient-to-r from-primary-container to-[#2e6b45] py-3.5 text-label-md font-bold text-white transition-all hover:brightness-110 disabled:opacity-60"
               >
                 {busy ? "Saving…" : "Save new password"}
               </button>

@@ -3,7 +3,7 @@ import MaterialIcon from "../MaterialIcon.jsx";
 
 // "Image à zones cliquables" — click the markers on a site photo to identify
 // each E&S issue. Each hotspot: { x, y (percent), kind: "E"|"S", label, detail }.
-export default function HotspotActivity({ activity, accent = "#0d1c32" }) {
+export default function HotspotActivity({ activity, accent = "#0f3d24" }) {
   const [found, setFound] = useState({}); // index -> true
   const [active, setActive] = useState(null);
   const total = activity.hotspots.length;

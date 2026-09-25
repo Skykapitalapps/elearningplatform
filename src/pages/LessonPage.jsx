@@ -115,7 +115,8 @@ function QuickCheck({ q, accent }) {
 export default function LessonPage() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { modules, progress, completeModule, showToast, reviewer } = useCourse();
+  const { libraryModules, progress, completeModule, showToast, reviewer } = useCourse();
+  const modules = libraryModules; // this page is the open reference library
   const [tab, setTab] = useState("notes");
 
   // "Mark as read" per lesson section, persisted per module.
@@ -205,7 +206,7 @@ export default function LessonPage() {
     module?.status === "completed" ||
     moduleDocs.length === 0 ||
     docsReadCount === moduleDocs.length;
-  const readingDone = reviewer || (allRead && allDocsRead);
+  const readingDone = true; // open library: free consultation, no reading gate
   if (!module) {
     return (
       <div className="mx-auto max-w-[1280px] p-stack-lg">
@@ -300,8 +301,8 @@ export default function LessonPage() {
         </div>
       </div>
 
-      {/* The 3-step path — one order, enforced: read, then play, then quiz */}
-      {module.type !== "read" && (
+      {/* The 3-step path — hidden in the open library: free consultation */}
+      {!module.library && module.type !== "read" && (
       <div className="mb-stack-lg flex flex-col gap-2 rounded-xl border border-outline-variant bg-surface-container-lowest p-stack-md sm:flex-row sm:items-center">
         <a
           href="#lesson-notes"
@@ -383,7 +384,7 @@ export default function LessonPage() {
             <div
               className="pointer-events-none absolute inset-0 opacity-75 mix-blend-multiply"
               style={{
-                background: `linear-gradient(135deg, ${module.accent}, #0d1c32)`,
+                background: `linear-gradient(135deg, ${module.accent}, #0f3d24)`,
               }}
             />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
@@ -730,9 +731,9 @@ export default function LessonPage() {
           )}
           <Discussion moduleId={module.id} accent={module.accent} />
 
-          {/* Bottom CTA — finish the module without scrolling back up */}
-          {module.status !== "completed" && module.type !== "read" && (
-            <div className="mt-stack-lg rounded-xl bg-gradient-to-r from-primary-container to-[#1c3a63] p-stack-lg text-center text-white">
+          {/* Bottom CTA — hidden in the open library (nothing is required) */}
+          {!module.library && module.status !== "completed" && module.type !== "read" && (
+            <div className="mt-stack-lg rounded-xl bg-gradient-to-r from-primary-container to-[#2e6b45] p-stack-lg text-center text-white">
               <span className="rounded-full bg-white/15 px-3 py-1 text-caption font-bold uppercase tracking-widest text-secondary-fixed">Step 3</span>
               <p className="mt-2 text-headline-md">{module.type === "capstone" ? "Run the simulation" : "Take the quiz"}</p>
               <p className="mx-auto mt-1 max-w-md text-body-md text-white/80">
@@ -770,8 +771,8 @@ export default function LessonPage() {
               )}
             </div>
           )}
-          {/* Completed modules keep the study guide handy for revision */}
-          {module.status === "completed" && module.type !== "capstone" && module.lesson?.length > 2 && (
+          {/* The memo sheet — the whole module on one page, always available */}
+          {module.lesson?.length > 2 && (
             <button
               onClick={() => downloadModuleGuidePdf(module, quizzes[module.id])}
               className="mx-auto mt-stack-lg flex items-center gap-1.5 text-caption font-bold text-secondary hover:underline"

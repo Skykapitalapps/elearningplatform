@@ -2,7 +2,7 @@ import { useState } from "react";
 import MaterialIcon from "../MaterialIcon.jsx";
 
 // "Question à curseur" — estimate a number, then reveal the real value.
-export default function SliderActivity({ activity, accent = "#0d1c32" }) {
+export default function SliderActivity({ activity, accent = "#0f3d24" }) {
   const { min = 0, max = 100, step = 1, answer, unit = "", prompt, tip } = activity;
   const [value, setValue] = useState(Math.round((min + max) / 2));
   const [revealed, setRevealed] = useState(false);

@@ -3,7 +3,7 @@ import MaterialIcon from "../MaterialIcon.jsx";
 
 // "Texte à trous" — a sentence with dropdown blanks. `segments` is an array
 // where a string is literal text and an object { options, correct } is a blank.
-export default function FillBlankActivity({ activity, accent = "#0d1c32" }) {
+export default function FillBlankActivity({ activity, accent = "#0f3d24" }) {
   const blanks = activity.segments.filter((s) => typeof s === "object");
   const [picks, setPicks] = useState({}); // blankIndex -> option index
   const [checked, setChecked] = useState(false);

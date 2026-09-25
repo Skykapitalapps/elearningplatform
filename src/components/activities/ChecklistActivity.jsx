@@ -3,7 +3,7 @@ import MaterialIcon from "../MaterialIcon.jsx";
 
 // "Checklist interactive à pièges" — tick the items that are actually required.
 // Each item: { text, required (bool), note }. Some are traps (not required).
-export default function ChecklistActivity({ activity, accent = "#0d1c32" }) {
+export default function ChecklistActivity({ activity, accent = "#0f3d24" }) {
   const [ticked, setTicked] = useState({});
   const [checked, setChecked] = useState(false);
 

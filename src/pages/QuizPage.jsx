@@ -646,7 +646,7 @@ export default function QuizPage() {
 
       {confirmExit && (
         <div
-          className="fixed inset-0 z-[90] flex items-center justify-center bg-[#0d1c32]/60 px-6 backdrop-blur-sm"
+          className="fixed inset-0 z-[90] flex items-center justify-center bg-[#0f3d24]/60 px-6 backdrop-blur-sm"
           onClick={() => setConfirmExit(null)}
         >
           <div
@@ -684,7 +684,7 @@ export default function QuizPage() {
           <div className="animate-pop w-full max-w-[560px] rounded-xl border border-outline-variant bg-surface-container-lowest p-stack-lg text-center shadow-xl md:p-12">
             <span
               className="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-2xl text-white"
-              style={{ background: target.accent ?? "#0d1c32" }}
+              style={{ background: target.accent ?? "#0f3d24" }}
             >
               <MaterialIcon name={target.icon} className="text-3xl" />
             </span>
@@ -736,7 +736,7 @@ export default function QuizPage() {
             ) : (
             <button
               onClick={() => { setPhase("quiz"); setTimeLeft(15 * 60); }}
-              className="mt-stack-lg inline-flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-primary-container to-[#1c3a63] py-3.5 text-label-md font-bold text-white transition-all hover:brightness-110 active:scale-[0.98] sm:w-auto sm:px-14"
+              className="mt-stack-lg inline-flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-primary-container to-[#2e6b45] py-3.5 text-label-md font-bold text-white transition-all hover:brightness-110 active:scale-[0.98] sm:w-auto sm:px-14"
             >
               I'm ready — start <MaterialIcon name="arrow_forward" />
             </button>
@@ -1602,7 +1602,7 @@ function ResultsCard({
             {nextModule && (
               <button
                 onClick={() => onNext(nextModule)}
-                className="flex items-center justify-center gap-2 bg-gradient-to-r from-primary-container to-[#1c3a63] px-8 py-3 text-label-md font-bold text-white transition-all hover:brightness-110 active:scale-95"
+                className="flex items-center justify-center gap-2 bg-gradient-to-r from-primary-container to-[#2e6b45] px-8 py-3 text-label-md font-bold text-white transition-all hover:brightness-110 active:scale-95"
               >
                 <MaterialIcon name="lock_open" /> Start {nextModule.code}: {nextModule.title.length > 22 ? nextModule.title.slice(0, 22) + "…" : nextModule.title}
               </button>

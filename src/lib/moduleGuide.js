@@ -8,7 +8,7 @@ import { client } from "../config/clients.js";
 import { glossaryFor } from "../config/glossary.js";
 import { LOGO_WHITE } from "./logo.js";
 
-const NAVY = "#0d1c32";
+const NAVY = "#0f3d24";
 const GOLD = "#b28c1e";
 const GREY = "#5f6672";
 const MARGIN = 18;

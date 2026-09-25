@@ -6,7 +6,8 @@ import {
   useRef,
   useState,
 } from "react";
-import { modules as seedModules, moduleAccents, moduleImages } from "./data.js";
+import { modules as referenceModules, moduleAccents, moduleImages } from "./data.js";
+import { OSP_MODULES } from "./data/osp.js";
 import { useAuth } from "./AuthContext.jsx";
 import { supabase, isSupabaseConfigured } from "./lib/supabase.js";
 import { moduleAssigned } from "./config/jobRoles.js";
@@ -14,36 +15,39 @@ import { moduleAssigned } from "./config/jobRoles.js";
 const CourseContext = createContext(null);
 const STORAGE_KEY = "skykapital-progress-v1";
 
-// Seed each module with its accent colour and themed photo.
-const seeded = seedModules.map((m) => ({
+// The pathway (Our Sustainability Pathway): welcome + core + role modules.
+const seededPathway = OSP_MODULES.map((m) => ({ ...m, status: "not_started" }));
+
+// The old reference course, now the open "Go further" library: free reading,
+// always unlocked, never counted in progress or certificates.
+const seededLibrary = referenceModules.map((m) => ({
   ...m,
   accent: moduleAccents[m.id],
   image: moduleImages[m.id],
+  library: true,
 }));
 
 // Load saved progress and overlay it onto the current seed. We persist only
-// the *progress* (status/score/progress), never content — so code edits to
-// lessons/quizzes still take effect while a learner's progress survives.
+// the *progress* (status/completedOn), never content — so code edits to
+// modules still take effect while a learner's progress survives.
 function loadInitial(storageKey) {
   try {
     const raw = localStorage.getItem(storageKey);
-    if (!raw) return { modules: seeded, acknowledgements: [] };
+    if (!raw) return { modules: seededPathway, acknowledgements: [] };
     const saved = JSON.parse(raw);
     const byId = saved.progress || {};
-    const modules = seeded.map((m) =>
+    const modules = seededPathway.map((m) =>
       byId[m.id]
         ? {
             ...m,
             status: byId[m.id].status ?? m.status,
-            score: byId[m.id].score ?? m.score,
-            progress: byId[m.id].progress ?? m.progress,
             completedOn: byId[m.id].completedOn ?? m.completedOn,
           }
         : m
     );
     return { modules, acknowledgements: saved.acknowledgements || [] };
   } catch {
-    return { modules: seeded, acknowledgements: [] };
+    return { modules: seededPathway, acknowledgements: [] };
   }
 }
 
@@ -51,10 +55,8 @@ export function CourseProvider({ children }) {
   // Progress is stored PER ACCOUNT when signed in (fresh accounts start at
   // zero); the shared key is only used in local demo mode without auth.
   const { enabled: authEnabled, user, profile } = useAuth();
-  // Reviewers (role 'manager') see every module unlocked — full content
-  // access for review, without any user/client management rights.
   // Reviewers (manager) AND administrators browse the learner side with no
-  // locks: every module open, no reading gates — full-platform preview access.
+  // locks: every module open — full-platform preview access.
   const reviewer =
     authEnabled && (profile?.role === "manager" || profile?.role === "admin");
   _reviewerUnlock = reviewer;
@@ -69,8 +71,7 @@ export function CourseProvider({ children }) {
 
   // Switch data when a different account signs in (or out). `loadedKey`
   // guards the persist effect below: never write state that belongs to the
-  // PREVIOUS key into the new one (that would copy demo/test progress into a
-  // fresh account).
+  // PREVIOUS key into the new one.
   const loadedKey = useRef(storageKey);
   useEffect(() => {
     const d = loadInitial(storageKey);
@@ -98,9 +99,6 @@ export function CourseProvider({ children }) {
                   ...m,
                   status: "completed",
                   completedOn: m.completedOn ?? (r.updated_at || "").slice(0, 10),
-                  score: m.score
-                    ? { ...m.score, earned: r.earned ?? m.score.earned }
-                    : m.score,
                 };
               return m;
             })
@@ -129,11 +127,11 @@ export function CourseProvider({ children }) {
     try {
       const progress = {};
       modules.forEach((m) => {
-        progress[m.id] = { status: m.status, score: m.score, progress: m.progress, completedOn: m.completedOn };
+        progress[m.id] = { status: m.status, completedOn: m.completedOn };
       });
       localStorage.setItem(
         storageKey,
-        JSON.stringify({ v: 1, progress, acknowledgements })
+        JSON.stringify({ v: 2, progress, acknowledgements })
       );
     } catch {
       /* storage unavailable — ignore */
@@ -147,8 +145,8 @@ export function CourseProvider({ children }) {
     toastTimer.current = setTimeout(() => setToast(null), 3400);
   }
 
-  // The learner only sees the modules assigned to their job role: all of
-  // Pathway A, plus the Pathway B and C modules on their role's list.
+  // The learner only sees the pathway modules assigned to their trade:
+  // welcome + the five core modules, plus their role modules.
   const assignedModules = useMemo(
     () => modules.filter((m) => moduleAssigned(m, profile)),
     [modules, profile]
@@ -158,40 +156,22 @@ export function CourseProvider({ children }) {
     const mods = assignedModules;
     const completed = mods.filter((m) => m.status === "completed").length;
     const total = mods.length;
-    const earnedQuizPoints = mods.reduce(
-      (sum, m) => sum + (m.score ? m.score.earned : 0),
-      0
-    );
-    const totalQuizPoints = mods.reduce(
-      (sum, m) => sum + ((m.type === "quiz" || m.type === "capstone") && m.score ? m.score.total : 0),
-      0
-    );
     return {
       completed,
       total,
       percent: total ? Math.round((completed / total) * 100) : 0,
-      earnedQuizPoints,
-      totalQuizPoints,
     };
   }, [assignedModules]);
 
-  // Marks a module complete and records a quiz score if provided.
-  function completeModule(id, earned) {
-    let message = "Module completed";
+  // Marks a pathway module complete. No score is recorded anywhere — the
+  // record is that the learner went through it and answered the questions.
+  function completeModule(id) {
     // Permanent record in the database (per account, tamper-resistant).
     if (authEnabled && user && isSupabaseConfigured) {
-      const m0 = modules.find((m) => m.id === id);
-      const total = m0?.score?.total ?? null;
       supabase
         .from("module_progress")
         .upsert(
-          {
-            user_id: user.id,
-            module_id: id,
-            status: "completed",
-            earned: earned ?? total,
-            total,
-          },
+          { user_id: user.id, module_id: id, status: "completed" },
           { onConflict: "user_id,module_id" }
         )
         .then(() => {});
@@ -202,19 +182,11 @@ export function CourseProvider({ children }) {
         const next = { ...m, status: "completed" };
         if (!next.completedOn)
           next.completedOn = new Date().toISOString().slice(0, 10);
-        if (m.type === "quiz" || m.type === "capstone") {
-          const total = m.score?.total ?? 8;
-          const points = earned ?? total;
-          next.score = { earned: points, total };
-          delete next.progress;
-          message = `${m.title} completed · +${points} pts`;
-        } else {
-          message = `${m.title} completed`;
-        }
         return next;
       })
     );
-    showToast(message);
+    const mod = modules.find((m) => m.id === id);
+    showToast(`${mod ? mod.title : "Module"} — completed`);
   }
 
   // Records a read-and-agree acknowledgement (e-signature) for a document.
@@ -242,13 +214,15 @@ export function CourseProvider({ children }) {
     } catch {
       /* ignore */
     }
-    setModules(seedModules.map((m) => ({ ...m, accent: moduleAccents[m.id], image: moduleImages[m.id] })));
+    setModules(seededPathway.map((m) => ({ ...m })));
     setAcknowledgements([]);
     showToast("Progress reset");
   }
 
   const value = {
     modules: assignedModules,
+    allPathwayModules: modules,
+    libraryModules: seededLibrary,
     progress,
     reviewer,
     acknowledgements,
@@ -267,25 +241,28 @@ export function useCourse() {
   return ctx;
 }
 
-// DEV SWITCH: while the course content is being built and tested, every
-// module is open. Set back to false before rollout to restore path-locking.
-const UNLOCK_ALL = false;
-// Set by the provider when the signed-in account is a reviewer.
+// Set by the provider when the signed-in account is a reviewer/admin.
 let _reviewerUnlock = false;
 
-// Pathway A is sequential and locks everything: A1 → … → A6, in order.
-// Once Pathway A is complete, the learner's assigned B and C modules all
-// open together and can be taken in any order.
+// PATHWAY GATING:
+//  - the welcome module is always open, and nothing can be reached before it;
+//  - core modules S1–S5 open in order once the welcome is done;
+//  - role modules open together once all five core modules are done;
+//  - library modules ("Go further") are always open — free consultation.
 export function isUnlocked(modules, module) {
-  if (UNLOCK_ALL || _reviewerUnlock) return true;
-  if (module.status === "completed" || module.status === "in_progress") return true;
-  const aMods = modules.filter((m) => (m.pathway || "A") === "A");
-  if ((module.pathway || "A") === "A") {
-    const i = aMods.findIndex((m) => m.id === module.id);
+  if (module.library) return true;
+  if (_reviewerUnlock) return true;
+  if (module.status === "completed") return true;
+  if (module.block === "welcome") return true;
+  const welcomeDone = modules.find((m) => m.block === "welcome")?.status === "completed";
+  if (!welcomeDone) return false;
+  const core = modules.filter((m) => m.block === "core");
+  if (module.block === "core") {
+    const i = core.findIndex((m) => m.id === module.id);
     if (i <= 0) return true;
-    return aMods[i - 1].status === "completed";
+    return core[i - 1].status === "completed";
   }
-  return aMods.every((m) => m.status === "completed");
+  return core.every((m) => m.status === "completed");
 }
 
 // Shared status → { label, classes } mapping so badges are consistent.
@@ -293,18 +270,14 @@ export function statusMeta(module) {
   switch (module.status) {
     case "completed":
       return {
-        label: module.score
-          ? `Completed · ${module.score.earned}/${module.score.total}`
-          : "Completed",
+        label: "Completed",
         pill: "bg-secondary-container text-on-secondary-container",
         icon: "check_circle",
         iconClass: "text-secondary",
       };
     case "in_progress":
       return {
-        label: module.progress
-          ? `In progress · ${module.progress.current} of ${module.progress.total}`
-          : "In progress",
+        label: "In progress",
         pill: "bg-primary-container text-white",
         icon: "radio_button_checked",
         iconClass: "text-secondary",

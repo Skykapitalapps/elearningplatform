@@ -58,16 +58,15 @@ export async function downloadProgressWorkbook({ project, per, rows, members, mo
   /* ---------------- Sheet 1 · Overview ---------------- */
   const ov = wb.addWorksheet("Overview");
   titleBand(ov, 10, `Progress report · project: ${project.name} · exported ${today}`);
-  headerRow(ov, ["Learner", "Job role", "Modules done", "Total", "Progress %", "Quiz points", "Certified", "Certificate no.", "Last activity", "Sign-ins"]);
+  headerRow(ov, ["Learner", "Trade", "Modules done", "Total", "Progress %", "Certified", "Certificate no.", "Last activity", "Sign-ins"]);
   const headerAt = 4;
   per.forEach((p, i) => {
     const row = ov.addRow([
       p.full_name || "—",
-      p.job_role || "no role — sees all 16",
+      p.job_role || "no trade — full pathway",
       p.done,
       p.totalMods,
       Math.round((p.done / p.totalMods) * 100) / 100,
-      p.pts,
       p.certified ? "Yes" : "No",
       p.certified ? p.certNo : "",
       p.last,
@@ -78,17 +77,17 @@ export async function downloadProgressWorkbook({ project, per, rows, members, mo
       if (i % 2 === 1) c.fill = { type: "pattern", pattern: "solid", fgColor: { argb: ZEBRA } };
     });
     row.getCell(5).numFmt = "0%";
-    const cert = row.getCell(7);
+    const cert = row.getCell(6);
     cert.font = p.certified ? { bold: true, color: { argb: GREEN_TX } } : { color: { argb: GREY_TX } };
     if (p.certified) cert.fill = { type: "pattern", pattern: "solid", fgColor: { argb: GREEN_BG } };
   });
-  ov.columns = [{ width: 28 }, { width: 24 }, { width: 13 }, { width: 8 }, { width: 11 }, { width: 11 }, { width: 10 }, { width: 20 }, { width: 13 }, { width: 9 }];
+  ov.columns = [{ width: 28 }, { width: 28 }, { width: 13 }, { width: 8 }, { width: 11 }, { width: 10 }, { width: 20 }, { width: 13 }, { width: 9 }];
   ov.views = [{ state: "frozen", ySplit: headerAt }];
-  ov.autoFilter = { from: { row: headerAt, column: 1 }, to: { row: headerAt + per.length, column: 10 } };
+  ov.autoFilter = { from: { row: headerAt, column: 1 }, to: { row: headerAt + per.length, column: 9 } };
 
   /* ---------------- Sheet 2 · By module ---------------- */
   const bm = wb.addWorksheet("By module");
-  titleBand(bm, modules.length + 1, "Learner × module — green: passed (score shown) · amber: in progress · grey: not in this person's pathway");
+  titleBand(bm, modules.length + 1, "Learner × module — green: completed (answered) · amber: in progress · grey: not in this person's pathway");
   headerRow(bm, ["Learner", ...modules.map((m) => m.code)]);
   const byUser = {};
   for (const r of rows ?? []) (byUser[r.user_id] = byUser[r.user_id] ?? {})[r.module_id] = r;

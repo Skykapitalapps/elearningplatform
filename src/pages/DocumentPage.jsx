@@ -418,7 +418,7 @@ export default function DocumentPage() {
           ) : ownerModule ? (
             <Link
               to={`/module/${ownerModule.id}#practice`}
-              className="flex items-center gap-2 rounded-lg bg-gradient-to-r from-primary-container to-[#1c3a63] px-6 py-3 text-label-md font-bold text-white transition-all hover:brightness-110"
+              className="flex items-center gap-2 rounded-lg bg-gradient-to-r from-primary-container to-[#2e6b45] px-6 py-3 text-label-md font-bold text-white transition-all hover:brightness-110"
             >
               <MaterialIcon name="extension" className="text-[18px]" />
               Readings done — continue {ownerModule.code}: practice games

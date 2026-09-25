@@ -6,7 +6,7 @@ import { client } from "./config/clients.js";
 export { client };
 
 export const platform = {
-  brand: "Skykapital Europe",
+  brand: client.courseTitle,
   center: client.center,
   series: client.series,
 };

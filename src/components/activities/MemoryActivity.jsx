@@ -106,7 +106,7 @@ export default function MemoryActivity({ activity, accent = "#c99a2e" }) {
                     ? isMatched
                       ? {}
                       : { borderColor: accent, background: `${accent}0d` }
-                    : { background: `linear-gradient(135deg, ${accent}, #0d1c32)` }
+                    : { background: `linear-gradient(135deg, ${accent}, #0f3d24)` }
                 }
               >
                 {faceUp ? (

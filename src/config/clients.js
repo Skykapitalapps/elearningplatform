@@ -24,10 +24,19 @@ const CLIENTS = {
     // How the client is named across the platform
     clientShort: "HITECH",
     clientLegal: "HITECH Construction Company Limited — Builders & Civil Engineers",
-    center: "Skykapital ESG Learning Center",
-    series: "ESG Foundation Series",
-    courseTitle: "Creating Our Sustainability Pathway",
+    center: "HITECH learning platform",
+    series: "Together shaping a responsible future",
+    courseTitle: "Our Sustainability Pathway",
     courseSubtitle: "Embrace the journey",
+    // The two lines of the conference identity, shown together on the hero.
+    taglines: ["Together shaping a responsible future", "Embrace the journey"],
+    // Support contact for the Security & conduct module (persistent link on
+    // every screen of that module). Populated per project at deployment.
+    supportContact: {
+      label: "If anything in this module affects you personally, you can speak to the project's named focal point.",
+      name: "Community Relations Manager",
+      email: "rudy.choufani@skykapital.com",
+    },
     // The client's signed Code of Conduct (PDF placed in public/docs/)
     codeOfConduct: {
       ref: "IMS-HSE-Pol-014 · Version 1 · April 2025",
@@ -47,10 +56,29 @@ const CLIENTS = {
         b6: "/images/hitech-fill.webp", // fill advancing into wetland habitat
       },
     },
-    // HITECH's role matrix (from the course author's configuration workbook).
-    // Pathway A (A1–A5) is the baseline for every role. B3 and B4 are
-    // assigned to ALL personnel. `chanceFind` marks roles that take the
-    // chance-find micro-module (extract of B6).
+    // ── OUR SUSTAINABILITY PATHWAY role matrix ──────────────────────────
+    // The 12 trades of the "Where you come in" screen are the roles chosen
+    // at registration. Every trade takes the welcome + the 5 core modules;
+    // `modules` lists the role modules (r1 Community, r2 Health & Safety,
+    // r3 Environment, r4 Security & conduct) assigned to that trade.
+    // Derived from the "Assigned to" lines of the module packs, capped at
+    // two per trade so a person follows 6–7 modules — adjust freely here.
+    pathwayRoles: [
+      { key: "pm", label: "Project manager (roads & bridges)", modules: ["r1", "r2"] },
+      { key: "foreman", label: "Foreman / supervisor", modules: ["r2", "r3"] },
+      { key: "plant", label: "Plant manager / operator", modules: ["r2", "r3"] },
+      { key: "workshop", label: "Mechanical workshop", modules: ["r2", "r3"] },
+      { key: "batching", label: "Batching plant", modules: ["r2", "r3"] },
+      { key: "hse", label: "HSE", modules: ["r2", "r3"] },
+      { key: "occhealth", label: "Occupational health / clinic", modules: ["r2", "r4"] },
+      { key: "hr", label: "Human Resources / site administration", modules: ["r2", "r4"] },
+      { key: "procurement", label: "Procurement", modules: ["r3", "r4"] },
+      { key: "security", label: "Security", modules: ["r4", "r1"] },
+      { key: "community", label: "Community relations / liaison", modules: ["r1", "r4"] },
+      { key: "subcontractor", label: "Subcontractor personnel", modules: ["r2", "r3"] },
+    ],
+    // Legacy matrix of the reference course (now the "Go further" library —
+    // kept for the record; the library is open to everyone regardless).
     jobRoles: [
       {
         key: "plant-operator",

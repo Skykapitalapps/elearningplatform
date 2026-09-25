@@ -20,10 +20,10 @@ import { createClient } from "@supabase/supabase-js";
 import fs from "node:fs";
 import crypto from "node:crypto";
 
+// The 12 trades of Our Sustainability Pathway (see clients.js pathwayRoles).
 const ROLE_KEYS = [
-  "plant-operator", "storekeeper-fuel", "foreman", "hse", "community-liaison",
-  "hr-recruitment", "procurement", "survey-design", "site-manager",
-  "project-director", "subcontractor-supervision",
+  "pm", "foreman", "plant", "workshop", "batching", "hse",
+  "occhealth", "hr", "procurement", "security", "community", "subcontractor",
 ];
 
 const [csvPath] = process.argv.slice(2);

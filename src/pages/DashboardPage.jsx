@@ -1,309 +1,209 @@
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useCourse, isUnlocked, statusMeta } from "../CourseContext.jsx";
+import { client } from "../config/clients.js";
 import MaterialIcon from "../components/MaterialIcon.jsx";
-import { useCourse, isUnlocked } from "../CourseContext.jsx";
-import { course } from "../data.js";
-import { useAuth } from "../AuthContext.jsx";
 
-// Home — one story, one action. A single "continue" card, then the pathway
-// as a numbered checklist. No duplicate shortcuts: everything a learner can
-// do from here is visible in one glance, top to bottom.
+// ============================================================================
+// HOME — Our Sustainability Pathway.
+// The conference identity (the green, the diagonal, the two lines), then the
+// journey exactly as it runs: welcome → the five core modules → the role
+// modules — and the old course as an open library underneath.
+// ============================================================================
+
+function ModuleCard({ m, modules, size = "md" }) {
+  const unlocked = isUnlocked(modules, m);
+  const meta = statusMeta(m);
+  const done = m.status === "completed";
+  const inner = (
+    <div
+      className={`flex h-full items-start gap-3 rounded-2xl border p-4 transition-all ${
+        unlocked
+          ? "border-outline-variant bg-surface-container-lowest hover:-translate-y-0.5 hover:border-secondary hover:shadow-md"
+          : "border-outline-variant/60 bg-surface-container-low opacity-70"
+      }`}
+    >
+      <span
+        className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ${
+          done ? "bg-secondary-container text-on-secondary-container" : "bg-primary-container text-white"
+        }`}
+      >
+        <MaterialIcon name={done ? "check" : unlocked ? m.icon : "lock"} className="text-[22px]" />
+      </span>
+      <div className="min-w-0 flex-1">
+        <p className="text-caption font-bold uppercase tracking-widest text-secondary">
+          {m.code} · {m.minutes} min
+        </p>
+        <p className={`font-bold leading-snug text-primary ${size === "lg" ? "text-body-lg" : "text-body-md"}`}>
+          {m.title}
+        </p>
+        <span className={`mt-1.5 inline-flex rounded-full px-2 py-0.5 text-caption font-semibold ${meta.pill}`}>
+          {meta.label}
+        </span>
+      </div>
+    </div>
+  );
+  return unlocked ? (
+    <Link to={`/pathway/${m.id}`} className="block h-full">{inner}</Link>
+  ) : (
+    <div className="h-full cursor-not-allowed" title="Locked — follow the pathway in order">{inner}</div>
+  );
+}
+
 export default function DashboardPage() {
-  const navigate = useNavigate();
-  const { modules, progress } = useCourse();
-  const { profile, user } = useAuth();
-  const learnerName =
-    profile?.full_name || user?.user_metadata?.full_name || user?.email?.split("@")[0] || course.learner;
-  const firstName = learnerName.split(" ")[0];
-
-  const [welcomed, setWelcomed] = useState(() => {
-    try { return localStorage.getItem("skk-welcome-v1") === "1"; } catch { return true; }
-  });
-  function dismissWelcome(go) {
-    try { localStorage.setItem("skk-welcome-v1", "1"); } catch {}
-    setWelcomed(true);
-    if (go) navigate("/module/m1");
-  }
-
-  const current =
-    modules.find((m) => m.status === "in_progress") ||
-    modules.find((m) => m.status === "not_started") ||
-    modules[0];
-  const done = progress.percent === 100;
-  const started = progress.completed > 0 || current.status === "in_progress";
+  const { modules, libraryModules, progress } = useCourse();
+  const welcome = modules.find((m) => m.block === "welcome");
+  const core = modules.filter((m) => m.block === "core");
+  const role = modules.filter((m) => m.block === "role");
+  const next =
+    modules.find((m) => m.status !== "completed" && isUnlocked(modules, m)) || null;
+  const allDone = progress.completed === progress.total && progress.total > 0;
 
   return (
-    <div className="mx-auto max-w-[820px] px-margin-mobile py-stack-lg md:px-margin-desktop">
-      {/* First-visit welcome */}
-      {!welcomed && progress.completed === 0 && (
-        <div className="fixed inset-0 z-[90] flex items-center justify-center bg-[#0d1c32]/70 px-6 backdrop-blur-sm">
-          <div className="animate-pop w-full max-w-md overflow-hidden rounded-2xl bg-white text-center shadow-2xl">
-            <div className="bg-gradient-to-br from-primary-container to-[#1c3a63] px-stack-lg py-stack-lg text-white">
-              <MaterialIcon name="school" fill className="text-5xl text-secondary-fixed" />
-              <h2 className="mt-2 text-headline-md">Welcome to your ESG pathway</h2>
-              <p className="mt-1 text-body-md text-white/80">
-                Your assigned modules · games &amp; quizzes · one certificate
-              </p>
-            </div>
-            <div className="space-y-3 p-stack-lg text-left">
-              {[
-                ["menu_book", "Read each short, illustrated lesson"],
-                ["extension", "Play the practice games — they don't count"],
-                ["quiz", "Pass the quiz (70%) to unlock the next module"],
-              ].map(([ic, t], i) => (
-                <p key={i} className="flex items-center gap-3 text-body-md text-on-surface">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-surface-container-low">
-                    <MaterialIcon name={ic} className="text-[18px] text-secondary" />
-                  </span>
-                  {t}
-                </p>
-              ))}
-              <button
-                onClick={() => dismissWelcome(true)}
-                className="mt-2 flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-primary-container to-[#1c3a63] py-3.5 text-label-md font-bold text-white transition-all hover:brightness-110 active:scale-[0.98]"
+    <div className="mx-auto max-w-[1080px] px-margin-mobile py-8">
+      {/* ── HERO: the conference identity — the green and the diagonal ── */}
+      <div className="relative mb-10 overflow-hidden rounded-3xl bg-primary-container text-white">
+        <div
+          className="absolute inset-y-0 right-0 w-2/3 bg-secondary-container/90"
+          style={{ clipPath: "polygon(38% 0, 100% 0, 100% 100%, 12% 100%)" }}
+        />
+        <div
+          className="absolute inset-y-0 right-0 w-2/3 bg-secondary/20"
+          style={{ clipPath: "polygon(30% 0, 42% 0, 16% 100%, 4% 100%)" }}
+        />
+        <div className="relative px-8 py-12 md:px-12">
+          <p className="text-caption font-bold uppercase tracking-[0.25em] text-secondary-fixed">
+            {client.clientShort}
+          </p>
+          <h1 className="mt-2 max-w-md text-display-sm font-black leading-tight md:text-[42px]">
+            Our Sustainability Pathway
+          </h1>
+          <p className="mt-3 max-w-sm text-body-lg text-white/90">
+            {client.taglines?.[0]}
+            <br />
+            <span className="font-bold text-secondary-fixed">{client.taglines?.[1]}</span>
+          </p>
+          <div className="mt-6 flex flex-wrap items-center gap-4">
+            {next && (
+              <Link
+                to={`/pathway/${next.id}`}
+                className="inline-flex items-center gap-2 rounded-xl bg-white px-8 py-3.5 text-label-md font-bold text-primary shadow-lg transition-transform hover:-translate-y-0.5"
               >
-                Start with A1 <MaterialIcon name="arrow_forward" />
-              </button>
-              <button
-                onClick={() => dismissWelcome(false)}
-                className="w-full py-1 text-caption text-on-surface-variant hover:text-primary"
+                {progress.completed === 0 ? "Begin — 3 minutes" : `Continue: ${next.title}`}
+                <MaterialIcon name="arrow_forward" />
+              </Link>
+            )}
+            {allDone && (
+              <Link
+                to="/evidence"
+                className="inline-flex items-center gap-2 rounded-xl bg-white px-8 py-3.5 text-label-md font-bold text-primary shadow-lg"
               >
-                I'll look around first
-              </button>
-            </div>
+                <MaterialIcon name="workspace_premium" /> Pathway complete — your certificate
+              </Link>
+            )}
+            <span className="rounded-full bg-primary-container/80 px-3 py-1.5 text-caption font-semibold text-white">
+              {progress.completed} of {progress.total} modules · about 1h15 in total
+            </span>
           </div>
         </div>
-      )}
+      </div>
 
-      {/* Greeting */}
-      <section className="mb-stack-lg animate-fade-up">
-        <h1 className="mb-2 text-headline-lg text-primary md:text-headline-xl">
-          Welcome back, {firstName}
-        </h1>
-        <span className="mb-3 mt-1 block h-1 w-24 rounded-full bg-gradient-to-r from-secondary to-transparent" />
-        <p className="text-body-lg text-on-surface-variant">
-          {done
-            ? "All your modules are done. Well done."
-            : started
-            ? `You're on ${current.code}. ${progress.completed} of ${progress.total} modules done.`
-            : "Start with A1. The rest unlocks as you go."}
-        </p>
-      </section>
-
-      {/* THE one action */}
-      {done ? (
-        <Link
-          to="/evidence"
-          className="mb-stack-lg flex items-center gap-stack-md rounded-xl bg-gradient-to-r from-primary-container to-[#1c3a63] p-stack-lg text-white shadow-lg transition-all hover:brightness-110"
-        >
-          <MaterialIcon name="workspace_premium" fill className="text-5xl text-secondary-fixed" />
-          <span className="flex-1">
-            <span className="block text-headline-md">Your certificate is ready</span>
-            <span className="text-body-md text-white/80">Open “My progress” to download your PDF certificate.</span>
-          </span>
-          <MaterialIcon name="arrow_forward" className="text-3xl" />
-        </Link>
-      ) : (
-        <button
-          onClick={() => navigate(`/module/${current.id}`)}
-          className="mb-stack-lg flex w-full items-center gap-stack-md rounded-xl bg-gradient-to-r from-primary-container to-[#1c3a63] p-stack-lg text-left text-white shadow-lg transition-all hover:brightness-110 active:scale-[0.99]"
-        >
-          <span
-            className="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl text-white"
-            style={{ background: current.accent }}
-          >
-            <MaterialIcon name={current.icon} className="text-3xl" />
-          </span>
-          <span className="min-w-0 flex-1">
-            <span className="block text-caption font-bold uppercase tracking-widest text-secondary-fixed">
-              {started ? "Continue where you left off" : "Start here"}
-            </span>
-            <span className="block truncate text-headline-md">
-              {current.order} · {current.title}
-            </span>
-            <span className="mt-1 flex flex-wrap items-center gap-1.5 text-caption text-white/85">
-              <span className="rounded-full bg-white/15 px-2.5 py-0.5">1 · Lesson</span>
-              <MaterialIcon name="chevron_right" className="text-[14px] text-white/60" />
-              <span className="rounded-full bg-white/15 px-2.5 py-0.5">2 · Practice games</span>
-              <MaterialIcon name="chevron_right" className="text-[14px] text-white/60" />
-              <span className="rounded-full bg-white/15 px-2.5 py-0.5">3 · Quiz (70%)</span>
-              <span className="ml-1 text-white/70">{current.duration}</span>
-            </span>
-          </span>
-          <MaterialIcon name="play_circle" fill className="shrink-0 text-5xl text-secondary-fixed" />
-        </button>
-      )}
-
-      {/* How it works — only before anything is completed */}
-      {progress.completed === 0 && (
-        <section className="animate-fade-up mb-stack-lg rounded-xl border border-outline-variant bg-gradient-to-br from-surface-container-lowest via-surface-container-lowest to-[#fcf6e8] p-stack-lg">
-          <p className="mb-stack-md text-caption font-bold uppercase tracking-widest text-secondary">
-            New here? How it works
-          </p>
-          <div className="grid grid-cols-1 gap-stack-md sm:grid-cols-3">
-            {[
-              { n: "1", icon: "menu_book", t: "Read the lesson", d: "Each module starts with a short, illustrated lesson." },
-              { n: "2", icon: "extension", t: "Play the practice games", d: "Not graded. A way to check yourself before the quiz." },
-              { n: "3", icon: "quiz", t: "Pass the quiz", d: "Score 70% to complete the module and unlock the next." },
-            ].map((s) => (
-              <div key={s.n} className="flex items-start gap-3 rounded-lg bg-surface-container-low p-stack-md">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary-container text-label-md font-bold text-white">
-                  {s.n}
-                </span>
-                <span>
-                  <span className="flex items-center gap-1 text-label-md font-bold text-primary">
-                    <MaterialIcon name={s.icon} className="text-[18px] text-secondary" /> {s.t}
-                  </span>
-                  <span className="mt-0.5 block text-caption text-on-surface-variant">{s.d}</span>
-                </span>
-              </div>
-            ))}
+      {/* ── 1 · Welcome ── */}
+      {welcome && (
+        <section className="mb-8">
+          <div className="mb-3 flex items-baseline gap-3">
+            <span className="text-headline-md font-black text-secondary">1</span>
+            <div>
+              <h2 className="text-headline-md text-primary">Welcome</h2>
+              <p className="text-caption text-on-surface-variant">Three screens, three minutes. Everything starts here.</p>
+            </div>
+          </div>
+          <div className="max-w-md">
+            <ModuleCard m={welcome} modules={modules} size="lg" />
           </div>
         </section>
       )}
 
-      {/* The pathway — every step in order, nothing else */}
-      <section className="rounded-xl border border-outline-variant bg-surface-container-lowest p-stack-lg shadow-sm">
-        <div className="mb-stack-md flex items-center justify-between">
-          <h2 className="text-headline-md text-primary">Your pathway</h2>
-          <span className="text-caption font-bold text-on-surface-variant">
-            {progress.completed}/{progress.total} done
-          </span>
-        </div>
-        <div className="mb-stack-md h-2 w-full overflow-hidden rounded-full bg-surface-container-high">
-          <div
-            className="h-full rounded-full bg-gradient-to-r from-secondary to-[#e9c176] transition-[width] duration-700"
-            style={{ width: `${progress.percent}%` }}
-          />
-        </div>
-
-        <div className="space-y-6">
-          {[
-            { key: "A", title: "Pathway A — Foundations", note: "Everyone takes this part, in order." },
-            { key: "B", title: "Pathway B — Site Practice", note: "Assigned by your role. Opens once Pathway A is done — any order." },
-            { key: "C", title: "Pathway C — Supervisors & Leads", note: "Assigned by your role. Same rule as B: opens after Pathway A." },
-          ].map((pw) => {
-            const mods = modules.filter((mm) => (mm.pathway || "A") === pw.key);
-            if (mods.length === 0) return null;
-            return (
-              <div key={pw.key}>
-                <h3 className="text-label-md font-bold uppercase tracking-widest text-primary">
-                  {pw.title}
-                </h3>
-                <p className="mb-2 text-caption text-on-surface-variant">{pw.note}</p>
-                <ol className="space-y-2">
-                  {mods.map((m) => {
-            const unlocked = isUnlocked(modules, m);
-            const isDone = m.status === "completed";
-            const isCurrent = !isDone && unlocked && m.id === current.id;
-            const row = (
-              <>
-                <span
-                  className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-label-md font-bold ${
-                    isDone
-                      ? "bg-emerald-100 text-emerald-700"
-                      : isCurrent
-                      ? "text-white"
-                      : "bg-surface-container-high text-outline"
-                  }`}
-                  style={isCurrent ? { background: m.accent } : undefined}
-                >
-                  {isDone ? (
-                    <MaterialIcon name="check" fill className="text-[22px]" />
-                  ) : unlocked ? (
-                    m.order
-                  ) : (
-                    <MaterialIcon name="lock" className="text-[18px]" />
-                  )}
-                </span>
-                <span className="min-w-0 flex-1">
-                  <span
-                    className={`block truncate text-label-md font-bold ${
-                      unlocked ? "text-primary" : "text-outline"
-                    }`}
-                  >
-                    {m.code} · {m.title}
-                  </span>
-                  <span className="text-caption text-on-surface-variant">
-                    {isDone
-                      ? `Completed${m.completedOn ? ` on ${m.completedOn}` : ""}${
-                          m.score ? ` · ${m.score.earned}/${m.score.total} pts` : ""
-                        }`
-                      : unlocked
-                      ? m.type === "read"
-                        ? m.duration
-                        : `${m.duration} · Lesson → Practice games → Quiz`
-                      : (m.pathway || "A") === "A"
-                      ? "Finish the previous module to unlock"
-                      : "Opens when Pathway A is complete"}
-                  </span>
-                </span>
-                {isCurrent && (
-                  <span className="flex shrink-0 items-center gap-1 rounded-lg bg-primary px-4 py-2 text-caption font-bold text-on-primary">
-                    {started ? "Continue" : "Start"} <MaterialIcon name="arrow_forward" className="text-[14px]" />
-                  </span>
-                )}
-                {isDone && (
-                  <span className="shrink-0 text-caption font-bold text-on-surface-variant">Review</span>
-                )}
-              </>
-            );
-            return (
-              <li key={m.id}>
-                {unlocked ? (
-                  <Link
-                    to={`/module/${m.id}`}
-                    className={`flex items-center gap-stack-md rounded-xl p-3 transition-colors ${
-                      isCurrent
-                        ? "border-2 border-secondary bg-[#fdfaf3]"
-                        : "border border-transparent hover:bg-surface-container-low"
-                    }`}
-                  >
-                    {row}
-                  </Link>
-                ) : (
-                  <div className="flex items-center gap-stack-md rounded-xl border border-transparent p-3 opacity-70">
-                    {row}
-                  </div>
-                )}
-              </li>
-            );
-                  })}
-                </ol>
-              </div>
-            );
-          })}
-
-          {/* Final step: the certificate */}
+      {/* ── 2 · The core ── */}
+      <section className="mb-8">
+        <div className="mb-3 flex items-baseline gap-3">
+          <span className="text-headline-md font-black text-secondary">2</span>
           <div>
-            {done ? (
-              <Link
-                to="/evidence"
-                className="flex items-center gap-stack-md rounded-xl border border-transparent p-3 transition-colors hover:bg-surface-container-low"
-              >
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-secondary text-white">
-                  <MaterialIcon name="workspace_premium" fill className="text-[22px]" />
-                </span>
-                <span className="min-w-0 flex-1">
-                  <span className="block text-label-md font-bold text-primary">Your certificate</span>
-                  <span className="text-caption text-on-surface-variant">Download your PDF certificate</span>
-                </span>
-                <MaterialIcon name="download" className="shrink-0 text-primary" />
-              </Link>
-            ) : (
-              <div className="flex items-center gap-stack-md rounded-xl p-3 opacity-70">
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-surface-container-high text-outline">
-                  <MaterialIcon name="workspace_premium" className="text-[20px]" />
-                </span>
-                <span className="min-w-0 flex-1">
-                  <span className="block text-label-md font-bold text-outline">Your certificate</span>
-                  <span className="text-caption text-on-surface-variant">
-                    Complete all {progress.total} modules to earn it
-                  </span>
-                </span>
-              </div>
-            )}
+            <h2 className="text-headline-md text-primary">The core — for everyone</h2>
+            <p className="text-caption text-on-surface-variant">
+              Five modules, in order, about fifty minutes. What this is about, who lends to us, the documents, how we are checked, and a day on this project.
+            </p>
           </div>
+        </div>
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {core.map((m) => (
+            <ModuleCard key={m.id} m={m} modules={modules} />
+          ))}
+        </div>
+      </section>
+
+      {/* ── 3 · Your role modules ── */}
+      <section className="mb-10">
+        <div className="mb-3 flex items-baseline gap-3">
+          <span className="text-headline-md font-black text-secondary">3</span>
+          <div>
+            <h2 className="text-headline-md text-primary">Your role modules</h2>
+            <p className="text-caption text-on-surface-variant">
+              Assigned to your job. They open once the five core modules are done.
+            </p>
+          </div>
+        </div>
+        <div className="grid gap-3 sm:grid-cols-2">
+          {role.map((m) => (
+            <ModuleCard key={m.id} m={m} modules={modules} />
+          ))}
+        </div>
+      </section>
+
+      {/* ── Always available ── */}
+      <section className="mb-8 grid gap-3 sm:grid-cols-2">
+        <Link
+          to="/glossary"
+          className="flex items-center gap-3 rounded-2xl border border-outline-variant bg-surface-container-lowest p-4 transition-all hover:border-secondary hover:shadow-md"
+        >
+          <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-secondary-container text-on-secondary-container">
+            <MaterialIcon name="translate" className="text-[22px]" />
+          </span>
+          <div>
+            <p className="font-bold text-primary">Glossary</p>
+            <p className="text-caption text-on-surface-variant">Every term in plain words — open any time, during and after the pathway.</p>
+          </div>
+        </Link>
+        <Link
+          to="/resources"
+          className="flex items-center gap-3 rounded-2xl border border-outline-variant bg-surface-container-lowest p-4 transition-all hover:border-secondary hover:shadow-md"
+        >
+          <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-secondary-container text-on-secondary-container">
+            <MaterialIcon name="folder_open" className="text-[22px]" />
+          </span>
+          <div>
+            <p className="font-bold text-primary">Documents & memo sheets</p>
+            <p className="text-caption text-on-surface-variant">The plans, procedures and memo sheets referenced in the modules.</p>
+          </div>
+        </Link>
+      </section>
+
+      {/* ── Go further: the reference course, open reading ── */}
+      <section className="rounded-2xl border border-dashed border-outline-variant bg-surface-container-low p-stack-lg">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <h2 className="flex items-center gap-2 text-headline-md text-primary">
+              <MaterialIcon name="auto_stories" className="text-secondary" /> Go further
+            </h2>
+            <p className="mt-1 max-w-xl text-body-md text-on-surface-variant">
+              The full reference course behind this pathway — {libraryModules.length} in-depth modules on the standards, free to read in any order. Nothing here is required or tracked.
+            </p>
+          </div>
+          <Link
+            to="/reference"
+            className="inline-flex items-center gap-2 rounded-xl border border-primary px-6 py-3 text-label-md font-bold text-primary transition-colors hover:bg-primary hover:text-on-primary"
+          >
+            Browse the reference course <MaterialIcon name="arrow_forward" />
+          </Link>
         </div>
       </section>
     </div>

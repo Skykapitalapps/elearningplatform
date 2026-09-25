@@ -18,6 +18,8 @@ import GlossaryPage from "./pages/GlossaryPage.jsx";
 import EvidencePage from "./pages/EvidencePage.jsx";
 import QuizPage from "./pages/QuizPage.jsx";
 import CertificatePrintPage from "./pages/CertificatePrintPage.jsx";
+import PathwayModulePage from "./pages/PathwayModulePage.jsx";
+import ReferenceLibraryPage from "./pages/ReferenceLibraryPage.jsx";
 import { PrivacyPage, TermsPage } from "./pages/LegalPage.jsx";
 
 // Jump back to the top on every route change (SPAs otherwise keep the old
@@ -55,7 +57,7 @@ function Gate({ children }) {
   if (loading)
     return (
       <div className="flex min-h-screen flex-col items-center justify-center gap-3 bg-surface">
-        <span className="animate-pop flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-primary-container to-[#1c3a63] shadow-lg">
+        <span className="animate-pop flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-primary-container to-[#2e6b45] shadow-lg">
           <svg viewBox="0 0 24 24" className="h-8 w-8 animate-pulse text-white" fill="currentColor" aria-hidden="true">
             <path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z" />
           </svg>
@@ -106,7 +108,7 @@ function UpdateBanner() {
   }, []);
   if (!stale) return null;
   return (
-    <div className="fixed bottom-4 left-1/2 z-[100] flex -translate-x-1/2 items-center gap-3 rounded-full bg-[#0d1c32] py-2.5 pl-5 pr-2.5 text-white shadow-2xl">
+    <div className="fixed bottom-4 left-1/2 z-[100] flex -translate-x-1/2 items-center gap-3 rounded-full bg-[#0f3d24] py-2.5 pl-5 pr-2.5 text-white shadow-2xl">
       <span className="text-label-md">A new version of the platform is available</span>
       <button
         onClick={() => window.location.reload()}
@@ -142,6 +144,8 @@ export default function App() {
           <Route element={<MainLayout />}>
             <Route path="/" element={<DashboardPage />} />
             <Route path="/course" element={<CoursePage />} />
+            <Route path="/pathway/:id" element={<PathwayModulePage />} />
+            <Route path="/reference" element={<ReferenceLibraryPage />} />
             <Route path="/module/:id" element={<LessonPage />} />
             <Route path="/library" element={<LibraryPage />} />
             <Route path="/library/:docId" element={<DocumentPage />} />

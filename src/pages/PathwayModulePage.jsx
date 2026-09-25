@@ -1,0 +1,405 @@
+import { useMemo, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { useCourse, isUnlocked } from "../CourseContext.jsx";
+import { TRADES } from "../data/osp.js";
+import { client } from "../config/clients.js";
+import MaterialIcon from "../components/MaterialIcon.jsx";
+
+// ============================================================================
+// OUR SUSTAINABILITY PATHWAY — module player.
+// One screen at a time (the copy is pasted as-is from the module packs and
+// carries the whole message: no narration, no filler). After the screens,
+// the light quiz: four questions, two formats, no pass mark, no gate, no
+// score recorded — feedback is the teaching. Completion records only that
+// the learner answered.
+// ============================================================================
+
+const LETTERS = ["a", "b", "c", "d"];
+
+function SupportBanner() {
+  const s = client.supportContact;
+  if (!s) return null;
+  return (
+    <a
+      href={`mailto:${s.email}`}
+      className="mb-4 flex items-start gap-2 rounded-xl border border-secondary/40 bg-secondary-container/30 px-4 py-3 text-caption text-on-surface hover:bg-secondary-container/50"
+    >
+      <MaterialIcon name="support_agent" className="mt-0.5 text-[18px] text-secondary" />
+      <span>
+        {s.label} <span className="font-bold text-secondary">{s.name}</span> — this link stays on every screen of this module.
+      </span>
+    </a>
+  );
+}
+
+function Takeaway({ text }) {
+  if (!text) return null;
+  return (
+    <div className="mt-6 rounded-xl border-l-4 border-secondary bg-secondary-container/25 p-stack-md">
+      <p className="mb-1 text-caption font-bold uppercase tracking-widest text-secondary">
+        Key takeaway
+      </p>
+      <p className="text-body-md font-medium leading-relaxed text-on-surface">{text}</p>
+    </div>
+  );
+}
+
+function JargonBuster({ items }) {
+  if (!items?.length) return null;
+  return (
+    <div className="mt-6 rounded-xl border border-outline-variant bg-surface-container-low p-stack-md">
+      <p className="mb-2 flex items-center gap-1.5 text-caption font-bold uppercase tracking-widest text-primary">
+        <MaterialIcon name="translate" className="text-[16px]" /> Jargon buster
+      </p>
+      {items.map((j) => (
+        <p key={j.term} className="mb-1.5 text-body-md leading-relaxed text-on-surface-variant">
+          <span className="font-bold text-on-surface">{j.term}.</span> {j.plain}
+        </p>
+      ))}
+    </div>
+  );
+}
+
+// The device that makes every trade find itself: TWELVE rows, always the same
+// trades, always the same order, in two columns. Do not reorder or remove.
+function WhereYouComeIn({ lines }) {
+  return (
+    <div className="mt-4 grid gap-2 sm:grid-cols-2">
+      {TRADES.map((t, i) => (
+        <div
+          key={t.key}
+          className="flex items-start gap-3 rounded-xl border border-outline-variant bg-surface-container-lowest p-3"
+        >
+          <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary-container text-white">
+            <MaterialIcon name={t.icon} className="text-[18px]" />
+          </span>
+          <p className="text-caption leading-relaxed text-on-surface">{lines[i]}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+// ── The light quiz ──────────────────────────────────────────────────────────
+function LightQuiz({ module, onDone }) {
+  const [index, setIndex] = useState(0);
+  const [choice, setChoice] = useState(null); // single: option index · tf: true/false
+  const [reason, setReason] = useState(null); // tf second stage
+  const q = module.quiz[index];
+  const isLast = index === module.quiz.length - 1;
+
+  function next() {
+    setChoice(null);
+    setReason(null);
+    if (isLast) onDone();
+    else setIndex(index + 1);
+  }
+
+  const revealed = q.format === "single" ? choice !== null : reason !== null;
+
+  // Wrong-answer explanation: the per-option text when the pack wrote one,
+  // otherwise the general line, otherwise point to the right answer — the
+  // learner always leaves the question with the teaching.
+  const wrongText = (i) =>
+    q.feedback?.[i] ??
+    q.general ??
+    `The answer is (${LETTERS[q.correct]}): ${q.options[q.correct]}`;
+
+  return (
+    <div>
+      <p className="mb-1 text-caption font-bold uppercase tracking-widest text-secondary">
+        Question {index + 1} of {module.quiz.length} · nothing here is scored
+      </p>
+      <h2 className="mb-4 text-headline-md leading-snug text-primary">{q.stem}</h2>
+
+      {q.format === "single" && (
+        <div className="space-y-2">
+          {q.options.map((opt, i) => {
+            const picked = choice === i;
+            const correct = i === q.correct;
+            return (
+              <button
+                key={i}
+                disabled={choice !== null}
+                onClick={() => setChoice(i)}
+                className={`flex w-full items-start gap-3 rounded-xl border p-3.5 text-left text-body-md transition-colors ${
+                  choice === null
+                    ? "border-outline-variant bg-surface-container-lowest hover:border-secondary"
+                    : correct
+                      ? "border-emerald-500 bg-emerald-50 text-emerald-900"
+                      : picked
+                        ? "border-rose-400 bg-rose-50 text-rose-900"
+                        : "border-outline-variant bg-surface-container-lowest opacity-60"
+                }`}
+              >
+                <span className="font-bold">({LETTERS[i]})</span>
+                <span className="flex-1">{opt}</span>
+                {choice !== null && correct && <MaterialIcon name="check_circle" fill className="text-emerald-500" />}
+                {picked && !correct && <MaterialIcon name="cancel" fill className="text-rose-400" />}
+              </button>
+            );
+          })}
+        </div>
+      )}
+
+      {q.format === "tf" && (
+        <>
+          <div className="flex gap-2">
+            {[true, false].map((v) => {
+              const picked = choice === v;
+              const correct = v === q.answer;
+              return (
+                <button
+                  key={String(v)}
+                  disabled={choice !== null}
+                  onClick={() => setChoice(v)}
+                  className={`flex-1 rounded-xl border p-3.5 text-label-md font-bold transition-colors ${
+                    choice === null
+                      ? "border-outline-variant bg-surface-container-lowest hover:border-secondary"
+                      : correct
+                        ? "border-emerald-500 bg-emerald-50 text-emerald-900"
+                        : picked
+                          ? "border-rose-400 bg-rose-50 text-rose-900"
+                          : "border-outline-variant opacity-60"
+                  }`}
+                >
+                  {v ? "True" : "False"}
+                </button>
+              );
+            })}
+          </div>
+          {choice !== null && (
+            <div className="mt-4">
+              {choice !== q.answer && (
+                <p className="mb-3 rounded-lg bg-amber-50 p-3 text-body-md text-amber-900">
+                  Actually, the answer is <b>{q.answer ? "true" : "false"}</b> — and here is the part that matters: why?
+                </p>
+              )}
+              <p className="mb-2 text-label-md font-bold text-primary">Why?</p>
+              <div className="space-y-2">
+                {q.reasons.map((r, i) => {
+                  const picked = reason === i;
+                  const correct = i === q.correctReason;
+                  return (
+                    <button
+                      key={i}
+                      disabled={reason !== null}
+                      onClick={() => setReason(i)}
+                      className={`flex w-full items-start gap-3 rounded-xl border p-3.5 text-left text-body-md transition-colors ${
+                        reason === null
+                          ? "border-outline-variant bg-surface-container-lowest hover:border-secondary"
+                          : correct
+                            ? "border-emerald-500 bg-emerald-50 text-emerald-900"
+                            : picked
+                              ? "border-rose-400 bg-rose-50 text-rose-900"
+                              : "border-outline-variant opacity-60"
+                      }`}
+                    >
+                      <span className="font-bold">({LETTERS[i]})</span>
+                      <span className="flex-1">{r}</span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+        </>
+      )}
+
+      {/* Immediate feedback — the explanation IS the teaching. */}
+      {revealed && (
+        <div className="animate-fade-up mt-4">
+          {q.format === "single" && choice !== q.correct && wrongText(choice) && (
+            <p className="mb-2 rounded-xl bg-rose-50 p-stack-md text-body-md leading-relaxed text-rose-900">
+              {wrongText(choice)}
+            </p>
+          )}
+          {(q.format === "single" ? q.general : q.feedback) && (
+            <p className="rounded-xl bg-surface-container-low p-stack-md text-body-md leading-relaxed text-on-surface">
+              {q.format === "single" ? q.general : q.feedback}
+            </p>
+          )}
+          <button
+            onClick={next}
+            className="mt-4 inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-3 text-label-md font-bold text-on-primary transition-opacity hover:opacity-90"
+          >
+            {isLast ? "Finish" : "Next question"} <MaterialIcon name="arrow_forward" />
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ── The page ────────────────────────────────────────────────────────────────
+export default function PathwayModulePage() {
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const { modules, allPathwayModules, completeModule } = useCourse();
+  const module = allPathwayModules.find((m) => m.id === id);
+  const [screen, setScreen] = useState(0);
+  const [phase, setPhase] = useState("read"); // read | quiz | done
+  const [quizKey, setQuizKey] = useState(0); // bumped on retry
+
+  const assigned = useMemo(() => modules.some((m) => m.id === id), [modules, id]);
+  const nextModule = useMemo(() => {
+    const i = modules.findIndex((m) => m.id === id);
+    return i >= 0 ? modules[i + 1] : null;
+  }, [modules, id]);
+
+  if (!module) {
+    return (
+      <div className="mx-auto flex min-h-[50vh] max-w-lg flex-col items-center justify-center gap-3 text-center">
+        <MaterialIcon name="search_off" className="text-5xl text-outline" />
+        <p className="text-body-lg text-on-surface-variant">This module does not exist.</p>
+        <Link to="/" className="rounded-lg bg-primary px-6 py-3 text-label-md text-on-primary">Back to the pathway</Link>
+      </div>
+    );
+  }
+  if (!assigned || !isUnlocked(allPathwayModules, module)) {
+    const welcomeDone =
+      allPathwayModules.find((m) => m.block === "welcome")?.status === "completed";
+    const gateText = !assigned
+      ? "This role module is not part of your assignment."
+      : !welcomeDone
+        ? "Start with the welcome — three screens, three minutes."
+        : module.block === "core"
+          ? "Finish the previous module first — the core pathway runs in order."
+          : "Your role modules open once the five core modules are done.";
+    return (
+      <div className="mx-auto flex min-h-[50vh] max-w-lg flex-col items-center justify-center gap-3 text-center">
+        <MaterialIcon name="lock" className="text-5xl text-outline" />
+        <p className="text-body-lg text-on-surface-variant">{gateText}</p>
+        <Link to="/" className="rounded-lg bg-primary px-6 py-3 text-label-md text-on-primary">Back to the pathway</Link>
+      </div>
+    );
+  }
+
+  const s = module.screens[screen];
+  const total = module.screens.length;
+  const isLastScreen = screen === total - 1;
+  const hasQuiz = module.quiz.length > 0;
+
+  function finishModule() {
+    if (module.status !== "completed") completeModule(module.id);
+    setPhase("done");
+  }
+
+  return (
+    <div className="mx-auto max-w-[760px] px-margin-mobile py-8">
+      {/* Header */}
+      <div className="mb-6 flex items-center justify-between gap-3">
+        <button onClick={() => navigate("/")} className="flex items-center gap-1 text-label-md font-semibold text-on-surface-variant hover:text-primary">
+          <MaterialIcon name="arrow_back" /> Pathway
+        </button>
+        <span className="rounded-full bg-primary-container px-3 py-1 text-caption font-bold uppercase tracking-widest text-white">
+          {module.code} · {module.block === "core" ? "Core" : module.block === "role" ? "Role module" : "Welcome"}
+        </span>
+      </div>
+      <h1 className="text-headline-lg leading-tight text-primary">{module.title}</h1>
+      <p className="mb-5 mt-1 text-caption text-on-surface-variant">{module.subtitle}</p>
+
+      {/* Progress dots */}
+      {phase === "read" && (
+        <div className="mb-6 flex items-center gap-1.5">
+          {module.screens.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => i <= screen && setScreen(i)}
+              className={`h-1.5 rounded-full transition-all ${i === screen ? "w-8 bg-secondary" : i < screen ? "w-4 bg-secondary/50" : "w-4 bg-surface-container-highest"}`}
+              aria-label={`Screen ${i + 1}`}
+            />
+          ))}
+          <span className="ml-2 text-caption text-on-surface-variant">
+            Screen {screen + 1} of {total}
+          </span>
+        </div>
+      )}
+
+      <div className="rounded-2xl border border-outline-variant bg-surface-container-lowest p-stack-lg shadow-sm">
+        {module.support && <SupportBanner />}
+
+        {phase === "read" && (
+          <div key={screen} className="animate-fade-up">
+            <h2 className="mb-4 text-headline-md leading-snug text-primary">{s.heading}</h2>
+            {s.body?.map((p, i) => (
+              <p key={i} className="mb-3 text-body-lg leading-relaxed text-on-surface">
+                {p}
+              </p>
+            ))}
+            {s.trades && <WhereYouComeIn lines={s.trades} />}
+            <JargonBuster items={s.jargon} />
+            <Takeaway text={s.takeaway} />
+
+            <div className="mt-8 flex items-center justify-between">
+              <button
+                onClick={() => setScreen(Math.max(0, screen - 1))}
+                disabled={screen === 0}
+                className="flex items-center gap-1 rounded-xl px-4 py-2.5 text-label-md font-semibold text-on-surface-variant hover:text-primary disabled:opacity-30"
+              >
+                <MaterialIcon name="arrow_back" /> Back
+              </button>
+              {!isLastScreen ? (
+                <button
+                  onClick={() => setScreen(screen + 1)}
+                  className="flex items-center gap-2 rounded-xl bg-primary px-8 py-3 text-label-md font-bold text-on-primary transition-opacity hover:opacity-90"
+                >
+                  Continue <MaterialIcon name="arrow_forward" />
+                </button>
+              ) : hasQuiz ? (
+                <button
+                  onClick={() => setPhase("quiz")}
+                  className="flex items-center gap-2 rounded-xl bg-primary px-8 py-3 text-label-md font-bold text-on-primary transition-opacity hover:opacity-90"
+                >
+                  Four quick questions <MaterialIcon name="arrow_forward" />
+                </button>
+              ) : (
+                <button
+                  onClick={finishModule}
+                  className="flex items-center gap-2 rounded-xl bg-primary px-8 py-3 text-label-md font-bold text-on-primary transition-opacity hover:opacity-90"
+                >
+                  {module.block === "welcome" ? "Start the pathway" : "Finish"} <MaterialIcon name="check" />
+                </button>
+              )}
+            </div>
+          </div>
+        )}
+
+        {phase === "quiz" && (
+          <LightQuiz key={quizKey} module={module} onDone={finishModule} />
+        )}
+
+        {phase === "done" && (
+          <div className="animate-fade-up py-6 text-center">
+            <MaterialIcon name="check_circle" fill className="text-6xl text-emerald-500" />
+            <h2 className="mt-3 text-headline-md text-primary">
+              {module.block === "welcome" ? "You're set." : `${module.title} — done`}
+            </h2>
+            <p className="mx-auto mt-2 max-w-md text-body-md text-on-surface-variant">{module.closing}</p>
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+              {nextModule && (
+                <button
+                  onClick={() => { setScreen(0); setPhase("read"); navigate(`/pathway/${nextModule.id}`); }}
+                  className="flex items-center gap-2 rounded-xl bg-primary px-8 py-3 text-label-md font-bold text-on-primary transition-opacity hover:opacity-90"
+                >
+                  Next: {nextModule.title} <MaterialIcon name="arrow_forward" />
+                </button>
+              )}
+              <Link to="/" className="rounded-xl border border-outline-variant px-6 py-3 text-label-md font-semibold text-on-surface hover:border-primary">
+                Back to the pathway
+              </Link>
+              {hasQuiz && (
+                <button
+                  onClick={() => { setQuizKey((k) => k + 1); setPhase("quiz"); }}
+                  className="flex items-center gap-1.5 text-label-md font-semibold text-secondary hover:underline"
+                >
+                  <MaterialIcon name="refresh" className="text-[18px]" /> Try the questions again
+                </button>
+              )}
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}

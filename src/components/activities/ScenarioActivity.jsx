@@ -3,7 +3,7 @@ import MaterialIcon from "../MaterialIcon.jsx";
 
 // A guided branching scenario: a situation → pick an action → see the
 // consequence → continue. Reinforces judgment, not just recall.
-export default function ScenarioActivity({ activity, accent = "#0d1c32" }) {
+export default function ScenarioActivity({ activity, accent = "#0f3d24" }) {
   const [step, setStep] = useState(0);
   const [picked, setPicked] = useState(null);
   const [goodCount, setGoodCount] = useState(0);
