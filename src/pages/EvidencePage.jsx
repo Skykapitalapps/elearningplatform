@@ -36,8 +36,8 @@ export default function EvidencePage() {
       <h1 className="text-headline-lg text-primary">My progress</h1>
       <p className="mb-6 mt-1 max-w-xl text-body-md text-on-surface-variant">
         Every module you complete is logged here with your name and the date.
-        This is the project's training-evidence record for you — nothing on
-        this pathway is scored.
+        Each module ends with eight quick questions — pass at 75%, unlimited
+        retries. Only completion is recorded, never a score.
       </p>
 
       {/* Counter */}
@@ -111,7 +111,7 @@ export default function EvidencePage() {
                 <td className="px-4 py-3">
                   {m.status === "completed" ? (
                     <span className="inline-flex items-center gap-1 rounded-full bg-secondary-container px-2.5 py-0.5 text-caption font-bold text-on-secondary-container">
-                      <MaterialIcon name="check" className="text-[14px]" /> Answered & completed
+                      <MaterialIcon name="check" className="text-[14px]" /> Passed & completed
                     </span>
                   ) : (
                     <span className="text-caption text-outline">Not yet</span>

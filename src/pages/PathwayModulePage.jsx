@@ -6,9 +6,13 @@ import { client } from "../config/clients.js";
 import MaterialIcon from "../components/MaterialIcon.jsx";
 import Confetti from "../components/Confetti.jsx";
 
-// A little joy, none of it scored: praise varies, streaks catch fire.
+// A little joy: praise varies, streaks catch fire.
 const PRAISE = ["🎯 Spot on!", "💪 Nice one!", "🌟 Exactly right!", "🚀 You've got this!", "👌 Sharp eye!", "✅ That's it!"];
 const praiseFor = (i) => PRAISE[i % PRAISE.length];
+
+// Pass mark: 75% — 6 of 8. Unlimited retries, and the feedback teaches.
+const PASS_PCT = 0.75;
+export const passNeededFor = (quiz) => Math.ceil(quiz.length * PASS_PCT);
 
 // ============================================================================
 // OUR SUSTAINABILITY PATHWAY — module player.
@@ -99,7 +103,7 @@ function LightQuiz({ module, onDone }) {
   function next() {
     setChoice(null);
     setReason(null);
-    if (isLast) onDone(hits === module.quiz.length);
+    if (isLast) onDone(hits);
     else setIndex(index + 1);
   }
 
@@ -130,7 +134,7 @@ function LightQuiz({ module, onDone }) {
     <div>
       <div className="mb-1 flex items-center justify-between">
         <p className="text-caption font-bold uppercase tracking-widest text-secondary">
-          Question {index + 1} of {module.quiz.length} · nothing here is scored
+          Question {index + 1} of {module.quiz.length} · pass at {passNeededFor(module.quiz)} of {module.quiz.length} · unlimited retries
         </p>
         {streak >= 2 && (
           <span className="animate-pop rounded-full bg-secondary-container px-3 py-1 text-caption font-black text-on-secondary-container">
@@ -281,9 +285,10 @@ export default function PathwayModulePage() {
   const { modules, allPathwayModules, completeModule } = useCourse();
   const module = allPathwayModules.find((m) => m.id === id);
   const [screen, setScreen] = useState(0);
-  const [phase, setPhase] = useState("read"); // read | quiz | done
+  const [phase, setPhase] = useState("read"); // read | quiz | failed | done
   const [quizKey, setQuizKey] = useState(0); // bumped on retry
-  const [perfect, setPerfect] = useState(false); // 4/4 first taps — display only
+  const [lastHits, setLastHits] = useState(0); // this attempt's right answers
+  const [perfect, setPerfect] = useState(false); // 8/8 first taps
 
   const assigned = useMemo(() => modules.some((m) => m.id === id), [modules, id]);
   const nextModule = useMemo(() => {
@@ -324,8 +329,18 @@ export default function PathwayModulePage() {
   const isLastScreen = screen === total - 1;
   const hasQuiz = module.quiz.length > 0;
 
-  function finishModule(perfectRound = false) {
-    setPerfect(perfectRound === true);
+  // No quiz (the welcome): finish directly. With a quiz: 75% to pass —
+  // fail is friendly, teaches, and offers unlimited retries.
+  function finishModule(hits = null) {
+    const quizLen = module.quiz.length;
+    if (quizLen > 0 && hits !== null) {
+      setLastHits(hits);
+      if (hits < passNeededFor(module.quiz)) {
+        setPhase("failed");
+        return;
+      }
+      setPerfect(hits === quizLen);
+    }
     if (module.status !== "completed") completeModule(module.id);
     setPhase("done");
   }
@@ -404,7 +419,7 @@ export default function PathwayModulePage() {
                   onClick={() => setPhase("quiz")}
                   className="flex items-center gap-2 rounded-xl bg-primary px-8 py-3 text-label-md font-bold text-on-primary transition-opacity hover:opacity-90"
                 >
-                  Four quick questions <MaterialIcon name="arrow_forward" />
+                  {module.quiz.length} quick questions <MaterialIcon name="arrow_forward" />
                 </button>
               ) : (
                 <button
@@ -422,6 +437,33 @@ export default function PathwayModulePage() {
           <LightQuiz key={quizKey} module={module} onDone={finishModule} />
         )}
 
+        {phase === "failed" && (
+          <div className="animate-fade-up py-6 text-center">
+            <MaterialIcon name="restart_alt" className="text-6xl text-secondary" />
+            <h2 className="mt-3 text-headline-md text-primary">
+              {lastHits} out of {module.quiz.length} — almost there
+            </h2>
+            <p className="mx-auto mt-2 max-w-md text-body-md text-on-surface-variant">
+              You need {passNeededFor(module.quiz)} of {module.quiz.length} to pass. No penalty, no limit —
+              have another look at the screens or jump straight back in. The questions all come from what you just read.
+            </p>
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+              <button
+                onClick={() => { setQuizKey((k) => k + 1); setPhase("quiz"); }}
+                className="flex items-center gap-2 rounded-xl bg-primary px-8 py-3 text-label-md font-bold text-on-primary transition-opacity hover:opacity-90"
+              >
+                <MaterialIcon name="refresh" /> Try again
+              </button>
+              <button
+                onClick={() => { setScreen(0); setPhase("read"); }}
+                className="rounded-xl border border-outline-variant px-6 py-3 text-label-md font-semibold text-on-surface hover:border-primary"
+              >
+                Reread the module
+              </button>
+            </div>
+          </div>
+        )}
+
         {phase === "done" && (
           <div className="animate-fade-up relative py-6 text-center">
             <Confetti />
@@ -429,9 +471,14 @@ export default function PathwayModulePage() {
             <h2 className="mt-3 text-headline-md text-primary">
               {module.block === "welcome" ? "You're set." : `${module.title} — done`}
             </h2>
+            {hasQuiz && (
+              <p className="mx-auto mt-1 text-body-md font-semibold text-on-surface-variant">
+                {lastHits} out of {module.quiz.length} — passed ✔
+              </p>
+            )}
             {perfect && (
               <p className="animate-pop mx-auto mt-2 inline-flex items-center gap-1.5 rounded-full bg-secondary-container px-4 py-1.5 text-label-md font-black text-on-secondary-container">
-                ⭐ Perfect round — 4 out of 4, first try!
+                ⭐ Perfect round — {module.quiz.length} out of {module.quiz.length}, first try!
               </p>
             )}
             {module.id === "s5" && (
