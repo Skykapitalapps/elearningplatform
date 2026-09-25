@@ -2704,8 +2704,8 @@ export const moduleImages = {
 
 export const libraryItems = [
   {
-    title: "Signed ESMS policy suite & Code of Conduct",
-    note: "The governing policies, countersigned.",
+    title: "Signed policies & Code of Conduct",
+    note: "The four signed policies and the Code of Conduct.",
     icon: "policy",
     accent: "#6366f1",
     doc: "code-of-conduct",
@@ -2760,7 +2760,8 @@ export const libraryByModule = {
   ],
   m4: [
     { title: "Reference pack — The ESMS", icon: "schema", doc: "a4-esms" },
-    { title: "Signed ESMS policy suite & Code of Conduct", icon: "policy", doc: "code-of-conduct" },
+    { title: "Signed policies & Code of Conduct", icon: "policy", doc: "code-of-conduct" },
+    { title: "Environmental & Social Policy — signed", icon: "eco", doc: "environmental-social-policy" },
   ],
   m5: [
     { title: "Reference pack — KPIs and reporting", icon: "monitoring", doc: "a5-kpis" },
@@ -2793,6 +2794,13 @@ export const resourceCategories = [
         doc: "code-of-conduct",
       },
       {
+        title: "Human Rights Policy",
+        note: "Signed — UNGPs, VPSHR, grievance mechanisms, no retaliation.",
+        icon: "diversity_3",
+        accent: "#f43f5e",
+        doc: "human-rights-policy",
+      },
+      {
         title: "Anti-Bribery, Anti-Corruption & AML Policy",
         note: "Bribery, conflicts of interest, KYC and AML controls.",
         icon: "account_balance",
@@ -2817,9 +2825,10 @@ export const resourceCategories = [
       },
       {
         title: "Environmental & Social Policy",
-        note: "Pollution prevention, resource use and ESG commitments.",
+        note: "Signed — environmental stewardship & social responsibility.",
         icon: "eco",
         accent: "#22c55e",
+        doc: "environmental-social-policy",
       },
       {
         title: "Emergency Preparedness & Response Plan",
@@ -2833,10 +2842,11 @@ export const resourceCategories = [
     title: "People & Community",
     items: [
       {
-        title: "HR Employment Handbook",
-        note: "Fair labour, working hours, rights and conduct.",
+        title: "Human Resources Policy",
+        note: "Signed — fair labour, 48+12 hours, grievances, third-party workers.",
         icon: "groups",
         accent: "#a855f7",
+        doc: "human-resources-policy",
       },
       {
         title: "GBVH / Anti-Harassment Policy",
@@ -2853,13 +2863,14 @@ export const resourceCategories = [
     ],
   },
   {
-    title: "Management System",
+    title: "Contractors & Supply Chain",
     items: [
       {
-        title: "ESMS Manual",
-        note: "The Environmental & Social Management System.",
-        icon: "autorenew",
-        accent: "#06b6d4",
+        title: "Subcontractor & Third-Party Policy",
+        note: "Signed — one standard for everyone who works with us.",
+        icon: "handshake",
+        accent: "#f59e0b",
+        doc: "subcontractor-policy",
       },
       {
         title: "Construction Environmental & Social Management Plan (CESMP)",
@@ -3015,6 +3026,130 @@ export const psMatchItems = [
 // Reference documents rendered as in-app readings. `keyPoints` is a faithful
 // summary for on-screen study; the full signed source is embedded via `pdf`.
 export const documents = {
+  // ── The four SIGNED policies (Signed Policies.pdf, September 2026) ──
+  "human-rights-policy": {
+    title: "Human Rights Policy",
+    org: client.clientLegal,
+    ref: "IMS-HSE-Pol-016 · Version 01 · September 2026",
+    owner: "Signed by Dany Abboud, Managing Director",
+    accent: "#f43f5e",
+    pdf: "/docs/hitech-human-rights-policy.pdf",
+    intro:
+      "HITECH's commitment to internationally recognised human rights across its activities and business relationships — guided by the UN Guiding Principles on Business and Human Rights (UNGPs), the Universal Declaration of Human Rights, ILO fundamental principles, Nigerian law and project-specific requirements.",
+    sections: [
+      {
+        title: "What HITECH commits to",
+        points: [
+          "Respect human rights and address adverse impacts where they occur.",
+          "Prohibit child labour, forced labour, human trafficking, modern slavery, discrimination, harassment, exploitation and retaliation.",
+          "Maintain accessible grievance mechanisms for workers and stakeholders, with confidential channels and protection against retaliation.",
+          "Apply the Voluntary Principles on Security and Human Rights (VPSHR) to security arrangements: conduct and use-of-force requirements, training, incident and grievance arrangements.",
+          "Apply risk-based human rights due diligence to contractors, suppliers and other third parties.",
+        ],
+      },
+      {
+        title: "Accountability",
+        points: [
+          "Senior Management is accountable for implementation; a Human Rights Focal Point is designated where warranted.",
+          "Human rights requirements are integrated into the ESMS, HR arrangements, stakeholder engagement, procurement, subcontractor management, security management, training, monitoring and grievance procedures.",
+          "Project-specific requirements (IFC Performance Standards, lender or ECA requirements, corrective action plans) are identified and implemented to the extent applicable.",
+        ],
+      },
+    ],
+  },
+  "environmental-social-policy": {
+    title: "Environmental & Social Policy",
+    org: client.clientLegal,
+    ref: "IMS-HSE-Pol-004 · Version 4 · September 2026",
+    owner: "Signed by Dany Abboud, Managing Director",
+    accent: "#22c55e",
+    pdf: "/docs/hitech-environmental-social-policy.pdf",
+    intro:
+      "HITECH's commitment to protecting the environment throughout the lifecycle of its projects, and to the highest standards of social performance towards the communities within its projects' areas of influence.",
+    sections: [
+      {
+        title: "Environmental stewardship",
+        points: [
+          "Regulatory compliance with Nigerian environmental and social law plus project-specific commitments.",
+          "Resource efficiency, waste managed through government-certified disposal companies, emergency response procedures.",
+          "Protection of air, water, soil, flora and fauna; the mitigation hierarchy applied to biodiversity and natural habitats.",
+          "Awareness and training so every worker understands their role within the ESMS; regular engagement with authorities and experts.",
+        ],
+      },
+      {
+        title: "Social responsibility",
+        points: [
+          "Community engagement through transparent, accessible channels for feedback and grievances, with attention to vulnerable groups.",
+          "Respect for international labour and human rights conventions, and for the laws, values and beliefs of host communities.",
+          "Equal employment opportunities and non-discrimination; CSR programmes that bring tangible local benefits.",
+          "Land, displacement and livelihood impacts avoided and minimised; gaps escalated where compensation rests with a client or public authority.",
+          "Security-related risks to workers and communities assessed and managed in line with the Human Rights Policy.",
+        ],
+      },
+    ],
+  },
+  "human-resources-policy": {
+    title: "Human Resources Policy",
+    org: client.clientLegal,
+    ref: "IMS-HSE-Pol-009 · Version 2 · September 2026",
+    owner: "Signed by Dany Abboud, Managing Director",
+    accent: "#a855f7",
+    pdf: "/docs/hitech-human-resources-policy.pdf",
+    intro:
+      "HITECH's approach to fair employment, worker protections, development and conduct — aligned with national labour laws, the IFC Performance Standards, Equator Principles IV, ILO Conventions and ISO 45001/14001.",
+    sections: [
+      {
+        title: "The rules every worker should know",
+        points: [
+          "Hours: no more than 48 regular and 12 overtime hours per week, with at least one full day of rest every seven days.",
+          "Wages meet or exceed legal minimums; payslips and employment terms are communicated through the HR Policy Manual and Conditions of Service.",
+          "No child labour, forced labour, trafficking or coercive employment — mandatory for all contractors, suppliers and third parties.",
+          "Freedom of association: workers may form or join organisations and bargain collectively, without retaliation.",
+          "An accessible worker grievance mechanism with confidential channels, protection against retaliation, documented follow-up and fair resolution.",
+        ],
+      },
+      {
+        title: "Beyond the basics",
+        points: [
+          "Fair, non-discriminatory hiring; local employment and skills development where project commitments apply.",
+          "Induction, training and professional development; periodic performance reviews.",
+          "Third-party workers: labour, grievance, welfare and OHS requirements applied to contracted workers within HITECH's control.",
+          "Redundancy handled fairly, transparently and lawfully; implementation monitored through workforce records, grievance data and compliance reviews.",
+        ],
+      },
+    ],
+  },
+  "subcontractor-policy": {
+    title: "Subcontractor & Third-Party Policy",
+    org: client.clientLegal,
+    ref: "IMS-HSE-Pol-012 · Version 2 · September 2026",
+    owner: "Signed by Dany Abboud, Managing Director",
+    accent: "#f59e0b",
+    pdf: "/docs/hitech-subcontractor-policy.pdf",
+    intro:
+      "How subcontractors, suppliers, service providers and other third parties are held to the same legal, contractual and HITECH ESMS requirements — the policy behind 'their people are our responsibility'.",
+    sections: [
+      {
+        title: "Key commitments",
+        points: [
+          "Every subcontractor signs a formal Subcontractor Agreement covering E&S standards, HSE practices, labour laws, grievance handling and social inclusion — monitored through KPIs, audits and reporting.",
+          "Suppliers and service providers acknowledge and comply with the applicable Code of Conduct; material or repeated non-compliance can end in suspension or termination.",
+          "Local hiring and inclusion; fair, non-discriminatory recruitment; workers receive applicable protections, wages, welfare arrangements and PPE.",
+          "Subcontracted personnel receive induction, training and communication proportionate to their risks, with competent supervision and proper records.",
+        ],
+      },
+      {
+        title: "Oversight",
+        points: [
+          "Third-party compliance monitored on a risk basis: inspections, document reviews, performance reviews, audits — non-conformances recorded and followed to closure.",
+          "Workers engaged through subcontractors have access to a grievance channel; retaliation against people raising concerns in good faith is prohibited.",
+          "Private security providers: conduct, human rights, use-of-force, incident reporting, training and grievance requirements flow into their contracts.",
+          "Procurement and Project Management are responsible for putting these requirements into every third-party engagement.",
+        ],
+      },
+    ],
+  },
+
   "code-of-conduct": {
     title: `${client.clientShort} Code of Conduct`,
     org: client.clientLegal,
@@ -3024,7 +3159,7 @@ export const documents = {
     pdf: client.codeOfConduct.pdf,
     acknowledge: true,
     intro:
-      `The ethical principles and behavioural standards expected of all ${client.clientShort} employees, contractors, consultants, suppliers and partners, across every operation and project site. It is part of the company's ESMS and is read alongside the ESMS policies and HR Employment Handbook.`,
+      `The ethical principles and behavioural standards expected of all ${client.clientShort} employees, contractors, consultants, suppliers and partners, across every operation and project site. It is read alongside the four signed company policies — Human Rights, Environmental & Social, Human Resources, and Subcontractor & Third-Party.`,
     sections: [
       {
         title: "Commitment & compliance",

@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useCourse, isUnlocked } from "../CourseContext.jsx";
 import { TRADES } from "../data/osp.js";
+import { documents } from "../data.js";
 import { client } from "../config/clients.js";
 import MaterialIcon from "../components/MaterialIcon.jsx";
 import Confetti from "../components/Confetti.jsx";
@@ -625,53 +626,48 @@ export default function PathwayModulePage() {
             the letter set like a real one on the right (serif body, script
             signature), nothing boxy. */}
         {phase === "read" && s.md && (
-          <div key={screen} className="animate-fade-up grid md:grid-cols-2">
+          <div key={screen} className="animate-fade-up grid md:h-[700px] md:grid-cols-2">
             {/* Left — the portrait, full height */}
-            <div className="relative min-h-[380px] md:min-h-[560px]">
+            <div className="relative h-72 md:h-full">
               <img
                 src="/images/dany-abboud-tall.jpg"
                 alt={s.name}
                 className="absolute inset-0 h-full w-full object-cover"
-                style={{ objectPosition: "center" }}
+                style={{ objectPosition: "50% 25%" }}
               />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-primary-container/90 via-primary-container/40 to-transparent px-6 pb-5 pt-16 text-white">
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-primary-container/90 via-primary-container/40 to-transparent px-6 pb-4 pt-14 text-white">
                 <p className="text-headline-md font-black leading-tight">{s.name}</p>
                 <p className="text-caption text-white/85">{s.role}</p>
               </div>
             </div>
 
-            {/* Right — the letter */}
-            <div className="flex flex-col justify-between bg-[#fbfaf6] px-7 py-8 md:px-10 md:py-10">
-              <div>
-                <p className="mb-6 text-caption font-bold uppercase tracking-[0.28em] text-secondary">
-                  {s.heading}
-                </p>
-                {s.body.map((p, i) => (
-                  <p
-                    key={i}
-                    style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
-                    className={
-                      i === 0
-                        ? "mb-5 text-[19px] italic leading-relaxed text-on-surface"
-                        : "mb-4 text-[16.5px] leading-[1.85] text-on-surface"
-                    }
-                  >
-                    {p}
-                  </p>
-                ))}
+            {/* Right — the letter, everything on one page */}
+            <div className="flex flex-col bg-[#fbfaf6] px-7 py-5 md:px-9 md:py-6">
+              <p className="mb-3 text-caption font-bold uppercase tracking-[0.28em] text-secondary">
+                {s.heading}
+              </p>
+              {s.body.map((p, i) => (
                 <p
-                  style={{ fontFamily: "'Great Vibes', cursive" }}
-                  className="mt-7 text-[40px] leading-none text-primary"
+                  key={i}
+                  style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+                  className={
+                    i === 0
+                      ? "mb-3 text-[17px] italic leading-snug text-on-surface"
+                      : "mb-3 text-[15px] leading-[1.62] text-on-surface"
+                  }
                 >
-                  {s.name.split(" ")[0]} {s.name.split(" ")[1]}
+                  {p}
                 </p>
-                <p className="mt-1 text-caption uppercase tracking-widest text-on-surface-variant">{s.role}</p>
-              </div>
+              ))}
+              <p
+                style={{ fontFamily: "'Great Vibes', cursive" }}
+                className="mt-2 text-[32px] leading-none text-primary"
+              >
+                {s.name}
+              </p>
+              <p className="mt-0.5 text-caption uppercase tracking-widest text-on-surface-variant">{s.role}</p>
 
-              <div className="mt-8 flex items-center justify-between gap-4 border-t border-outline-variant/50 pt-5">
-                <p style={{ fontFamily: "'Playfair Display', Georgia, serif" }} className="text-[14px] italic text-on-surface-variant">
-                  Together shaping a responsible future — embrace the journey.
-                </p>
+              <div className="mt-auto flex items-center justify-end border-t border-outline-variant/50 pt-4">
                 <button
                   onClick={isLastScreen ? finishModule : () => setScreen(screen + 1)}
                   className="flex shrink-0 items-center gap-2 rounded-xl bg-primary px-6 py-3 text-label-md font-bold text-on-primary transition-opacity hover:opacity-90"
@@ -792,6 +788,40 @@ export default function PathwayModulePage() {
               </p>
             )}
             <p className="mx-auto mt-2 max-w-md text-body-md text-on-surface-variant">{module.closing}</p>
+            {module.policies?.length > 0 && (
+              <div className="mx-auto mt-5 max-w-xl rounded-2xl border border-outline-variant bg-surface-container-low p-5 text-left">
+                <p className="text-label-md font-bold uppercase tracking-wide text-on-surface-variant">
+                  The signed policies behind this module
+                </p>
+                <div className="mt-3 flex flex-col gap-2">
+                  {module.policies.map((slug) => {
+                    const doc = documents[slug];
+                    if (!doc) return null;
+                    return (
+                      <Link
+                        key={slug}
+                        to={`/resources/${slug}`}
+                        className="group flex items-center gap-3 rounded-xl border border-outline-variant bg-surface px-4 py-3 transition-colors hover:border-primary"
+                      >
+                        <span
+                          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-white"
+                          style={{ backgroundColor: doc.accent }}
+                        >
+                          <MaterialIcon name="verified" className="text-[20px]" />
+                        </span>
+                        <span className="min-w-0">
+                          <span className="block truncate text-body-md font-semibold text-on-surface group-hover:text-primary">
+                            {doc.title}
+                          </span>
+                          <span className="block truncate text-body-sm text-on-surface-variant">{doc.ref}</span>
+                        </span>
+                        <MaterialIcon name="chevron_right" className="ml-auto shrink-0 text-on-surface-variant" />
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
             <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
               {nextModule && (
                 <button

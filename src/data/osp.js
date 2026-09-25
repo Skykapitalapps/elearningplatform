@@ -57,10 +57,9 @@ export const OSP_MODULES = [
         role: "Managing Director, HITECH Construction Company Limited",
         body: [
           "Dear colleagues,",
-          "The corridors we are building will outlast every one of us. How we build them — the care we take with the people beside our sites, the workers on them, and the places they cross — is what HITECH will be remembered for.",
-          "That is why I am personally inviting each of you to Our Sustainability Pathway. It asks for about an hour of your time. In plain words, it explains what our international lenders require of us, why the money that builds this project depends on it, and — most importantly — where you come in.",
-          "Every module ends with your trade on the screen. Find your line: it was written for you.",
-          "Thank you for the work you do every day. I will be taking the pathway too.",
+          "Many of you have built roads with me for years. You know the part nobody photographs: the farmer whose field we cross, the young man on his first paid job, the village that goes on living beside our trucks.",
+          "Our lenders call all of this \"E and S\". I call it doing the job properly. And it now decides, quite literally, whether this project gets paid.",
+          "So I am asking each of you for one hour. No exam to fear, nothing to memorise — just what you need to know, and where you come in. I have taken it myself. It is worth your hour.",
         ],
         takeaway: "You are invited. Together shaping a responsible future — embrace the journey.",
       },
@@ -507,6 +506,7 @@ export const OSP_MODULES = [
   // ──────────────────────────────────────────────────────────────── S3 ──
   {
     id: "s3",
+    policies: ["human-rights-policy", "environmental-social-policy", "human-resources-policy", "subcontractor-policy"],
     cover: "/images/lm13.jpg",
     code: "S3",
     block: "core",
@@ -1086,6 +1086,7 @@ export const OSP_MODULES = [
   // ──────────────────────────────────────────────────────────────── R1 ──
   {
     id: "r1",
+    policies: ["environmental-social-policy", "human-rights-policy"],
     cover: "/images/hitech-embankment.webp",
     code: "C",
     block: "role",
@@ -1294,6 +1295,7 @@ export const OSP_MODULES = [
   // ──────────────────────────────────────────────────────────────── R2 ──
   {
     id: "r2",
+    policies: ["human-resources-policy"],
     cover: "/images/lm10.jpg",
     code: "H&S",
     block: "role",
@@ -1512,6 +1514,7 @@ export const OSP_MODULES = [
   // ──────────────────────────────────────────────────────────────── R3 ──
   {
     id: "r3",
+    policies: ["environmental-social-policy"],
     cover: "/images/hitech-sandwin.webp",
     code: "E",
     block: "role",
@@ -1722,6 +1725,7 @@ export const OSP_MODULES = [
   // ──────────────────────────────────────────────────────────────── R4 ──
   {
     id: "r4",
+    policies: ["human-rights-policy", "subcontractor-policy"],
     code: "S",
     block: "role",
     order: 9,
