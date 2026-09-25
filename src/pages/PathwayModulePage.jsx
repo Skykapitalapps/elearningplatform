@@ -176,6 +176,49 @@ function CatQuestion({ q, revealed, onChecked }) {
 
 const LETTERS = ["a", "b", "c", "d"];
 
+// The eight IFC Performance Standards as a scannable board — two rows of
+// numbered tiles, PS7 greyed out (not applicable to these corridors), exactly
+// as the S2 pack's visual brief describes.
+const PS_TILES = [
+  { n: 1, title: "Risk management", plain: "How risks are assessed and managed" },
+  { n: 2, title: "Workers", plain: "Labour and working conditions" },
+  { n: 3, title: "Pollution & resources", plain: "Prevention, waste, efficient use" },
+  { n: 4, title: "Community", plain: "Health, safety and security" },
+  { n: 5, title: "Land & resettlement", plain: "Acquisition, compensation, livelihoods" },
+  { n: 6, title: "Biodiversity", plain: "Habitats and living resources" },
+  { n: 7, title: "Indigenous Peoples", plain: "Does not apply to these corridors", na: true },
+  { n: 8, title: "Cultural heritage", plain: "Graves, shrines, finds, sacred places" },
+];
+
+function PSGrid() {
+  return (
+    <div className="mt-5 grid grid-cols-2 gap-2.5 sm:grid-cols-4">
+      {PS_TILES.map((t) => (
+        <div
+          key={t.n}
+          className={`rounded-xl border p-3 ${
+            t.na
+              ? "border-dashed border-outline-variant bg-surface-container-low opacity-70"
+              : "border-outline-variant bg-surface-container-lowest"
+          }`}
+        >
+          <span
+            className={`mb-2 flex h-9 w-9 items-center justify-center rounded-lg text-label-md font-black ${
+              t.na ? "bg-surface-container-highest text-outline" : "bg-primary-container text-white"
+            }`}
+          >
+            PS{t.n}
+          </span>
+          <p className={`text-caption font-bold leading-snug ${t.na ? "text-on-surface-variant line-through" : "text-primary"}`}>
+            {t.title}
+          </p>
+          <p className="mt-0.5 text-caption leading-snug text-on-surface-variant">{t.plain}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 // The Managing Director's portrait, with an initials medallion until the
 // real photo lands at its path (public/images/dany-abboud.jpg).
 function MdPortrait({ src, name }) {
@@ -574,45 +617,67 @@ export default function PathwayModulePage() {
         </div>
       )}
 
-      <div className="rounded-2xl border border-outline-variant bg-surface-container-lowest p-stack-lg shadow-sm">
+      <div className={`rounded-2xl border border-outline-variant bg-surface-container-lowest shadow-sm ${phase === "read" && s.md ? "overflow-hidden p-0" : "p-stack-lg"}`}>
         {module.support && <SupportBanner />}
 
+        {/* The MD's letter: the page split in two — his portrait on the left,
+            the letter set like a real one on the right (serif body, script
+            signature), nothing boxy. */}
         {phase === "read" && s.md && (
-          <div key={screen} className="animate-fade-up">
-            <div className="mb-6 flex flex-col items-center gap-4 text-center sm:flex-row sm:text-left">
-              <MdPortrait src={s.portrait} name={s.name} />
-              <div>
-                <p className="text-caption font-bold uppercase tracking-[0.2em] text-secondary">{s.heading}</p>
-                <p className="mt-1 text-headline-md font-black leading-tight text-primary">{s.name}</p>
-                <p className="text-caption text-on-surface-variant">{s.role}</p>
+          <div key={screen} className="animate-fade-up grid md:grid-cols-2">
+            {/* Left — the portrait, full height */}
+            <div className="relative min-h-[380px] md:min-h-[560px]">
+              <img
+                src="/images/dany-abboud-tall.jpg"
+                alt={s.name}
+                className="absolute inset-0 h-full w-full object-cover"
+                style={{ objectPosition: "center" }}
+              />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-primary-container/90 via-primary-container/40 to-transparent px-6 pb-5 pt-16 text-white">
+                <p className="text-headline-md font-black leading-tight">{s.name}</p>
+                <p className="text-caption text-white/85">{s.role}</p>
               </div>
             </div>
-            <div className="rounded-2xl border-l-4 border-secondary-container bg-surface-container-low p-stack-lg">
-              {s.body.map((p, i) => (
-                <p key={i} className={`mb-3 leading-relaxed text-on-surface last:mb-0 ${i === 0 ? "text-body-lg font-semibold" : "text-body-lg"}`}>
-                  {p}
+
+            {/* Right — the letter */}
+            <div className="flex flex-col justify-between bg-[#fbfaf6] px-7 py-8 md:px-10 md:py-10">
+              <div>
+                <p className="mb-6 text-caption font-bold uppercase tracking-[0.28em] text-secondary">
+                  {s.heading}
                 </p>
-              ))}
-              <p className="mt-5 text-body-lg font-black text-primary">— {s.name}</p>
-              <p className="text-caption text-on-surface-variant">{s.role}</p>
-            </div>
-            <Takeaway text={s.takeaway} />
-            <div className="mt-8 flex items-center justify-end">
-              {isLastScreen ? (
-                <button
-                  onClick={finishModule}
-                  className="flex items-center gap-2 rounded-xl bg-primary px-8 py-3 text-label-md font-bold text-on-primary transition-opacity hover:opacity-90"
+                {s.body.map((p, i) => (
+                  <p
+                    key={i}
+                    style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+                    className={
+                      i === 0
+                        ? "mb-5 text-[19px] italic leading-relaxed text-on-surface"
+                        : "mb-4 text-[16.5px] leading-[1.85] text-on-surface"
+                    }
+                  >
+                    {p}
+                  </p>
+                ))}
+                <p
+                  style={{ fontFamily: "'Great Vibes', cursive" }}
+                  className="mt-7 text-[40px] leading-none text-primary"
                 >
-                  Thank you — continue <MaterialIcon name="arrow_forward" />
-                </button>
-              ) : (
+                  {s.name.split(" ")[0]} {s.name.split(" ")[1]}
+                </p>
+                <p className="mt-1 text-caption uppercase tracking-widest text-on-surface-variant">{s.role}</p>
+              </div>
+
+              <div className="mt-8 flex items-center justify-between gap-4 border-t border-outline-variant/50 pt-5">
+                <p style={{ fontFamily: "'Playfair Display', Georgia, serif" }} className="text-[14px] italic text-on-surface-variant">
+                  Together shaping a responsible future — embrace the journey.
+                </p>
                 <button
-                  onClick={() => setScreen(screen + 1)}
-                  className="flex items-center gap-2 rounded-xl bg-primary px-8 py-3 text-label-md font-bold text-on-primary transition-opacity hover:opacity-90"
+                  onClick={isLastScreen ? finishModule : () => setScreen(screen + 1)}
+                  className="flex shrink-0 items-center gap-2 rounded-xl bg-primary px-6 py-3 text-label-md font-bold text-on-primary transition-opacity hover:opacity-90"
                 >
-                  Continue <MaterialIcon name="arrow_forward" />
+                  {isLastScreen ? "Thank you — continue" : "Continue"} <MaterialIcon name="arrow_forward" />
                 </button>
-              )}
+              </div>
             </div>
           </div>
         )}
@@ -633,6 +698,7 @@ export default function PathwayModulePage() {
                 className="mt-4 aspect-[21/9] w-full rounded-2xl object-cover shadow-sm"
               />
             )}
+            {s.psgrid && <PSGrid />}
             {s.trades && <WhereYouComeIn lines={s.trades} />}
             <JargonBuster items={s.jargon} />
             <Takeaway text={s.takeaway} />

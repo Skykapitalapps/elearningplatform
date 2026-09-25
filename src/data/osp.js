@@ -350,7 +350,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "Eight standards, and what they cover",
-        photo: "/images/lm5.jpg",
+        psgrid: true,
         body: [
           "The rules the lenders apply are the IFC Performance Standards. IFC is the International Finance Corporation, part of the World Bank Group.",
           "There are eight, numbered 1 to 8. You will hear them called PS1 to PS8.",
