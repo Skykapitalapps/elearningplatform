@@ -180,39 +180,40 @@ const LETTERS = ["a", "b", "c", "d"];
 // numbered tiles, PS7 greyed out (not applicable to these corridors), exactly
 // as the S2 pack's visual brief describes.
 const PS_TILES = [
-  { n: 1, title: "Risk management", plain: "How risks are assessed and managed" },
-  { n: 2, title: "Workers", plain: "Labour and working conditions" },
-  { n: 3, title: "Pollution & resources", plain: "Prevention, waste, efficient use" },
-  { n: 4, title: "Community", plain: "Health, safety and security" },
-  { n: 5, title: "Land & resettlement", plain: "Acquisition, compensation, livelihoods" },
-  { n: 6, title: "Biodiversity", plain: "Habitats and living resources" },
-  { n: 7, title: "Indigenous Peoples", plain: "Does not apply to these corridors", na: true },
-  { n: 8, title: "Cultural heritage", plain: "Graves, shrines, finds, sacred places" },
+  { n: 1, title: "Risk Management", plain: "Risks assessed and managed", color: "#c0394f", icon: "fact_check" },
+  { n: 2, title: "Labor", plain: "Workers and working conditions", color: "#c3a03c", icon: "engineering" },
+  { n: 3, title: "Resource Efficiency", plain: "Pollution prevention and resources", color: "#8f979e", icon: "factory" },
+  { n: 4, title: "Community", plain: "Health, safety and security", color: "#1b3d6d", icon: "volunteer_activism" },
+  { n: 5, title: "Land Resettlement", plain: "Acquisition, compensation, livelihoods", color: "#3d8b4d", icon: "front_loader" },
+  { n: 6, title: "Biodiversity", plain: "Habitats and living resources", color: "#2b9fbe", icon: "eco" },
+  { n: 7, title: "Indigenous People", plain: "Not applicable to these corridors", color: "#ab8f66", icon: "diversity_3", na: true },
+  { n: 8, title: "Cultural Heritage", plain: "Graves, shrines, finds, sacred places", color: "#e08a2b", icon: "account_balance" },
 ];
 
+// The official IFC board look: coloured tiles, a big ghost number, a white
+// icon — PS7 dimmed with its note, since it does not apply here.
 function PSGrid() {
   return (
-    <div className="mt-5 grid grid-cols-2 gap-2.5 sm:grid-cols-4">
+    <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4">
       {PS_TILES.map((t) => (
         <div
           key={t.n}
-          className={`rounded-xl border p-3 ${
-            t.na
-              ? "border-dashed border-outline-variant bg-surface-container-low opacity-70"
-              : "border-outline-variant bg-surface-container-lowest"
-          }`}
+          className={`relative h-32 overflow-hidden rounded-xl p-3 text-white shadow-sm ${t.na ? "opacity-55" : ""}`}
+          style={{ background: `linear-gradient(135deg, ${t.color}, ${t.color}cc)` }}
         >
           <span
-            className={`mb-2 flex h-9 w-9 items-center justify-center rounded-lg text-label-md font-black ${
-              t.na ? "bg-surface-container-highest text-outline" : "bg-primary-container text-white"
-            }`}
+            className="absolute -bottom-5 -left-1 select-none text-[92px] font-black leading-none text-white/25"
+            aria-hidden="true"
           >
-            PS{t.n}
+            {t.n}
           </span>
-          <p className={`text-caption font-bold leading-snug ${t.na ? "text-on-surface-variant line-through" : "text-primary"}`}>
-            {t.title}
-          </p>
-          <p className="mt-0.5 text-caption leading-snug text-on-surface-variant">{t.plain}</p>
+          <p className="relative text-right text-label-md font-black leading-tight">{t.title}</p>
+          <p className="relative mt-0.5 text-right text-[11px] leading-snug text-white/85">{t.plain}</p>
+          <MaterialIcon
+            name={t.icon}
+            fill
+            className="absolute bottom-2.5 right-2.5 text-[30px] text-white/95"
+          />
         </div>
       ))}
     </div>
