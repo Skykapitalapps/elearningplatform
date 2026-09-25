@@ -4,6 +4,11 @@ import { useCourse, isUnlocked } from "../CourseContext.jsx";
 import { TRADES } from "../data/osp.js";
 import { client } from "../config/clients.js";
 import MaterialIcon from "../components/MaterialIcon.jsx";
+import Confetti from "../components/Confetti.jsx";
+
+// A little joy, none of it scored: praise varies, streaks catch fire.
+const PRAISE = ["Nice one!", "Spot on!", "Exactly right!", "You've got this!", "Sharp eye!", "That's it!"];
+const praiseFor = (i) => PRAISE[i % PRAISE.length];
 
 // ============================================================================
 // OUR SUSTAINABILITY PATHWAY — module player.
@@ -85,6 +90,8 @@ function LightQuiz({ module, onDone }) {
   const [index, setIndex] = useState(0);
   const [choice, setChoice] = useState(null); // single: option index · tf: true/false
   const [reason, setReason] = useState(null); // tf second stage
+  const [streak, setStreak] = useState(0); // display only — never recorded
+  const [praiseIdx, setPraiseIdx] = useState(0);
   const q = module.quiz[index];
   const isLast = index === module.quiz.length - 1;
 
@@ -96,6 +103,16 @@ function LightQuiz({ module, onDone }) {
   }
 
   const revealed = q.format === "single" ? choice !== null : reason !== null;
+  const gotIt =
+    q.format === "single"
+      ? choice === q.correct
+      : choice === q.answer && reason === q.correctReason;
+
+  // Streak bookkeeping happens at the moment of the final tap.
+  function settle(correct) {
+    setStreak((s) => (correct ? s + 1 : 0));
+    if (correct) setPraiseIdx((i) => i + 1);
+  }
 
   // Wrong-answer explanation: the per-option text when the pack wrote one,
   // otherwise the general line, otherwise point to the right answer — the
@@ -107,10 +124,25 @@ function LightQuiz({ module, onDone }) {
 
   return (
     <div>
-      <p className="mb-1 text-caption font-bold uppercase tracking-widest text-secondary">
-        Question {index + 1} of {module.quiz.length} · nothing here is scored
-      </p>
+      <div className="mb-1 flex items-center justify-between">
+        <p className="text-caption font-bold uppercase tracking-widest text-secondary">
+          Question {index + 1} of {module.quiz.length} · nothing here is scored
+        </p>
+        {streak >= 2 && (
+          <span className="animate-pop rounded-full bg-secondary-container px-3 py-1 text-caption font-black text-on-secondary-container">
+            🔥 {streak} in a row
+          </span>
+        )}
+      </div>
+      <div className="mb-3 flex gap-1.5">
+        {module.quiz.map((_, i) => (
+          <span key={i} className={`h-1.5 flex-1 rounded-full ${i < index ? "bg-secondary" : i === index ? "bg-secondary-container" : "bg-surface-container-highest"}`} />
+        ))}
+      </div>
       <h2 className="mb-4 text-headline-md leading-snug text-primary">{q.stem}</h2>
+      {q.image && (
+        <img src={q.image} alt="" loading="lazy" className="mb-4 max-h-56 w-full rounded-2xl object-cover shadow-sm" />
+      )}
 
       {q.format === "single" && (
         <div className="space-y-2">
@@ -121,7 +153,7 @@ function LightQuiz({ module, onDone }) {
               <button
                 key={i}
                 disabled={choice !== null}
-                onClick={() => setChoice(i)}
+                onClick={() => { setChoice(i); settle(i === q.correct); }}
                 className={`flex w-full items-start gap-3 rounded-xl border p-3.5 text-left text-body-md transition-colors ${
                   choice === null
                     ? "border-outline-variant bg-surface-container-lowest hover:border-secondary"
@@ -184,7 +216,7 @@ function LightQuiz({ module, onDone }) {
                     <button
                       key={i}
                       disabled={reason !== null}
-                      onClick={() => setReason(i)}
+                      onClick={() => { setReason(i); settle(choice === q.answer && i === q.correctReason); }}
                       className={`flex w-full items-start gap-3 rounded-xl border p-3.5 text-left text-body-md transition-colors ${
                         reason === null
                           ? "border-outline-variant bg-surface-container-lowest hover:border-secondary"
@@ -209,6 +241,10 @@ function LightQuiz({ module, onDone }) {
       {/* Immediate feedback — the explanation IS the teaching. */}
       {revealed && (
         <div className="animate-fade-up mt-4">
+          <p className={`mb-2 flex items-center gap-2 text-label-md font-black ${gotIt ? "text-emerald-600" : "text-[#c8102e]"}`}>
+            <MaterialIcon name={gotIt ? "celebration" : "school"} fill className="text-[20px]" />
+            {gotIt ? praiseFor(praiseIdx) : "Good try — here's the part that matters:"}
+          </p>
           {q.format === "single" && choice !== q.correct && wrongText(choice) && (
             <p className="mb-2 rounded-xl bg-rose-50 p-stack-md text-body-md leading-relaxed text-rose-900">
               {wrongText(choice)}
@@ -327,6 +363,14 @@ export default function PathwayModulePage() {
                 {p}
               </p>
             ))}
+            {s.photo && (
+              <img
+                src={s.photo}
+                alt={s.heading}
+                loading="lazy"
+                className="mt-4 aspect-[21/9] w-full rounded-2xl object-cover shadow-sm"
+              />
+            )}
             {s.trades && <WhereYouComeIn lines={s.trades} />}
             <JargonBuster items={s.jargon} />
             <Takeaway text={s.takeaway} />
@@ -370,8 +414,9 @@ export default function PathwayModulePage() {
         )}
 
         {phase === "done" && (
-          <div className="animate-fade-up py-6 text-center">
-            <MaterialIcon name="check_circle" fill className="text-6xl text-emerald-500" />
+          <div className="animate-fade-up relative py-6 text-center">
+            <Confetti />
+            <MaterialIcon name="check_circle" fill className="animate-pop text-6xl text-emerald-500" />
             <h2 className="mt-3 text-headline-md text-primary">
               {module.block === "welcome" ? "You're set." : `${module.title} — done`}
             </h2>

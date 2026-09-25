@@ -60,15 +60,28 @@ export default function DashboardPage() {
 
   return (
     <div className="mx-auto max-w-[1080px] px-margin-mobile py-8">
-      {/* ── HERO: the conference identity — the green and the diagonal ── */}
+      {/* ── HERO: the conference identity — the green, the diagonal, and a
+             HITECH photo behind it (their gold and red as the accents) ── */}
       <div className="relative mb-10 overflow-hidden rounded-3xl bg-primary-container text-white">
+        <img
+          src="/images/hitech-paving.webp"
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover opacity-40"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary-container via-primary-container/90 to-primary-container/30" />
         <div
-          className="absolute inset-y-0 right-0 w-2/3 bg-secondary-container/90"
+          className="absolute inset-y-0 right-0 w-2/3 bg-secondary-container/85"
+          style={{ clipPath: "polygon(38% 0, 100% 0, 100% 100%, 12% 100%)" }}
+        />
+        <img
+          src="/images/hitech-skyline.webp"
+          alt=""
+          className="absolute inset-y-0 right-0 h-full w-2/3 object-cover opacity-30"
           style={{ clipPath: "polygon(38% 0, 100% 0, 100% 100%, 12% 100%)" }}
         />
         <div
-          className="absolute inset-y-0 right-0 w-2/3 bg-secondary/20"
-          style={{ clipPath: "polygon(30% 0, 42% 0, 16% 100%, 4% 100%)" }}
+          className="absolute inset-y-0 right-0 w-2/3 bg-[#c8102e]/85"
+          style={{ clipPath: "polygon(34% 0, 38% 0, 12% 100%, 8% 100%)" }}
         />
         <div className="relative px-8 py-12 md:px-12">
           <p className="text-caption font-bold uppercase tracking-[0.25em] text-secondary-fixed">

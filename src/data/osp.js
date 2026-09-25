@@ -49,6 +49,7 @@ export const OSP_MODULES = [
     screens: [
       {
         heading: "Our Sustainability Pathway",
+        photo: "/images/hitech-skyline.webp",
         body: [
           "Together shaping a responsible future. Embrace the journey.",
           "This is the training behind the conference. It exists so that everyone on this project — whatever your trade — knows what our lenders require, why it reaches your work, and where you come in.",
@@ -92,6 +93,7 @@ export const OSP_MODULES = [
     screens: [
       {
         heading: "Two letters you will hear all week",
+        photo: "/images/hitech-pour.webp",
         body: [
           "E and S. Environmental and Social.",
           "Environmental is what our work does to the place: the air, the water, the ground, the trees, the animals.",
@@ -103,6 +105,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "What we do to the place",
+        photo: "/images/hitech-borrowpit.webp",
         body: [
           "Dust from a haul road settling on a house and on food drying outside.",
           "Mud washing off a stripped slope into a stream people drink from.",
@@ -115,6 +118,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "What we do to people",
+        photo: "/images/hitech-haul.webp",
         body: [
           "A worker with no written terms, paid in cash, who cannot say what he is owed.",
           "A camp with one working shower for forty men.",
@@ -141,6 +145,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "Who is affected",
+        photo: "/images/hitech-embankment.webp",
         body: [
           "Our own workers, and the workers of every subcontractor and labour supplier on site.",
           "Households and farmers whose land, crops or access we take or cut.",
@@ -174,6 +179,7 @@ export const OSP_MODULES = [
       {
         format: "single",
         stem: "Which side of this work stops more sections on our projects?",
+        image: "/images/hitech-haul.webp",
         options: ["Environmental.", "Social.", "They are equal.", "Neither, only technical problems stop work."],
         correct: 1,
         feedback: {
@@ -211,6 +217,7 @@ export const OSP_MODULES = [
       {
         format: "single",
         stem: "A labour supplier brings twenty men onto your section. Whose responsibility are they?",
+        image: "/images/hitech-pour.webp",
         options: ["The supplier's alone.", "The subcontractor who hired the supplier.", "Ours, as well as theirs.", "Nobody's until they are inducted."],
         correct: 2,
         feedback: {
@@ -235,6 +242,7 @@ export const OSP_MODULES = [
     screens: [
       {
         heading: "Money with conditions attached",
+        photo: "/images/hitech-paving.webp",
         body: [
           "Our corridors are not funded out of company cash. They are financed by international lenders.",
           "That financing is not a simple loan. It carries conditions about how we build, written into the agreement.",
@@ -290,6 +298,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "And Nigerian law",
+        photo: "/images/hitech-dozer.webp",
         body: [
           "Nigerian law applies in full and is never set aside. The environmental assessment statute, the labour law, the land law, the mining law for borrow pits.",
           "It sets the legal minimum, and breaking it carries fines, stop-work notices and prosecution.",
@@ -354,6 +363,7 @@ export const OSP_MODULES = [
       {
         format: "single",
         stem: "The national noise limit is one figure. The lender standard sets a lower limit at night. Which applies to night work?",
+        image: "/images/hitech-paving.webp",
         options: ["The national limit.", "The lower night limit.", "Whichever the site prefers.", "Neither, if the permit is silent."],
         correct: 1,
         feedback: {
@@ -395,6 +405,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "The study",
+        photo: "/images/hitech-fill.webp",
         body: [
           "The Environmental and Social Impact Assessment, or ESIA, is the study done before we build.",
           "It describes what is there: the people, the land, the water, the habitats, the heritage. Then it predicts what our works will do to all of it.",
@@ -437,6 +448,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "The correction list",
+        photo: "/images/hitech-embankment.webp",
         body: [
           "The Environmental and Social Action Plan, the ESAP, is the list of things we must fix or put in place, agreed with the lenders.",
           "Each line has a specific deliverable, a named owner and a date. Some lines are attached to a payment.",
@@ -514,6 +526,7 @@ export const OSP_MODULES = [
       {
         format: "single",
         stem: "You open a new borrow pit that is not named in the ESIA. What is the position?",
+        image: "/images/hitech-borrowpit.webp",
         options: ["Fine, it is inside the project.", "It is an unassessed activity, whatever else is in order.", "Fine if the landowner agreed.", "Fine if it is temporary."],
         correct: 1,
         general: "And it is usually not the only problem: extraction also needs a mineral title, which a landowner cannot give.",
@@ -571,6 +584,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "What they look at",
+        photo: "/images/hitech-haul.webp",
         body: [
           "Three things, and they compare them against each other.",
           "The documents: are the plans current, are the registers filled in as the work happened, do the numbers agree between one report and another.",
@@ -593,6 +607,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "Found by you, or found by them",
+        photo: "/images/hitech-borrowpit.webp",
         body: [
           "Take one problem. An effluent tank overflowing for three weeks.",
           "Version one: we found it, recorded it, told the engineer, sampled the water and were already fixing it. The finding is written, and the system is judged to work.",
@@ -646,6 +661,7 @@ export const OSP_MODULES = [
       {
         format: "single",
         stem: "You find a problem ten days before a visit and fix it. What else should you do?",
+        image: "/images/hitech-dozer.webp",
         options: ["Nothing, it is resolved.", "Record it, tell the engineer, and show the whole thing at the visit.", "Record it internally and leave it out.", "Wait and see if they notice."],
         correct: 1,
         feedback: {
@@ -688,6 +704,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "Before the shift",
+        photo: "/images/hitech-pour.webp",
         body: [
           "The morning meeting is where the day's risks get named and the controls get allocated. It is also a record.",
           "Permits are issued for the work that needs one: hot work, excavation, work at height, confined space, lifting.",
@@ -699,6 +716,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "During the shift",
+        photo: "/images/hitech-dozer.webp",
         body: [
           "Procedures are what you actually use. The chance find procedure. The spill response. The grievance intake. The permit to work.",
           "Each one exists because somebody, one day, needed to know what to do in the first five minutes.",
@@ -785,6 +803,7 @@ export const OSP_MODULES = [
       {
         format: "single",
         stem: "Something goes wrong during your shift. What comes first?",
+        image: "/images/hitech-pour.webp",
         options: ["Write it in the register.", "Stop and make it safe.", "Tell the HSE officer.", "Finish the task, then report."],
         correct: 1,
         general: "Then tell someone, then write it down the same day. The order matters and it is short enough to remember.",
@@ -818,6 +837,7 @@ export const OSP_MODULES = [
     screens: [
       {
         heading: "The people on the other side of the fence",
+        photo: "/images/hitech-embankment.webp",
         body: [
           "They did not choose this road. They live along it, farm beside it, trade on it and cross it.",
           "Some of them lose land, crops, a shop or a route because of us. Others lose nothing and live with the dust, the noise and the trucks.",
@@ -852,6 +872,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "When several hundred of us arrive",
+        photo: "/images/hitech-skyline.webp",
         body: [
           "A camp beside a village changes that village. This is predictable and it is assessed, not regretted afterwards.",
           "Prices rise: food, rent, transport. The clinic sized for a village serves a village and a workforce.",
@@ -937,6 +958,7 @@ export const OSP_MODULES = [
       {
         format: "tf",
         stem: "Compensation has been approved internally, so work can start on the parcel.",
+        image: "/images/hitech-embankment.webp",
         answer: false,
         reasons: [
           "The money must be available to collect, not approved.",
@@ -977,6 +999,7 @@ export const OSP_MODULES = [
     screens: [
       {
         heading: "Protective equipment is the last line, not the plan",
+        photo: "/images/hitech-pour.webp",
         body: [
           "When a hazard appears, there is an order to work through, and most sites start at the end of it.",
           "Remove the hazard. Can the parapet be assembled on the ground and lifted in, so nobody works at the edge?",
@@ -1052,6 +1075,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "The trucks, and the road",
+        photo: "/images/hitech-haul.webp",
         body: [
           "More people are killed by haulage on public roads than by anything inside our fence.",
           "The controls that work are decisions, not instructions: the route, the hours, speed limiters fitted, driver hours capped and rotated.",
@@ -1124,6 +1148,7 @@ export const OSP_MODULES = [
       {
         format: "single",
         stem: "Which control removes a haulage encounter rather than softening it?",
+        image: "/images/hitech-haul.webp",
         options: ["Speed limiters.", "Covered loads.", "Rerouting away from the settlement.", "A banksman at the school gate."],
         correct: 2,
         general: "The other three are real and they all assume the encounter still happens.",
@@ -1145,6 +1170,7 @@ export const OSP_MODULES = [
     screens: [
       {
         heading: "Four days, and half a per cent",
+        photo: "/images/hitech-fill.webp",
         body: [
           "On one coastal section we ran earthworks through the rains with no silt fencing and no settlement pond.",
           "Mud reached a creek people fish and wash in. The catch fell. Children developed skin complaints.",
@@ -1189,6 +1215,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "The borrow pit, and the day you finish",
+        photo: "/images/hitech-borrowpit.webp",
         body: [
           "A pit is the single activity that creates the most problems at once: unassessed scope, extraction without a mineral title, dust and sediment, an open face and standing water near housing, land taken from someone, clearance without screening.",
           "A landowner's consent is not a mineral right. Those are issued by different authorities.",
@@ -1264,6 +1291,7 @@ export const OSP_MODULES = [
       {
         format: "tf",
         stem: "The landowner has agreed, so we can start taking material.",
+        image: "/images/hitech-borrowpit.webp",
         answer: false,
         reasons: [
           "Extraction needs a mineral title from a different authority, and the pit must be inside the assessed scope.",

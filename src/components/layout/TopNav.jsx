@@ -20,7 +20,7 @@ export default function TopNav() {
           title="Back to home"
           className="flex items-center gap-2.5 transition-opacity hover:opacity-80 active:scale-[0.98]"
         >
-          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary-container to-[#2e6b45] shadow-sm">
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-[#0f2137] to-[#1c3a63] shadow-sm">
             <Logo className="h-6 w-6 text-white" />
           </span>
           <span className="text-headline-md font-bold text-primary">
