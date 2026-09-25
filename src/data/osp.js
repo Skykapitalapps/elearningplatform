@@ -39,7 +39,7 @@ export const OSP_MODULES = [
   // ──────────────────────────────────────────────────────────── WELCOME ──
   {
     id: "w",
-    cover: "/images/hitech-skyline.webp",
+    cover: "/images/hitech-coastal.webp",
     code: "W",
     block: "welcome",
     order: 0,
@@ -50,7 +50,7 @@ export const OSP_MODULES = [
     screens: [
       {
         heading: "Our Sustainability Pathway",
-        photo: "/images/hitech-skyline.webp",
+        photo: "/images/hitech-coastal.webp",
         body: [
           "Together shaping a responsible future. Embrace the journey.",
           "This is the training behind the conference. It exists so that everyone on this project — whatever your trade — knows what our lenders require, why it reaches your work, and where you come in.",
@@ -109,7 +109,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "What we do to the place",
-        photo: "/images/hitech-borrowpit.webp",
+        photo: "/images/hitech-wetland.webp",
         body: [
           "Dust from a haul road settling on a house and on food drying outside.",
           "Mud washing off a stripped slope into a stream people drink from.",
@@ -150,7 +150,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "Who is affected",
-        photo: "/images/hitech-embankment.webp",
+        photo: "/images/hitech-corridor.webp",
         body: [
           "Our own workers, and the workers of every subcontractor and labour supplier on site.",
           "Households and farmers whose land, crops or access we take or cut.",
@@ -360,7 +360,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "When the two differ, the stricter one wins",
-        photo: "/images/lm7.jpg",
+        photo: "/images/hitech-night.webp",
         body: [
           "Where national law and the lender standard say different things about the same requirement, we follow the stricter one.",
           "Take night noise near houses. If the national limit is one figure day and night, and the lender standard sets a lower limit at night, we work to the night limit.",
@@ -416,7 +416,7 @@ export const OSP_MODULES = [
       {
         format: "single",
         stem: "The national noise limit is one figure. The lender standard sets a lower limit at night. Which applies to night work?",
-        image: "/images/hitech-paving.webp",
+        image: "/images/hitech-night.webp",
         options: ["The national limit.", "The lower night limit.", "Whichever the site prefers.", "Neither, if the permit is silent."],
         correct: 1,
         feedback: {
@@ -624,7 +624,7 @@ export const OSP_MODULES = [
       {
         format: "single",
         stem: "You open a new borrow pit that is not named in the ESIA. What is the position?",
-        image: "/images/hitech-borrowpit.webp",
+        image: "/images/hitech-sandwin.webp",
         options: ["Fine, it is inside the project.", "It is an unassessed activity, whatever else is in order.", "Fine if the landowner agreed.", "Fine if it is temporary."],
         correct: 1,
         general: "And it is usually not the only problem: extraction also needs a mineral title, which a landowner cannot give.",
@@ -722,7 +722,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "What they look at",
-        photo: "/images/hitech-haul.webp",
+        photo: "/images/hitech-crossing.webp",
         body: [
           "Three things, and they compare them against each other.",
           "The documents: are the plans current, are the registers filled in as the work happened, do the numbers agree between one report and another.",
@@ -863,7 +863,7 @@ export const OSP_MODULES = [
   // ──────────────────────────────────────────────────────────────── S5 ──
   {
     id: "s5",
-    cover: "/images/lm2.jpg",
+    cover: "/images/hitech-expressway.webp",
     code: "S5",
     block: "core",
     order: 5,
@@ -934,7 +934,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "Where your day ends up",
-        photo: "/images/african-crew.jpg",
+        photo: "/images/hitech-expressway.webp",
         body: [
           "Those records are collected and become our monthly report to the lenders.",
           "The same records show whether the measures in the ESMP are actually being applied, or only written.",
@@ -1036,6 +1036,7 @@ export const OSP_MODULES = [
       {
         format: "order",
         stem: "Put the chain in order: from your day to a decision at a bank.",
+        image: "/images/hitech-expressway.webp",
         items: [
           "A procedure is followed",
           "A record is made",
@@ -1063,7 +1064,7 @@ export const OSP_MODULES = [
     screens: [
       {
         heading: "The people on the other side of the fence",
-        photo: "/images/hitech-embankment.webp",
+        photo: "/images/hitech-corridor.webp",
         body: [
           "They did not choose this road. They live along it, farm beside it, trade on it and cross it.",
           "Some of them lose land, crops, a shop or a route because of us. Others lose nothing and live with the dust, the noise and the trucks.",
@@ -1352,7 +1353,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "The trucks, and the road",
-        photo: "/images/hitech-haul.webp",
+        photo: "/images/hitech-crossing.webp",
         body: [
           "More people are killed by haulage on public roads than by anything inside our fence.",
           "The controls that work are decisions, not instructions: the route, the hours, speed limiters fitted, driver hours capped and rotated.",
@@ -1429,7 +1430,7 @@ export const OSP_MODULES = [
       {
         format: "single",
         stem: "Which control removes a haulage encounter rather than softening it?",
-        image: "/images/hitech-haul.webp",
+        image: "/images/hitech-crossing.webp",
         options: ["Speed limiters.", "Covered loads.", "Rerouting away from the settlement.", "A banksman at the school gate."],
         correct: 2,
         general: "The other three are real and they all assume the encounter still happens.",
@@ -1478,7 +1479,7 @@ export const OSP_MODULES = [
   // ──────────────────────────────────────────────────────────────── R3 ──
   {
     id: "r3",
-    cover: "/images/hitech-borrowpit.webp",
+    cover: "/images/hitech-sandwin.webp",
     code: "E",
     block: "role",
     order: 8,
@@ -1512,7 +1513,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "The batching plant",
-        photo: "/images/quarry-excavators.jpg",
+        photo: "/images/hitech-slipform.webp",
         body: [
           "We are building a concrete pavement, so the batching plants are the largest environmental operation on this project.",
           "Wash water from drums and chutes is strongly alkaline and kills fish. It is contained and settled, never sent to a ditch.",
@@ -1537,7 +1538,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "The borrow pit, and the day you finish",
-        photo: "/images/hitech-borrowpit.webp",
+        photo: "/images/hitech-sandwin.webp",
         body: [
           "A pit is the single activity that creates the most problems at once: unassessed scope, extraction without a mineral title, dust and sediment, an open face and standing water near housing, land taken from someone, clearance without screening.",
           "A landowner's consent is not a mineral right. Those are issued by different authorities.",
@@ -1549,7 +1550,7 @@ export const OSP_MODULES = [
       },
       {
         heading: "Look before you clear",
-        photo: "/images/quarry-aerial.jpg",
+        photo: "/images/hitech-clearing.webp",
         body: [
           "Before any clearance, on the alignment or at a pit or a camp, somebody checks what is there.",
           "Habitat, protected species, wetlands that are dry in February and full in August, and the trees and plants people actually use.",
@@ -1671,6 +1672,7 @@ export const OSP_MODULES = [
       {
         format: "order",
         stem: "Your bucket exposes what looks like a grave. Put the five steps in order.",
+        image: "/images/hitech-culvert.webp",
         items: [
           "Stop and switch off",
           "Do not touch, move or photograph anything",
