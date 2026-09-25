@@ -176,6 +176,27 @@ function CatQuestion({ q, revealed, onChecked }) {
 
 const LETTERS = ["a", "b", "c", "d"];
 
+// The Managing Director's portrait, with an initials medallion until the
+// real photo lands at its path (public/images/dany-abboud.jpg).
+function MdPortrait({ src, name }) {
+  const [failed, setFailed] = useState(false);
+  const initials = name.split(" ").map((w) => w[0]).join("").slice(0, 2).toUpperCase();
+  if (failed || !src)
+    return (
+      <span className="flex h-28 w-28 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary-container to-[#2e6b45] text-headline-lg font-black text-white ring-4 ring-secondary-container">
+        {initials}
+      </span>
+    );
+  return (
+    <img
+      src={src}
+      alt={name}
+      onError={() => setFailed(true)}
+      className="h-28 w-28 shrink-0 rounded-full object-cover ring-4 ring-secondary-container"
+    />
+  );
+}
+
 function SupportBanner() {
   const s = client.supportContact;
   if (!s) return null;
@@ -553,7 +574,38 @@ export default function PathwayModulePage() {
       <div className="rounded-2xl border border-outline-variant bg-surface-container-lowest p-stack-lg shadow-sm">
         {module.support && <SupportBanner />}
 
-        {phase === "read" && (
+        {phase === "read" && s.md && (
+          <div key={screen} className="animate-fade-up">
+            <div className="mb-6 flex flex-col items-center gap-4 text-center sm:flex-row sm:text-left">
+              <MdPortrait src={s.portrait} name={s.name} />
+              <div>
+                <p className="text-caption font-bold uppercase tracking-[0.2em] text-secondary">{s.heading}</p>
+                <p className="mt-1 text-headline-md font-black leading-tight text-primary">{s.name}</p>
+                <p className="text-caption text-on-surface-variant">{s.role}</p>
+              </div>
+            </div>
+            <div className="rounded-2xl border-l-4 border-secondary-container bg-surface-container-low p-stack-lg">
+              {s.body.map((p, i) => (
+                <p key={i} className={`mb-3 leading-relaxed text-on-surface last:mb-0 ${i === 0 ? "text-body-lg font-semibold" : "text-body-lg"}`}>
+                  {p}
+                </p>
+              ))}
+              <p className="mt-5 text-body-lg font-black text-primary">— {s.name}</p>
+              <p className="text-caption text-on-surface-variant">{s.role}</p>
+            </div>
+            <Takeaway text={s.takeaway} />
+            <div className="mt-8 flex items-center justify-end">
+              <button
+                onClick={() => setScreen(screen + 1)}
+                className="flex items-center gap-2 rounded-xl bg-primary px-8 py-3 text-label-md font-bold text-on-primary transition-opacity hover:opacity-90"
+              >
+                Continue <MaterialIcon name="arrow_forward" />
+              </button>
+            </div>
+          </div>
+        )}
+
+        {phase === "read" && !s.md && (
           <div key={screen} className="animate-fade-up">
             <h2 className="mb-4 text-headline-md leading-snug text-primary">{s.heading}</h2>
             {s.body?.map((p, i) => (

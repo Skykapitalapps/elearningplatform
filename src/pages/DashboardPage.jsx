@@ -135,7 +135,7 @@ export default function DashboardPage() {
             <span className="text-headline-md font-black text-secondary">1</span>
             <div>
               <h2 className="text-headline-md text-primary">Welcome</h2>
-              <p className="text-caption text-on-surface-variant">Three screens, three minutes. Everything starts here.</p>
+              <p className="text-caption text-on-surface-variant">A word from the Managing Director, then three screens. Everything starts here.</p>
             </div>
           </div>
           <div className="max-w-md">

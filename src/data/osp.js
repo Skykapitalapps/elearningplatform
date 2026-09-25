@@ -44,10 +44,25 @@ export const OSP_MODULES = [
     block: "welcome",
     order: 0,
     title: "Welcome",
-    subtitle: "Three screens, three minutes",
+    subtitle: "A word from the Managing Director, then three screens — about three minutes",
     minutes: 3,
     icon: "waving_hand",
     screens: [
+      {
+        md: true,
+        heading: "A word from our Managing Director",
+        portrait: "/images/dany-abboud.jpg",
+        name: "Dany Abboud",
+        role: "Managing Director, HITECH Construction Company Limited",
+        body: [
+          "Dear colleagues,",
+          "The corridors we are building will outlast every one of us. How we build them — the care we take with the people beside our sites, the workers on them, and the places they cross — is what HITECH will be remembered for.",
+          "That is why I am personally inviting each of you to Our Sustainability Pathway. It asks for about an hour of your time. In plain words, it explains what our international lenders require of us, why the money that builds this project depends on it, and — most importantly — where you come in.",
+          "Every module ends with your trade on the screen. Find your line: it was written for you.",
+          "Thank you for the work you do every day. I will be taking the pathway too.",
+        ],
+        takeaway: "You are invited. Together shaping a responsible future — embrace the journey.",
+      },
       {
         heading: "Our Sustainability Pathway",
         photo: "/images/hitech-coastal.webp",
