@@ -245,16 +245,22 @@ export function useCourse() {
 let _reviewerUnlock = false;
 
 // PATHWAY GATING:
-//  - the welcome module is always open, and nothing can be reached before it;
-//  - core modules S1–S5 open in order once the welcome is done;
+//  - the welcome block (the MD's word, then the welcome) runs first, in order,
+//    and nothing can be reached before it is done;
+//  - core modules S1–S5 open in order once the welcome block is done;
 //  - role modules open together once all five core modules are done;
 //  - library modules ("Go further") are always open — free consultation.
 export function isUnlocked(modules, module) {
   if (module.library) return true;
   if (_reviewerUnlock) return true;
   if (module.status === "completed") return true;
-  if (module.block === "welcome") return true;
-  const welcomeDone = modules.find((m) => m.block === "welcome")?.status === "completed";
+  const welcomeBlock = modules.filter((m) => m.block === "welcome");
+  if (module.block === "welcome") {
+    const i = welcomeBlock.findIndex((m) => m.id === module.id);
+    if (i <= 0) return true;
+    return welcomeBlock[i - 1].status === "completed";
+  }
+  const welcomeDone = welcomeBlock.every((m) => m.status === "completed");
   if (!welcomeDone) return false;
   const core = modules.filter((m) => m.block === "core");
   if (module.block === "core") {

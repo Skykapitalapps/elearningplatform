@@ -59,7 +59,7 @@ function ModuleCard({ m, modules, size = "md" }) {
 
 export default function DashboardPage() {
   const { modules, libraryModules, progress } = useCourse();
-  const welcome = modules.find((m) => m.block === "welcome");
+  const welcomeMods = modules.filter((m) => m.block === "welcome");
   const core = modules.filter((m) => m.block === "core");
   const role = modules.filter((m) => m.block === "role");
   const next =
@@ -109,7 +109,7 @@ export default function DashboardPage() {
                 to={`/pathway/${next.id}`}
                 className="inline-flex items-center gap-2 rounded-xl bg-white px-8 py-3.5 text-label-md font-bold text-primary shadow-lg transition-transform hover:-translate-y-0.5"
               >
-                {progress.completed === 0 ? "Begin — 3 minutes" : `Continue: ${next.title}`}
+                {progress.completed === 0 ? "Begin — one minute" : `Continue: ${next.title}`}
                 <MaterialIcon name="arrow_forward" />
               </Link>
             )}
@@ -129,17 +129,19 @@ export default function DashboardPage() {
       </div>
 
       {/* ── 1 · Welcome ── */}
-      {welcome && (
+      {welcomeMods.length > 0 && (
         <section className="mb-8">
           <div className="mb-3 flex items-baseline gap-3">
             <span className="text-headline-md font-black text-secondary">1</span>
             <div>
               <h2 className="text-headline-md text-primary">Welcome</h2>
-              <p className="text-caption text-on-surface-variant">A word from the Managing Director, then three screens. Everything starts here.</p>
+              <p className="text-caption text-on-surface-variant">A personal word from the Managing Director, then the welcome. Everything starts here.</p>
             </div>
           </div>
-          <div className="max-w-md">
-            <ModuleCard m={welcome} modules={modules} size="lg" />
+          <div className="grid max-w-3xl gap-3 sm:grid-cols-2">
+            {welcomeMods.map((m) => (
+              <ModuleCard key={m.id} m={m} modules={modules} size="lg" />
+            ))}
           </div>
         </section>
       )}

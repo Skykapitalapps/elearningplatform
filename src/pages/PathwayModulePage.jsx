@@ -501,15 +501,18 @@ export default function PathwayModulePage() {
     );
   }
   if (!assigned || !isUnlocked(allPathwayModules, module)) {
-    const welcomeDone =
-      allPathwayModules.find((m) => m.block === "welcome")?.status === "completed";
+    const welcomeDone = allPathwayModules
+      .filter((m) => m.block === "welcome")
+      .every((m) => m.status === "completed");
     const gateText = !assigned
       ? "This role module is not part of your assignment."
-      : !welcomeDone
-        ? "Start with the welcome — three screens, three minutes."
-        : module.block === "core"
-          ? "Finish the previous module first — the core pathway runs in order."
-          : "Your role modules open once the five core modules are done.";
+      : module.block === "welcome"
+        ? "Start with the word from our Managing Director — it takes a minute."
+        : !welcomeDone
+          ? "Start with the welcome block — the word from our Managing Director, then three short screens."
+          : module.block === "core"
+            ? "Finish the previous module first — the core pathway runs in order."
+            : "Your role modules open once the five core modules are done.";
     return (
       <div className="mx-auto flex min-h-[50vh] max-w-lg flex-col items-center justify-center gap-3 text-center">
         <MaterialIcon name="lock" className="text-5xl text-outline" />
@@ -595,12 +598,21 @@ export default function PathwayModulePage() {
             </div>
             <Takeaway text={s.takeaway} />
             <div className="mt-8 flex items-center justify-end">
-              <button
-                onClick={() => setScreen(screen + 1)}
-                className="flex items-center gap-2 rounded-xl bg-primary px-8 py-3 text-label-md font-bold text-on-primary transition-opacity hover:opacity-90"
-              >
-                Continue <MaterialIcon name="arrow_forward" />
-              </button>
+              {isLastScreen ? (
+                <button
+                  onClick={finishModule}
+                  className="flex items-center gap-2 rounded-xl bg-primary px-8 py-3 text-label-md font-bold text-on-primary transition-opacity hover:opacity-90"
+                >
+                  Thank you — continue <MaterialIcon name="arrow_forward" />
+                </button>
+              ) : (
+                <button
+                  onClick={() => setScreen(screen + 1)}
+                  className="flex items-center gap-2 rounded-xl bg-primary px-8 py-3 text-label-md font-bold text-on-primary transition-opacity hover:opacity-90"
+                >
+                  Continue <MaterialIcon name="arrow_forward" />
+                </button>
+              )}
             </div>
           </div>
         )}
@@ -652,7 +664,7 @@ export default function PathwayModulePage() {
                   onClick={finishModule}
                   className="flex items-center gap-2 rounded-xl bg-primary px-8 py-3 text-label-md font-bold text-on-primary transition-opacity hover:opacity-90"
                 >
-                  {module.block === "welcome" ? "Start the pathway" : "Finish"} <MaterialIcon name="check" />
+                  {module.id === "w" ? "Start the pathway" : module.block === "welcome" ? "Thank you — continue" : "Finish"} <MaterialIcon name="check" />
                 </button>
               )}
             </div>

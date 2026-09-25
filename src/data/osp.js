@@ -37,16 +37,17 @@ export const TRADES = [
 
 export const OSP_MODULES = [
   // ──────────────────────────────────────────────────────────── WELCOME ──
+  // ─────────────────────────────────── A WORD FROM THE MANAGING DIRECTOR ──
   {
-    id: "w",
-    cover: "/images/hitech-coastal.webp",
-    code: "W",
+    id: "md",
+    code: "MD",
     block: "welcome",
     order: 0,
-    title: "Welcome",
-    subtitle: "A word from the Managing Director, then three screens — about three minutes",
-    minutes: 3,
-    icon: "waving_hand",
+    title: "A word from our Managing Director",
+    subtitle: "A personal invitation — one minute",
+    minutes: 1,
+    icon: "campaign",
+    cover: "/images/dany-abboud.jpg",
     screens: [
       {
         md: true,
@@ -63,6 +64,23 @@ export const OSP_MODULES = [
         ],
         takeaway: "You are invited. Together shaping a responsible future — embrace the journey.",
       },
+    ],
+    quiz: [],
+    closing: "Next: the welcome — three screens, three minutes.",
+  },
+
+  // ──────────────────────────────────────────────────────────── WELCOME ──
+  {
+    id: "w",
+    code: "W",
+    block: "welcome",
+    order: 1,
+    title: "Welcome",
+    subtitle: "Three screens, three minutes",
+    minutes: 3,
+    icon: "waving_hand",
+    cover: "/images/hitech-coastal.webp",
+    screens: [
       {
         heading: "Our Sustainability Pathway",
         photo: "/images/hitech-coastal.webp",
