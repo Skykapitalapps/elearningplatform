@@ -622,30 +622,27 @@ export default function PathwayModulePage() {
       <div className={`rounded-2xl border border-outline-variant bg-surface-container-lowest shadow-sm ${phase === "read" && s.md ? "overflow-hidden p-0" : "p-stack-lg"}`}>
         {module.support && <SupportBanner />}
 
-        {/* The MD's letter: the page split in two — his portrait on the left,
-            the letter set like a real one on the right (serif body, script
-            signature), nothing boxy. */}
+        {/* The MD's letter: a real letter on cream paper — his portrait in a
+            small circle at the top, serif body, script signature. */}
         {phase === "read" && s.md && (
-          <div key={screen} className="animate-fade-up grid md:h-[700px] md:grid-cols-2">
-            {/* Left — the portrait, full height */}
-            <div className="relative h-72 md:h-full">
+          <div key={screen} className="animate-fade-up flex flex-col bg-[#fbfaf6] px-7 py-6 md:px-12 md:py-8">
+            <div className="mb-5 flex items-center gap-4">
               <img
-                src="/images/dany-abboud-tall.jpg"
+                src="/images/dany-abboud.jpg"
                 alt={s.name}
-                className="absolute inset-0 h-full w-full object-cover"
-                style={{ objectPosition: "50% 25%" }}
+                className="h-20 w-20 shrink-0 rounded-full border-2 border-secondary-container object-cover shadow-md md:h-24 md:w-24"
+                style={{ objectPosition: "50% 30%" }}
               />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-primary-container/90 via-primary-container/40 to-transparent px-6 pb-4 pt-14 text-white">
-                <p className="text-headline-md font-black leading-tight">{s.name}</p>
-                <p className="text-caption text-white/85">{s.role}</p>
+              <div className="min-w-0">
+                <p className="text-caption font-bold uppercase tracking-[0.28em] text-secondary">
+                  {s.heading}
+                </p>
+                <p className="mt-1 text-title-lg font-black leading-tight text-primary">{s.name}</p>
+                <p className="text-caption uppercase tracking-widest text-on-surface-variant">{s.role}</p>
               </div>
             </div>
 
-            {/* Right — the letter, everything on one page */}
-            <div className="flex flex-col bg-[#fbfaf6] px-7 py-5 md:px-9 md:py-6">
-              <p className="mb-3 text-caption font-bold uppercase tracking-[0.28em] text-secondary">
-                {s.heading}
-              </p>
+            <div className="mx-auto w-full max-w-2xl">
               {s.body.map((p, i) => (
                 <p
                   key={i}
@@ -666,15 +663,15 @@ export default function PathwayModulePage() {
                 {s.name}
               </p>
               <p className="mt-0.5 text-caption uppercase tracking-widest text-on-surface-variant">{s.role}</p>
+            </div>
 
-              <div className="mt-auto flex items-center justify-end border-t border-outline-variant/50 pt-4">
-                <button
-                  onClick={isLastScreen ? finishModule : () => setScreen(screen + 1)}
-                  className="flex shrink-0 items-center gap-2 rounded-xl bg-primary px-6 py-3 text-label-md font-bold text-on-primary transition-opacity hover:opacity-90"
-                >
-                  {isLastScreen ? "Thank you — continue" : "Continue"} <MaterialIcon name="arrow_forward" />
-                </button>
-              </div>
+            <div className="mt-6 flex items-center justify-end border-t border-outline-variant/50 pt-4">
+              <button
+                onClick={isLastScreen ? finishModule : () => setScreen(screen + 1)}
+                className="flex shrink-0 items-center gap-2 rounded-xl bg-primary px-6 py-3 text-label-md font-bold text-on-primary transition-opacity hover:opacity-90"
+              >
+                {isLastScreen ? "Thank you — continue" : "Continue"} <MaterialIcon name="arrow_forward" />
+              </button>
             </div>
           </div>
         )}
