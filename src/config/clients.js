@@ -56,27 +56,8 @@ const CLIENTS = {
         b6: "/images/hitech-fill.webp", // fill advancing into wetland habitat
       },
     },
-    // ── OUR SUSTAINABILITY PATHWAY role matrix ──────────────────────────
-    // The 12 trades of the "Where you come in" screen are the roles chosen
-    // at registration. Every trade takes the welcome + the 5 core modules;
-    // `modules` lists the role modules (r1 Community, r2 Health & Safety,
-    // r3 Environment, r4 Security & conduct) assigned to that trade.
-    // Derived from the "Assigned to" lines of the module packs, capped at
-    // two per trade so a person follows 6–7 modules — adjust freely here.
-    pathwayRoles: [
-      { key: "pm", label: "Project manager (roads & bridges)", modules: ["r1", "r2"] },
-      { key: "foreman", label: "Foreman / supervisor", modules: ["r2", "r3"] },
-      { key: "plant", label: "Plant manager / operator", modules: ["r2", "r3"] },
-      { key: "workshop", label: "Mechanical workshop", modules: ["r2", "r3"] },
-      { key: "batching", label: "Batching plant", modules: ["r2", "r3"] },
-      { key: "hse", label: "HSE", modules: ["r2", "r3"] },
-      { key: "occhealth", label: "Occupational health / clinic", modules: ["r2", "r4"] },
-      { key: "hr", label: "Human Resources / site administration", modules: ["r2", "r4"] },
-      { key: "procurement", label: "Procurement", modules: ["r3", "r4"] },
-      { key: "security", label: "Security", modules: ["r4", "r1"] },
-      { key: "community", label: "Community relations / liaison", modules: ["r1", "r4"] },
-      { key: "subcontractor", label: "Subcontractor personnel", modules: ["r2", "r3"] },
-    ],
+    // NOTE: the per-trade role matrix (pathwayRoles) was removed — every
+    // learner follows the same full pathway (see src/config/jobRoles.js).
     // Legacy matrix of the reference course (now the "Go further" library —
     // kept for the record; the library is open to everyone regardless).
     jobRoles: [

@@ -169,9 +169,9 @@ export default function DashboardPage() {
         <div className="mb-3 flex items-baseline gap-3">
           <span className="text-headline-md font-black text-secondary">3</span>
           <div>
-            <h2 className="text-headline-md text-primary">Your role modules</h2>
+            <h2 className="text-headline-md text-primary">The role modules</h2>
             <p className="text-caption text-on-surface-variant">
-              Assigned to your job. They open once the five core modules are done.
+              Four modules on daily site life. They open once the five core modules are done.
             </p>
           </div>
         </div>

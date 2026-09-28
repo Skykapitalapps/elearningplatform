@@ -10,7 +10,6 @@ import { modules as referenceModules, moduleAccents, moduleImages } from "./data
 import { OSP_MODULES } from "./data/osp.js";
 import { useAuth } from "./AuthContext.jsx";
 import { supabase, isSupabaseConfigured } from "./lib/supabase.js";
-import { moduleAssigned } from "./config/jobRoles.js";
 
 const CourseContext = createContext(null);
 const STORAGE_KEY = "skykapital-progress-v1";
@@ -145,12 +144,9 @@ export function CourseProvider({ children }) {
     toastTimer.current = setTimeout(() => setToast(null), 3400);
   }
 
-  // The learner only sees the pathway modules assigned to their trade:
-  // welcome + the five core modules, plus their role modules.
-  const assignedModules = useMemo(
-    () => modules.filter((m) => moduleAssigned(m, profile)),
-    [modules, profile]
-  );
+  // Everyone follows the same full pathway — welcome, the five core
+  // modules, then the four role modules.
+  const assignedModules = modules;
 
   const progress = useMemo(() => {
     const mods = assignedModules;

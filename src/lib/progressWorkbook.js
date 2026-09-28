@@ -6,7 +6,6 @@
 // filters, and colour-coded cells so it reads at a glance.
 // ============================================================================
 import { client } from "../config/clients.js";
-import { moduleAssigned } from "../config/jobRoles.js";
 
 const NAVY = "FF0F2137";
 const GOLD = "FFE9C349";
@@ -14,7 +13,6 @@ const GREEN_BG = "FFDCFCE7";
 const GREEN_TX = "FF166534";
 const AMBER_BG = "FFFEF3C7";
 const AMBER_TX = "FF92400E";
-const GREY_BG = "FFF1F3F6";
 const GREY_TX = "FF9AA1AB";
 const ZEBRA = "FFF7F9FB";
 
@@ -58,12 +56,11 @@ export async function downloadProgressWorkbook({ project, per, rows, members, mo
   /* ---------------- Sheet 1 · Overview ---------------- */
   const ov = wb.addWorksheet("Overview");
   titleBand(ov, 10, `Progress report · project: ${project.name} · exported ${today}`);
-  headerRow(ov, ["Learner", "Trade", "Modules done", "Total", "Progress %", "Certified", "Certificate no.", "Last activity", "Sign-ins"]);
+  headerRow(ov, ["Learner", "Modules done", "Total", "Progress %", "Certified", "Certificate no.", "Last activity", "Sign-ins"]);
   const headerAt = 4;
   per.forEach((p, i) => {
     const row = ov.addRow([
       p.full_name || "—",
-      p.job_role || "no trade — full pathway",
       p.done,
       p.totalMods,
       Math.round((p.done / p.totalMods) * 100) / 100,
@@ -76,18 +73,18 @@ export async function downloadProgressWorkbook({ project, per, rows, members, mo
       c.border = BORDER;
       if (i % 2 === 1) c.fill = { type: "pattern", pattern: "solid", fgColor: { argb: ZEBRA } };
     });
-    row.getCell(5).numFmt = "0%";
-    const cert = row.getCell(6);
+    row.getCell(4).numFmt = "0%";
+    const cert = row.getCell(5);
     cert.font = p.certified ? { bold: true, color: { argb: GREEN_TX } } : { color: { argb: GREY_TX } };
     if (p.certified) cert.fill = { type: "pattern", pattern: "solid", fgColor: { argb: GREEN_BG } };
   });
-  ov.columns = [{ width: 28 }, { width: 28 }, { width: 13 }, { width: 8 }, { width: 11 }, { width: 10 }, { width: 20 }, { width: 13 }, { width: 9 }];
+  ov.columns = [{ width: 28 }, { width: 13 }, { width: 8 }, { width: 11 }, { width: 10 }, { width: 20 }, { width: 13 }, { width: 9 }];
   ov.views = [{ state: "frozen", ySplit: headerAt }];
-  ov.autoFilter = { from: { row: headerAt, column: 1 }, to: { row: headerAt + per.length, column: 9 } };
+  ov.autoFilter = { from: { row: headerAt, column: 1 }, to: { row: headerAt + per.length, column: 8 } };
 
   /* ---------------- Sheet 2 · By module ---------------- */
   const bm = wb.addWorksheet("By module");
-  titleBand(bm, modules.length + 1, "Learner × module — green: completed (answered) · amber: in progress · grey: not in this person's pathway");
+  titleBand(bm, modules.length + 1, "Learner × module — green: completed (answered) · amber: in progress");
   headerRow(bm, ["Learner", ...modules.map((m) => m.code)]);
   const byUser = {};
   for (const r of rows ?? []) (byUser[r.user_id] = byUser[r.user_id] ?? {})[r.module_id] = r;
@@ -100,13 +97,8 @@ export async function downloadProgressWorkbook({ project, per, rows, members, mo
       const c = row.getCell(j + 2);
       c.border = BORDER;
       c.alignment = { horizontal: "center" };
-      const assigned = moduleAssigned(mod, { job_role: m.job_role });
       const r = byUser[m.id]?.[mod.id];
-      if (!assigned) {
-        c.value = "—";
-        c.fill = { type: "pattern", pattern: "solid", fgColor: { argb: GREY_BG } };
-        c.font = { color: { argb: GREY_TX } };
-      } else if (r?.status === "completed") {
+      if (r?.status === "completed") {
         c.value = r.earned != null && r.total != null ? `${r.earned}/${r.total}` : "done";
         c.fill = { type: "pattern", pattern: "solid", fgColor: { argb: GREEN_BG } };
         c.font = { bold: true, color: { argb: GREEN_TX } };

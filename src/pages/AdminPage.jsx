@@ -7,7 +7,7 @@ import { useAuth } from "../AuthContext.jsx";
 import { client } from "../config/clients.js";
 import { course, modules } from "../data.js";
 import { downloadCertificatePdf } from "../lib/certificate.js";
-import { PATHWAY_ROLES as JOB_ROLES, pathwayRoleByKey as jobRoleByKey, assignedTotal } from "../config/jobRoles.js";
+import { assignedTotal } from "../config/jobRoles.js";
 import { OSP_MODULES, OSP_BY_ID } from "../data/osp.js";
 import { downloadProgressWorkbook } from "../lib/progressWorkbook.js";
 
@@ -162,7 +162,7 @@ function Home({ projects, people, docs, progressRows, logins, email, onOpen, onO
   progressRows.forEach((r) => {
     if (r.status === "completed" && OSP_BY_ID[r.module_id]) doneByUser[r.user_id] = (doneByUser[r.user_id] ?? 0) + 1;
   });
-  const certified = learners.filter((u) => (doneByUser[u.id] ?? 0) >= assignedTotal(u.job_role)).length;
+  const certified = learners.filter((u) => (doneByUser[u.id] ?? 0) >= assignedTotal()).length;
   const weekAgo = Date.now() - 7 * 24 * 3600 * 1000;
   const signins7d = logins.filter((e) => new Date(e.created_at).getTime() >= weekAgo).length;
   const active7d = new Set(
@@ -441,9 +441,7 @@ function TabBtn({ active, icon, onClick, children }) {
 }
 
 /* ------------------------- PROJECT · PROGRESS ------------------------- */
-// Each learner's pathway size depends on their job role (Pathway A for all,
-// plus their assigned B and C modules) — see src/config/jobRoles.js.
-const TOTAL_MODULES = 18; // full programme, used when no job role is set
+// Everyone follows the same full pathway — see src/config/jobRoles.js.
 
 // Opens the print-ready certificate page (the user's approved mockup,
 // rendered by CertificatePrintPage) in a new tab — it auto-prints.
@@ -477,7 +475,7 @@ function ProjectProgress({ project, people, logins = [] }) {
     const last = mine.map((r) => r.updated_at).sort().slice(-1)[0];
     const pts = mine.reduce((s, r) => s + (r.earned ?? 0), 0);
     const myLogins = logins.filter((e) => e.user_id === m.id);
-    const totalMods = assignedTotal(m.job_role);
+    const totalMods = assignedTotal();
     return {
       ...m,
       done: mine.length,
@@ -637,7 +635,7 @@ function ProjectUsers({ project, people, isAdmin, reload }) {
   const [addId, setAddId] = useState("");
   const [memberQuery, setMemberQuery] = useState("");
   const [memberPage, setMemberPage] = useState(0);
-  const [form, setForm] = useState({ name: "", email: "", password: "", jobRole: "" });
+  const [form, setForm] = useState({ name: "", email: "", password: "" });
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState(null);
   const [err, setErr] = useState(null);
@@ -647,21 +645,6 @@ function ProjectUsers({ project, people, isAdmin, reload }) {
     setErr(null);
     const { error } = await supabase.rpc("set_user_project", { target: id, proj });
     if (error) return setErr(error.message);
-    reload();
-  }
-
-  // Job role decides which pathway modules the learner sees (A = everyone;
-  // B/C per role). Stored on the profile via an admin-only RPC.
-  async function assignJobRole(id, key) {
-    setErr(null);
-    const { error } = await supabase.rpc("set_user_job_role", { target: id, new_job_role: key });
-    if (error) {
-      return setErr(
-        /function|schema/i.test(error.message)
-          ? "Job roles need a one-time database update — run the new SQL block from supabase/schema.sql (JOB ROLES) in the Supabase SQL Editor, then try again."
-          : error.message
-      );
-    }
     reload();
   }
 
@@ -693,7 +676,6 @@ function ProjectUsers({ project, people, isAdmin, reload }) {
     // Assign to the project — retried once, because the profile row is
     // created by a database trigger that can lag behind the signup.
     let projOk = false;
-    let roleOk = false;
     if (res.id) {
       let { error: projErr } = await supabase.rpc("set_user_project", { target: res.id, proj: project.id });
       if (projErr) {
@@ -701,21 +683,14 @@ function ProjectUsers({ project, people, isAdmin, reload }) {
         ({ error: projErr } = await supabase.rpc("set_user_project", { target: res.id, proj: project.id }));
       }
       projOk = !projErr;
-      // Job role (required) — same retry pattern.
-      let { error: roleErr } = await supabase.rpc("set_user_job_role", { target: res.id, new_job_role: form.jobRole });
-      if (roleErr) {
-        await new Promise((r) => setTimeout(r, 1500));
-        ({ error: roleErr } = await supabase.rpc("set_user_job_role", { target: res.id, new_job_role: form.jobRole }));
-      }
-      roleOk = !roleErr;
     }
     // No automatic email: Supabase's built-in mailer is limited to ~2/hour
     // and burning it here blocks account creation itself. The credentials
     // card below is the reliable flow; email invitations can come back once
     // custom SMTP is configured (EMAILS.md).
     setBusy(false);
-    setMsg({ name: form.name.trim(), email, pw: tempPw, projOk, roleOk, jobRole: form.jobRole });
-    setForm({ name: "", email: "", password: "", jobRole: "" });
+    setMsg({ name: form.name.trim(), email, pw: tempPw, projOk });
+    setForm({ name: "", email: "", password: "" });
     reload();
   }
 
@@ -736,14 +711,6 @@ function ProjectUsers({ project, people, isAdmin, reload }) {
           <input type="email" required placeholder="Work email" value={form.email}
             onChange={(e) => setForm({ ...form, email: e.target.value })}
             className="rounded-lg border border-outline-variant bg-white px-4 py-3 text-body-md focus:border-secondary focus:outline-none" />
-          <select required value={form.jobRole}
-            onChange={(e) => setForm({ ...form, jobRole: e.target.value })}
-            className={`rounded-lg border border-outline-variant bg-white px-4 py-3 text-body-md focus:border-secondary focus:outline-none sm:col-span-2 ${form.jobRole ? "text-primary" : "text-on-surface-variant"}`}>
-            <option value="">Job role — decides which modules they see (required)…</option>
-            {JOB_ROLES.map((r) => (
-              <option key={r.key} value={r.key}>{r.label}</option>
-            ))}
-          </select>
           <button type="submit" disabled={busy}
             className="flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-primary-container to-[#2e6b45] px-6 py-3 text-label-md font-bold text-white transition-all hover:brightness-110 disabled:opacity-60 sm:col-span-2 sm:w-auto">
             <MaterialIcon name="person_add" className="text-[18px]" />
@@ -805,18 +772,6 @@ function ProjectUsers({ project, people, isAdmin, reload }) {
                 “Move an existing user into this project” below to add {msg.name}.
               </p>
             )}
-            {msg.roleOk ? (
-              <p className="mt-2 text-caption text-emerald-800">
-                Pathway: <strong>{jobRoleByKey(msg.jobRole)?.label || msg.jobRole}</strong> — they will
-                only see the modules assigned to that role.
-              </p>
-            ) : (
-              <p className="mt-2 rounded-lg bg-amber-50 p-2.5 text-caption font-bold text-amber-800">
-                ⚠ The job role could not be saved{" "}
-                — if this keeps happening, run the “JOB ROLES” SQL block from supabase/schema.sql
-                in the Supabase SQL Editor, then set the role in the member list below.
-              </p>
-            )}
           </div>
         )}
         {err && <p className="mt-3 rounded-lg bg-rose-50 p-3 text-caption text-rose-700">{err}</p>}
@@ -829,14 +784,13 @@ function ProjectUsers({ project, people, isAdmin, reload }) {
           <thead>
             <tr className="border-b border-outline-variant text-caption uppercase tracking-wider text-on-surface-variant">
               <th className="px-stack-md py-stack-sm font-semibold">Name</th>
-              <th className="px-stack-md py-stack-sm font-semibold">Job role (pathway)</th>
               <th className="px-stack-md py-stack-sm font-semibold">Joined</th>
               <th className="px-stack-md py-stack-sm font-semibold"></th>
             </tr>
           </thead>
           <tbody>
             {members.length === 0 ? (
-              <tr><td colSpan={4} className="px-stack-md py-stack-lg text-center text-on-surface-variant">No users in this project yet.</td></tr>
+              <tr><td colSpan={3} className="px-stack-md py-stack-lg text-center text-on-surface-variant">No users in this project yet.</td></tr>
             ) : (
               members
                 .filter((r) => (r.full_name || "").toLowerCase().includes(memberQuery.trim().toLowerCase()))
@@ -844,20 +798,6 @@ function ProjectUsers({ project, people, isAdmin, reload }) {
                 .map((r) => (
                 <tr key={r.id} className="border-b border-surface-container last:border-0">
                   <td className="px-stack-md py-stack-md text-body-md text-primary">{r.full_name || "—"}</td>
-                  <td className="px-stack-md py-stack-md">
-                    <select
-                      value={r.job_role || ""}
-                      onChange={(e) => e.target.value && assignJobRole(r.id, e.target.value)}
-                      className={`w-full max-w-[260px] rounded-lg border px-2.5 py-1.5 text-caption font-semibold focus:border-secondary focus:outline-none ${
-                        r.job_role ? "border-outline-variant bg-white text-primary" : "border-amber-300 bg-amber-50 text-amber-800"
-                      }`}
-                    >
-                      <option value="">⚠ Assign a job role…</option>
-                      {JOB_ROLES.map((jr) => (
-                        <option key={jr.key} value={jr.key}>{jr.label}</option>
-                      ))}
-                    </select>
-                  </td>
                   <td className="px-stack-md py-stack-md text-body-md text-on-surface-variant">{(r.created_at || "").slice(0, 10)}</td>
                   <td className="px-stack-md py-stack-md text-right">
                     <button onClick={() => setConfirmRemove({ id: r.id, name: r.full_name || "this user" })} title="Remove from project"
@@ -1081,40 +1021,15 @@ function ClientSetup() {
         </div>
       </div>
 
-      {/* Role matrix */}
-      <div className="overflow-x-auto rounded-xl border border-outline-variant bg-surface-container-lowest p-stack-lg">
+      {/* One pathway for everyone */}
+      <div className="rounded-xl border border-outline-variant bg-surface-container-lowest p-stack-lg">
         <h2 className="mb-1 flex items-center gap-2 text-headline-md text-primary">
-          <MaterialIcon name="account_tree" className="text-secondary" /> Role matrix
+          <MaterialIcon name="account_tree" className="text-secondary" /> Pathway assignment
         </h2>
-        <p className="mb-stack-md text-caption text-on-surface-variant">
-          {JOB_ROLES.length > 0
-            ? `${JOB_ROLES.length} trades — the twelve of the "Where you come in" screen. Every trade takes the welcome + the five core modules; the role modules are assigned below. A learner without a trade sees the full pathway.`
-            : "No role matrix configured — every learner sees the full pathway."}
+        <p className="text-caption text-on-surface-variant">
+          Every learner follows the same full pathway — the welcome block, the five core
+          modules, then the four role modules ({assignedTotal()} modules in total).
         </p>
-        {JOB_ROLES.length > 0 && (
-          <table className="w-full min-w-[560px] text-left">
-            <thead>
-              <tr className="border-b border-outline-variant text-caption uppercase tracking-wider text-on-surface-variant">
-                <th className="py-2 pr-3 font-semibold">Trade</th>
-                <th className="py-2 pr-3 font-semibold">Role modules</th>
-                <th className="py-2 font-semibold">Total modules</th>
-              </tr>
-            </thead>
-            <tbody>
-              {JOB_ROLES.map((r) => (
-                <tr key={r.key} className="border-b border-surface-container last:border-0">
-                  <td className="py-2.5 pr-3 text-body-md text-primary">{r.label}</td>
-                  <td className="py-2.5 pr-3 text-body-md text-on-surface-variant">
-                    {r.modules.map((id) => OSP_BY_ID[id]?.title ?? id).join(" · ") || "—"}
-                  </td>
-                  <td className="py-2.5 text-body-md font-semibold text-primary">
-                    {assignedTotal(r.key)}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        )}
       </div>
     </div>
   );
