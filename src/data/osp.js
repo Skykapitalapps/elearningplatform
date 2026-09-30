@@ -219,101 +219,146 @@ export const OSP_MODULES = [
     ],
     quiz: [
       {
-        format: "single",
-        stem: "In practice, what most often STOPS the work on a road project like ours?",
-        image: "/images/hitech-haul.webp",
-        options: [
+        "format": "single",
+        "stem": "What does the E in E&S stand for?",
+        "options": [
+          "Environmental.",
+          "Economic.",
+          "Engineering.",
+          "Equipment."
+        ],
+        "feedback": {},
+        "correct": 0,
+        "general": "E is Environmental — what our work does to the place. S is Social — what it does to people.",
+        "image": "/images/african-road.jpg"
+      },
+      {
+        "format": "tf",
+        "stem": "Environmental is about what our work does to people.",
+        "reasons": [
+          "Environmental is the place — the air, the water, the ground, the trees, the animals. Social is the people.",
+          "Environmental covers only paperwork.",
+          "Environmental means the weather."
+        ],
+        "answer": false,
+        "correctReason": 0,
+        "feedback": "Two letters, two sides: the place, and the people.",
+        "image": "/images/esg-environment.jpg"
+      },
+      {
+        "format": "cat",
+        "stem": "The place, or the people? Sort each situation.",
+        "cats": [
+          {
+            "id": "c1",
+            "label": "What we do to the place"
+          },
+          {
+            "id": "c2",
+            "label": "What we do to people"
+          }
+        ],
+        "items": [
+          {
+            "text": "Mud washing off a slope into a stream people drink from",
+            "cat": "c1"
+          },
+          {
+            "text": "A borrow pit left open and full of water",
+            "cat": "c1"
+          },
+          {
+            "text": "Diesel soaking into the ground at a fuel point",
+            "cat": "c1"
+          },
+          {
+            "text": "A worker with no written terms, paid in cash",
+            "cat": "c2"
+          },
+          {
+            "text": "A farmer whose field is now a haul road, still waiting to be paid",
+            "cat": "c2"
+          },
+          {
+            "text": "A child walking to school along a shoulder our trucks use",
+            "cat": "c2"
+          }
+        ],
+        "general": "Environmental is the place; Social is the people. Both are about consequences somebody lives with after we leave."
+      },
+      {
+        "format": "single",
+        "stem": "Which of these is an E&S issue?",
+        "options": [
+          "A dumper with a flat tyre.",
+          "A culvert poured a day behind programme.",
+          "A farmer's field used as a haul road without his agreement.",
+          "A drawing revised by the designer."
+        ],
+        "feedback": {},
+        "correct": 2,
+        "general": "The other three are engineering or programme problems. E&S is what the work does to the place and to people — and a field taken without agreement is a people problem the lenders will hear about first."
+      },
+      {
+        "format": "single",
+        "stem": "Who is affected by our project?",
+        "options": [
+          "Our workers and the client's staff.",
+          "People holding a title to land we take.",
+          "Everyone the works touch — workers, neighbours, farmers, traders, road users.",
+          "Our workers, the client and the regulator."
+        ],
+        "feedback": {},
+        "correct": 2,
+        "general": "Everyone the works touch — including people with no papers for their spot, and people who never set foot on site.",
+        "image": "/images/african-village.jpg"
+      },
+      {
+        "format": "tf",
+        "stem": "A woman sells food beside the road, right where we will build. She has no papers for her spot — so the project owes her nothing.",
+        "reasons": [
+          "No papers does not mean no rights — the lenders count her as an affected person.",
+          "She only counts if she has traded there for more than ten years.",
+          "She only counts if her stall gets demolished."
+        ],
+        "answer": false,
+        "correctReason": 0,
+        "feedback": "This is the single most common mistake on projects like ours. People without papers are often the majority of those affected.",
+        "image": "/images/lm12.jpg"
+      },
+      {
+        "format": "single",
+        "stem": "In practice, what most often STOPS the work on a road project like ours?",
+        "options": [
           "Environmental problems — dust, spills, waste.",
           "People problems — land not paid for, unhappy communities, workers treated badly.",
           "Both stop the work equally often.",
-          "Only technical problems can stop the work.",
+          "Only technical problems can stop the work."
         ],
-        correct: 1,
-        feedback: {
-          0: "Those matter and must be managed. But it is the people problems — land, pay, communities — that most often block a section, and they reach the lenders first.",
-          2: "Not quite equally. Environmental problems usually get fixed on site; a people problem can shut a whole section down.",
-          3: "A breakdown stops one machine. An unpaid farmer or an angry village can stop the whole section — with every machine working fine.",
+        "feedback": {
+          "0": "Those matter and must be managed. But it is the people problems — land, pay, communities — that most often block a section, and they reach the lenders first.",
+          "2": "Not quite equally. Environmental problems usually get fixed on site; a people problem can shut a whole section down.",
+          "3": "A breakdown stops one machine. An unpaid farmer or an angry village can stop the whole section — with every machine working fine."
         },
+        "correct": 1,
+        "image": "/images/hitech-haul.webp"
       },
       {
-        format: "tf",
-        stem: "A woman sells food beside the road, right where we will build. She has no papers for her spot — so the project owes her nothing.",
-        image: "/images/lm12.jpg",
-        answer: false,
-        reasons: [
-          "No papers does not mean no rights — the lenders count her as an affected person.",
-          "She only counts if she has traded there for more than ten years.",
-          "She only counts if her stall gets demolished.",
+        "format": "single",
+        "stem": "A labour supplier brings twenty men onto your section. Who is responsible for how they are treated?",
+        "options": [
+          "The supplier alone.",
+          "The subcontractor who hired the supplier, alone.",
+          "Everyone in the chain — the supplier, the subcontractor and us.",
+          "Nobody, until they are inducted."
         ],
-        correctReason: 0,
-        feedback: "This is the single most common mistake on projects like ours. People without papers are often the majority of those affected.",
-      },
-      {
-        format: "single",
-        stem: "A supervisor fills in a week of inspection records on Friday, from memory. The work was actually done. What is the problem?",
-        image: "/images/lm11.jpg",
-        options: [
-          "There is none, since the work was done.",
-          "The record is false, and once one record is doubted they all are.",
-          "He should have used a different form.",
-          "It only matters if an inspector asks.",
-        ],
-        correct: 1,
-        feedback: {
-          0: "The work being done is exactly what makes this painful. The record still says something that did not happen the way it says, and that is what a checker sees.",
-          3: "Someone will ask. And a record written afterwards is usually recognisable: one handwriting, one pen, no variation.",
+        "feedback": {
+          "3": "They are our responsibility from the moment they step on site — which is why induction happens before they start."
         },
-      },
-      {
-        format: "single",
-        stem: "A labour supplier brings twenty men onto your section. Whose responsibility are they?",
-        image: "/images/hitech-pour.webp",
-        options: ["The supplier's alone.", "The subcontractor who hired the supplier.", "Ours, as well as theirs.", "Nobody's until they are inducted."],
-        correct: 2,
-        feedback: {
-          0: "Both are true and neither removes our part. On a financed project, anyone working on our site is our responsibility, whoever signed their contract.",
-          1: "Both are true and neither removes our part. On a financed project, anyone working on our site is our responsibility, whoever signed their contract.",
-        },
-      },
-      {
-        format: "single",
-        stem: "What does the E in E&S stand for?",
-        image: "/images/african-road.jpg",
-        options: ["Environmental.", "Economic.", "Engineering.", "Equipment."],
-        correct: 0,
-        general: "E is Environmental — what our work does to the place. S is Social — what it does to people.",
-      },
-      {
-        format: "tf",
-        stem: "Environmental is about what our work does to people.",
-        image: "/images/esg-environment.jpg",
-        answer: false,
-        reasons: ["Environmental is the place — the air, the water, the ground, the trees, the animals. Social is the people.", "Environmental covers only paperwork.", "Environmental means the weather."],
-        correctReason: 0,
-        feedback: "Two letters, two sides: the place, and the people.",
-      },
-      {
-        format: "cat",
-        stem: "The place, or the people? Sort each situation.",
-        cats: [{ id: "place", label: "What we do to the place" }, { id: "people", label: "What we do to people" }],
-        items: [
-          { text: "Mud washing off a slope into a stream people drink from", cat: "place" },
-          { text: "A borrow pit left open and full of water", cat: "place" },
-          { text: "Diesel soaking into the ground at a fuel point", cat: "place" },
-          { text: "A worker with no written terms, paid in cash", cat: "people" },
-          { text: "A farmer whose field is now a haul road, still waiting to be paid", cat: "people" },
-          { text: "A child walking to school along a shoulder our trucks use", cat: "people" },
-        ],
-        general: "Environmental is the place; Social is the people. Both are about consequences somebody lives with after we leave.",
-      },
-      {
-        format: "single",
-        stem: "Who is affected by our project?",
-        image: "/images/african-village.jpg",
-        options: ["Only our own workers.", "Only people with land titles.", "Workers, neighbours, farmers, traders, herders and road users.", "Only the client."],
-        correct: 2,
-        general: "Everyone the works touch — including people with no papers for their spot.",
-      },
+        "correct": 2,
+        "general": "If (A) or (B) is chosen: Both are partly true and neither removes our part. On a financed project, anyone working on our site is our responsibility, whoever signed their contract.",
+        "image": "/images/hitech-pour.webp"
+      }
     ],
     closing: "Next: who lends to us, and what they require.",
   },
@@ -434,82 +479,113 @@ export const OSP_MODULES = [
     ],
     quiz: [
       {
-        format: "single",
-        stem: "Why does a lender take an interest in our worker camp?",
-        image: "/images/lm3.jpg",
-        options: ["Curiosity.", "Because conditions on how we build are attached to the money itself.", "Because the camp is expensive.", "It does not, only the regulator does."],
-        correct: 1,
-        feedback: {
-          3: "The regulator does too. The difference is that the regulator can fine us and the lender can stop paying us.",
+        "format": "single",
+        "stem": "Why does a lender take an interest in our worker camp?",
+        "options": [
+          "Because the camp is where most injuries happen.",
+          "Because conditions on how we build are attached to the money itself.",
+          "Because the camp is expensive.",
+          "It does not, only the regulator does."
+        ],
+        "feedback": {
+          "3": "The regulator does too. The difference is that the regulator can fine us and the lender can stop paying us."
         },
+        "correct": 1,
+        "image": "/images/lm3.jpg"
       },
       {
-        format: "tf",
-        stem: "We hold a valid environmental permit, so the environmental question is settled.",
-        image: "/images/lm5.jpg",
-        answer: false,
-        reasons: [
+        "format": "tf",
+        "stem": "We hold a valid environmental permit, so the environmental question is settled.",
+        "reasons": [
           "The permit answers Nigerian law and the lenders require more.",
           "Permits expire.",
-          "Permits do not cover construction.",
+          "Permits do not cover construction."
         ],
-        correctReason: 0,
-        feedback: "Both statements are true at once: we are lawful, and there is more to meet. That is normal on a financed project.",
+        "answer": false,
+        "correctReason": 0,
+        "feedback": "Both statements are true at once: we are lawful, and there is more to meet. That is normal on a financed project.",
+        "image": "/images/lm5.jpg"
       },
       {
-        format: "single",
-        stem: "The national noise limit is one figure. The lender standard sets a lower limit at night. Which applies to night work?",
-        image: "/images/hitech-night.webp",
-        options: ["The national limit.", "The lower night limit.", "Whichever the site prefers.", "Neither, if the permit is silent."],
-        correct: 1,
-        feedback: {
-          0: "The permit is not wrong. It simply answers a different question from the one the lender is asking.",
+        "format": "single",
+        "stem": "The national noise limit is one figure. The lender standard sets a lower limit at night. Which applies to night work?",
+        "options": [
+          "The national limit.",
+          "The lower night limit.",
+          "Whichever the site prefers.",
+          "Neither, if the permit is silent."
+        ],
+        "feedback": {
+          "0": "The permit is not wrong. It simply answers a different question from the one the lender is asking."
         },
+        "correct": 1,
+        "image": "/images/hitech-night.webp"
       },
       {
-        format: "single",
-        stem: "How many IFC Performance Standards are there?",
-        image: "/images/esg-governance.jpg",
-        options: ["Four.", "Six.", "Eight.", "Ten."],
-        correct: 2,
-        general: "Eight, and seven of them apply here. PS7 on Indigenous Peoples does not apply to these corridors.",
+        "format": "single",
+        "stem": "A subcontractor says: “The Performance Standards are the bank's rules, not ours. We only signed a contract with you.” Is he right?",
+        "options": [
+          "Yes — the standards bind only the bank.",
+          "Yes — they bind the client, not contractors.",
+          "No — they are in the financing agreement and flow down through every contract on the project.",
+          "No — but only for environmental matters, not labour."
+        ],
+        "feedback": {},
+        "correct": 2,
+        "general": "Voluntary for the bank when it adopted them, contractual for everyone on this project once they entered the financing agreement. There are eight Performance Standards; seven apply on these corridors."
       },
       {
-        format: "order",
-        stem: "Put the chain in order: how do the standards reach our site?",
-        items: [
+        "format": "order",
+        "stem": "Put the chain in order: how do the standards reach our site?",
+        "items": [
           "The IFC writes the Performance Standards",
           "Banks adopt the Equator Principles",
           "The conditions enter the financing agreement",
-          "Our project must comply on site",
+          "Our project must comply on site"
         ],
-        general: "Voluntary for the bank, contractual for us — once it is in the financing agreement, it binds this project.",
+        "general": "Voluntary for the bank, contractual for us — once it is in the financing agreement, it binds this project."
       },
       {
-        format: "tf",
-        stem: "If the conditions in the financing agreement are not met, the money still moves.",
-        image: "/images/esg-reporting.jpg",
-        answer: false,
-        reasons: ["The conditions are attached to the money itself — unmet conditions can stop a disbursement.", "Money always moves monthly.", "Only the client can stop money."],
-        correctReason: 0,
-        feedback: "That is the whole point of S2: the conditions travel with the money.",
+        "format": "tf",
+        "stem": "If the conditions in the financing agreement are not met, the money still moves.",
+        "reasons": [
+          "The conditions are attached to the money itself — unmet conditions can stop a disbursement.",
+          "Money always moves monthly.",
+          "Only the client can stop money."
+        ],
+        "answer": false,
+        "correctReason": 0,
+        "feedback": "That is the whole point of S2: the conditions travel with the money.",
+        "image": "/images/esg-reporting.jpg"
       },
       {
-        format: "single",
-        stem: "What is a syndicate?",
-        image: "/images/african-roadworks2.jpg",
-        options: ["A group of lenders financing one project together, under one agreement.", "A workers' union.", "A type of permit.", "A subcontractor."],
-        correct: 0,
-        general: "Not one bank — a group, acting together under one set of rules, with one of them speaking for the group.",
+        "format": "single",
+        "stem": "What is a syndicate?",
+        "options": [
+          "A group of lenders financing one project together, under one agreement.",
+          "A workers' union.",
+          "A type of permit.",
+          "A subcontractor."
+        ],
+        "feedback": {},
+        "correct": 0,
+        "general": "Not one bank — a group, acting together under one set of rules, with one of them speaking for the group.",
+        "image": "/images/african-roadworks2.jpg"
       },
       {
-        format: "single",
-        stem: "On this project, Nigerian law is…",
-        image: "/images/lm5.jpg",
-        options: ["Set aside when the lenders require more.", "Applied in full, always — it is the legal minimum.", "Optional.", "Only about permits."],
-        correct: 1,
-        general: "National law is never set aside. The lender standards come on top of it — and the stricter rule wins.",
-      },
+        "format": "single",
+        "stem": "On this project, Nigerian law is…",
+        "options": [
+          "Set aside when the lenders require more.",
+          "Applied in full, always — it is the legal minimum.",
+          "Optional.",
+          "Only about permits."
+        ],
+        "feedback": {},
+        "correct": 1,
+        "general": "National law is never set aside. The lender standards come on top of it — and the stricter rule wins.",
+        "image": "/images/lm5.jpg"
+      }
     ],
     closing: "Next: the documents that govern this project.",
   },
@@ -632,83 +708,113 @@ export const OSP_MODULES = [
     ],
     quiz: [
       {
-        format: "single",
-        stem: "Which document tells your site what to do during construction?",
-        image: "/images/lm13.jpg",
-        options: ["The ESIA.", "The ESDD.", "The ESMP.", "The ESAP."],
-        correct: 2,
-        feedback: {
-          0: "The ESIA says what the impacts are and what we promised. The ESMP turns those promises into what we do.",
+        "format": "single",
+        "stem": "Which document tells your site what to do during construction?",
+        "options": [
+          "The ESIA.",
+          "The ESDD.",
+          "The ESMP.",
+          "The ESAP."
+        ],
+        "feedback": {
+          "0": "The ESIA says what the impacts are and what we promised. The ESMP turns those promises into what we do."
         },
+        "correct": 2,
+        "image": "/images/lm13.jpg"
       },
       {
-        format: "single",
-        stem: "An ESAP action is marked closed. What must exist for that to be true?",
-        image: "/images/lm9.jpg",
-        options: ["The owner's confirmation.", "The date has passed.", "The agreed evidence, checked by someone.", "An entry in the tracker."],
-        correct: 2,
-        feedback: {
-          0: "Both happen without the evidence existing, which is exactly why this is the most common defect in any action tracker.",
-          3: "Both happen without the evidence existing, which is exactly why this is the most common defect in any action tracker.",
-        },
+        "format": "single",
+        "stem": "An ESAP action is marked closed. What must exist for that to be true?",
+        "options": [
+          "The owner's confirmation.",
+          "The date has passed.",
+          "The agreed evidence, checked by someone.",
+          "An entry in the tracker."
+        ],
+        "feedback": {},
+        "correct": 2,
+        "general": "If (A) or (D) is chosen: Both happen without the evidence existing, which is exactly why this is the most common defect in any action tracker.",
+        "image": "/images/lm9.jpg"
       },
       {
-        format: "tf",
-        stem: "A plan and a procedure are the same thing written at different lengths.",
-        image: "/images/lm4.jpg",
-        answer: false,
-        reasons: [
+        "format": "tf",
+        "stem": "A plan and a procedure are the same thing written at different lengths.",
+        "reasons": [
           "A plan organises a risk over a period; a procedure tells one person how to do one task, now.",
           "A plan is approved and a procedure is not.",
-          "A plan is longer.",
+          "A plan is longer."
         ],
-        correctReason: 0,
-        feedback: "This matters on site. Someone who asks what to do needs a procedure, and handing them a ninety page plan answers a question they did not ask.",
+        "answer": false,
+        "correctReason": 0,
+        "feedback": "This matters on site. Someone who asks what to do needs a procedure, and handing them a ninety page plan answers a question they did not ask.",
+        "image": "/images/lm4.jpg"
       },
       {
-        format: "single",
-        stem: "You open a new borrow pit that is not named in the ESIA. What is the position?",
-        image: "/images/hitech-sandwin.webp",
-        options: ["Fine, it is inside the project.", "It is an unassessed activity, whatever else is in order.", "Fine if the landowner agreed.", "Fine if it is temporary."],
-        correct: 1,
-        general: "And it is usually not the only problem: extraction also needs a mineral title, which a landowner cannot give.",
+        "format": "single",
+        "stem": "You open a new borrow pit that is not named in the ESIA. What is the position?",
+        "options": [
+          "Fine, it is inside the project.",
+          "It is an unassessed activity, whatever else is in order.",
+          "Fine if the landowner agreed.",
+          "Fine if it is temporary."
+        ],
+        "feedback": {},
+        "correct": 1,
+        "general": "And it is usually not the only problem: extraction also needs a mineral title, which a landowner cannot give.",
+        "image": "/images/hitech-sandwin.webp"
       },
       {
-        format: "single",
-        stem: "The ESIA is…",
-        image: "/images/african-village.jpg",
-        options: ["The study done before we build.", "The lenders' check.", "Our plan.", "The correction list."],
-        correct: 0,
-        general: "One describes, one verifies, one instructs, one corrects — the ESIA is the one that describes.",
+        "format": "single",
+        "stem": "The ESIA is…",
+        "options": [
+          "The study done before we build.",
+          "The lenders' check.",
+          "Our plan.",
+          "The list of actions agreed with the lenders."
+        ],
+        "feedback": {},
+        "correct": 0,
+        "general": "One describes, one verifies, one instructs, one corrects — the ESIA is the one that describes.",
+        "image": "/images/african-village.jpg"
       },
       {
-        format: "single",
-        stem: "Which document is the list of corrections agreed with the lenders?",
-        image: "/images/lm9.jpg",
-        options: ["The ESIA.", "The ESDD.", "The ESMP.", "The ESAP."],
-        correct: 3,
-        general: "Each ESAP line has a deliverable, a named owner and a date — and some lines are attached to a payment.",
+        "format": "single",
+        "stem": "Which document is the list of corrections agreed with the lenders?",
+        "options": [
+          "The ESIA.",
+          "The ESDD.",
+          "The ESMP.",
+          "The ESAP."
+        ],
+        "feedback": {},
+        "correct": 3,
+        "general": "Each ESAP line has a deliverable, a named owner and a date — and some lines are attached to a payment.",
+        "image": "/images/lm9.jpg"
       },
       {
-        format: "tf",
-        stem: "A record is what proves that a task actually happened.",
-        image: "/images/lm11.jpg",
-        answer: true,
-        reasons: ["A policy commits, a plan organises, a procedure instructs — the record proves.", "Records are optional paperwork.", "Only photographs count as records."],
-        correctReason: 0,
-        feedback: "When a checker asks whether a control was applied, they are asking for the record at the end of that chain.",
+        "format": "tf",
+        "stem": "A record is what proves that a task actually happened.",
+        "reasons": [
+          "A policy commits, a plan organises, a procedure instructs — the record proves.",
+          "Records are optional paperwork.",
+          "Only photographs count as records."
+        ],
+        "answer": true,
+        "correctReason": 0,
+        "feedback": "When a checker asks whether a control was applied, they are asking for the record at the end of that chain.",
+        "image": "/images/lm11.jpg"
       },
       {
-        format: "order",
-        stem: "From commitment to proof — put the four levels in order.",
-        items: [
+        "format": "order",
+        "stem": "From commitment to proof — put the four levels in order.",
+        "items": [
           "Policy — what the company commits to",
           "Plan — what we will do about a defined risk",
           "Procedure — how one task is done, step by step",
-          "Record — proof it happened",
+          "Record — proof it happened"
         ],
-        general: "Most people never open a policy and use a procedure every day. The chain breaks in one place: between the procedure and the record.",
-      },
+        "general": "Most people never open a policy and use a procedure every day. The chain breaks in one place: between the procedure and the record."
+      }
     ],
     closing: "Next: how we are checked.",
   },
@@ -821,85 +927,142 @@ export const OSP_MODULES = [
     ],
     quiz: [
       {
-        format: "single",
-        stem: "Who does the independent consultant work for?",
-        image: "/images/esg-governance.jpg",
-        options: ["Us.", "The client.", "The lenders.", "The regulator."],
-        correct: 2,
-        feedback: {
-          0: "They may say useful things to us. They are not our adviser, and treating them as one leads people to expect help they will not get.",
+        "format": "single",
+        "stem": "Who does the independent consultant work for?",
+        "options": [
+          "Us.",
+          "The client.",
+          "The lenders.",
+          "The regulator."
+        ],
+        "feedback": {
+          "0": "They may say useful things to us. They are not our adviser, and treating them as one leads people to expect help they will not get."
         },
+        "correct": 2,
+        "image": "/images/esg-governance.jpg"
       },
       {
-        format: "tf",
-        stem: "A grievance register with no entries this quarter is a good result.",
-        image: "/images/lm6.jpg",
-        answer: false,
-        reasons: [
+        "format": "tf",
+        "stem": "A grievance register with no entries this quarter is a good result.",
+        "reasons": [
           "It usually means nobody knows the channel, does not trust it, or does not feel safe using it.",
           "It means complaints were resolved verbally.",
-          "It means the quarter was short.",
+          "It means the quarter was short."
         ],
-        correctReason: 0,
-        feedback: "A checker reads an empty register as a project that cannot see its own operation, whatever the covering note says.",
+        "answer": false,
+        "correctReason": 0,
+        "feedback": "A checker reads an empty register as a project that cannot see its own operation, whatever the covering note says.",
+        "image": "/images/lm6.jpg"
       },
       {
-        format: "single",
-        stem: "You find a problem ten days before a visit and fix it. What else should you do?",
-        image: "/images/hitech-dozer.webp",
-        options: ["Nothing, it is resolved.", "Record it, tell the engineer, and show the whole thing at the visit.", "Record it internally and leave it out.", "Wait and see if they notice."],
-        correct: 1,
-        feedback: {
-          0: "Both turn a technical problem into a trust problem, which is far harder to close and reaches every other record we hold.",
-          2: "Both turn a technical problem into a trust problem, which is far harder to close and reaches every other record we hold.",
-        },
-      },
-      {
-        format: "single",
-        stem: "What usually causes a payment to be held?",
-        image: "/images/esg-reporting.jpg",
-        options: ["One severe finding.", "A list of actions nobody closed.", "A regulator's fine.", "A community complaint."],
-        correct: 1,
-        general: "Each of the others can contribute. The common cause is overdue actions, and each of those has a name against it.",
-      },
-      {
-        format: "single",
-        stem: "How often does the lenders' consultant (the IESC) visit?",
-        image: "/images/african-worker.jpg",
-        options: ["Once, before construction.", "Two to four times a year, for the life of the loan.", "Every day.", "Never — they work from documents."],
-        correct: 1,
-        general: "They read our documents, walk our sites, and talk to our people and to the community.",
-      },
-      {
-        format: "tf",
-        stem: "The IESC can instruct people on our site.",
-        image: "/images/esg-governance.jpg",
-        answer: false,
-        reasons: ["They cannot instruct anyone — they write what they found and send it to the people who pay.", "They instruct only foremen.", "They instruct only at the closing meeting."],
-        correctReason: 0,
-        feedback: "They are not our adviser and not the regulator. They give the lenders an accurate picture.",
-      },
-      {
-        format: "cat",
-        stem: "The consultant compares three things. Where does each observation belong?",
-        cats: [{ id: "docs", label: "The documents" }, { id: "site", label: "The site" }, { id: "people", label: "The people" }],
-        items: [
-          { text: "Registers filled in as the work happened", cat: "docs" },
-          { text: "Numbers agreeing between one report and another", cat: "docs" },
-          { text: "The camp at nine at night", cat: "site" },
-          { text: "The pit that is not on the itinerary", cat: "site" },
-          { text: "What a worker says with no supervisor standing there", cat: "people" },
+        "format": "single",
+        "stem": "You find a problem ten days before a visit and fix it. What else should you do?",
+        "options": [
+          "Nothing, it is resolved.",
+          "Record it, report it, and show the whole thing at the visit.",
+          "Record it internally and leave it out.",
+          "Wait and see if they notice."
         ],
-        general: "Where the three disagree, the disagreement is the finding — not the document, not the site: the gap between them.",
+        "feedback": {},
+        "correct": 1,
+        "general": "If (A) or (C) is chosen: Both turn a technical problem into a trust problem, which is far harder to close and reaches every other record we hold.",
+        "image": "/images/hitech-dozer.webp"
       },
       {
-        format: "single",
-        stem: "A finding that stays open across two visits becomes…",
-        image: "/images/lm8.jpg",
-        options: ["Closed automatically.", "A pattern — and that is what escalates.", "Someone else's problem.", "A new plan."],
-        correct: 1,
-        general: "Most findings close normally, and nobody should fear them. Two visits make a pattern.",
+        "format": "single",
+        "stem": "What usually causes a payment to be held?",
+        "options": [
+          "One severe finding.",
+          "A list of actions nobody closed.",
+          "A regulator's fine.",
+          "A community complaint."
+        ],
+        "feedback": {},
+        "correct": 1,
+        "general": "Each of the others can contribute. The common cause is overdue actions, and each of those has a name against it.",
+        "image": "/images/esg-reporting.jpg"
       },
+      {
+        "format": "single",
+        "stem": "The IESC asks to speak to a worker alone. Your supervisor wants to sit in. What do you do?",
+        "options": [
+          "Let the supervisor sit in — it is his section.",
+          "Let the conversation happen alone — that is how they work, and blocking it is itself a finding.",
+          "Choose which worker they speak to.",
+          "Ask them to put their questions in writing instead."
+        ],
+        "feedback": {},
+        "correct": 1,
+        "general": "They read our documents, walk our sites, and talk to our people with no supervisor standing there — two to four visits a year, for the life of the loan."
+      },
+      {
+        "format": "tf",
+        "stem": "The IESC can instruct people on our site.",
+        "reasons": [
+          "They cannot instruct anyone — they write what they found and send it to the people who pay.",
+          "They instruct only foremen.",
+          "They instruct only at the closing meeting."
+        ],
+        "answer": false,
+        "correctReason": 0,
+        "feedback": "They are not our adviser and not the regulator. They give the lenders an accurate picture.",
+        "image": "/images/esg-governance.jpg"
+      },
+      {
+        "format": "cat",
+        "stem": "The consultant compares three things. Where does each observation belong?",
+        "cats": [
+          {
+            "id": "c1",
+            "label": "The documents"
+          },
+          {
+            "id": "c2",
+            "label": "The site"
+          },
+          {
+            "id": "c3",
+            "label": "The people"
+          }
+        ],
+        "items": [
+          {
+            "text": "Registers filled in as the work happened",
+            "cat": "c1"
+          },
+          {
+            "text": "Numbers agreeing between one report and another",
+            "cat": "c1"
+          },
+          {
+            "text": "The camp at nine at night",
+            "cat": "c2"
+          },
+          {
+            "text": "The pit that is not on the itinerary",
+            "cat": "c2"
+          },
+          {
+            "text": "What a worker says with no supervisor standing there",
+            "cat": "c3"
+          }
+        ],
+        "general": "Where the three disagree, the disagreement is the finding — not the document, not the site: the gap between them."
+      },
+      {
+        "format": "single",
+        "stem": "A finding that stays open across two visits becomes…",
+        "options": [
+          "Closed automatically.",
+          "A pattern — and that is what escalates.",
+          "Someone else's problem.",
+          "A new plan."
+        ],
+        "feedback": {},
+        "correct": 1,
+        "general": "Most findings close normally, and nobody should fear them. Two visits make a pattern.",
+        "image": "/images/lm8.jpg"
+      }
     ],
     closing: "Next: a day on this project.",
   },
@@ -1009,87 +1172,115 @@ export const OSP_MODULES = [
     ],
     quiz: [
       {
-        format: "single",
-        stem: "What is a permit to work actually for?",
-        image: "/images/lm5.jpg",
-        options: ["Paperwork.", "Checking that the control exists before the work starts.", "Recording who was on site.", "Satisfying the regulator."],
-        correct: 1,
-        feedback: {
-          0: "That belief is why permits get signed afterwards, and a permit signed afterwards records a check that never happened.",
+        "format": "single",
+        "stem": "What is a permit to work actually for?",
+        "options": [
+          "Paperwork.",
+          "Checking that the control exists before the work starts.",
+          "Recording who was on site.",
+          "Satisfying the regulator."
+        ],
+        "feedback": {
+          "0": "That belief is why permits get signed afterwards, and a permit signed afterwards records a check that never happened."
         },
+        "correct": 1,
+        "image": "/images/lm5.jpg"
       },
       {
-        format: "tf",
-        stem: "A week of inspection sheets completed on Friday is acceptable if the inspections were done.",
-        image: "/images/lm11.jpg",
-        answer: false,
-        reasons: [
+        "format": "tf",
+        "stem": "A week of inspection sheets completed on Friday is acceptable if the inspections were done.",
+        "reasons": [
           "The record is not contemporaneous, and it is usually recognisable, which puts every other record in doubt.",
           "Friday is not a valid inspection day.",
-          "The sheets must be typed.",
+          "The sheets must be typed."
         ],
-        correctReason: 0,
-        feedback: "This is the single most common finding across both corridors. The work being real is what makes it painful.",
+        "answer": false,
+        "correctReason": 0,
+        "feedback": "This is the single most common finding across both corridors. The work being real is what makes it painful.",
+        "image": "/images/lm11.jpg"
       },
       {
-        format: "single",
-        stem: "Something goes wrong during your shift. What comes first?",
-        image: "/images/hitech-pour.webp",
-        options: ["Write it in the register.", "Stop and make it safe.", "Tell the HSE officer.", "Finish the task, then report."],
-        correct: 1,
-        general: "Then tell someone, then write it down the same day. The order matters and it is short enough to remember.",
+        "format": "single",
+        "stem": "Something goes wrong during your shift. What comes first?",
+        "options": [
+          "Write it in the register.",
+          "Stop and make it safe.",
+          "Tell the HSE officer.",
+          "Finish the task, then report."
+        ],
+        "feedback": {},
+        "correct": 1,
+        "general": "Then tell someone, then write it down the same day. The order matters and it is short enough to remember.",
+        "image": "/images/hitech-pour.webp"
       },
       {
-        format: "single",
-        stem: "Your daily records eventually prove which of these?",
-        image: "/images/esg-reporting.jpg",
-        options: [
+        "format": "single",
+        "stem": "Your daily records eventually prove which of these?",
+        "options": [
           "That the ESMP measures are applied and that ESAP actions can close.",
           "That the ESIA was accurate.",
           "Nothing, they stay on site.",
-          "Only that people attended work.",
+          "Only that people attended work."
         ],
-        correct: 0,
-        general: "That is why a missing record is not an administrative matter. It is the reason an action stays open and a payment waits.",
+        "feedback": {},
+        "correct": 0,
+        "general": "That is why a missing record is not an administrative matter. It is the reason an action stays open and a payment waits.",
+        "image": "/images/esg-reporting.jpg"
       },
       {
-        format: "single",
-        stem: "When is anyone new on site inducted?",
-        image: "/images/african-crew.jpg",
-        options: ["Before they start, including a subcontractor's people.", "At the end of their first week.", "Only if they ask.", "Only office staff are inducted."],
-        correct: 0,
-        general: "Anyone new on site today is inducted before they start — that is also a record.",
+        "format": "single",
+        "stem": "When is anyone new on site inducted?",
+        "options": [
+          "Before they start, including a subcontractor's people.",
+          "At the end of their first week.",
+          "Only if they ask.",
+          "Only office staff are inducted."
+        ],
+        "feedback": {},
+        "correct": 0,
+        "general": "Anyone new on site today is inducted before they start — that is also a record.",
+        "image": "/images/african-crew.jpg"
       },
       {
-        format: "single",
-        stem: "A good record is four things. Which four?",
-        image: "/images/lm11.jpg",
-        options: ["Written at the time, signed, complete, and consistent.", "Long, typed, colourful and filed.", "Written on Friday for the week.", "Approved by the client."],
-        correct: 0,
-        general: "A week of sheets filled in on Friday fails the first one — and it is usually recognisable.",
+        "format": "single",
+        "stem": "A good record is four things. Which four?",
+        "options": [
+          "Written at the time, signed, complete, consistent.",
+          "Typed, dated, filed within the week, approved.",
+          "Written on Friday for the week.",
+          "Approved by the client."
+        ],
+        "feedback": {},
+        "correct": 0,
+        "general": "A week of sheets filled in on Friday fails the first one — and it is usually recognisable.",
+        "image": "/images/lm11.jpg"
       },
       {
-        format: "tf",
-        stem: "Near misses are not worth reporting, because nothing happened.",
-        image: "/images/lm14.jpg",
-        answer: false,
-        reasons: ["They are the cheapest information this project will ever get.", "They are reported only monthly.", "Only injuries matter."],
-        correctReason: 0,
-        feedback: "Nobody on this project should ever be criticised for reporting something. The day that happens once, the reporting stops.",
+        "format": "tf",
+        "stem": "Near misses are not worth reporting, because nothing happened.",
+        "reasons": [
+          "They are the cheapest information this project will ever get.",
+          "They are reported only monthly.",
+          "Only injuries matter."
+        ],
+        "answer": false,
+        "correctReason": 0,
+        "feedback": "Nobody on this project should ever be criticised for reporting something. The day that happens once, the reporting stops.",
+        "image": "/images/lm14.jpg"
       },
       {
-        format: "order",
-        stem: "Put the chain in order: from your day to a decision at a bank.",
-        image: "/images/hitech-expressway.webp",
-        items: [
+        "format": "order",
+        "stem": "Put the chain in order: from your day to a decision at a bank.",
+        "items": [
           "A procedure is followed",
           "A record is made",
           "The plan is proved",
           "The action closes",
-          "The payment is released",
+          "The payment is released"
         ],
-        general: "Five steps from a form at the gate to a released payment. It is shorter than anyone thinks.",
-      },
+        "general": "Five steps from a form at the gate to a released payment. It is shorter than anyone thinks.",
+        "image": "/images/hitech-expressway.webp"
+      }
     ],
     closing: "Next: your role modules.",
   },
@@ -1219,86 +1410,115 @@ export const OSP_MODULES = [
     ],
     quiz: [
       {
-        format: "single",
-        stem: "A woman has traded on the road reserve for fifteen years with no papers. Is she affected?",
-        image: "/images/lm12.jpg",
-        options: [
-          "No, she has no right to be there.",
-          "Yes, and she is compensated for her structure and helped to restore her living.",
-          "Only if her stall is demolished.",
-          "Only if she is a resident of the village.",
+        "format": "single",
+        "stem": "The trader with no papers for her spot is an affected person. What is she paid for?",
+        "options": [
+          "The land she trades on.",
+          "Her structure, plus help to restore her living.",
+          "Nothing — no papers, no payment.",
+          "Whatever the community leader decides."
         ],
-        correct: 1,
-        feedback: {
-          0: "She is not paid for the land. She is affected, and leaving her out is the single most common cause of conflict on corridors like ours.",
+        "feedback": {
+          "0": "She is not paid for the land, which is not hers. She is paid for what is hers — the structure — and helped back to the income she had.",
+          "2": "Leaving people without papers out is the single most common cause of conflict on corridors like ours."
         },
+        "correct": 1,
+        "image": "/images/lm12.jpg"
       },
       {
-        format: "tf",
-        stem: "Compensation has been approved internally, so work can start on the parcel.",
-        image: "/images/hitech-embankment.webp",
-        answer: false,
-        reasons: [
+        "format": "tf",
+        "stem": "Compensation has been approved internally, so work can start on the parcel.",
+        "reasons": [
           "The money must be available to collect, not approved.",
           "Work can start once the community leader agrees.",
-          "Work can start if payment follows within a month.",
+          "Work can start if payment follows within a month."
         ],
-        correctReason: 0,
-        feedback: "This is the one thing in this module that cannot be corrected afterwards. Everything else can.",
+        "answer": false,
+        "correctReason": 0,
+        "feedback": "This is the one thing in this module that cannot be corrected afterwards. Everything else can.",
+        "image": "/images/hitech-embankment.webp"
       },
       {
-        format: "single",
-        stem: "Which step of the grievance process is most often skipped?",
-        image: "/images/lm6.jpg",
-        options: ["Logging the complaint.", "Investigating it.", "Telling the complainant the outcome.", "Acknowledging receipt."],
-        correct: 2,
-        general: "And from the complainant's side, a case closed without being told is a case where nothing happened.",
+        "format": "single",
+        "stem": "Which step of the grievance process is most often skipped?",
+        "options": [
+          "Logging the complaint.",
+          "Investigating it.",
+          "Telling the complainant the outcome.",
+          "Acknowledging receipt."
+        ],
+        "feedback": {},
+        "correct": 2,
+        "general": "And from the complainant's side, a case closed without being told is a case where nothing happened.",
+        "image": "/images/lm6.jpg"
       },
       {
-        format: "single",
-        stem: "What is the first control for the effects of several hundred workers arriving?",
-        image: "/images/hitech-skyline.webp",
-        options: ["A better camp.", "Fewer arrivals: hire and train locally, transport people in.", "A community fund.", "More security."],
-        correct: 1,
-        general: "Camp design matters and comes second. Reducing the number of people arriving is the control with the largest effect.",
+        "format": "single",
+        "stem": "What is the first control for the effects of several hundred workers arriving?",
+        "options": [
+          "A better camp.",
+          "Fewer arrivals: hire and train locally, transport people in.",
+          "A community fund.",
+          "More security."
+        ],
+        "feedback": {},
+        "correct": 1,
+        "general": "Camp design matters and comes second. Reducing the number of people arriving is the control with the largest effect.",
+        "image": "/images/hitech-skyline.webp"
       },
       {
-        format: "single",
-        stem: "Compensation is calculated at…",
-        image: "/images/african-bricks.jpg",
-        options: ["The cost of replacing the asset, with nothing taken off for age.", "Market value minus depreciation.", "Whatever was budgeted.", "The community leader's estimate."],
-        correct: 0,
-        general: "A twenty-year-old house is paid at the price of building an equivalent new one.",
+        "format": "single",
+        "stem": "Compensation is calculated at…",
+        "options": [
+          "The cost of replacing the asset, with nothing taken off for age.",
+          "Market value minus depreciation.",
+          "Whatever was budgeted.",
+          "The community leader's estimate."
+        ],
+        "feedback": {},
+        "correct": 0,
+        "general": "A twenty-year-old house is paid at the price of building an equivalent new one.",
+        "image": "/images/african-bricks.jpg"
       },
       {
-        format: "tf",
-        stem: "A public meeting held two years ago at design stage counts as engagement.",
-        image: "/images/esg-social.jpg",
-        answer: false,
-        reasons: ["Engagement is continuous — telling people what is coming before it arrives, and listening while the works run.", "Meetings never count as engagement.", "Only radio announcements count."],
-        correctReason: 0,
-        feedback: "Almost every grievance arises during construction — exactly when most projects stop engaging.",
+        "format": "tf",
+        "stem": "A public meeting held two years ago at design stage counts as engagement.",
+        "reasons": [
+          "Engagement is continuous — telling people what is coming before it arrives, and listening while the works run.",
+          "Meetings never count as engagement.",
+          "Only radio announcements count."
+        ],
+        "answer": false,
+        "correctReason": 0,
+        "feedback": "Almost every grievance arises during construction — exactly when most projects stop engaging.",
+        "image": "/images/esg-social.jpg"
       },
       {
-        format: "single",
-        stem: "Who runs the community grievance mechanism?",
-        image: "/images/lm6.jpg",
-        options: ["The community relations manager and the liaison officers.", "HSE.", "The guards.", "The lenders."],
-        correct: 0,
-        general: "And the workers' channel is a separate one, run by Human Resources — two mechanisms, deliberately separate.",
+        "format": "single",
+        "stem": "Who runs the community grievance mechanism?",
+        "options": [
+          "The community relations manager and the liaison officers.",
+          "HSE.",
+          "The guards.",
+          "The lenders."
+        ],
+        "feedback": {},
+        "correct": 0,
+        "general": "And the workers' channel is a separate one, run by Human Resources — two mechanisms, deliberately separate.",
+        "image": "/images/lm6.jpg"
       },
       {
-        format: "order",
-        stem: "A complaint arrives. Put the steps in order.",
-        items: [
+        "format": "order",
+        "stem": "A complaint arrives. Put the steps in order.",
+        "items": [
           "Logged the day it arrives",
           "Acknowledged",
           "Investigated by someone not involved in it",
           "Answered",
-          "The complainant is told what was decided, and why",
+          "The complainant is told what was decided, and why"
         ],
-        general: "The last step is the one everyone skips — and it is the one the mechanism is judged on.",
-      },
+        "general": "The last step is the one everyone skips — and it is the one the mechanism is judged on."
+      }
     ],
     closing: "Your community plans and the grievance procedure are on the platform under Documents.",
   },
@@ -1443,81 +1663,114 @@ export const OSP_MODULES = [
     ],
     quiz: [
       {
-        format: "single",
-        stem: "A worker is at risk of falling from a bridge deck. What is the first thing to consider?",
-        image: "/images/lm2.jpg",
-        options: ["Issue a harness.", "Assemble at ground level so nobody works at the edge.", "Post a supervisor.", "Write a permit."],
-        correct: 1,
-        feedback: {
-          0: "The harness is the last line, not the plan. Four better answers sit above it.",
+        "format": "single",
+        "stem": "A worker is at risk of falling from a bridge deck. What is the first thing to consider?",
+        "options": [
+          "Issue a harness.",
+          "Assemble at ground level so nobody works at the edge.",
+          "Post a supervisor.",
+          "Write a permit."
+        ],
+        "feedback": {
+          "0": "The harness is the last line, not the plan. Four better answers sit above it."
         },
+        "correct": 1,
+        "image": "/images/lm2.jpg"
       },
       {
-        format: "tf",
-        stem: "The labour supplier holds his men's identity documents for safekeeping, so it is not our concern.",
-        image: "/images/lm9.jpg",
-        answer: false,
-        reasons: [
+        "format": "tf",
+        "stem": "The labour supplier holds his men's identity documents for safekeeping, so it is not our concern.",
+        "reasons": [
           "It is a sign a man cannot leave, and anyone on our site is our responsibility.",
           "It is acceptable if a locker is unavailable.",
-          "It is the supplier's contract, not ours.",
+          "It is the supplier's contract, not ours."
         ],
-        correctReason: 0,
-        feedback: "Provide lockers instead. And there is no legitimate reason to hold a worker's documents.",
+        "answer": false,
+        "correctReason": 0,
+        "feedback": "Provide lockers instead. And there is no legitimate reason to hold a worker's documents.",
+        "image": "/images/lm9.jpg"
       },
       {
-        format: "single",
-        stem: "How many grievance channels does this project have?",
-        image: "/images/lm8.jpg",
-        options: ["One, for everybody.", "Two: one for workers, one for the community.", "One per section.", "Three."],
-        correct: 1,
-        general: "Running them together either exposes people or buries complaints, and usually both.",
+        "format": "single",
+        "stem": "How many grievance channels does this project have?",
+        "options": [
+          "One, for everybody.",
+          "Two: one for workers, one for the community.",
+          "One per section.",
+          "Three."
+        ],
+        "feedback": {},
+        "correct": 1,
+        "general": "Running them together either exposes people or buries complaints, and usually both.",
+        "image": "/images/lm8.jpg"
       },
       {
-        format: "single",
-        stem: "Which control removes a haulage encounter rather than softening it?",
-        image: "/images/hitech-crossing.webp",
-        options: ["Speed limiters.", "Covered loads.", "Rerouting away from the settlement.", "A banksman at the school gate."],
-        correct: 2,
-        general: "The other three are real and they all assume the encounter still happens.",
+        "format": "single",
+        "stem": "Which control removes a haulage encounter rather than softening it?",
+        "options": [
+          "Speed limiters.",
+          "Covered loads.",
+          "Rerouting away from the settlement.",
+          "A banksman at the school gate."
+        ],
+        "feedback": {},
+        "correct": 2,
+        "general": "The other three are real and they all assume the encounter still happens.",
+        "image": "/images/hitech-crossing.webp"
       },
       {
-        format: "order",
-        stem: "A hazard appears. Put the controls in the order you work through them.",
-        items: [
+        "format": "order",
+        "stem": "A hazard appears. Put the controls in the order you work through them.",
+        "items": [
           "Remove the hazard",
           "Reduce it",
           "Engineer it out",
           "Change how people work",
-          "Protective equipment — the last line",
+          "Protective equipment — the last line"
         ],
-        general: "If your answer to a hazard is protective equipment, four better answers were skipped before you got there.",
+        "general": "If your answer to a hazard is protective equipment, four better answers were skipped before you got there."
       },
       {
-        format: "single",
-        stem: "What age rule applies to hazardous work on this site?",
-        image: "/images/african-waterspray.jpg",
-        options: ["Nobody under eighteen — and on a site like this, almost all work is hazardous.", "The national minimum working age.", "Sixteen, with consent.", "There is no rule."],
-        correct: 0,
-        general: "Whatever the national minimum working age says.",
+        "format": "single",
+        "stem": "What age rule applies to hazardous work on this site?",
+        "options": [
+          "Nobody under eighteen.",
+          "The national minimum working age.",
+          "Sixteen, with consent.",
+          "There is no rule."
+        ],
+        "feedback": {},
+        "correct": 0,
+        "general": "Eighteen applies here whatever the national minimum working age says — and on a site like this, almost all work is hazardous.",
+        "image": "/images/african-waterspray.jpg"
       },
       {
-        format: "tf",
-        stem: "Three-tier bunks are acceptable if the room is big enough.",
-        image: "/images/lm3.jpg",
-        answer: false,
-        reasons: ["Occupancy is set by the standard, not by how many beds fit in the room — three tiers are not acceptable.", "They are fine for short stays.", "Only if the room is ventilated."],
-        correctReason: 0,
-        feedback: "And facilities are counted against the people actually there at the peak, not the design figure.",
+        "format": "tf",
+        "stem": "Three-tier bunks are acceptable if the room is big enough.",
+        "reasons": [
+          "Occupancy is set by the standard, not by how many beds fit in the room — three tiers are not acceptable.",
+          "They are fine for short stays.",
+          "Only if the room is ventilated."
+        ],
+        "answer": false,
+        "correctReason": 0,
+        "feedback": "And facilities are counted against the people actually there at the peak, not the design figure.",
+        "image": "/images/lm3.jpg"
       },
       {
-        format: "single",
-        stem: "Who runs the WORKER grievance channel?",
-        image: "/images/lm8.jpg",
-        options: ["Human Resources, with worker representatives.", "Community relations.", "Security.", "The client's engineer."],
-        correct: 0,
-        general: "It cannot run only through the line manager — a large share of complaints are about the line manager.",
-      },
+        "format": "single",
+        "stem": "Who runs the WORKER grievance channel?",
+        "options": [
+          "Human Resources, with worker representatives.",
+          "Community relations.",
+          "Security.",
+          "The client's engineer."
+        ],
+        "feedback": {},
+        "correct": 0,
+        "general": "It cannot run only through the line manager — a large share of complaints are about the line manager.",
+        "image": "/images/lm8.jpg"
+      }
     ],
     closing: "Your traffic, camp and emergency plans are on the platform under Documents.",
   },
@@ -1653,82 +1906,115 @@ export const OSP_MODULES = [
     ],
     quiz: [
       {
-        format: "single",
-        stem: "When should the closure of a borrow pit be designed?",
-        image: "/images/lm7.jpg",
-        options: ["When extraction finishes.", "Before extraction starts.", "When the landowner asks.", "At handover."],
-        correct: 1,
-        feedback: {
-          0: "By then the material to backfill it is gone and the faces cannot be battered. A pit worked for yield cannot be closed at any price.",
+        "format": "single",
+        "stem": "When should the closure of a borrow pit be designed?",
+        "options": [
+          "When extraction finishes.",
+          "Before extraction starts.",
+          "When the landowner asks.",
+          "At handover."
+        ],
+        "feedback": {
+          "0": "By then the material to backfill it is gone and the faces cannot be battered. A pit worked for yield cannot be closed at any price."
         },
+        "correct": 1,
+        "image": "/images/lm7.jpg"
       },
       {
-        format: "tf",
-        stem: "The landowner has agreed, so we can start taking material.",
-        image: "/images/hitech-borrowpit.webp",
-        answer: false,
-        reasons: [
+        "format": "tf",
+        "stem": "The landowner has agreed, so we can start taking material.",
+        "reasons": [
           "Extraction needs a mineral title from a different authority, and the pit must be inside the assessed scope.",
           "We also need the chief's agreement.",
-          "We need it in writing.",
+          "We need it in writing."
         ],
-        correctReason: 0,
-        feedback: "Two separate permissions, two separate authorities. A signature from one does not substitute for the other.",
+        "answer": false,
+        "correctReason": 0,
+        "feedback": "Two separate permissions, two separate authorities. A signature from one does not substitute for the other.",
+        "image": "/images/hitech-borrowpit.webp"
       },
       {
-        format: "single",
-        stem: "A used oil filter is dropped into a general waste skip. What happens?",
-        image: "/images/esg-pollution.jpg",
-        options: ["Nothing, it is one filter.", "The whole load becomes hazardous waste.", "It is removed at the landfill.", "It only matters if inspected."],
-        correct: 1,
-        general: "One small item turns a small quantity of controlled waste into a large one. That is the mechanism behind most waste findings.",
+        "format": "single",
+        "stem": "A used oil filter is dropped into a general waste skip. What happens?",
+        "options": [
+          "Nothing, it is one filter.",
+          "The whole load becomes hazardous waste.",
+          "It is removed at the landfill.",
+          "It only matters if inspected."
+        ],
+        "feedback": {},
+        "correct": 1,
+        "general": "One small item turns a small quantity of controlled waste into a large one. That is the mechanism behind most waste findings.",
+        "image": "/images/esg-pollution.jpg"
       },
       {
-        format: "single",
-        stem: "Your bucket exposes what looks like a grave. What do you do first?",
-        image: "/images/lm1.jpg",
-        options: ["Photograph it.", "Stop and switch off.", "Call your foreman and keep working nearby.", "Cover it over."],
-        correct: 1,
-        general: "Then do not touch it, secure a radius, call the number, and nobody works there until the named person attends.",
+        "format": "single",
+        "stem": "Your bucket exposes what looks like a grave. Your foreman says to photograph it for the record before anyone else arrives. Do you?",
+        "options": [
+          "Yes — a photograph is evidence.",
+          "No — nothing is touched, moved or photographed until the named person attends.",
+          "Yes, but only from a distance.",
+          "Yes, if the foreman signs for it."
+        ],
+        "feedback": {},
+        "correct": 1,
+        "general": "Stop, switch off, secure a radius, call the number on your induction card. Photographs come later, and not from us.",
+        "image": "/images/lm1.jpg"
       },
       {
-        format: "single",
-        stem: "When do silt fences and settlement ponds go in?",
-        image: "/images/hitech-fill.webp",
-        options: ["Before the rains — not after the first storm.", "After a complaint.", "At handover.", "They are optional."],
-        correct: 0,
-        general: "Almost every control in this module is cheap before and expensive after. That gap is the whole argument.",
+        "format": "single",
+        "stem": "When do silt fences and settlement ponds go in?",
+        "options": [
+          "Before the rains — not after the first storm.",
+          "After a complaint.",
+          "At handover.",
+          "They are optional."
+        ],
+        "feedback": {},
+        "correct": 0,
+        "general": "Almost every control in this module is cheap before and expensive after. That gap is the whole argument.",
+        "image": "/images/hitech-fill.webp"
       },
       {
-        format: "single",
-        stem: "Concrete wash water is…",
-        image: "/images/hitech-paving.webp",
-        options: ["Harmless.", "Strongly alkaline and lethal to fish — contained and settled, never sent to a ditch.", "Drinking water after settling.", "Only a problem in the dry season."],
-        correct: 1,
-        general: "The batching plants are the largest environmental operation on this project.",
+        "format": "single",
+        "stem": "Concrete wash water is…",
+        "options": [
+          "Harmless.",
+          "Strongly alkaline — it kills fish.",
+          "Drinking water after settling.",
+          "Only a problem in the dry season."
+        ],
+        "feedback": {},
+        "correct": 1,
+        "general": "Contained and settled, never sent to a ditch. The batching plants are the largest environmental operation on this project.",
+        "image": "/images/hitech-paving.webp"
       },
       {
-        format: "tf",
-        stem: "Dust and noise should be measured at the site fence.",
-        image: "/images/esg-pollution.jpg",
-        answer: false,
-        reasons: ["Measure at the house, where the people are — a reading at the fence tells you nothing about the people downwind.", "The fence is the official measuring point.", "Measurement is optional."],
-        correctReason: 0,
-        feedback: "And the night noise limit is lower than the day one, because lost sleep is a health effect.",
+        "format": "tf",
+        "stem": "Dust and noise should be measured at the site fence.",
+        "reasons": [
+          "Measure at the house, where the people are — a reading at the fence tells you nothing about the people downwind.",
+          "The fence is the official measuring point.",
+          "Measurement is optional."
+        ],
+        "answer": false,
+        "correctReason": 0,
+        "feedback": "And the night noise limit is lower than the day one, because lost sleep is a health effect.",
+        "image": "/images/esg-pollution.jpg"
       },
       {
-        format: "order",
-        stem: "Your bucket exposes what looks like a grave. Put the five steps in order.",
-        image: "/images/hitech-culvert.webp",
-        items: [
+        "format": "order",
+        "stem": "Your bucket exposes what looks like a grave. Put the five steps in order.",
+        "items": [
           "Stop and switch off",
           "Do not touch, move or photograph anything",
           "Mark and secure a radius, keep everyone out",
           "Call the number on your induction card",
-          "Nobody works there until the named person releases it",
+          "Nobody works there until the named person releases it"
         ],
-        general: "Learn these five cold. They are the only part of this module you may need in the next five minutes.",
-      },
+        "general": "Learn these five cold. They are the only part of this module you may need in the next five minutes.",
+        "image": "/images/hitech-culvert.webp"
+      }
     ],
     closing: "Your waste, pit, spill and monitoring plans are on the platform under Documents.",
   },
@@ -1834,74 +2120,135 @@ export const OSP_MODULES = [
     ],
     quiz: [
       {
-        format: "single",
-        stem: "The national age of consent is sixteen. A seventeen year old is involved. What applies?",
-        options: ["National law.", "The project rule of eighteen, with no exception.", "It depends on consent.", "It depends on the country of the worker."],
-        correct: 1,
-        general: "The project sets eighteen for itself and for everyone it engages, and it is in the code every person signs.",
+        "format": "single",
+        "stem": "The national age of consent is sixteen. A seventeen year old is involved. What applies?",
+        "options": [
+          "National law.",
+          "The project rule of eighteen, with no exception.",
+          "It depends on consent.",
+          "It depends on the country of the worker."
+        ],
+        "feedback": {},
+        "correct": 1,
+        "general": "The project sets eighteen for itself and for everyone it engages, and it is in the code every person signs."
       },
       {
-        format: "tf",
-        stem: "Someone tells you something. You should bring them and the person named together to clear it up.",
-        answer: false,
-        reasons: [
+        "format": "tf",
+        "stem": "Someone tells you something. You should bring them and the person named together to clear it up.",
+        "reasons": [
           "Never. It is not a misunderstanding, and it re-exposes the person who was harmed.",
           "Only with a witness.",
-          "Only if both agree.",
+          "Only if both agree."
         ],
-        correctReason: 0,
-        feedback: "Listen once, ask what they need, be honest about who you must tell, and pass it to the named trained person.",
+        "answer": false,
+        "correctReason": 0,
+        "feedback": "Listen once, ask what they need, be honest about who you must tell, and pass it to the named trained person."
       },
       {
-        format: "single",
-        stem: "Your subcontractor signed the code of conduct at company level for its forty workers. Is that enough?",
-        options: ["Yes, the company is bound.", "No. Individual signature, by name, after it is explained.", "Yes if it is in the contract.", "Yes for suppliers, no for subcontractors."],
-        correct: 1,
-        general: "A company signature binds a company. Forty people have still been told nothing.",
-      },
-      {
-        format: "single",
-        stem: "Which requirement about security guards is most often missing on projects like ours?",
-        options: ["Uniforms.", "A way for the community to complain about a guard.", "Shift rosters.", "A contract with a registered provider."],
-        correct: 1,
-        general: "And it cannot be the guard post. Nobody with a complaint about a guard can be asked to raise it with a guard.",
-      },
-      {
-        format: "single",
-        stem: "Who signs the code of conduct?",
-        options: ["The company, once, on behalf of everyone.", "Every person individually, after it is explained, in a language they understand.", "Managers only.", "The client."],
-        correct: 1,
-        general: "A company signature binds a company and tells no worker anything.",
-      },
-      {
-        format: "tf",
-        stem: "Retaliation is acceptable if the report turns out to be wrong.",
-        answer: false,
-        reasons: ["No retaliation, ever — against anyone who reports, supports a report, or takes part in an investigation.", "Only managers may respond to a report.", "It depends on the case."],
-        correctReason: 0,
-        feedback: "That rule has no exceptions, and it is in the code every person signs.",
-      },
-      {
-        format: "single",
-        stem: "Before arming any guard, we…",
-        options: ["Assess whether it is warranted — usually it is not.", "Always arm them.", "Ask the community to vote.", "Arm only the night shift."],
-        correct: 0,
-        general: "Arming a force that does not need to be armed creates the risk it was meant to prevent.",
-      },
-      {
-        format: "cat",
-        stem: "Someone discloses something to you. Acceptable, or never acceptable?",
-        cats: [{ id: "ok", label: "Acceptable" }, { id: "never", label: "Never acceptable" }],
-        items: [
-          { text: "Listening once, in their words", cat: "ok" },
-          { text: "Asking what they need and what would make them safe", cat: "ok" },
-          { text: "Being honest about who you will have to tell", cat: "ok" },
-          { text: "Bringing the two people together to clear it up", cat: "never" },
-          { text: "A payment to close the complaint", cat: "never" },
-          { text: "Describing the case in a monthly report", cat: "never" },
+        "format": "single",
+        "stem": "Your subcontractor's forty workers each signed the code of conduct — in English, which most of them do not read. Is that enough?",
+        "options": [
+          "Yes — a signature is a signature.",
+          "No. It must be explained, in a language each person understands, before they sign.",
+          "Yes, if a translated copy is on the notice board.",
+          "Yes, if the company signed as well."
         ],
-        general: "Listen once, pass it to the named trained person — and never mediate, never pay, never publish.",
+        "feedback": {},
+        "correct": 1,
+        "general": "A signature on a page nobody understood tells the worker nothing. Explained, understood, then signed — that is the record."
       },
+      {
+        "format": "single",
+        "stem": "Which requirement about security guards is most often missing on projects like ours?",
+        "options": [
+          "Uniforms.",
+          "A way for the community to complain about a guard.",
+          "Shift rosters.",
+          "A contract with a registered provider."
+        ],
+        "feedback": {},
+        "correct": 1,
+        "general": "And it cannot be the guard post. Nobody with a complaint about a guard can be asked to raise it with a guard."
+      },
+      {
+        "format": "single",
+        "stem": "Who signs the code of conduct?",
+        "options": [
+          "The company, once, on behalf of everyone.",
+          "Every person individually.",
+          "Managers only.",
+          "The client."
+        ],
+        "feedback": {},
+        "correct": 1,
+        "general": "After it is explained, in a language they understand. A company signature binds a company and tells no worker anything."
+      },
+      {
+        "format": "tf",
+        "stem": "Retaliation is acceptable if the report turns out to be wrong.",
+        "reasons": [
+          "No retaliation, ever — against anyone who reports, supports a report, or takes part in an investigation.",
+          "Only managers may respond to a report.",
+          "It depends on the case."
+        ],
+        "answer": false,
+        "correctReason": 0,
+        "feedback": "That rule has no exceptions, and it is in the code every person signs."
+      },
+      {
+        "format": "single",
+        "stem": "Before arming any guard, we…",
+        "options": [
+          "Assess whether it is warranted — usually it is not.",
+          "Always arm them.",
+          "Arm them wherever the police recommend it.",
+          "Arm only the night shift."
+        ],
+        "feedback": {},
+        "correct": 0,
+        "general": "Arming a force that does not need to be armed creates the risk it was meant to prevent."
+      },
+      {
+        "format": "cat",
+        "stem": "Someone discloses something to you. Acceptable, or never acceptable?",
+        "cats": [
+          {
+            "id": "c1",
+            "label": "Acceptable"
+          },
+          {
+            "id": "c2",
+            "label": "Never acceptable"
+          }
+        ],
+        "items": [
+          {
+            "text": "Listening once, in their words",
+            "cat": "c1"
+          },
+          {
+            "text": "Asking what they need and what would make them safe",
+            "cat": "c1"
+          },
+          {
+            "text": "Being honest about who you will have to tell",
+            "cat": "c1"
+          },
+          {
+            "text": "Bringing the two people together to clear it up",
+            "cat": "c2"
+          },
+          {
+            "text": "A payment to close the complaint",
+            "cat": "c2"
+          },
+          {
+            "text": "Describing the case in a monthly report",
+            "cat": "c2"
+          }
+        ],
+        "general": "Listen once, pass it to the named trained person — and never mediate, never pay, never publish."
+      }
     ],
     closing: "The support link stays available to you from the pathway menu after this module.",
   },
