@@ -2806,12 +2806,6 @@ export const resourceCategories = [
         icon: "account_balance",
         accent: "#f43f5e",
       },
-      {
-        title: "Whistleblowing Policy",
-        note: "How to report concerns safely and without retaliation.",
-        icon: "campaign",
-        accent: "#0ea5e9",
-      },
     ],
   },
   {
@@ -2871,12 +2865,6 @@ export const resourceCategories = [
         icon: "handshake",
         accent: "#f59e0b",
         doc: "subcontractor-policy",
-      },
-      {
-        title: "Construction Environmental & Social Management Plan (CESMP)",
-        note: "Project-specific ESG controls on site.",
-        icon: "engineering",
-        accent: "#3b82f6",
       },
     ],
   },
