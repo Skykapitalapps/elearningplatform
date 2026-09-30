@@ -221,6 +221,7 @@ export const OSP_MODULES = [
       {
         "format": "single",
         "stem": "What does the E in E&S stand for?",
+        "hint": "E&S — two letters, two sides of the same work. One of them is about nature: the air, the water, the ground.",
         "options": [
           "Environmental.",
           "Economic.",
@@ -235,6 +236,7 @@ export const OSP_MODULES = [
       {
         "format": "tf",
         "stem": "Environmental is about what our work does to people.",
+        "hint": "One side is the PLACE, the other is the PEOPLE. Which of the two is 'Environmental'?",
         "reasons": [
           "Environmental is the place — the air, the water, the ground, the trees, the animals. Social is the people.",
           "Environmental covers only paperwork.",
@@ -248,6 +250,7 @@ export const OSP_MODULES = [
       {
         "format": "cat",
         "stem": "The place, or the people? Sort each situation.",
+        "hint": "Ask for each card: does this harm the land, water or air — or does it harm a person's rights, safety or income?",
         "cats": [
           {
             "id": "c1",
@@ -289,6 +292,7 @@ export const OSP_MODULES = [
       {
         "format": "single",
         "stem": "Which of these is an E&S issue?",
+        "hint": "An E&S issue touches the place or the people. A flat tyre or a late pour is just an ordinary engineering day.",
         "options": [
           "A dumper with a flat tyre.",
           "A culvert poured a day behind programme.",
@@ -302,6 +306,7 @@ export const OSP_MODULES = [
       {
         "format": "single",
         "stem": "Who is affected by our project?",
+        "hint": "Think wider than the fence: who FEELS the works — the dust, the trucks, the land taken, the jobs?",
         "options": [
           "Our workers and the client's staff.",
           "People holding a title to land we take.",
@@ -316,6 +321,7 @@ export const OSP_MODULES = [
       {
         "format": "tf",
         "stem": "A woman sells food beside the road, right where we will build. She has no papers for her spot — so the project owes her nothing.",
+        "hint": "The lenders' question is not “does she have papers?” — it is “does our project affect her?”",
         "reasons": [
           "No papers does not mean no rights — the lenders count her as an affected person.",
           "She only counts if she has traded there for more than ten years.",
@@ -329,6 +335,7 @@ export const OSP_MODULES = [
       {
         "format": "single",
         "stem": "In practice, what most often STOPS the work on a road project like ours?",
+        "hint": "Machines get repaired in a day. Think about what can make a whole community stand in front of the machines.",
         "options": [
           "Environmental problems — dust, spills, waste.",
           "People problems — land not paid for, unhappy communities, workers treated badly.",
@@ -346,6 +353,7 @@ export const OSP_MODULES = [
       {
         "format": "single",
         "stem": "A labour supplier brings twenty men onto your section. Who is responsible for how they are treated?",
+        "hint": "On a financed project the site is one chain. Whoever signed the man's contract — whose site is he working on?",
         "options": [
           "The supplier alone.",
           "The subcontractor who hired the supplier, alone.",
@@ -481,6 +489,7 @@ export const OSP_MODULES = [
       {
         "format": "single",
         "stem": "Why does a lender take an interest in our worker camp?",
+        "hint": "Follow the money: the lenders attached conditions to it. Wherever the money goes, the conditions go too.",
         "options": [
           "Because the camp is where most injuries happen.",
           "Because conditions on how we build are attached to the money itself.",
@@ -496,6 +505,7 @@ export const OSP_MODULES = [
       {
         "format": "tf",
         "stem": "We hold a valid environmental permit, so the environmental question is settled.",
+        "hint": "A permit answers the Nigerian legal minimum. Do the lenders stop there, or do they ask for more?",
         "reasons": [
           "The permit answers Nigerian law and the lenders require more.",
           "Permits expire.",
@@ -509,6 +519,7 @@ export const OSP_MODULES = [
       {
         "format": "single",
         "stem": "The national noise limit is one figure. The lender standard sets a lower limit at night. Which applies to night work?",
+        "hint": "The rule of this project: when two limits differ, which one wins — the softer or the stricter?",
         "options": [
           "The national limit.",
           "The lower night limit.",
@@ -524,6 +535,7 @@ export const OSP_MODULES = [
       {
         "format": "single",
         "stem": "A subcontractor says: “The Performance Standards are the bank's rules, not ours. We only signed a contract with you.” Is he right?",
+        "hint": "The Performance Standards are written into the financing agreement of THIS project. And what do contracts do with obligations? They flow them down.",
         "options": [
           "Yes — the standards bind only the bank.",
           "Yes — they bind the client, not contractors.",
@@ -549,6 +561,7 @@ export const OSP_MODULES = [
       {
         "format": "tf",
         "stem": "If the conditions in the financing agreement are not met, the money still moves.",
+        "hint": "The conditions are attached to the money itself. So what happens to a payment when its conditions are not met?",
         "reasons": [
           "The conditions are attached to the money itself — unmet conditions can stop a disbursement.",
           "Money always moves monthly.",
@@ -562,6 +575,7 @@ export const OSP_MODULES = [
       {
         "format": "single",
         "stem": "What is a syndicate?",
+        "hint": "“Syn-” means together. Think of several banks financing one project.",
         "options": [
           "A group of lenders financing one project together, under one agreement.",
           "A workers' union.",
@@ -576,6 +590,7 @@ export const OSP_MODULES = [
       {
         "format": "single",
         "stem": "On this project, Nigerian law is…",
+        "hint": "The lender standards come ON TOP of something. What is the floor that always applies, everywhere in the country?",
         "options": [
           "Set aside when the lenders require more.",
           "Applied in full, always — it is the legal minimum.",
@@ -711,6 +726,7 @@ export const OSP_MODULES = [
       {
         "format": "single",
         "stem": "Which document tells your site what to do during construction?",
+        "hint": "ESMP = Environmental and Social Management PLAN. “Management” is the clue — it manages the construction, day by day.",
         "options": [
           "The ESIA.",
           "The ESDD.",
@@ -726,6 +742,7 @@ export const OSP_MODULES = [
       {
         "format": "single",
         "stem": "An ESAP action is marked closed. What must exist for that to be true?",
+        "hint": "ESAP = Environmental and Social ACTION Plan — the list of agreed corrections. “Closed” is a claim; on this project, what backs up a claim?",
         "options": [
           "The owner's confirmation.",
           "The date has passed.",
@@ -740,6 +757,7 @@ export const OSP_MODULES = [
       {
         "format": "tf",
         "stem": "A plan and a procedure are the same thing written at different lengths.",
+        "hint": "A PLAN organises a risk over months. A PROCEDURE walks one person through one task, step by step. Are those the same thing?",
         "reasons": [
           "A plan organises a risk over a period; a procedure tells one person how to do one task, now.",
           "A plan is approved and a procedure is not.",
@@ -753,6 +771,7 @@ export const OSP_MODULES = [
       {
         "format": "single",
         "stem": "You open a new borrow pit that is not named in the ESIA. What is the position?",
+        "hint": "ESIA = Environmental and Social Impact ASSESSMENT — the study of what was assessed before building. What about an activity the study never looked at?",
         "options": [
           "Fine, it is inside the project.",
           "It is an unassessed activity, whatever else is in order.",
@@ -767,6 +786,7 @@ export const OSP_MODULES = [
       {
         "format": "single",
         "stem": "The ESIA is…",
+        "hint": "Impact ASSESSMENT: does “assessing” happen before the bulldozers arrive, or after?",
         "options": [
           "The study done before we build.",
           "The lenders' check.",
@@ -781,6 +801,7 @@ export const OSP_MODULES = [
       {
         "format": "single",
         "stem": "Which document is the list of corrections agreed with the lenders?",
+        "hint": "You are looking for the acronym with ACTION in it — actions agreed with the lenders to correct gaps.",
         "options": [
           "The ESIA.",
           "The ESDD.",
@@ -795,6 +816,7 @@ export const OSP_MODULES = [
       {
         "format": "tf",
         "stem": "A record is what proves that a task actually happened.",
+        "hint": "The policy commits, the plan organises, the procedure instructs… what is left to PROVE that it actually happened?",
         "reasons": [
           "A policy commits, a plan organises, a procedure instructs — the record proves.",
           "Records are optional paperwork.",
@@ -808,6 +830,7 @@ export const OSP_MODULES = [
       {
         "format": "order",
         "stem": "From commitment to proof — put the four levels in order.",
+        "hint": "Go from the widest promise to the smallest proof: commitment → organisation → instruction → evidence.",
         "items": [
           "Policy — what the company commits to",
           "Plan — what we will do about a defined risk",
@@ -930,6 +953,7 @@ export const OSP_MODULES = [
       {
         "format": "single",
         "stem": "Who does the independent consultant work for?",
+        "hint": "“Independent” — of us AND of the client. So who hires them and reads their reports?",
         "options": [
           "Us.",
           "The client.",
@@ -945,6 +969,7 @@ export const OSP_MODULES = [
       {
         "format": "tf",
         "stem": "A grievance register with no entries this quarter is a good result.",
+        "hint": "Zero complaints in a quarter: does that mean zero problems — or zero trust in the channel?",
         "reasons": [
           "It usually means nobody knows the channel, does not trust it, or does not feel safe using it.",
           "It means complaints were resolved verbally.",
@@ -958,6 +983,7 @@ export const OSP_MODULES = [
       {
         "format": "single",
         "stem": "You find a problem ten days before a visit and fix it. What else should you do?",
+        "hint": "Fixing is half the job. What turns a fix into something a checker can believe two years later?",
         "options": [
           "Nothing, it is resolved.",
           "Record it, report it, and show the whole thing at the visit.",
@@ -972,6 +998,7 @@ export const OSP_MODULES = [
       {
         "format": "single",
         "stem": "What usually causes a payment to be held?",
+        "hint": "Lenders rarely hold money for one incident. They hold it for things that STAY open. Which list is that?",
         "options": [
           "One severe finding.",
           "A list of actions nobody closed.",
@@ -986,6 +1013,7 @@ export const OSP_MODULES = [
       {
         "format": "single",
         "stem": "The IESC asks to speak to a worker alone. Your supervisor wants to sit in. What do you do?",
+        "hint": "IESC = the lenders' Independent Environmental and Social Consultant. Their method relies on people speaking freely. What kills that?",
         "options": [
           "Let the supervisor sit in — it is his section.",
           "Let the conversation happen alone — that is how they work, and blocking it is itself a finding.",
@@ -999,6 +1027,7 @@ export const OSP_MODULES = [
       {
         "format": "tf",
         "stem": "The IESC can instruct people on our site.",
+        "hint": "The IESC observes and writes. Who receives what they wrote — and who acts on it?",
         "reasons": [
           "They cannot instruct anyone — they write what they found and send it to the people who pay.",
           "They instruct only foremen.",
@@ -1012,6 +1041,7 @@ export const OSP_MODULES = [
       {
         "format": "cat",
         "stem": "The consultant compares three things. Where does each observation belong?",
+        "hint": "The consultant checks three sources against each other: what is WRITTEN, what is BUILT, what people SAY. Match each observation to its source.",
         "cats": [
           {
             "id": "c1",
@@ -1053,6 +1083,7 @@ export const OSP_MODULES = [
       {
         "format": "single",
         "stem": "A finding that stays open across two visits becomes…",
+        "hint": "Once is an incident. Twice, unchanged, is something else — and that is what worries a lender.",
         "options": [
           "Closed automatically.",
           "A pattern — and that is what escalates.",
@@ -1175,6 +1206,7 @@ export const OSP_MODULES = [
       {
         "format": "single",
         "stem": "What is a permit to work actually for?",
+        "hint": "A permit to work happens BEFORE the task, not after. So what is it checking?",
         "options": [
           "Paperwork.",
           "Checking that the control exists before the work starts.",
@@ -1190,6 +1222,7 @@ export const OSP_MODULES = [
       {
         "format": "tf",
         "stem": "A week of inspection sheets completed on Friday is acceptable if the inspections were done.",
+        "hint": "A record must be written WHEN the thing happens. What does a Friday batch of sheets look like to a checker?",
         "reasons": [
           "The record is not contemporaneous, and it is usually recognisable, which puts every other record in doubt.",
           "Friday is not a valid inspection day.",
@@ -1203,6 +1236,7 @@ export const OSP_MODULES = [
       {
         "format": "single",
         "stem": "Something goes wrong during your shift. What comes first?",
+        "hint": "People first, paper second. What is the very first move when something goes wrong?",
         "options": [
           "Write it in the register.",
           "Stop and make it safe.",
@@ -1217,6 +1251,7 @@ export const OSP_MODULES = [
       {
         "format": "single",
         "stem": "Your daily records eventually prove which of these?",
+        "hint": "ESMP = the daily management plan; ESAP = the list of corrections. Your daily paperwork is what connects both to reality.",
         "options": [
           "That the ESMP measures are applied and that ESAP actions can close.",
           "That the ESIA was accurate.",
@@ -1231,6 +1266,7 @@ export const OSP_MODULES = [
       {
         "format": "single",
         "stem": "When is anyone new on site inducted?",
+        "hint": "Induction is protection. Does protection have to exist before the first hour of work, or after?",
         "options": [
           "Before they start, including a subcontractor's people.",
           "At the end of their first week.",
@@ -1245,6 +1281,7 @@ export const OSP_MODULES = [
       {
         "format": "single",
         "stem": "A good record is four things. Which four?",
+        "hint": "Think like a checker reading it in two years: when was it written, who signed it, is anything missing, does it contradict itself?",
         "options": [
           "Written at the time, signed, complete, consistent.",
           "Typed, dated, filed within the week, approved.",
@@ -1259,6 +1296,7 @@ export const OSP_MODULES = [
       {
         "format": "tf",
         "stem": "Near misses are not worth reporting, because nothing happened.",
+        "hint": "A near miss is a free warning — the accident that ALMOST happened. What is a warning worth if nobody writes it down?",
         "reasons": [
           "They are the cheapest information this project will ever get.",
           "They are reported only monthly.",
@@ -1272,6 +1310,7 @@ export const OSP_MODULES = [
       {
         "format": "order",
         "stem": "Put the chain in order: from your day to a decision at a bank.",
+        "hint": "Start on the site and end at the bank: a task is done → proof exists → the plan is proved → the correction closes → then what moves?",
         "items": [
           "A procedure is followed",
           "A record is made",
@@ -1413,6 +1452,7 @@ export const OSP_MODULES = [
       {
         "format": "single",
         "stem": "The trader with no papers for her spot is an affected person. What is she paid for?",
+        "hint": "She loses two things: the structure she built, and the living she earns from that spot. Compensation covers…?",
         "options": [
           "The land she trades on.",
           "Her structure, plus help to restore her living.",
@@ -1429,6 +1469,7 @@ export const OSP_MODULES = [
       {
         "format": "tf",
         "stem": "Compensation has been approved internally, so work can start on the parcel.",
+        "hint": "For the person, “approved” means nothing until they can actually do what with the money?",
         "reasons": [
           "The money must be available to collect, not approved.",
           "Work can start once the community leader agrees.",
@@ -1442,6 +1483,7 @@ export const OSP_MODULES = [
       {
         "format": "single",
         "stem": "Which step of the grievance process is most often skipped?",
+        "hint": "The loop only closes when the complainant HEARS something. Which step do projects forget?",
         "options": [
           "Logging the complaint.",
           "Investigating it.",
@@ -1456,6 +1498,7 @@ export const OSP_MODULES = [
       {
         "format": "single",
         "stem": "What is the first control for the effects of several hundred workers arriving?",
+        "hint": "The hierarchy applies to people too: the best control is fewer strangers arriving at all. How do you achieve that?",
         "options": [
           "A better camp.",
           "Fewer arrivals: hire and train locally, transport people in.",
@@ -1470,6 +1513,7 @@ export const OSP_MODULES = [
       {
         "format": "single",
         "stem": "Compensation is calculated at…",
+        "hint": "Replacement cost: what it costs to rebuild TODAY. Is anything deducted for age?",
         "options": [
           "The cost of replacing the asset, with nothing taken off for age.",
           "Market value minus depreciation.",
@@ -1484,6 +1528,7 @@ export const OSP_MODULES = [
       {
         "format": "tf",
         "stem": "A public meeting held two years ago at design stage counts as engagement.",
+        "hint": "Engagement is a conversation that keeps running while the works run — not an event. When is it allowed to stop?",
         "reasons": [
           "Engagement is continuous — telling people what is coming before it arrives, and listening while the works run.",
           "Meetings never count as engagement.",
@@ -1497,6 +1542,7 @@ export const OSP_MODULES = [
       {
         "format": "single",
         "stem": "Who runs the community grievance mechanism?",
+        "hint": "Community-facing grievances need community-facing people. Who talks to the villages every day?",
         "options": [
           "The community relations manager and the liaison officers.",
           "HSE.",
@@ -1511,6 +1557,7 @@ export const OSP_MODULES = [
       {
         "format": "order",
         "stem": "A complaint arrives. Put the steps in order.",
+        "hint": "Follow one complaint through its life: it arrives, someone says “we received it”, someone neutral looks into it, an answer is decided… and then?",
         "items": [
           "Logged the day it arrives",
           "Acknowledged",
@@ -1666,6 +1713,7 @@ export const OSP_MODULES = [
       {
         "format": "single",
         "stem": "A worker is at risk of falling from a bridge deck. What is the first thing to consider?",
+        "hint": "The hierarchy of controls: the best option REMOVES the risk entirely. Can the work be done where there is no edge at all?",
         "options": [
           "Issue a harness.",
           "Assemble at ground level so nobody works at the edge.",
@@ -1681,6 +1729,7 @@ export const OSP_MODULES = [
       {
         "format": "tf",
         "stem": "The labour supplier holds his men's identity documents for safekeeping, so it is not our concern.",
+        "hint": "Ask one question: can the man leave freely? A held identity document answers it.",
         "reasons": [
           "It is a sign a man cannot leave, and anyone on our site is our responsibility.",
           "It is acceptable if a locker is unavailable.",
@@ -1694,6 +1743,7 @@ export const OSP_MODULES = [
       {
         "format": "single",
         "stem": "How many grievance channels does this project have?",
+        "hint": "One channel for the people who WORK here, one for the people who LIVE here.",
         "options": [
           "One, for everybody.",
           "Two: one for workers, one for the community.",
@@ -1708,6 +1758,7 @@ export const OSP_MODULES = [
       {
         "format": "single",
         "stem": "Which control removes a haulage encounter rather than softening it?",
+        "hint": "Softening = slower trucks, signs, flagmen. REMOVING = the truck is never there at all. Which option does that?",
         "options": [
           "Speed limiters.",
           "Covered loads.",
@@ -1722,6 +1773,7 @@ export const OSP_MODULES = [
       {
         "format": "order",
         "stem": "A hazard appears. Put the controls in the order you work through them.",
+        "hint": "Work from strongest to weakest: get rid of it → make it smaller → build something against it → change how people work → equip the person.",
         "items": [
           "Remove the hazard",
           "Reduce it",
@@ -1734,6 +1786,7 @@ export const OSP_MODULES = [
       {
         "format": "single",
         "stem": "What age rule applies to hazardous work on this site?",
+        "hint": "Hazardous work has a hard age line on this project — and it is not the national minimum working age.",
         "options": [
           "Nobody under eighteen.",
           "The national minimum working age.",
@@ -1748,6 +1801,7 @@ export const OSP_MODULES = [
       {
         "format": "tf",
         "stem": "Three-tier bunks are acceptable if the room is big enough.",
+        "hint": "The camp standard fixes occupancy per room AND per bunk. Does a bigger floor change the bunk rule?",
         "reasons": [
           "Occupancy is set by the standard, not by how many beds fit in the room — three tiers are not acceptable.",
           "They are fine for short stays.",
@@ -1761,6 +1815,7 @@ export const OSP_MODULES = [
       {
         "format": "single",
         "stem": "Who runs the WORKER grievance channel?",
+        "hint": "Worker issues are employment issues. Which department runs that channel — and who sits alongside them?",
         "options": [
           "Human Resources, with worker representatives.",
           "Community relations.",
@@ -1909,6 +1964,7 @@ export const OSP_MODULES = [
       {
         "format": "single",
         "stem": "When should the closure of a borrow pit be designed?",
+        "hint": "A pit is only “temporary” if its end was planned. When must the end be designed?",
         "options": [
           "When extraction finishes.",
           "Before extraction starts.",
@@ -1924,6 +1980,7 @@ export const OSP_MODULES = [
       {
         "format": "tf",
         "stem": "The landowner has agreed, so we can start taking material.",
+        "hint": "Two separate permissions: the owner's agreement, and the STATE's title for the minerals. Plus one more question — was the pit assessed?",
         "reasons": [
           "Extraction needs a mineral title from a different authority, and the pit must be inside the assessed scope.",
           "We also need the chief's agreement.",
@@ -1937,6 +1994,7 @@ export const OSP_MODULES = [
       {
         "format": "single",
         "stem": "A used oil filter is dropped into a general waste skip. What happens?",
+        "hint": "One contaminated item lands in a clean skip. Which way does the contamination flow?",
         "options": [
           "Nothing, it is one filter.",
           "The whole load becomes hazardous waste.",
@@ -1951,6 +2009,7 @@ export const OSP_MODULES = [
       {
         "format": "single",
         "stem": "Your bucket exposes what looks like a grave. Your foreman says to photograph it for the record before anyone else arrives. Do you?",
+        "hint": "The chance-find rule is absolute: NOTHING changes until the named person attends. Does taking a photo change something?",
         "options": [
           "Yes — a photograph is evidence.",
           "No — nothing is touched, moved or photographed until the named person attends.",
@@ -1965,6 +2024,7 @@ export const OSP_MODULES = [
       {
         "format": "single",
         "stem": "When do silt fences and settlement ponds go in?",
+        "hint": "Erosion controls only work if they are already waiting for the water. When do the rains arrive?",
         "options": [
           "Before the rains — not after the first storm.",
           "After a complaint.",
@@ -1979,6 +2039,7 @@ export const OSP_MODULES = [
       {
         "format": "single",
         "stem": "Concrete wash water is…",
+        "hint": "Think pH. What does strongly alkaline water do in a stream full of fish?",
         "options": [
           "Harmless.",
           "Strongly alkaline — it kills fish.",
@@ -1993,6 +2054,7 @@ export const OSP_MODULES = [
       {
         "format": "tf",
         "stem": "Dust and noise should be measured at the site fence.",
+        "hint": "Limits protect people, not fences. Where do the people actually breathe and sleep?",
         "reasons": [
           "Measure at the house, where the people are — a reading at the fence tells you nothing about the people downwind.",
           "The fence is the official measuring point.",
@@ -2006,6 +2068,7 @@ export const OSP_MODULES = [
       {
         "format": "order",
         "stem": "Your bucket exposes what looks like a grave. Put the five steps in order.",
+        "hint": "Make it safe and still → protect the spot → call the number — and never touch. What order does that give?",
         "items": [
           "Stop and switch off",
           "Do not touch, move or photograph anything",
@@ -2123,6 +2186,7 @@ export const OSP_MODULES = [
       {
         "format": "single",
         "stem": "The national age of consent is sixteen. A seventeen year old is involved. What applies?",
+        "hint": "Two rules exist side by side. On this project the stricter one always wins. Which is stricter — sixteen or eighteen?",
         "options": [
           "National law.",
           "The project rule of eighteen, with no exception.",
@@ -2136,6 +2200,7 @@ export const OSP_MODULES = [
       {
         "format": "tf",
         "stem": "Someone tells you something. You should bring them and the person named together to clear it up.",
+        "hint": "Think of the person who confided in you. What does a face-to-face “clarification” do to them?",
         "reasons": [
           "Never. It is not a misunderstanding, and it re-exposes the person who was harmed.",
           "Only with a witness.",
@@ -2148,6 +2213,7 @@ export const OSP_MODULES = [
       {
         "format": "single",
         "stem": "Your subcontractor's forty workers each signed the code of conduct — in English, which most of them do not read. Is that enough?",
+        "hint": "A signature only counts if the person UNDERSTOOD what they signed. What did those forty men understand?",
         "options": [
           "Yes — a signature is a signature.",
           "No. It must be explained, in a language each person understands, before they sign.",
@@ -2161,6 +2227,7 @@ export const OSP_MODULES = [
       {
         "format": "single",
         "stem": "Which requirement about security guards is most often missing on projects like ours?",
+        "hint": "Guards face the community every day. When a guard behaves badly, what can the community do about it?",
         "options": [
           "Uniforms.",
           "A way for the community to complain about a guard.",
@@ -2174,6 +2241,7 @@ export const OSP_MODULES = [
       {
         "format": "single",
         "stem": "Who signs the code of conduct?",
+        "hint": "A company stamp cannot commit a person's behaviour. Whose signature does that take?",
         "options": [
           "The company, once, on behalf of everyone.",
           "Every person individually.",
@@ -2187,6 +2255,7 @@ export const OSP_MODULES = [
       {
         "format": "tf",
         "stem": "Retaliation is acceptable if the report turns out to be wrong.",
+        "hint": "The protection covers the reporter even when the report turns out wrong — otherwise, who would ever report?",
         "reasons": [
           "No retaliation, ever — against anyone who reports, supports a report, or takes part in an investigation.",
           "Only managers may respond to a report.",
@@ -2199,6 +2268,7 @@ export const OSP_MODULES = [
       {
         "format": "single",
         "stem": "Before arming any guard, we…",
+        "hint": "Weapons are the exception, never the default. What has to happen BEFORE any gun appears on this project?",
         "options": [
           "Assess whether it is warranted — usually it is not.",
           "Always arm them.",
@@ -2212,6 +2282,7 @@ export const OSP_MODULES = [
       {
         "format": "cat",
         "stem": "Someone discloses something to you. Acceptable, or never acceptable?",
+        "hint": "The line is simple: listening, recording, passing to the focal point — or promising secrecy, confronting, spreading. Sort by that line.",
         "cats": [
           {
             "id": "c1",
