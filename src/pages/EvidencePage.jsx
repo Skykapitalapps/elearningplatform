@@ -3,6 +3,7 @@ import { useAuth } from "../AuthContext.jsx";
 import { course } from "../data.js";
 import { client } from "../config/clients.js";
 import { downloadCertificatePdf } from "../lib/certificate.js";
+import { COMMITMENT_DOC_ID } from "../config/jobRoles.js";
 import MaterialIcon from "../components/MaterialIcon.jsx";
 import { Link } from "react-router-dom";
 
@@ -16,7 +17,8 @@ export default function EvidencePage() {
   const { profile, user } = useAuth();
   const learnerName = profile?.full_name || course.learner;
   const completed = modules.filter((m) => m.status === "completed");
-  const done = progress.percent === 100 && progress.total > 0;
+  const committed = acknowledgements.some((a) => a.id === COMMITMENT_DOC_ID);
+  const done = progress.percent === 100 && progress.total > 0 && committed;
 
   const certOpts = {
     name: learnerName,
@@ -83,10 +85,19 @@ export default function EvidencePage() {
         <div className="mb-8 flex items-center gap-3 rounded-2xl border border-dashed border-outline-variant bg-surface-container-low p-stack-md">
           <MaterialIcon name="workspace_premium" className="text-3xl text-outline" />
           <p className="text-body-md text-on-surface-variant">
-            {progress.total - progress.completed} module{progress.total - progress.completed !== 1 ? "s" : ""} left
-            before your certificate — a module counts once its questions are passed and its
-            linked policies are signed.{" "}
-            <Link to="/" className="font-bold text-secondary hover:underline">Continue the pathway →</Link>
+            {progress.percent === 100 ? (
+              <>
+                One step left: sign the closing commitment declaration.{" "}
+                <Link to="/commitment" className="font-bold text-secondary hover:underline">Sign it →</Link>
+              </>
+            ) : (
+              <>
+                {progress.total - progress.completed} module{progress.total - progress.completed !== 1 ? "s" : ""} left
+                before your certificate — a module counts once its questions are passed and its
+                linked policies are signed.{" "}
+                <Link to="/" className="font-bold text-secondary hover:underline">Continue the pathway →</Link>
+              </>
+            )}
           </p>
         </div>
       )}

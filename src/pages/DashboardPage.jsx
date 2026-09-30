@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useCourse, isUnlocked, statusMeta } from "../CourseContext.jsx";
 import { client } from "../config/clients.js";
 import { documents } from "../data.js";
+import { COMMITMENT_DOC_ID } from "../config/jobRoles.js";
 import MaterialIcon from "../components/MaterialIcon.jsx";
 
 // ============================================================================
@@ -75,6 +76,7 @@ export default function DashboardPage() {
   const next =
     modules.find((m) => m.status !== "completed" && isUnlocked(modules, m)) || null;
   const allDone = progress.completed === progress.total && progress.total > 0;
+  const committed = acknowledgements.some((a) => a.id === COMMITMENT_DOC_ID);
 
   return (
     <div className="mx-auto max-w-[1080px] px-margin-mobile py-8">
@@ -123,7 +125,15 @@ export default function DashboardPage() {
                 <MaterialIcon name="arrow_forward" />
               </Link>
             )}
-            {allDone && (
+            {allDone && !committed && (
+              <Link
+                to="/commitment"
+                className="inline-flex items-center gap-2 rounded-xl bg-white px-8 py-3.5 text-label-md font-bold text-primary shadow-lg transition-transform hover:-translate-y-0.5"
+              >
+                <MaterialIcon name="draw" /> One last step — sign your commitment
+              </Link>
+            )}
+            {allDone && committed && (
               <Link
                 to="/evidence"
                 className="inline-flex items-center gap-2 rounded-xl bg-white px-8 py-3.5 text-label-md font-bold text-primary shadow-lg"
@@ -217,6 +227,50 @@ export default function DashboardPage() {
             <ModuleCard key={m.id} m={m} modules={modules} />
           ))}
         </div>
+      </section>
+
+      {/* ── 4 · The commitment — the closing signature ── */}
+      <section className="mb-10">
+        <div className="mb-3 flex items-baseline gap-3">
+          <span className="text-headline-md font-black text-secondary">4</span>
+          <div>
+            <h2 className="text-headline-md text-primary">Your commitment</h2>
+            <p className="text-caption text-on-surface-variant">
+              One closing declaration, in your name: the policies are read, signed, and will be applied.
+            </p>
+          </div>
+        </div>
+        <Link
+          to="/commitment"
+          className={`flex items-center gap-4 rounded-2xl border p-5 transition-all ${
+            committed
+              ? "border-emerald-200 bg-emerald-50"
+              : allDone
+                ? "border-secondary bg-secondary-container/40 hover:-translate-y-0.5 hover:shadow-md"
+                : "border-outline-variant/60 bg-surface-container-low opacity-70"
+          }`}
+        >
+          <span
+            className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full ${
+              committed ? "bg-emerald-600 text-white" : allDone ? "bg-secondary text-white" : "bg-surface-container-high text-outline"
+            }`}
+          >
+            <MaterialIcon name={committed ? "verified" : allDone ? "draw" : "lock"} className="text-[24px]" />
+          </span>
+          <span className="min-w-0 flex-1">
+            <span className="block text-body-lg font-bold text-on-surface">
+              {committed ? "Commitment signed" : "Policy acknowledgement & commitment declaration"}
+            </span>
+            <span className="block text-body-sm text-on-surface-variant">
+              {committed
+                ? "Thank you — your certificate is ready."
+                : allDone
+                  ? "Everything is done — sign the closing declaration."
+                  : "Opens once the eleven modules are passed and every policy is signed."}
+            </span>
+          </span>
+          <MaterialIcon name="chevron_right" className="shrink-0 text-on-surface-variant" />
+        </Link>
       </section>
 
       {/* ── Always available ── */}

@@ -7,7 +7,7 @@ import { useAuth } from "../AuthContext.jsx";
 import { client } from "../config/clients.js";
 import { course, modules } from "../data.js";
 import { downloadCertificatePdf } from "../lib/certificate.js";
-import { assignedTotal } from "../config/jobRoles.js";
+import { assignedTotal, REQUIRED_SIGNATURES } from "../config/jobRoles.js";
 import { OSP_MODULES, OSP_BY_ID } from "../data/osp.js";
 import { downloadProgressWorkbook } from "../lib/progressWorkbook.js";
 
@@ -453,6 +453,7 @@ function printCertificate(p) {
 function ProjectProgress({ project, people, logins = [] }) {
   const members = people.filter((u) => u.project_id === project.id && u.role !== "admin");
   const [rows, setRows] = useState(null);
+  const [acks, setAcks] = useState([]);
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(0);
 
@@ -460,6 +461,7 @@ function ProjectProgress({ project, people, logins = [] }) {
     const ids = members.map((m) => m.id);
     if (ids.length === 0) {
       setRows([]);
+      setAcks([]);
       return;
     }
     supabase
@@ -467,6 +469,12 @@ function ProjectProgress({ project, people, logins = [] }) {
       .select("*")
       .in("user_id", ids)
       .then(({ data }) => setRows(data ?? []));
+    // Every read-and-sign acknowledgement: the policies + the commitment.
+    supabase
+      .from("acknowledgements")
+      .select("*")
+      .in("user_id", ids)
+      .then(({ data }) => setAcks(data ?? []));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [project.id, people.length]);
 
@@ -476,11 +484,14 @@ function ProjectProgress({ project, people, logins = [] }) {
     const pts = mine.reduce((s, r) => s + (r.earned ?? 0), 0);
     const myLogins = logins.filter((e) => e.user_id === m.id);
     const totalMods = assignedTotal();
+    const mySigs = acks.filter((a) => a.user_id === m.id && REQUIRED_SIGNATURES.includes(a.doc_id));
     return {
       ...m,
       done: mine.length,
       totalMods,
-      certified: mine.length >= totalMods,
+      sigs: mySigs.length,
+      sigsTotal: REQUIRED_SIGNATURES.length,
+      certified: mine.length >= totalMods && mySigs.length >= REQUIRED_SIGNATURES.length,
       last: last ? last.slice(0, 10) : "—",
       pts,
       certNo: "OSP-" + m.id.replace(/-/g, "").slice(0, 10).toUpperCase(),
@@ -495,11 +506,13 @@ function ProjectProgress({ project, people, logins = [] }) {
   // Progress report as a CSV the admin can attach to invoices and lender
   // reports. Semicolon-separated + BOM so Excel opens it cleanly.
   function exportCsv() {
-    const head = ["Learner", "Modules completed", "Total modules", "Progress %", "Certified", "Certificate no.", "Completion date", "Last sign-in", "Total sign-ins"];
+    const head = ["Learner", "Modules completed", "Total modules", "Policies signed", "Total signatures", "Progress %", "Certified", "Certificate no.", "Completion date", "Last sign-in", "Total sign-ins"];
     const lines = per.map((p) => [
       p.full_name || "",
       p.done,
       p.totalMods,
+      p.sigs,
+      p.sigsTotal,
       Math.round((p.done / p.totalMods) * 100),
       p.certified ? "Yes" : "No",
       p.certified ? p.certNo : "",
@@ -558,6 +571,7 @@ function ProjectProgress({ project, people, logins = [] }) {
             <tr className="border-b border-outline-variant text-caption uppercase tracking-wider text-on-surface-variant">
               <th className="px-stack-md py-stack-sm font-semibold">Name</th>
               <th className="px-stack-md py-stack-sm font-semibold">Modules completed</th>
+              <th className="px-stack-md py-stack-sm font-semibold">Signatures</th>
               <th className="px-stack-md py-stack-sm font-semibold">Certificate</th>
               <th className="px-stack-md py-stack-sm font-semibold">Last activity</th>
               <th className="px-stack-md py-stack-sm font-semibold">Last sign-in</th>
@@ -565,9 +579,9 @@ function ProjectProgress({ project, people, logins = [] }) {
           </thead>
           <tbody>
             {rows === null ? (
-              <tr><td colSpan={5} className="px-stack-md py-stack-lg text-center text-on-surface-variant">Loading…</td></tr>
+              <tr><td colSpan={6} className="px-stack-md py-stack-lg text-center text-on-surface-variant">Loading…</td></tr>
             ) : filtered.length === 0 ? (
-              <tr><td colSpan={5} className="px-stack-md py-stack-lg text-center text-on-surface-variant">{query ? "No learner matches that search." : "No learners in this project yet."}</td></tr>
+              <tr><td colSpan={6} className="px-stack-md py-stack-lg text-center text-on-surface-variant">{query ? "No learner matches that search." : "No learners in this project yet."}</td></tr>
             ) : (
               paged.map((p) => (
                 <tr key={p.id} className="border-b border-surface-container last:border-0">
@@ -576,6 +590,20 @@ function ProjectProgress({ project, people, logins = [] }) {
                     <span className="mr-2 text-body-md font-bold text-primary">{p.done}/{p.totalMods}</span>
                     <span className="inline-block h-1.5 w-28 overflow-hidden rounded-full bg-surface-container-high align-middle">
                       <span className="block h-full rounded-full bg-secondary" style={{ width: (p.done / p.totalMods) * 100 + "%" }} />
+                    </span>
+                  </td>
+                  <td className="px-stack-md py-stack-md">
+                    <span
+                      title="Signed policies + the commitment declaration"
+                      className={`inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-caption font-bold ${
+                        p.sigs >= p.sigsTotal
+                          ? "bg-emerald-100 text-emerald-700"
+                          : p.sigs > 0
+                            ? "bg-amber-100 text-amber-800"
+                            : "bg-surface-container-high text-on-surface-variant"
+                      }`}
+                    >
+                      <MaterialIcon name="draw" className="text-[14px]" /> {p.sigs}/{p.sigsTotal}
                     </span>
                   </td>
                   <td className="px-stack-md py-stack-md">

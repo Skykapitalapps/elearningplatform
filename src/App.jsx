@@ -19,6 +19,7 @@ import EvidencePage from "./pages/EvidencePage.jsx";
 import QuizPage from "./pages/QuizPage.jsx";
 import CertificatePrintPage from "./pages/CertificatePrintPage.jsx";
 import PathwayModulePage from "./pages/PathwayModulePage.jsx";
+import CommitmentPage from "./pages/CommitmentPage.jsx";
 import ReferenceLibraryPage from "./pages/ReferenceLibraryPage.jsx";
 import { PrivacyPage, TermsPage } from "./pages/LegalPage.jsx";
 
@@ -145,6 +146,7 @@ export default function App() {
             <Route path="/" element={<DashboardPage />} />
             <Route path="/course" element={<CoursePage />} />
             <Route path="/pathway/:id" element={<PathwayModulePage />} />
+            <Route path="/commitment" element={<CommitmentPage />} />
             <Route path="/reference" element={<ReferenceLibraryPage />} />
             <Route path="/module/:id" element={<LessonPage />} />
             <Route path="/library" element={<LibraryPage />} />

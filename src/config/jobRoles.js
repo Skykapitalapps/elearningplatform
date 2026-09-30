@@ -25,3 +25,11 @@ export function moduleAssigned() {
 export function canOpenDoc() {
   return true;
 }
+
+// Every signature the pathway requires: the policies attached to the
+// modules, plus the final commitment declaration.
+export const COMMITMENT_DOC_ID = "hitech-commitment";
+export const REQUIRED_SIGNATURES = [
+  ...new Set(OSP_MODULES.flatMap((m) => m.policies || [])),
+  COMMITMENT_DOC_ID,
+];
