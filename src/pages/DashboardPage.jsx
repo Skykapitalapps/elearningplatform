@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useCourse, isUnlocked, statusMeta } from "../CourseContext.jsx";
 import { client } from "../config/clients.js";
+import { documents } from "../data.js";
 import MaterialIcon from "../components/MaterialIcon.jsx";
 
 // ============================================================================
@@ -58,7 +59,16 @@ function ModuleCard({ m, modules, size = "md" }) {
 }
 
 export default function DashboardPage() {
-  const { modules, libraryModules, progress } = useCourse();
+  const { modules, libraryModules, progress, acknowledgements } = useCourse();
+  // Policies attached to modules already passed but not yet signed —
+  // surfaced here so nobody has to hunt for what is holding their 11/11.
+  const toSign = modules
+    .filter((m) => m.status === "completed" && m.policies)
+    .flatMap((m) => m.policies)
+    .filter((slug, i, a) => a.indexOf(slug) === i)
+    .filter((slug) => !acknowledgements.some((a) => a.id === slug))
+    .map((slug) => ({ slug, doc: documents[slug] }))
+    .filter((x) => x.doc);
   const welcomeMods = modules.filter((m) => m.block === "welcome");
   const core = modules.filter((m) => m.block === "core");
   const role = modules.filter((m) => m.block === "role");
@@ -127,6 +137,33 @@ export default function DashboardPage() {
           </div>
         </div>
       </div>
+
+      {/* ── Policies still to sign for the modules already passed ── */}
+      {toSign.length > 0 && (
+        <section className="mb-8 rounded-2xl border border-amber-200 bg-amber-50 p-stack-lg">
+          <div className="mb-3 flex items-center gap-2">
+            <MaterialIcon name="draw" className="text-[22px] text-amber-700" />
+            <h2 className="text-title-lg font-bold text-amber-900">
+              {toSign.length} polic{toSign.length === 1 ? "y" : "ies"} to read & sign
+            </h2>
+          </div>
+          <p className="mb-3 text-body-md text-amber-900/80">
+            You passed the module{toSign.length === 1 ? "" : "s"} — the signature{toSign.length === 1 ? "" : "s"} below
+            complete{toSign.length === 1 ? "s" : ""} it. Each one is logged as training evidence.
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {toSign.map(({ slug, doc }) => (
+              <Link
+                key={slug}
+                to={`/resources/${slug}`}
+                className="flex items-center gap-1.5 rounded-full border border-amber-300 bg-white px-4 py-2 text-caption font-bold text-amber-900 transition-colors hover:border-primary hover:text-primary"
+              >
+                {doc.title} <MaterialIcon name="arrow_forward" className="text-[14px]" />
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* ── 1 · Welcome ── */}
       {welcomeMods.length > 0 && (

@@ -320,16 +320,52 @@ export default function DocumentPage() {
               Acknowledgement
             </h2>
             {signed ? (
-              <div className="flex items-start gap-3 rounded-lg bg-emerald-50 p-stack-md text-emerald-900">
-                <MaterialIcon name="verified" fill className="text-emerald-600" />
-                <div>
-                  <p className="text-label-md">Signed by {signed.name}</p>
-                  <p className="text-caption">
-                    Recorded on {signed.date} · logged to the training-evidence
-                    register.
-                  </p>
+              <>
+                <div className="flex items-start gap-3 rounded-lg bg-emerald-50 p-stack-md text-emerald-900">
+                  <MaterialIcon name="verified" fill className="text-emerald-600" />
+                  <div>
+                    <p className="text-label-md">Signed by {signed.name}</p>
+                    <p className="text-caption">
+                      Recorded on {signed.date} · logged to the training-evidence
+                      register.
+                    </p>
+                  </div>
                 </div>
-              </div>
+                {(() => {
+                  // Chain the signatures: point straight at the next policy
+                  // still to sign for the modules already completed.
+                  const next = modules
+                    .filter((m) => m.status === "completed" && m.policies)
+                    .flatMap((m) => m.policies)
+                    .filter((slug, i, a) => a.indexOf(slug) === i)
+                    .filter((slug) => slug !== docId && !acknowledgements.some((a) => a.id === slug))
+                    .map((slug) => ({ slug, d: documents[slug] }))
+                    .find((x) => x.d);
+                  return next ? (
+                    <Link
+                      to={`/resources/${next.slug}`}
+                      className="mt-stack-md flex items-center justify-between rounded-lg border border-amber-200 bg-amber-50 p-stack-md text-amber-900 transition-colors hover:border-amber-400"
+                    >
+                      <span className="flex items-center gap-2 text-label-md">
+                        <MaterialIcon name="draw" className="text-[18px]" />
+                        Next to sign: {next.d.title}
+                      </span>
+                      <MaterialIcon name="arrow_forward" className="text-[18px]" />
+                    </Link>
+                  ) : (
+                    <Link
+                      to="/"
+                      className="mt-stack-md flex items-center justify-between rounded-lg border border-emerald-200 bg-white p-stack-md text-emerald-800 transition-colors hover:border-emerald-400"
+                    >
+                      <span className="flex items-center gap-2 text-label-md">
+                        <MaterialIcon name="check_circle" className="text-[18px]" />
+                        All caught up — back to the pathway
+                      </span>
+                      <MaterialIcon name="arrow_forward" className="text-[18px]" />
+                    </Link>
+                  );
+                })()}
+              </>
             ) : (
               <>
                 <p className="mb-stack-md text-body-md text-on-surface-variant">

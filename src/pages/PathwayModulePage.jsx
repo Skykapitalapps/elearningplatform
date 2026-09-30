@@ -660,6 +660,33 @@ export default function PathwayModulePage() {
         </div>
       )}
 
+      {/* Completed module, signatures missing: the reminder stays visible */}
+      {phase === "read" && module.status === "completed" && module.policiesSigned === false && (
+        <div className="mb-4 rounded-2xl border border-amber-200 bg-amber-50 p-stack-md">
+          <p className="mb-2 flex items-center gap-2 text-label-md font-bold text-amber-900">
+            <MaterialIcon name="draw" className="text-[18px]" />
+            To finish this module: read and sign its policies
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {module.policies
+              .filter((slug) => !acknowledgements.some((a) => a.id === slug))
+              .map((slug) => {
+                const doc = documents[slug];
+                if (!doc) return null;
+                return (
+                  <Link
+                    key={slug}
+                    to={`/resources/${slug}`}
+                    className="flex items-center gap-1.5 rounded-full border border-amber-300 bg-white px-3.5 py-1.5 text-caption font-bold text-amber-900 transition-colors hover:border-primary hover:text-primary"
+                  >
+                    {doc.title} <MaterialIcon name="arrow_forward" className="text-[14px]" />
+                  </Link>
+                );
+              })}
+          </div>
+        </div>
+      )}
+
       <div className={`rounded-2xl border border-outline-variant bg-surface-container-lowest shadow-sm ${phase === "read" && s.md ? "overflow-hidden p-0" : "p-stack-lg"}`}>
         {module.support && <SupportBanner />}
 
