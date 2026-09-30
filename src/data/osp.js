@@ -361,10 +361,11 @@ export const OSP_MODULES = [
           "Nobody, until they are inducted."
         ],
         "feedback": {
+          "0": "Partly true — but it does not remove our part. On a financed project, anyone working on our site is our responsibility, whoever signed their contract.",
+          "1": "Partly true — but it does not remove our part. On a financed project, anyone working on our site is our responsibility, whoever signed their contract.",
           "3": "They are our responsibility from the moment they step on site — which is why induction happens before they start."
-        },
-        "correct": 2,
-        "general": "If (A) or (B) is chosen: Both are partly true and neither removes our part. On a financed project, anyone working on our site is our responsibility, whoever signed their contract.",
+      },
+      "correct": 2,
         "image": "/images/hitech-pour.webp"
       }
     ],
@@ -750,8 +751,11 @@ export const OSP_MODULES = [
           "An entry in the tracker."
         ],
         "feedback": {},
-        "correct": 2,
-        "general": "If (A) or (D) is chosen: Both happen without the evidence existing, which is exactly why this is the most common defect in any action tracker.",
+        "feedback": {
+        "0": "That happens without the evidence existing — which is exactly why this is the most common defect in any action tracker.",
+        "3": "That happens without the evidence existing — which is exactly why this is the most common defect in any action tracker."
+      },
+      "correct": 2,
         "image": "/images/lm9.jpg"
       },
       {
@@ -991,8 +995,11 @@ export const OSP_MODULES = [
           "Wait and see if they notice."
         ],
         "feedback": {},
-        "correct": 1,
-        "general": "If (A) or (C) is chosen: Both turn a technical problem into a trust problem, which is far harder to close and reaches every other record we hold.",
+        "feedback": {
+        "0": "That turns a technical problem into a trust problem — far harder to close, and it reaches every other record we hold.",
+        "2": "That turns a technical problem into a trust problem — far harder to close, and it reaches every other record we hold."
+      },
+      "correct": 1,
         "image": "/images/hitech-dozer.webp"
       },
       {
