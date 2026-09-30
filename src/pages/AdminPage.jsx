@@ -744,7 +744,7 @@ function ProjectUsers({ project, people, isAdmin, reload }) {
               Account created for {msg.name} — share these sign-in details:
             </p>
             <div className="rounded-lg border border-emerald-200 bg-white p-3 font-mono text-body-md text-primary">
-              <p>Website: &nbsp;{window.location.origin}</p>
+              <p>Website: &nbsp;{client.siteUrl || window.location.origin}</p>
               <p>Username: {msg.email}</p>
               <p>Password: {msg.pw}</p>
             </div>
@@ -752,7 +752,7 @@ function ProjectUsers({ project, people, isAdmin, reload }) {
               <button
                 onClick={() => {
                   navigator.clipboard?.writeText(
-                    `Your ${client.clientShort} ESG training access:\nWebsite: ${window.location.origin}\nUsername: ${msg.email}\nPassword: ${msg.pw}\n\nYou can change your password after signing in (account menu → Change my password).`
+                    `Your ${client.clientShort} ESG training access:\nWebsite: ${client.siteUrl || window.location.origin}\nUsername: ${msg.email}\nPassword: ${msg.pw}\n\nYou can change your password after signing in (account menu → Change my password).`
                   );
                 }}
                 className="flex items-center gap-1.5 rounded-lg bg-emerald-600 px-4 py-2 text-caption font-bold text-white transition-opacity hover:opacity-90"

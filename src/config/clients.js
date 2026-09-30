@@ -25,6 +25,8 @@ const CLIENTS = {
     clientShort: "HITECH",
     clientLegal: "HITECH Construction Company Limited — Builders & Civil Engineers",
     center: "HITECH learning platform",
+    // The public address of the platform — the link sent with credentials.
+    siteUrl: "https://www.skykapital-e-learning.com",
     series: "Together shaping a responsible future",
     courseTitle: "Our Sustainability Pathway",
     courseSubtitle: "Embrace the journey",

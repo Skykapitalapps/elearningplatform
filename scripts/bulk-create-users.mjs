@@ -133,3 +133,4 @@ fs.writeFileSync(
 );
 console.log(`\nDone: ${ok} created, ${skipped} skipped, ${failed} failed.`);
 console.log("Credentials written to credentials-out.csv — distribute each line to its person, then DELETE the file.");
+console.log("Sign-in link to send with the credentials: https://www.skykapital-e-learning.com");
