@@ -3,12 +3,14 @@ import TopNav from "./TopNav.jsx";
 import SideNav from "./SideNav.jsx";
 import Footer from "./Footer.jsx";
 import MaterialIcon from "../MaterialIcon.jsx";
+import { useCourse } from "../../CourseContext.jsx";
 
 // Compact bottom navigation for phones (the side rail is desktop-only).
+// "Go further" and "Documents" stay locked until the pathway is complete.
 const MOBILE_ITEMS = [
   { to: "/", label: "Home", icon: "home", end: true },
-  { to: "/course", label: "Course", icon: "school" },
-  { to: "/resources", label: "Documents", icon: "folder_open" },
+  { to: "/reference", label: "Go further", icon: "auto_stories", lockable: true },
+  { to: "/resources", label: "Documents", icon: "folder_open", lockable: true },
   { to: "/glossary", label: "Glossary", icon: "translate" },
   { to: "/evidence", label: "Progress", icon: "verified" },
 ];
@@ -16,6 +18,7 @@ const MOBILE_ITEMS = [
 // App chrome for the dashboard / course / lesson / library screens.
 export default function MainLayout() {
   const { pathname } = useLocation();
+  const { platformUnlocked } = useCourse();
   return (
     <div className="min-h-screen bg-surface">
       <TopNav />
@@ -31,6 +34,15 @@ export default function MainLayout() {
       {/* Mobile bottom nav */}
       <nav className="glass-bar fixed bottom-0 left-0 right-0 z-40 flex border-t border-outline-variant/70 md:hidden">
         {MOBILE_ITEMS.map((item) => (
+          item.lockable && !platformUnlocked ? (
+            <div
+              key={item.to}
+              className="flex flex-1 flex-col items-center gap-0.5 py-2 text-[10px] font-semibold text-on-surface-variant/50"
+            >
+              <MaterialIcon name="lock" className="text-[22px] opacity-60" />
+              {item.label}
+            </div>
+          ) : (
           <NavLink
             key={item.to}
             to={item.to}
@@ -52,6 +64,7 @@ export default function MainLayout() {
               </>
             )}
           </NavLink>
+          )
         ))}
       </nav>
     </div>

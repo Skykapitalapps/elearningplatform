@@ -60,7 +60,7 @@ function ModuleCard({ m, modules, size = "md" }) {
 }
 
 export default function DashboardPage() {
-  const { modules, libraryModules, progress, acknowledgements } = useCourse();
+  const { modules, libraryModules, progress, acknowledgements, platformUnlocked } = useCourse();
   // Policies attached to modules already passed but not yet signed —
   // surfaced here so nobody has to hunt for what is holding their 11/11.
   const toSign = modules
@@ -287,37 +287,56 @@ export default function DashboardPage() {
             <p className="text-caption text-on-surface-variant">Every term in plain words — open any time, during and after the pathway.</p>
           </div>
         </Link>
-        <Link
-          to="/resources"
-          className="flex items-center gap-3 rounded-2xl border border-outline-variant bg-surface-container-lowest p-4 transition-all hover:border-secondary hover:shadow-md"
-        >
-          <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-secondary-container text-on-secondary-container">
-            <MaterialIcon name="folder_open" className="text-[22px]" />
-          </span>
-          <div>
-            <p className="font-bold text-primary">Documents & memo sheets</p>
-            <p className="text-caption text-on-surface-variant">The plans, procedures and memo sheets referenced in the modules.</p>
+        {platformUnlocked ? (
+          <Link
+            to="/resources"
+            className="flex items-center gap-3 rounded-2xl border border-outline-variant bg-surface-container-lowest p-4 transition-all hover:border-secondary hover:shadow-md"
+          >
+            <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-secondary-container text-on-secondary-container">
+              <MaterialIcon name="folder_open" className="text-[22px]" />
+            </span>
+            <div>
+              <p className="font-bold text-primary">Documents & memo sheets</p>
+              <p className="text-caption text-on-surface-variant">The plans, procedures and memo sheets referenced in the modules.</p>
+            </div>
+          </Link>
+        ) : (
+          <div className="flex items-center gap-3 rounded-2xl border border-outline-variant/60 bg-surface-container-low p-4 opacity-70">
+            <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-surface-container-high text-outline">
+              <MaterialIcon name="lock" className="text-[22px]" />
+            </span>
+            <div>
+              <p className="font-bold text-on-surface-variant">Documents & memo sheets</p>
+              <p className="text-caption text-on-surface-variant">Opens once the whole pathway is complete. The policies to sign open from their modules.</p>
+            </div>
           </div>
-        </Link>
+        )}
       </section>
 
-      {/* ── Go further: the reference course, open reading ── */}
+      {/* ── Go further: the reference course — opens at the end ── */}
       <section className="rounded-2xl border border-dashed border-outline-variant bg-surface-container-low p-stack-lg">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
             <h2 className="flex items-center gap-2 text-headline-md text-primary">
-              <MaterialIcon name="auto_stories" className="text-secondary" /> Go further
+              <MaterialIcon name={platformUnlocked ? "auto_stories" : "lock"} className="text-secondary" /> Go further
             </h2>
             <p className="mt-1 max-w-xl text-body-md text-on-surface-variant">
-              The full reference course behind this pathway — {libraryModules.length} in-depth modules on the standards, free to read in any order. Nothing here is required or tracked.
+              The full reference course behind this pathway — {libraryModules.length} in-depth modules on the standards, free to read in any order.
+              {platformUnlocked ? " Nothing here is required or tracked." : " It opens once the pathway is complete."}
             </p>
           </div>
-          <Link
-            to="/reference"
-            className="inline-flex items-center gap-2 rounded-xl border border-primary px-6 py-3 text-label-md font-bold text-primary transition-colors hover:bg-primary hover:text-on-primary"
-          >
-            Browse the reference course <MaterialIcon name="arrow_forward" />
-          </Link>
+          {platformUnlocked ? (
+            <Link
+              to="/reference"
+              className="inline-flex items-center gap-2 rounded-xl border border-primary px-6 py-3 text-label-md font-bold text-primary transition-colors hover:bg-primary hover:text-on-primary"
+            >
+              Browse the reference course <MaterialIcon name="arrow_forward" />
+            </Link>
+          ) : (
+            <span className="inline-flex items-center gap-2 rounded-xl border border-outline-variant px-6 py-3 text-label-md font-bold text-on-surface-variant/60">
+              <MaterialIcon name="lock" className="text-[18px]" /> Opens at the end
+            </span>
+          )}
         </div>
       </section>
     </div>

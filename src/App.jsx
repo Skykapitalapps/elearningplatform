@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
-import { CourseProvider } from "./CourseContext.jsx";
+import { BrowserRouter, Routes, Route, Navigate, useLocation, Link } from "react-router-dom";
+import { CourseProvider, useCourse } from "./CourseContext.jsx";
+import MaterialIcon from "./components/MaterialIcon.jsx";
 import { AuthProvider, useAuth } from "./AuthContext.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import ResetPage from "./pages/ResetPage.jsx";
@@ -22,6 +23,29 @@ import PathwayModulePage from "./pages/PathwayModulePage.jsx";
 import CommitmentPage from "./pages/CommitmentPage.jsx";
 import ReferenceLibraryPage from "./pages/ReferenceLibraryPage.jsx";
 import { PrivacyPage, TermsPage } from "./pages/LegalPage.jsx";
+
+// The side sections (Documents hub, Go further, the old course pages) open
+// only once the whole pathway is done. Individual policy readings stay
+// reachable from the modules — signing them IS part of the learning.
+function RequireDone({ children }) {
+  const { platformUnlocked, progress } = useCourse();
+  if (platformUnlocked) return children;
+  return (
+    <div className="mx-auto flex min-h-[50vh] max-w-lg flex-col items-center justify-center gap-3 px-6 text-center">
+      <MaterialIcon name="lock" className="text-5xl text-outline" />
+      <p className="text-body-lg text-on-surface-variant">
+        This section opens once the whole pathway is complete — every module
+        passed and every policy signed.
+      </p>
+      <p className="text-body-md text-on-surface-variant">
+        {progress.completed} of {progress.total} modules done.
+      </p>
+      <Link to="/" className="rounded-lg bg-primary px-6 py-3 text-label-md text-on-primary">
+        Back to the pathway
+      </Link>
+    </div>
+  );
+}
 
 // Jump back to the top on every route change (SPAs otherwise keep the old
 // scroll position, which feels broken when "changing page").
@@ -144,14 +168,14 @@ export default function App() {
           {/* Everything else uses the app shell */}
           <Route element={<MainLayout />}>
             <Route path="/" element={<DashboardPage />} />
-            <Route path="/course" element={<CoursePage />} />
+            <Route path="/course" element={<RequireDone><CoursePage /></RequireDone>} />
             <Route path="/pathway/:id" element={<PathwayModulePage />} />
             <Route path="/commitment" element={<CommitmentPage />} />
-            <Route path="/reference" element={<ReferenceLibraryPage />} />
-            <Route path="/module/:id" element={<LessonPage />} />
-            <Route path="/library" element={<LibraryPage />} />
-            <Route path="/library/:docId" element={<DocumentPage />} />
-            <Route path="/resources" element={<ResourcesPage />} />
+            <Route path="/reference" element={<RequireDone><ReferenceLibraryPage /></RequireDone>} />
+            <Route path="/module/:id" element={<RequireDone><LessonPage /></RequireDone>} />
+            <Route path="/library" element={<RequireDone><LibraryPage /></RequireDone>} />
+            <Route path="/library/:docId" element={<RequireDone><DocumentPage /></RequireDone>} />
+            <Route path="/resources" element={<RequireDone><ResourcesPage /></RequireDone>} />
             <Route path="/resources/:docId" element={<DocumentPage />} />
             <Route path="/glossary" element={<GlossaryPage />} />
             <Route path="/evidence" element={<EvidencePage />} />

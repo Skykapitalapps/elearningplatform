@@ -8,16 +8,17 @@ import { useCourse } from "../../CourseContext.jsx";
 // shortcuts in the menu.
 const NAV_ITEMS = [
   { to: "/", label: "Home", icon: "home", end: true },
-  { to: "/reference", label: "Go further", icon: "auto_stories" },
-  { to: "/resources", label: "Documents", icon: "folder_open" },
+  { to: "/reference", label: "Go further", icon: "auto_stories", lockable: true },
+  { to: "/resources", label: "Documents", icon: "folder_open", lockable: true },
   { to: "/glossary", label: "Glossary", icon: "translate" },
   { to: "/evidence", label: "My progress", icon: "verified" },
 ];
 
 // Fixed left rail (desktop only). Active route gets the gold right border.
+// "Go further" and "Documents" stay locked until the pathway is complete.
 export default function SideNav() {
   const navigate = useNavigate();
-  const { modules } = useCourse();
+  const { modules, platformUnlocked } = useCourse();
 
   function continueLearning() {
     const next =
@@ -38,6 +39,17 @@ export default function SideNav() {
 
       <nav className="flex-1 space-y-1 px-3">
         {NAV_ITEMS.map((item) => (
+          item.lockable && !platformUnlocked ? (
+            <div
+              key={item.to}
+              title="Opens once the whole pathway is complete"
+              className="flex cursor-not-allowed items-center gap-3 rounded-xl px-4 py-3 text-label-md text-on-surface-variant/50"
+            >
+              <MaterialIcon name={item.icon} className="opacity-50" />
+              {item.label}
+              <MaterialIcon name="lock" className="ml-auto text-[16px] text-outline" />
+            </div>
+          ) : (
           <NavLink
             key={item.to}
             to={item.to}
@@ -64,6 +76,7 @@ export default function SideNav() {
               </>
             )}
           </NavLink>
+          )
         ))}
       </nav>
 

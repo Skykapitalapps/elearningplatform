@@ -228,9 +228,15 @@ export function CourseProvider({ children }) {
     showToast("Progress reset");
   }
 
+  // The platform's side sections (Go further, Documents hub, old course)
+  // stay locked until the whole pathway is done — reviewers see everything.
+  const platformUnlocked =
+    reviewer || (progress.total > 0 && progress.percent === 100);
+
   const value = {
     modules: assignedModules,
     allPathwayModules: assignedModules,
+    platformUnlocked,
     libraryModules: seededLibrary,
     progress,
     reviewer,
