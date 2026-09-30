@@ -3034,6 +3034,7 @@ export const documents = {
     owner: "Signed by Dany Abboud, Managing Director",
     accent: "#f43f5e",
     pdf: "/docs/hitech-human-rights-policy.pdf",
+    acknowledge: true,
     intro:
       "HITECH's commitment to internationally recognised human rights across its activities and business relationships — guided by the UN Guiding Principles on Business and Human Rights (UNGPs), the Universal Declaration of Human Rights, ILO fundamental principles, Nigerian law and project-specific requirements.",
     sections: [
@@ -3064,6 +3065,7 @@ export const documents = {
     owner: "Signed by Dany Abboud, Managing Director",
     accent: "#22c55e",
     pdf: "/docs/hitech-environmental-social-policy.pdf",
+    acknowledge: true,
     intro:
       "HITECH's commitment to protecting the environment throughout the lifecycle of its projects, and to the highest standards of social performance towards the communities within its projects' areas of influence.",
     sections: [
@@ -3095,6 +3097,7 @@ export const documents = {
     owner: "Signed by Dany Abboud, Managing Director",
     accent: "#a855f7",
     pdf: "/docs/hitech-human-resources-policy.pdf",
+    acknowledge: true,
     intro:
       "HITECH's approach to fair employment, worker protections, development and conduct — aligned with national labour laws, the IFC Performance Standards, Equator Principles IV, ILO Conventions and ISO 45001/14001.",
     sections: [
@@ -3126,6 +3129,7 @@ export const documents = {
     owner: "Signed by Dany Abboud, Managing Director",
     accent: "#f59e0b",
     pdf: "/docs/hitech-subcontractor-policy.pdf",
+    acknowledge: true,
     intro:
       "How subcontractors, suppliers, service providers and other third parties are held to the same legal, contractual and HITECH ESMS requirements — the policy behind 'their people are our responsibility'.",
     sections: [

@@ -145,8 +145,17 @@ export function CourseProvider({ children }) {
   }
 
   // Everyone follows the same full pathway — welcome, the five core
-  // modules, then the four role modules.
-  const assignedModules = modules;
+  // modules, then the four role modules. Each module that carries signed
+  // policies also carries `policiesSigned`: the pathway does not move past
+  // it until every one of its policies has been read and signed.
+  const assignedModules = useMemo(() => {
+    const acked = new Set(acknowledgements.map((a) => a.id));
+    return modules.map((m) =>
+      m.policies
+        ? { ...m, policiesSigned: m.policies.every((s) => acked.has(s)) }
+        : m
+    );
+  }, [modules, acknowledgements]);
 
   const progress = useMemo(() => {
     const mods = assignedModules;
@@ -217,7 +226,7 @@ export function CourseProvider({ children }) {
 
   const value = {
     modules: assignedModules,
-    allPathwayModules: modules,
+    allPathwayModules: assignedModules,
     libraryModules: seededLibrary,
     progress,
     reviewer,
@@ -245,7 +254,11 @@ let _reviewerUnlock = false;
 //    and nothing can be reached before it is done;
 //  - core modules S1–S5 open in order once the welcome block is done;
 //  - role modules open together once all five core modules are done;
+//  - a module that carries signed policies only counts as done once every
+//    one of its policies has been read and SIGNED (see assignedModules);
 //  - library modules ("Go further") are always open — free consultation.
+const done = (m) => m.status === "completed" && m.policiesSigned !== false;
+
 export function isUnlocked(modules, module) {
   if (module.library) return true;
   if (_reviewerUnlock) return true;
@@ -254,17 +267,17 @@ export function isUnlocked(modules, module) {
   if (module.block === "welcome") {
     const i = welcomeBlock.findIndex((m) => m.id === module.id);
     if (i <= 0) return true;
-    return welcomeBlock[i - 1].status === "completed";
+    return done(welcomeBlock[i - 1]);
   }
-  const welcomeDone = welcomeBlock.every((m) => m.status === "completed");
+  const welcomeDone = welcomeBlock.every(done);
   if (!welcomeDone) return false;
   const core = modules.filter((m) => m.block === "core");
   if (module.block === "core") {
     const i = core.findIndex((m) => m.id === module.id);
     if (i <= 0) return true;
-    return core[i - 1].status === "completed";
+    return done(core[i - 1]);
   }
-  return core.every((m) => m.status === "completed");
+  return core.every(done);
 }
 
 // Shared status → { label, classes } mapping so badges are consistent.

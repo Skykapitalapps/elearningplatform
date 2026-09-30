@@ -522,7 +522,7 @@ function LightQuiz({ module, onDone }) {
 export default function PathwayModulePage() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { modules, allPathwayModules, completeModule } = useCourse();
+  const { modules, allPathwayModules, completeModule, acknowledgements } = useCourse();
   const module = allPathwayModules.find((m) => m.id === id);
   const [screen, setScreen] = useState(0);
   const [phase, setPhase] = useState("read"); // read | quiz | failed | done
@@ -549,19 +549,60 @@ export default function PathwayModulePage() {
     const welcomeDone = allPathwayModules
       .filter((m) => m.block === "welcome")
       .every((m) => m.status === "completed");
+    // Modules already passed whose policies are still unsigned — they hold
+    // the pathway until every policy is read and signed.
+    const unsignedSlugs = [
+      ...new Set(
+        allPathwayModules
+          .filter((m) => m.status === "completed" && m.policiesSigned === false)
+          .flatMap((m) => m.policies)
+      ),
+    ].filter((slug) => !acknowledgements.some((a) => a.id === slug));
+    const signGate = welcomeDone && unsignedSlugs.length > 0;
     const gateText = !assigned
       ? "This role module is not part of your assignment."
       : module.block === "welcome"
         ? "Start with the word from our Managing Director — it takes a minute."
         : !welcomeDone
           ? "Start with the welcome block — the word from our Managing Director, then three short screens."
-          : module.block === "core"
-            ? "Finish the previous module first — the core pathway runs in order."
-            : "Your role modules open once the five core modules are done.";
+          : signGate
+            ? "One more step before you continue: read and sign the company policies below. Your signature is logged as training evidence."
+            : module.block === "core"
+              ? "Finish the previous module first — the core pathway runs in order."
+              : "Your role modules open once the five core modules are done.";
     return (
       <div className="mx-auto flex min-h-[50vh] max-w-lg flex-col items-center justify-center gap-3 text-center">
-        <MaterialIcon name="lock" className="text-5xl text-outline" />
+        <MaterialIcon name={signGate ? "draw" : "lock"} className="text-5xl text-outline" />
         <p className="text-body-lg text-on-surface-variant">{gateText}</p>
+        {signGate && (
+          <div className="flex w-full flex-col gap-2">
+            {unsignedSlugs.map((slug) => {
+              const doc = documents[slug];
+              if (!doc) return null;
+              return (
+                <Link
+                  key={slug}
+                  to={`/resources/${slug}`}
+                  className="group flex items-center gap-3 rounded-xl border border-outline-variant bg-surface px-4 py-3 text-left transition-colors hover:border-primary"
+                >
+                  <span
+                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-white"
+                    style={{ backgroundColor: doc.accent }}
+                  >
+                    <MaterialIcon name="draw" className="text-[20px]" />
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <span className="block truncate text-body-md font-semibold text-on-surface group-hover:text-primary">
+                      {doc.title}
+                    </span>
+                    <span className="block text-body-sm text-amber-700">To read & sign</span>
+                  </span>
+                  <MaterialIcon name="chevron_right" className="shrink-0 text-on-surface-variant" />
+                </Link>
+              );
+            })}
+          </div>
+        )}
         <Link to="/" className="rounded-lg bg-primary px-6 py-3 text-label-md text-on-primary">Back to the pathway</Link>
       </div>
     );
@@ -788,12 +829,13 @@ export default function PathwayModulePage() {
             {module.policies?.length > 0 && (
               <div className="mx-auto mt-5 max-w-xl rounded-2xl border border-outline-variant bg-surface-container-low p-5 text-left">
                 <p className="text-label-md font-bold uppercase tracking-wide text-on-surface-variant">
-                  The signed policies behind this module
+                  Read & sign the policies behind this module
                 </p>
                 <div className="mt-3 flex flex-col gap-2">
                   {module.policies.map((slug) => {
                     const doc = documents[slug];
                     if (!doc) return null;
+                    const sig = acknowledgements.find((a) => a.id === slug);
                     return (
                       <Link
                         key={slug}
@@ -804,23 +846,38 @@ export default function PathwayModulePage() {
                           className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-white"
                           style={{ backgroundColor: doc.accent }}
                         >
-                          <MaterialIcon name="verified" className="text-[20px]" />
+                          <MaterialIcon name={sig ? "verified" : "draw"} className="text-[20px]" />
                         </span>
-                        <span className="min-w-0">
+                        <span className="min-w-0 flex-1">
                           <span className="block truncate text-body-md font-semibold text-on-surface group-hover:text-primary">
                             {doc.title}
                           </span>
                           <span className="block truncate text-body-sm text-on-surface-variant">{doc.ref}</span>
                         </span>
-                        <MaterialIcon name="chevron_right" className="ml-auto shrink-0 text-on-surface-variant" />
+                        {sig ? (
+                          <span className="flex shrink-0 items-center gap-1 rounded-full bg-emerald-50 px-2.5 py-1 text-caption font-bold text-emerald-700">
+                            <MaterialIcon name="check" className="text-[15px]" /> Signed {sig.date}
+                          </span>
+                        ) : (
+                          <span className="shrink-0 rounded-full bg-amber-50 px-2.5 py-1 text-caption font-bold text-amber-700">
+                            To sign →
+                          </span>
+                        )}
                       </Link>
                     );
                   })}
                 </div>
+                {module.policiesSigned === false && (
+                  <p className="mt-3 text-body-sm text-on-surface-variant">
+                    <MaterialIcon name="info" className="mr-1 align-[-3px] text-[16px] text-amber-600" />
+                    Each policy must be read and signed — the next step of the pathway opens
+                    once every signature is in. Your signatures are logged as training evidence.
+                  </p>
+                )}
               </div>
             )}
             <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-              {nextModule && (
+              {nextModule && module.policiesSigned !== false && (
                 <button
                   onClick={() => { setScreen(0); setPhase("read"); navigate(`/pathway/${nextModule.id}`); }}
                   className="flex items-center gap-2 rounded-xl bg-primary px-8 py-3 text-label-md font-bold text-on-primary transition-opacity hover:opacity-90"
