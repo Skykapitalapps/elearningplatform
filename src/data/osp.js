@@ -536,7 +536,8 @@ export const OSP_MODULES = [
       },
       {
         "format": "order",
-        "stem": "Put the chain in order: how do the standards reach our site?",
+        "stem": "Put the chain in order: how do the Performance Standards reach our site?",
+        "hint": "Start at the top: who WRITES the Performance Standards? Then who adopts them, where do they get written into a contract, and who ends up applying them on the ground?",
         "items": [
           "The IFC writes the Performance Standards",
           "Banks adopt the Equator Principles",

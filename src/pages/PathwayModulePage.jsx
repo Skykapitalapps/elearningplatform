@@ -311,6 +311,7 @@ function LightQuiz({ module, onDone }) {
   const [index, setIndex] = useState(0);
   const [choice, setChoice] = useState(null); // single: option index · tf: true/false
   const [reason, setReason] = useState(null); // tf second stage
+  const [showHint, setShowHint] = useState(false); // per-question "Need a hint?"
   const [streak, setStreak] = useState(0); // display only — never recorded
   const [hits, setHits] = useState(0); // right answers this attempt
   const [praiseIdx, setPraiseIdx] = useState(0);
@@ -321,6 +322,7 @@ function LightQuiz({ module, onDone }) {
   function next() {
     setChoice(null);
     setReason(null);
+    setShowHint(false);
     setCheckedResult(null);
     if (isLast) onDone(hits);
     else setIndex(index + 1);
@@ -372,6 +374,23 @@ function LightQuiz({ module, onDone }) {
       <h2 className="mb-4 text-headline-md leading-snug text-primary">{q.stem}</h2>
       {q.image && (
         <img src={q.image} alt="" loading="lazy" className="mb-4 max-h-56 w-full rounded-2xl object-cover shadow-sm" />
+      )}
+      {q.hint && !revealed && (
+        <div className="mb-4">
+          {showHint ? (
+            <p className="animate-fade-up rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-body-md text-amber-900">
+              <MaterialIcon name="lightbulb" className="mr-1.5 align-[-4px] text-[18px] text-amber-600" />
+              {q.hint}
+            </p>
+          ) : (
+            <button
+              onClick={() => setShowHint(true)}
+              className="flex items-center gap-1.5 text-label-md font-semibold text-secondary hover:underline"
+            >
+              <MaterialIcon name="lightbulb" className="text-[18px]" /> Need a hint?
+            </button>
+          )}
+        </div>
       )}
 
       {q.format === "single" && (
