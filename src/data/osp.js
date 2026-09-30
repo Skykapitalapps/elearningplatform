@@ -220,24 +220,30 @@ export const OSP_MODULES = [
     quiz: [
       {
         format: "single",
-        stem: "Which side of this work stops more sections on our projects?",
+        stem: "In practice, what most often STOPS the work on a road project like ours?",
         image: "/images/hitech-haul.webp",
-        options: ["Environmental.", "Social.", "They are equal.", "Neither, only technical problems stop work."],
+        options: [
+          "Environmental problems — dust, spills, waste.",
+          "People problems — land not paid for, unhappy communities, workers treated badly.",
+          "Both stop the work equally often.",
+          "Only technical problems can stop the work.",
+        ],
         correct: 1,
         feedback: {
-          0: "Understandable, because environmental problems are the visible ones. But land, workers and communities are what block roads and reach the lenders fastest.",
-          3: "Technical problems stop work too. The difference is that a community can stop a section without anything on the site being wrong.",
+          0: "Those matter and must be managed. But it is the people problems — land, pay, communities — that most often block a section, and they reach the lenders first.",
+          2: "Not quite equally. Environmental problems usually get fixed on site; a people problem can shut a whole section down.",
+          3: "A breakdown stops one machine. An unpaid farmer or an angry village can stop the whole section — with every machine working fine.",
         },
       },
       {
         format: "tf",
-        stem: "A trader on the road reserve with no papers for the spot is not affected by our project.",
+        stem: "A woman sells food beside the road, right where we will build. She has no papers for her spot — so the project owes her nothing.",
         image: "/images/lm12.jpg",
         answer: false,
         reasons: [
-          "Having no papers does not mean having no rights, and the lenders treat her as affected.",
-          "She is affected only if she has traded there more than ten years.",
-          "She is affected only if a structure is demolished.",
+          "No papers does not mean no rights — the lenders count her as an affected person.",
+          "She only counts if she has traded there for more than ten years.",
+          "She only counts if her stall gets demolished.",
         ],
         correctReason: 0,
         feedback: "This is the single most common mistake on projects like ours. People without papers are often the majority of those affected.",
