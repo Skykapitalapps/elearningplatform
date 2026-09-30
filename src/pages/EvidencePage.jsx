@@ -84,7 +84,8 @@ export default function EvidencePage() {
           <MaterialIcon name="workspace_premium" className="text-3xl text-outline" />
           <p className="text-body-md text-on-surface-variant">
             {progress.total - progress.completed} module{progress.total - progress.completed !== 1 ? "s" : ""} left
-            before your certificate.{" "}
+            before your certificate — a module counts once its questions are passed and its
+            linked policies are signed.{" "}
             <Link to="/" className="font-bold text-secondary hover:underline">Continue the pathway →</Link>
           </p>
         </div>

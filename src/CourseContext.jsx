@@ -157,9 +157,13 @@ export function CourseProvider({ children }) {
     );
   }, [modules, acknowledgements]);
 
+  // A module only COUNTS once its quiz is passed AND its linked policies
+  // are signed — so 11/11 (and the certificate) requires every signature.
   const progress = useMemo(() => {
     const mods = assignedModules;
-    const completed = mods.filter((m) => m.status === "completed").length;
+    const completed = mods.filter(
+      (m) => m.status === "completed" && m.policiesSigned !== false
+    ).length;
     const total = mods.length;
     return {
       completed,

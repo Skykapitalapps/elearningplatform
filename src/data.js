@@ -3074,6 +3074,7 @@ export const documents = {
     owner: "Signed by Dany Abboud, Managing Director",
     accent: "#0ea5e9",
     pdf: "/docs/hitech-ohs-policy.pdf",
+    acknowledge: true,
     intro:
       "HITECH's commitment to the highest standards of health and safety on its construction activities — aligned with IFC guidelines, ISO 45001 and 14001:2015, the UNGPs, the Voluntary Principles and Good International Industry Practice.",
     sections: [
@@ -3096,6 +3097,7 @@ export const documents = {
     owner: "Signed by Dany Abboud, Managing Director",
     accent: "#14b8a6",
     pdf: "/docs/hitech-cashes-policy.pdf",
+    acknowledge: true,
     intro:
       "Community Affairs, Safety, Health, Environment and Security — one policy holding the five site disciplines together, with particular attention to the rights and wellbeing of local communities.",
     sections: [
@@ -3118,6 +3120,7 @@ export const documents = {
     owner: "Signed by Dany Abboud, Managing Director",
     accent: "#db2777",
     pdf: "/docs/hitech-gbvsh-policy.pdf",
+    acknowledge: true,
     intro:
       "Zero tolerance for gender-based violence, sexual exploitation and abuse, and sexual harassment — in the workplace and the project areas. Aligned with the IFC Performance Standards, the World Bank GBV Good Practice Note and the EBRD GBVH Guidance Note.",
     sections: [
@@ -3140,6 +3143,7 @@ export const documents = {
     owner: "Signed by Dany Abboud, Managing Director",
     accent: "#8b5cf6",
     pdf: "/docs/hitech-edi-policy.pdf",
+    acknowledge: true,
     intro:
       "Equal opportunity in recruitment, training and promotion regardless of gender, age, ethnicity, disability, religion, nationality, sexual orientation or marital status — and a workplace where everyone is treated with dignity.",
     sections: [
@@ -3162,6 +3166,7 @@ export const documents = {
     owner: "Signed by Dany Abboud, Managing Director",
     accent: "#ef4444",
     pdf: "/docs/hitech-hiv-aids-policy.pdf",
+    acknowledge: true,
     intro:
       "A supportive, non-discriminatory workplace for employees affected by HIV and AIDS — awareness, prevention, treatment access and strict confidentiality, for all employees, subcontractors and third parties.",
     sections: [
@@ -3184,6 +3189,7 @@ export const documents = {
     owner: "Signed by Dany Abboud, Managing Director",
     accent: "#f97316",
     pdf: "/docs/hitech-alcohol-drugs-policy.pdf",
+    acknowledge: true,
     intro:
       "No intake, possession or trading of drugs or alcohol on operational sites — a zero-tolerance rule protecting everyone's safety, applying to all workers, subcontractors, visitors and personnel under HITECH's control.",
     sections: [
@@ -3206,6 +3212,7 @@ export const documents = {
     owner: "Signed by Dany Abboud, Managing Director",
     accent: "#64748b",
     pdf: "/docs/hitech-smoke-free-policy.pdf",
+    acknowledge: true,
     intro:
       "Protecting non-smokers from passive smoking while respecting individual choice — smoking regulated to designated areas, for all staff at all levels and visitors on company premises.",
     sections: [
@@ -3227,6 +3234,7 @@ export const documents = {
     owner: "Signed by Dany Abboud, Managing Director",
     accent: "#b45309",
     pdf: "/docs/hitech-anti-bribery-policy.pdf",
+    acknowledge: true,
     intro:
       "Zero tolerance towards bribery and corruption in all forms — across procurement, licensing, project approvals, contracting, recruitment and payments, in full compliance with Nigerian and international anti-corruption laws.",
     sections: [
@@ -3249,6 +3257,7 @@ export const documents = {
     owner: "Signed by Dany Abboud, Managing Director",
     accent: "#155e75",
     pdf: "/docs/hitech-aml-policy.pdf",
+    acknowledge: true,
     intro:
       "Preventing HITECH from being used to facilitate money laundering, terrorism financing or transactions involving the proceeds of crime — compliant with Nigerian law, FATF standards and lender requirements (IFC, Equator Principles).",
     sections: [
@@ -3271,6 +3280,7 @@ export const documents = {
     owner: "Signed by Dany Abboud, Managing Director",
     accent: "#16a34a",
     pdf: "/docs/hitech-strategic-es-objectives.pdf",
+    acknowledge: true,
     intro:
       "The ten strategic E&S objectives guiding HITECH towards sustainable and responsible operations — established in accordance with host-country law, the IFC, Equator Principles IV, ISO 45001 and 14001:2015, the UNGPs and the Voluntary Principles.",
     sections: [

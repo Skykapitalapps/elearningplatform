@@ -1091,7 +1091,7 @@ export const OSP_MODULES = [
   // ──────────────────────────────────────────────────────────────── R1 ──
   {
     id: "r1",
-    policies: ["environmental-social-policy", "human-rights-policy"],
+    policies: ["environmental-social-policy", "human-rights-policy", "cashes-policy"],
     cover: "/images/hitech-embankment.webp",
     code: "C",
     block: "role",
@@ -1300,7 +1300,7 @@ export const OSP_MODULES = [
   // ──────────────────────────────────────────────────────────────── R2 ──
   {
     id: "r2",
-    policies: ["human-resources-policy"],
+    policies: ["human-resources-policy", "ohs-policy", "alcohol-drugs-policy", "smoke-free-policy", "hiv-aids-policy"],
     cover: "/images/lm10.jpg",
     code: "H&S",
     block: "role",
@@ -1519,7 +1519,7 @@ export const OSP_MODULES = [
   // ──────────────────────────────────────────────────────────────── R3 ──
   {
     id: "r3",
-    policies: ["environmental-social-policy"],
+    policies: ["environmental-social-policy", "strategic-es-objectives"],
     cover: "/images/hitech-sandwin.webp",
     code: "E",
     block: "role",
@@ -1730,7 +1730,7 @@ export const OSP_MODULES = [
   // ──────────────────────────────────────────────────────────────── R4 ──
   {
     id: "r4",
-    policies: ["human-rights-policy", "subcontractor-policy"],
+    policies: ["human-rights-policy", "subcontractor-policy", "code-of-conduct", "gbvsh-policy", "edi-policy", "anti-bribery-policy", "aml-policy"],
     code: "S",
     block: "role",
     order: 9,
@@ -1738,6 +1738,7 @@ export const OSP_MODULES = [
     subtitle: "Seven screens and eight questions, about ten minutes",
     minutes: 10,
     icon: "shield_person",
+    cover: "/images/hitech-night.webp",
     support: true, // persistent support link on every screen of this module
     screens: [
       {
