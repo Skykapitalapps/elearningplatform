@@ -2801,10 +2801,25 @@ export const resourceCategories = [
         doc: "human-rights-policy",
       },
       {
-        title: "Anti-Bribery, Anti-Corruption & AML Policy",
-        note: "Bribery, conflicts of interest, KYC and AML controls.",
+        title: "Anti-Bribery & Anti-Corruption Policy",
+        note: "Signed — zero tolerance, gifts, kickbacks, third parties.",
         icon: "account_balance",
-        accent: "#f43f5e",
+        accent: "#b45309",
+        doc: "anti-bribery-policy",
+      },
+      {
+        title: "Anti-Money Laundering Policy",
+        note: "Signed — KYC, sanctions screening, no cash payments.",
+        icon: "currency_exchange",
+        accent: "#155e75",
+        doc: "aml-policy",
+      },
+      {
+        title: "Strategic E&S Objectives",
+        note: "Signed — the ten objectives guiding HITECH's E&S performance.",
+        icon: "flag",
+        accent: "#16a34a",
+        doc: "strategic-es-objectives",
       },
     ],
   },
@@ -2812,10 +2827,18 @@ export const resourceCategories = [
     title: "Health, Safety & Environment",
     items: [
       {
-        title: "HSE Policy",
-        note: "Safe systems of work, PPE and incident reporting.",
+        title: "Occupational Health & Safety Policy",
+        note: "Signed — stop-work right, PPE, drills, toolbox talks.",
         icon: "health_and_safety",
-        accent: "#10b981",
+        accent: "#0ea5e9",
+        doc: "ohs-policy",
+      },
+      {
+        title: "CASHES Policy",
+        note: "Signed — community affairs, safety, health, environment, security.",
+        icon: "diversity_2",
+        accent: "#14b8a6",
+        doc: "cashes-policy",
       },
       {
         title: "Environmental & Social Policy",
@@ -2843,10 +2866,39 @@ export const resourceCategories = [
         doc: "human-resources-policy",
       },
       {
-        title: "GBVH / Anti-Harassment Policy",
-        note: "Zero tolerance for harassment and gender-based violence.",
+        title: "GBVSH Policy",
+        note: "Signed — zero tolerance, confidential reporting, survivor support.",
         icon: "diversity_3",
-        accent: "#ec4899",
+        accent: "#db2777",
+        doc: "gbvsh-policy",
+      },
+      {
+        title: "Equality, Diversity & Inclusion Policy",
+        note: "Signed — equal opportunity, women's empowerment, local inclusion.",
+        icon: "balance",
+        accent: "#8b5cf6",
+        doc: "edi-policy",
+      },
+      {
+        title: "HIV & AIDS Policy",
+        note: "Signed — awareness, free testing, confidentiality, no discrimination.",
+        icon: "volunteer_activism",
+        accent: "#ef4444",
+        doc: "hiv-aids-policy",
+      },
+      {
+        title: "Alcohol & Drugs Policy",
+        note: "Signed — BAC 0.00 on site, random screening, fair hearing.",
+        icon: "no_drinks",
+        accent: "#f97316",
+        doc: "alcohol-drugs-policy",
+      },
+      {
+        title: "Smoke-Free Policy",
+        note: "Signed — no indoor smoking, designated areas only.",
+        icon: "smoke_free",
+        accent: "#64748b",
+        doc: "smoke-free-policy",
       },
       {
         title: "Community Grievance Mechanism (GRM)",
@@ -3014,6 +3066,232 @@ export const psMatchItems = [
 // Reference documents rendered as in-app readings. `keyPoints` is a faithful
 // summary for on-screen study; the full signed source is embedded via `pdf`.
 export const documents = {
+  // ── Additional signed policies (April 2025 IMS suite) ──
+  "ohs-policy": {
+    title: "Occupational Health & Safety Policy",
+    org: client.clientLegal,
+    ref: "IMS-HSE-Pol-006 · Version 3 · April 2025",
+    owner: "Signed by Dany Abboud, Managing Director",
+    accent: "#0ea5e9",
+    pdf: "/docs/hitech-ohs-policy.pdf",
+    intro:
+      "HITECH's commitment to the highest standards of health and safety on its construction activities — aligned with IFC guidelines, ISO 45001 and 14001:2015, the UNGPs, the Voluntary Principles and Good International Industry Practice.",
+    sections: [
+      {
+        title: "What it commits to",
+        points: [
+          "Every worker's right to STOP WORK under dangerous conditions or unacceptable risk — management addresses the concern promptly.",
+          "Regular risk assessments; every incident and near miss reported and analysed to prevent recurrence.",
+          "PPE for all staff and visitors, first aid on site, regular emergency drills.",
+          "Toolbox talks, inductions for new recruits and visitors, and training on safe work procedures.",
+          "Sanitary facilities on all sites; project timelines never compromise health and safety.",
+        ],
+      },
+    ],
+  },
+  "cashes-policy": {
+    title: "CASHES Policy",
+    org: client.clientLegal,
+    ref: "IMS-HSE-Pol-005 · Version 1 · April 2025",
+    owner: "Signed by Dany Abboud, Managing Director",
+    accent: "#14b8a6",
+    pdf: "/docs/hitech-cashes-policy.pdf",
+    intro:
+      "Community Affairs, Safety, Health, Environment and Security — one policy holding the five site disciplines together, with particular attention to the rights and wellbeing of local communities.",
+    sections: [
+      {
+        title: "The five commitments",
+        points: [
+          "Community engagement and cultural respect — transparent communication, community interests considered in planning and execution.",
+          "Zero-harm health and safety in both the workplace and the community; utilities and services never disrupted by construction.",
+          "Environmental stewardship — sustainable resource use, pollution control, protection of the ecosystem services communities rely on.",
+          "Security management in line with the UN Voluntary Principles (VPSHR); traffic plans that keep community access safe and open.",
+          "Performance tracked against KPIs: training frequency, engagement meetings, environmental non-compliances, incident response times.",
+        ],
+      },
+    ],
+  },
+  "gbvsh-policy": {
+    title: "GBVSH Policy",
+    org: client.clientLegal,
+    ref: "IMS-HSE-Pol-011 · Version 1 · April 2025",
+    owner: "Signed by Dany Abboud, Managing Director",
+    accent: "#db2777",
+    pdf: "/docs/hitech-gbvsh-policy.pdf",
+    intro:
+      "Zero tolerance for gender-based violence, sexual exploitation and abuse, and sexual harassment — in the workplace and the project areas. Aligned with the IFC Performance Standards, the World Bank GBV Good Practice Note and the EBRD GBVH Guidance Note.",
+    sections: [
+      {
+        title: "How it protects people",
+        points: [
+          "Mandatory induction and regular GBVSH training for all staff, contractors and workers.",
+          "Confidential, accessible and anonymous reporting channels; anonymous worker surveys to identify risks.",
+          "Every report taken seriously, investigated impartially, handled confidentially.",
+          "Survivors supported through medical, psychosocial and legal referrals; perpetrators face dismissal or contract termination.",
+          "No retaliation, ever, for reporting in good faith; a designated GBVSH focal point ensures implementation.",
+        ],
+      },
+    ],
+  },
+  "edi-policy": {
+    title: "Equality, Diversity & Inclusion Policy",
+    org: client.clientLegal,
+    ref: "IMS-HSE-Pol-010 · Version 1 · April 2025",
+    owner: "Signed by Dany Abboud, Managing Director",
+    accent: "#8b5cf6",
+    pdf: "/docs/hitech-edi-policy.pdf",
+    intro:
+      "Equal opportunity in recruitment, training and promotion regardless of gender, age, ethnicity, disability, religion, nationality, sexual orientation or marital status — and a workplace where everyone is treated with dignity.",
+    sections: [
+      {
+        title: "Commitments",
+        points: [
+          "No discrimination, harassment, bullying or victimisation, under any circumstances.",
+          "Women's empowerment: more women in technical and leadership roles, a safe and equitable workplace.",
+          "Local inclusion: targeted hiring and training for underrepresented and disadvantaged local groups.",
+          "EDI performance monitored through KPIs (gender, local hiring, related grievances) and reported to senior management.",
+          "Concerns raised through the grievance mechanism are addressed promptly, confidentially and without retaliation.",
+        ],
+      },
+    ],
+  },
+  "hiv-aids-policy": {
+    title: "HIV & AIDS Policy",
+    org: client.clientLegal,
+    ref: "IMS-HSE-Pol-008 · Version 1 · April 2025",
+    owner: "Signed by Dany Abboud, Managing Director",
+    accent: "#ef4444",
+    pdf: "/docs/hitech-hiv-aids-policy.pdf",
+    intro:
+      "A supportive, non-discriminatory workplace for employees affected by HIV and AIDS — awareness, prevention, treatment access and strict confidentiality, for all employees, subcontractors and third parties.",
+    sections: [
+      {
+        title: "Commitments",
+        points: [
+          "Regular awareness programmes on transmission, prevention and support services.",
+          "Free condoms and free, confidential, voluntary HIV testing at regular intervals.",
+          "Access to medical facilities providing comprehensive treatment, including antiretroviral therapy (ART).",
+          "Strict confidentiality of HIV status; equal opportunities in recruitment, employment and career development.",
+          "Discrimination, harassment or stigmatisation based on HIV status is prohibited and resolved swiftly.",
+        ],
+      },
+    ],
+  },
+  "alcohol-drugs-policy": {
+    title: "Alcohol & Drugs Policy",
+    org: client.clientLegal,
+    ref: "IMS-HSE-Pol-003 · Version 2 · April 2025",
+    owner: "Signed by Dany Abboud, Managing Director",
+    accent: "#f97316",
+    pdf: "/docs/hitech-alcohol-drugs-policy.pdf",
+    intro:
+      "No intake, possession or trading of drugs or alcohol on operational sites — a zero-tolerance rule protecting everyone's safety, applying to all workers, subcontractors, visitors and personnel under HITECH's control.",
+    sections: [
+      {
+        title: "The rules",
+        points: [
+          "Blood Alcohol Concentration of 0.00 required on the organisation's premises — 0.01 or higher means immediate removal from the project.",
+          "Random alcohol and drug screenings, including contractors and subcontractors.",
+          "Preventive awareness programmes and external counselling information as part of the wellbeing programme.",
+          "Violations may lead to disciplinary action including dismissal — with a fair hearing process.",
+          "Individuals suspected of being under the influence are referred to a government-recognised hospital for evaluation.",
+        ],
+      },
+    ],
+  },
+  "smoke-free-policy": {
+    title: "Smoke-Free Policy",
+    org: client.clientLegal,
+    ref: "IMS-HSE-Pol-007 · Version 1 · April 2025",
+    owner: "Signed by Dany Abboud, Managing Director",
+    accent: "#64748b",
+    pdf: "/docs/hitech-smoke-free-policy.pdf",
+    intro:
+      "Protecting non-smokers from passive smoking while respecting individual choice — smoking regulated to designated areas, for all staff at all levels and visitors on company premises.",
+    sections: [
+      {
+        title: "The rules",
+        points: [
+          "No smoking inside any HITECH building or work site.",
+          "Designated smoking areas only — clearly marked, away from flammable materials, fuel stations and hazardous areas.",
+          "Cigarette waste in the designated receptacles; improper disposal counts as misconduct.",
+          "Line managers monitor compliance; the HR Manager handles concerns fairly and consistently.",
+        ],
+      },
+    ],
+  },
+  "anti-bribery-policy": {
+    title: "Anti-Bribery & Anti-Corruption Policy",
+    org: client.clientLegal,
+    ref: "IMS-HSE-Pol-013 · April 2025",
+    owner: "Signed by Dany Abboud, Managing Director",
+    accent: "#b45309",
+    pdf: "/docs/hitech-anti-bribery-policy.pdf",
+    intro:
+      "Zero tolerance towards bribery and corruption in all forms — across procurement, licensing, project approvals, contracting, recruitment and payments, in full compliance with Nigerian and international anti-corruption laws.",
+    sections: [
+      {
+        title: "What is prohibited",
+        points: [
+          "Offering, giving, soliciting or accepting bribes or facilitation payments — by anyone, including intermediaries.",
+          "Gifts or hospitality intended to influence decisions; political donations for undue advantage.",
+          "Kickbacks or rebates as a condition of contract award; collusive tendering or bid rigging.",
+          "Falsifying documents to cover up corrupt payments.",
+          "Applies to all employees, management, board members, contractors, suppliers, vendors, agents, consultants and JV partners — third parties are bound through contractual clauses and due diligence.",
+        ],
+      },
+    ],
+  },
+  "aml-policy": {
+    title: "Anti-Money Laundering Policy",
+    org: client.clientLegal,
+    ref: "IMS-HSE-Pol-014 · April 2025",
+    owner: "Signed by Dany Abboud, Managing Director",
+    accent: "#155e75",
+    pdf: "/docs/hitech-aml-policy.pdf",
+    intro:
+      "Preventing HITECH from being used to facilitate money laundering, terrorism financing or transactions involving the proceeds of crime — compliant with Nigerian law, FATF standards and lender requirements (IFC, Equator Principles).",
+    sections: [
+      {
+        title: "How it works",
+        points: [
+          "KYC (Know Your Counterparty) procedures for all contractors, suppliers and consultants before engagement.",
+          "All third parties screened against national and international sanctions lists (UN, OFAC, EU).",
+          "No cash payments — traceable banking channels only; unusual payment patterns monitored.",
+          "Finance and procurement teams conduct third-party due diligence and verify sources of funds.",
+          "Every employee reports suspicious behaviour, unusual payments or cash transactions; AML training for relevant staff.",
+        ],
+      },
+    ],
+  },
+  "strategic-es-objectives": {
+    title: "Strategic Environmental & Social Objectives",
+    org: client.clientLegal,
+    ref: "HSE-REC004 · April 2025",
+    owner: "Signed by Dany Abboud, Managing Director",
+    accent: "#16a34a",
+    pdf: "/docs/hitech-strategic-es-objectives.pdf",
+    intro:
+      "The ten strategic E&S objectives guiding HITECH towards sustainable and responsible operations — established in accordance with host-country law, the IFC, Equator Principles IV, ISO 45001 and 14001:2015, the UNGPs and the Voluntary Principles.",
+    sections: [
+      {
+        title: "The ten objectives",
+        points: [
+          "1 · Compliance with legal and regulatory requirements — national and international.",
+          "2 · Sustainable resource management — efficient use of energy, water and raw materials.",
+          "3 · Pollution prevention — emissions reduced, waste managed effectively.",
+          "4 · Biodiversity conservation — natural habitats protected and restored in project areas.",
+          "5 · Community engagement and development — transparent communication and local support.",
+          "6 · Health and safety — for employees, contractors and impacted communities.",
+          "7 · Economic and social benefits — local employment, procurement and livelihood restoration.",
+          "8 · Continuous improvement — monitoring, auditing and feedback.",
+          "9 · Capacity building — of employees, contractors and local stakeholders.",
+          "10 · Climate change mitigation and adaptation.",
+        ],
+      },
+    ],
+  },
+
   // ── The four SIGNED policies (Signed Policies.pdf, September 2026) ──
   "human-rights-policy": {
     title: "Human Rights Policy",

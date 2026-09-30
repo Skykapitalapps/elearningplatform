@@ -41,8 +41,8 @@ const CLIENTS = {
     },
     // The client's signed Code of Conduct (PDF placed in public/docs/)
     codeOfConduct: {
-      ref: "IMS-HSE-Pol-014 · Version 1 · April 2025",
-      owner: "Approved by Dany Abboud, Managing Director",
+      ref: "IMS-HSE-Pol-015 · April 2025",
+      owner: "Signed by Dany Abboud, Managing Director",
       pdf: "/docs/hitech-code-of-conduct.pdf",
     },
     // HITECH's own site photography (public/images/hitech-*.webp)
