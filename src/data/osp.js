@@ -109,7 +109,7 @@ export const OSP_MODULES = [
         heading: "Before you start",
         photo: "/images/lm6.jpg",
         body: [
-          "Every new term is explained on the screen where it appears — look for the jargon buster.",
+          "Every new term is explained on the screen where it appears — look for the \"From the glossary\" box.",
           "The glossary and the memo sheets stay available from the menu at any time, during and after the pathway.",
           "If anything in the Security and conduct module affects you personally, a support link on every screen of that module gives you the person you can speak to.",
         ],

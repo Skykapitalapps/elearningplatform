@@ -275,7 +275,7 @@ function JargonBuster({ items }) {
   return (
     <div className="mt-6 rounded-xl border border-outline-variant bg-surface-container-low p-stack-md">
       <p className="mb-2 flex items-center gap-1.5 text-caption font-bold uppercase tracking-widest text-primary">
-        <MaterialIcon name="translate" className="text-[16px]" /> Jargon buster
+        <MaterialIcon name="translate" className="text-[16px]" /> From the glossary
       </p>
       {items.map((j) => (
         <p key={j.term} className="mb-1.5 text-body-md leading-relaxed text-on-surface-variant">

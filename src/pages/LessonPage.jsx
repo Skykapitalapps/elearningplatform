@@ -856,7 +856,7 @@ function GlossaryChips({ glossary, accent }) {
     <div className="mb-6">
       <p className="mb-2 flex items-center gap-1.5 text-caption font-bold uppercase tracking-widest text-on-surface-variant">
         <MaterialIcon name="translate" className="text-[16px]" style={{ color: accent }} />
-        Jargon buster — tap a word
+        From the glossary — tap a word
         <Link to="/glossary" className="ml-auto font-semibold normal-case tracking-normal text-secondary hover:underline">
           All terms →
         </Link>
