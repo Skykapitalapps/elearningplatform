@@ -923,24 +923,37 @@ export default function PathwayModulePage() {
               </div>
             )}
             <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-              {nextModule && module.policiesSigned !== false && (
-                <button
-                  onClick={() => { setScreen(0); setPhase("read"); navigate(`/pathway/${nextModule.id}`); }}
+              {module.policiesSigned === false ? (
+                // No way around it: the only door out of this screen is the
+                // first policy still waiting for a signature.
+                <Link
+                  to={`/resources/${module.policies.find((slug) => !acknowledgements.some((a) => a.id === slug))}`}
                   className="flex items-center gap-2 rounded-xl bg-primary px-8 py-3 text-label-md font-bold text-on-primary transition-opacity hover:opacity-90"
                 >
-                  Next: {nextModule.title} <MaterialIcon name="arrow_forward" />
-                </button>
-              )}
-              <Link to="/" className="rounded-xl border border-outline-variant px-6 py-3 text-label-md font-semibold text-on-surface hover:border-primary">
-                Back to the pathway
-              </Link>
-              {hasQuiz && (
-                <button
-                  onClick={() => { setQuizKey((k) => k + 1); setPhase("quiz"); }}
-                  className="flex items-center gap-1.5 text-label-md font-semibold text-secondary hover:underline"
-                >
-                  <MaterialIcon name="refresh" className="text-[18px]" /> Try the questions again
-                </button>
+                  <MaterialIcon name="draw" /> Read & sign now
+                </Link>
+              ) : (
+                <>
+                  {nextModule && (
+                    <button
+                      onClick={() => { setScreen(0); setPhase("read"); navigate(`/pathway/${nextModule.id}`); }}
+                      className="flex items-center gap-2 rounded-xl bg-primary px-8 py-3 text-label-md font-bold text-on-primary transition-opacity hover:opacity-90"
+                    >
+                      Next: {nextModule.title} <MaterialIcon name="arrow_forward" />
+                    </button>
+                  )}
+                  <Link to="/" className="rounded-xl border border-outline-variant px-6 py-3 text-label-md font-semibold text-on-surface hover:border-primary">
+                    Back to the pathway
+                  </Link>
+                  {hasQuiz && (
+                    <button
+                      onClick={() => { setQuizKey((k) => k + 1); setPhase("quiz"); }}
+                      className="flex items-center gap-1.5 text-label-md font-semibold text-secondary hover:underline"
+                    >
+                      <MaterialIcon name="refresh" className="text-[18px]" /> Try the questions again
+                    </button>
+                  )}
+                </>
               )}
             </div>
           </div>
