@@ -118,7 +118,7 @@ export async function buildCertificatePdf({
   centered(doc, "DATE", 64.5, lineY + 6.5, 0.35);
   centered(doc, "AUTHORIZED SIGNATORY", W - 73.5, lineY + 6.5, 0.35);
   doc.setFont("SS4", "normal").setFontSize(8.5).setTextColor(...GREY);
-  doc.text("Placide Dougah — Co-Head of ESG, Skykapital", W - 73.5, lineY + 11.5, { align: "center" });
+  doc.text("Placide Dougah — ESG Advisor", W - 73.5, lineY + 11.5, { align: "center" });
 
   return doc;
 }

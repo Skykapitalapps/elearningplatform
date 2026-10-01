@@ -94,7 +94,7 @@ export default function CertificatePrintPage() {
                 />
               </div>
               <span className="text-[12px] text-[#001b3d] uppercase tracking-widest font-bold">Authorized Signatory</span>
-              <span className="mt-1 text-[11px] text-[#44474e]">Placide Dougah — Co-Head of ESG, Skykapital</span>
+              <span className="mt-1 text-[11px] text-[#44474e]">Placide Dougah — ESG Advisor</span>
             </div>
           </div>
         </div>
