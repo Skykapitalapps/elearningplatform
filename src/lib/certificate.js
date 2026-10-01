@@ -29,10 +29,11 @@ export async function buildCertificatePdf({
   // (workbook rule R11) without touching the approved layout.
   detail,
 }) {
-  const [{ jsPDF }, logo, fonts] = await Promise.all([
+  const [{ jsPDF }, logo, fonts, sig] = await Promise.all([
     import("jspdf"),
     import("../assets/skykapitalLogoB64.js"),
     import("../assets/certFonts.js"),
+    import("../assets/placideSignatureB64.js"),
   ]);
   const doc = new jsPDF({ orientation: "landscape", unit: "mm", format: "a4" });
   const W = 297;
@@ -109,9 +110,15 @@ export async function buildCertificatePdf({
   doc.line(W - 109, lineY, W - 38, lineY);
   doc.setFont("helvetica", "bold").setFontSize(10).setTextColor(...NAVY);
   doc.text(date || "", 64.5, lineY - 2.5, { align: "center" });
+  // Placide's electronic signature, sitting on the signatory line
+  const sw = 34;
+  const sh = sw * (611 / 900);
+  doc.addImage(sig.PLACIDE_SIGNATURE, "PNG", W - 73.5 - sw / 2, lineY - sh - 0.5, sw, sh);
   doc.setFont("helvetica", "bold").setFontSize(9).setTextColor(...NAVY);
   centered(doc, "DATE", 64.5, lineY + 6.5, 0.35);
   centered(doc, "AUTHORIZED SIGNATORY", W - 73.5, lineY + 6.5, 0.35);
+  doc.setFont("SS4", "normal").setFontSize(8.5).setTextColor(...GREY);
+  doc.text("Placide Dougah — Co-Head of ESG, Skykapital", W - 73.5, lineY + 11.5, { align: "center" });
 
   return doc;
 }

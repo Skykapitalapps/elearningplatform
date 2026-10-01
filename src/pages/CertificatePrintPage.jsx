@@ -5,6 +5,7 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { SKYKAPITAL_LOGO } from "../assets/skykapitalLogoB64.js";
+import { PLACIDE_SIGNATURE } from "../assets/placideSignatureB64.js";
 
 const SS4 = { fontFamily: "'Source Serif 4', Georgia, serif" };
 const MANROPE = { fontFamily: "Manrope, Arial, sans-serif" };
@@ -83,10 +84,17 @@ export default function CertificatePrintPage() {
               </div>
               <span className="text-[12px] text-[#001b3d] uppercase tracking-widest font-bold">Date</span>
             </div>
-            {/* Signature Block */}
+            {/* Signature Block — Placide's electronic signature on the line */}
             <div className="flex flex-col items-center w-64 text-center">
-              <div className="w-full border-b border-[#001b3d] mb-3 h-8"></div>
+              <div className="relative mb-3 h-8 w-full border-b border-[#001b3d]">
+                <img
+                  src={PLACIDE_SIGNATURE}
+                  alt="Signature of Placide Dougah"
+                  className="absolute bottom-0 left-1/2 h-[72px] -translate-x-1/2 object-contain"
+                />
+              </div>
               <span className="text-[12px] text-[#001b3d] uppercase tracking-widest font-bold">Authorized Signatory</span>
+              <span className="mt-1 text-[11px] text-[#44474e]">Placide Dougah — Co-Head of ESG, Skykapital</span>
             </div>
           </div>
         </div>
