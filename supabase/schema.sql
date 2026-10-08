@@ -288,3 +288,23 @@ begin
   update public.profiles set job_role = new_job_role where id = target;
 end;
 $$;
+
+-- ============================================================================
+-- DEPARTMENTS (run once) — a free-text department per learner, set by the
+-- administrator at account creation and editable in the member list.
+-- ============================================================================
+alter table public.profiles
+  add column if not exists department text;
+
+create or replace function public.set_user_department(target uuid, new_department text)
+returns void language plpgsql security definer set search_path = public as $$
+begin
+  if not exists (select 1 from public.profiles where id = auth.uid() and role = 'admin') then
+    raise exception 'Only the administrator can assign departments.';
+  end if;
+  if new_department is null or length(new_department) = 0 or length(new_department) > 80 then
+    raise exception 'Invalid department.';
+  end if;
+  update public.profiles set department = new_department where id = target;
+end;
+$$;

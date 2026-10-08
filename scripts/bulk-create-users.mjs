@@ -4,7 +4,8 @@
 // Run this LOCALLY (never deploy it): it uses the Supabase service-role key,
 // which must stay on the administrator's machine.
 //
-//   1. Prepare users.csv with a header row:  full_name,email[,password]
+//   1. Prepare users.csv with a header row:  full_name,email[,department][,password]
+//      - department is optional free text (e.g. "Batching plant")
 //      - password is optional: a strong one is generated when omitted
 //      (everyone follows the same full pathway — no job_role needed)
 //   2. Set the two environment variables (PowerShell):
@@ -75,6 +76,7 @@ const users = rows.map((r, i) => {
   const u = {
     full_name: r[col("full_name")],
     email: (r[col("email")] || "").toLowerCase(),
+    department: col("department") >= 0 ? r[col("department")] : "",
     password: col("password") >= 0 && r[col("password")] ? r[col("password")] : genPassword(),
     line: i + 2,
   };
@@ -112,7 +114,7 @@ for (const u of users) {
     // the signup hook created the profile row; set name + role directly
     const { error: pErr } = await supabase
       .from("profiles")
-      .update({ full_name: u.full_name })
+      .update({ full_name: u.full_name, ...(u.department ? { department: u.department } : {}) })
       .eq("id", data.user.id);
     if (pErr) throw pErr;
     ok++;

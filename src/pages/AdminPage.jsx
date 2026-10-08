@@ -506,9 +506,10 @@ function ProjectProgress({ project, people, logins = [] }) {
   // Progress report as a CSV the admin can attach to invoices and lender
   // reports. Semicolon-separated + BOM so Excel opens it cleanly.
   function exportCsv() {
-    const head = ["Learner", "Modules completed", "Total modules", "Policies signed", "Total signatures", "Progress %", "Certified", "Certificate no.", "Completion date", "Last sign-in", "Total sign-ins"];
+    const head = ["Learner", "Department", "Modules completed", "Total modules", "Policies signed", "Total signatures", "Progress %", "Certified", "Certificate no.", "Completion date", "Last sign-in", "Total sign-ins"];
     const lines = per.map((p) => [
       p.full_name || "",
+      p.department || "",
       p.done,
       p.totalMods,
       p.sigs,
@@ -585,7 +586,10 @@ function ProjectProgress({ project, people, logins = [] }) {
             ) : (
               paged.map((p) => (
                 <tr key={p.id} className="border-b border-surface-container last:border-0">
-                  <td className="px-stack-md py-stack-md text-body-md text-primary">{p.full_name || "—"}</td>
+                  <td className="px-stack-md py-stack-md">
+                    <span className="block text-body-md text-primary">{p.full_name || "—"}</span>
+                    {p.department && <span className="block text-caption text-on-surface-variant">{p.department}</span>}
+                  </td>
                   <td className="px-stack-md py-stack-md">
                     <span className="mr-2 text-body-md font-bold text-primary">{p.done}/{p.totalMods}</span>
                     <span className="inline-block h-1.5 w-28 overflow-hidden rounded-full bg-surface-container-high align-middle">
@@ -663,7 +667,7 @@ function ProjectUsers({ project, people, isAdmin, reload }) {
   const [addId, setAddId] = useState("");
   const [memberQuery, setMemberQuery] = useState("");
   const [memberPage, setMemberPage] = useState(0);
-  const [form, setForm] = useState({ name: "", email: "", password: "" });
+  const [form, setForm] = useState({ name: "", email: "", password: "", department: "" });
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState(null);
   const [err, setErr] = useState(null);
@@ -673,6 +677,21 @@ function ProjectUsers({ project, people, isAdmin, reload }) {
     setErr(null);
     const { error } = await supabase.rpc("set_user_project", { target: id, proj });
     if (error) return setErr(error.message);
+    reload();
+  }
+
+  // Department is free text on the profile, set through an admin-only RPC
+  // (learners cannot change it themselves).
+  async function assignDepartment(id, dept) {
+    setErr(null);
+    const { error } = await supabase.rpc("set_user_department", { target: id, new_department: dept });
+    if (error) {
+      return setErr(
+        /function|schema/i.test(error.message)
+          ? "Departments need a one-time database update — run the DEPARTMENTS block from supabase/schema.sql in the Supabase SQL Editor, then try again."
+          : error.message
+      );
+    }
     reload();
   }
 
@@ -704,6 +723,7 @@ function ProjectUsers({ project, people, isAdmin, reload }) {
     // Assign to the project — retried once, because the profile row is
     // created by a database trigger that can lag behind the signup.
     let projOk = false;
+    let deptOk = false;
     if (res.id) {
       let { error: projErr } = await supabase.rpc("set_user_project", { target: res.id, proj: project.id });
       if (projErr) {
@@ -711,14 +731,21 @@ function ProjectUsers({ project, people, isAdmin, reload }) {
         ({ error: projErr } = await supabase.rpc("set_user_project", { target: res.id, proj: project.id }));
       }
       projOk = !projErr;
+      // Department — same retry pattern.
+      let { error: deptErr } = await supabase.rpc("set_user_department", { target: res.id, new_department: form.department.trim() });
+      if (deptErr) {
+        await new Promise((r) => setTimeout(r, 1500));
+        ({ error: deptErr } = await supabase.rpc("set_user_department", { target: res.id, new_department: form.department.trim() }));
+      }
+      deptOk = !deptErr;
     }
     // No automatic email: Supabase's built-in mailer is limited to ~2/hour
     // and burning it here blocks account creation itself. The credentials
     // card below is the reliable flow; email invitations can come back once
     // custom SMTP is configured (EMAILS.md).
     setBusy(false);
-    setMsg({ name: form.name.trim(), email, pw: tempPw, projOk });
-    setForm({ name: "", email: "", password: "" });
+    setMsg({ name: form.name.trim(), email, pw: tempPw, projOk, deptOk, department: form.department.trim() });
+    setForm({ name: "", email: "", password: "", department: "" });
     reload();
   }
 
@@ -739,6 +766,9 @@ function ProjectUsers({ project, people, isAdmin, reload }) {
           <input type="email" required placeholder="Work email" value={form.email}
             onChange={(e) => setForm({ ...form, email: e.target.value })}
             className="rounded-lg border border-outline-variant bg-white px-4 py-3 text-body-md focus:border-secondary focus:outline-none" />
+          <input type="text" required placeholder="Department (e.g. Batching plant, HR, Workshop…)" value={form.department}
+            onChange={(e) => setForm({ ...form, department: e.target.value })}
+            className="rounded-lg border border-outline-variant bg-white px-4 py-3 text-body-md focus:border-secondary focus:outline-none sm:col-span-2" />
           <button type="submit" disabled={busy}
             className="flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-primary-container to-[#2e6b45] px-6 py-3 text-label-md font-bold text-white transition-all hover:brightness-110 disabled:opacity-60 sm:col-span-2 sm:w-auto">
             <MaterialIcon name="person_add" className="text-[18px]" />
@@ -800,6 +830,17 @@ function ProjectUsers({ project, people, isAdmin, reload }) {
                 “Move an existing user into this project” below to add {msg.name}.
               </p>
             )}
+            {msg.deptOk ? (
+              <p className="mt-2 text-caption text-emerald-800">
+                Department: <strong>{msg.department}</strong>
+              </p>
+            ) : (
+              <p className="mt-2 rounded-lg bg-amber-50 p-2.5 text-caption font-bold text-amber-800">
+                ⚠ The department could not be saved — if this keeps happening, run the
+                “DEPARTMENTS” SQL block from supabase/schema.sql in the Supabase SQL Editor,
+                then set it in the member list below.
+              </p>
+            )}
           </div>
         )}
         {err && <p className="mt-3 rounded-lg bg-rose-50 p-3 text-caption text-rose-700">{err}</p>}
@@ -812,13 +853,14 @@ function ProjectUsers({ project, people, isAdmin, reload }) {
           <thead>
             <tr className="border-b border-outline-variant text-caption uppercase tracking-wider text-on-surface-variant">
               <th className="px-stack-md py-stack-sm font-semibold">Name</th>
+              <th className="px-stack-md py-stack-sm font-semibold">Department</th>
               <th className="px-stack-md py-stack-sm font-semibold">Joined</th>
               <th className="px-stack-md py-stack-sm font-semibold"></th>
             </tr>
           </thead>
           <tbody>
             {members.length === 0 ? (
-              <tr><td colSpan={3} className="px-stack-md py-stack-lg text-center text-on-surface-variant">No users in this project yet.</td></tr>
+              <tr><td colSpan={4} className="px-stack-md py-stack-lg text-center text-on-surface-variant">No users in this project yet.</td></tr>
             ) : (
               members
                 .filter((r) => (r.full_name || "").toLowerCase().includes(memberQuery.trim().toLowerCase()))
@@ -826,6 +868,21 @@ function ProjectUsers({ project, people, isAdmin, reload }) {
                 .map((r) => (
                 <tr key={r.id} className="border-b border-surface-container last:border-0">
                   <td className="px-stack-md py-stack-md text-body-md text-primary">{r.full_name || "—"}</td>
+                  <td className="px-stack-md py-stack-md">
+                    <input
+                      type="text"
+                      defaultValue={r.department || ""}
+                      placeholder="Set a department…"
+                      onBlur={(e) => {
+                        const v = e.target.value.trim();
+                        if (v && v !== (r.department || "")) assignDepartment(r.id, v);
+                      }}
+                      onKeyDown={(e) => { if (e.key === "Enter") e.target.blur(); }}
+                      className={`w-full max-w-[220px] rounded-lg border px-2.5 py-1.5 text-caption font-semibold focus:border-secondary focus:outline-none ${
+                        r.department ? "border-outline-variant bg-white text-primary" : "border-amber-300 bg-amber-50 text-amber-800 placeholder:text-amber-700"
+                      }`}
+                    />
+                  </td>
                   <td className="px-stack-md py-stack-md text-body-md text-on-surface-variant">{(r.created_at || "").slice(0, 10)}</td>
                   <td className="px-stack-md py-stack-md text-right">
                     <button onClick={() => setConfirmRemove({ id: r.id, name: r.full_name || "this user" })} title="Remove from project"
