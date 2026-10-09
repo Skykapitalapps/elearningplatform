@@ -506,10 +506,11 @@ function ProjectProgress({ project, people, logins = [] }) {
   // Progress report as a CSV the admin can attach to invoices and lender
   // reports. Semicolon-separated + BOM so Excel opens it cleanly.
   function exportCsv() {
-    const head = ["Learner", "Department", "Modules completed", "Total modules", "Policies signed", "Total signatures", "Progress %", "Certified", "Certificate no.", "Completion date", "Last sign-in", "Total sign-ins"];
+    const head = ["Learner", "Department", "Site", "Modules completed", "Total modules", "Policies signed", "Total signatures", "Progress %", "Certified", "Certificate no.", "Completion date", "Last sign-in", "Total sign-ins"];
     const lines = per.map((p) => [
       p.full_name || "",
       p.department || "",
+      p.site || "",
       p.done,
       p.totalMods,
       p.sigs,
@@ -588,7 +589,11 @@ function ProjectProgress({ project, people, logins = [] }) {
                 <tr key={p.id} className="border-b border-surface-container last:border-0">
                   <td className="px-stack-md py-stack-md">
                     <span className="block text-body-md text-primary">{p.full_name || "—"}</span>
-                    {p.department && <span className="block text-caption text-on-surface-variant">{p.department}</span>}
+                    {(p.department || p.site) && (
+                      <span className="block text-caption text-on-surface-variant">
+                        {[p.department, p.site].filter(Boolean).join(" · ")}
+                      </span>
+                    )}
                   </td>
                   <td className="px-stack-md py-stack-md">
                     <span className="mr-2 text-body-md font-bold text-primary">{p.done}/{p.totalMods}</span>
@@ -667,7 +672,7 @@ function ProjectUsers({ project, people, isAdmin, reload }) {
   const [addId, setAddId] = useState("");
   const [memberQuery, setMemberQuery] = useState("");
   const [memberPage, setMemberPage] = useState(0);
-  const [form, setForm] = useState({ name: "", email: "", password: "", department: "" });
+  const [form, setForm] = useState({ name: "", email: "", password: "", department: "", site: "" });
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState(null);
   const [err, setErr] = useState(null);
@@ -689,6 +694,19 @@ function ProjectUsers({ project, people, isAdmin, reload }) {
       return setErr(
         /function|schema/i.test(error.message)
           ? "Departments need a one-time database update — run the DEPARTMENTS block from supabase/schema.sql in the Supabase SQL Editor, then try again."
+          : error.message
+      );
+    }
+    reload();
+  }
+
+  async function assignSite(id, site) {
+    setErr(null);
+    const { error } = await supabase.rpc("set_user_site", { target: id, new_site: site });
+    if (error) {
+      return setErr(
+        /function|schema/i.test(error.message)
+          ? "Sites need a one-time database update — run the SITES block from supabase/schema.sql in the Supabase SQL Editor, then try again."
           : error.message
       );
     }
@@ -724,6 +742,7 @@ function ProjectUsers({ project, people, isAdmin, reload }) {
     // created by a database trigger that can lag behind the signup.
     let projOk = false;
     let deptOk = false;
+    let siteOk = false;
     if (res.id) {
       let { error: projErr } = await supabase.rpc("set_user_project", { target: res.id, proj: project.id });
       if (projErr) {
@@ -738,14 +757,21 @@ function ProjectUsers({ project, people, isAdmin, reload }) {
         ({ error: deptErr } = await supabase.rpc("set_user_department", { target: res.id, new_department: form.department.trim() }));
       }
       deptOk = !deptErr;
+      // Site — same retry pattern.
+      let { error: siteErr } = await supabase.rpc("set_user_site", { target: res.id, new_site: form.site.trim() });
+      if (siteErr) {
+        await new Promise((r) => setTimeout(r, 1500));
+        ({ error: siteErr } = await supabase.rpc("set_user_site", { target: res.id, new_site: form.site.trim() }));
+      }
+      siteOk = !siteErr;
     }
     // No automatic email: Supabase's built-in mailer is limited to ~2/hour
     // and burning it here blocks account creation itself. The credentials
     // card below is the reliable flow; email invitations can come back once
     // custom SMTP is configured (EMAILS.md).
     setBusy(false);
-    setMsg({ name: form.name.trim(), email, pw: tempPw, projOk, deptOk, department: form.department.trim() });
-    setForm({ name: "", email: "", password: "", department: "" });
+    setMsg({ name: form.name.trim(), email, pw: tempPw, projOk, deptOk, department: form.department.trim(), siteOk, site: form.site.trim() });
+    setForm({ name: "", email: "", password: "", department: "", site: "" });
     reload();
   }
 
@@ -768,7 +794,10 @@ function ProjectUsers({ project, people, isAdmin, reload }) {
             className="rounded-lg border border-outline-variant bg-white px-4 py-3 text-body-md focus:border-secondary focus:outline-none" />
           <input type="text" required placeholder="Department (e.g. Batching plant, HR, Workshop…)" value={form.department}
             onChange={(e) => setForm({ ...form, department: e.target.value })}
-            className="rounded-lg border border-outline-variant bg-white px-4 py-3 text-body-md focus:border-secondary focus:outline-none sm:col-span-2" />
+            className="rounded-lg border border-outline-variant bg-white px-4 py-3 text-body-md focus:border-secondary focus:outline-none" />
+          <input type="text" required placeholder="Site (e.g. Section 3, Lekki corridor…)" value={form.site}
+            onChange={(e) => setForm({ ...form, site: e.target.value })}
+            className="rounded-lg border border-outline-variant bg-white px-4 py-3 text-body-md focus:border-secondary focus:outline-none" />
           <button type="submit" disabled={busy}
             className="flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-primary-container to-[#2e6b45] px-6 py-3 text-label-md font-bold text-white transition-all hover:brightness-110 disabled:opacity-60 sm:col-span-2 sm:w-auto">
             <MaterialIcon name="person_add" className="text-[18px]" />
@@ -830,15 +859,16 @@ function ProjectUsers({ project, people, isAdmin, reload }) {
                 “Move an existing user into this project” below to add {msg.name}.
               </p>
             )}
-            {msg.deptOk ? (
+            {msg.deptOk && msg.siteOk ? (
               <p className="mt-2 text-caption text-emerald-800">
-                Department: <strong>{msg.department}</strong>
+                Department: <strong>{msg.department}</strong> · Site: <strong>{msg.site}</strong>
               </p>
             ) : (
               <p className="mt-2 rounded-lg bg-amber-50 p-2.5 text-caption font-bold text-amber-800">
-                ⚠ The department could not be saved — if this keeps happening, run the
-                “DEPARTMENTS” SQL block from supabase/schema.sql in the Supabase SQL Editor,
-                then set it in the member list below.
+                ⚠ {!msg.deptOk && !msg.siteOk ? "The department and site" : !msg.deptOk ? "The department" : "The site"} could
+                not be saved — if this keeps happening, run the “DEPARTMENTS” and “SITES” SQL
+                blocks from supabase/schema.sql in the Supabase SQL Editor, then set them in
+                the member list below.
               </p>
             )}
           </div>
@@ -854,13 +884,14 @@ function ProjectUsers({ project, people, isAdmin, reload }) {
             <tr className="border-b border-outline-variant text-caption uppercase tracking-wider text-on-surface-variant">
               <th className="px-stack-md py-stack-sm font-semibold">Name</th>
               <th className="px-stack-md py-stack-sm font-semibold">Department</th>
+              <th className="px-stack-md py-stack-sm font-semibold">Site</th>
               <th className="px-stack-md py-stack-sm font-semibold">Joined</th>
               <th className="px-stack-md py-stack-sm font-semibold"></th>
             </tr>
           </thead>
           <tbody>
             {members.length === 0 ? (
-              <tr><td colSpan={4} className="px-stack-md py-stack-lg text-center text-on-surface-variant">No users in this project yet.</td></tr>
+              <tr><td colSpan={5} className="px-stack-md py-stack-lg text-center text-on-surface-variant">No users in this project yet.</td></tr>
             ) : (
               members
                 .filter((r) => (r.full_name || "").toLowerCase().includes(memberQuery.trim().toLowerCase()))
@@ -880,6 +911,21 @@ function ProjectUsers({ project, people, isAdmin, reload }) {
                       onKeyDown={(e) => { if (e.key === "Enter") e.target.blur(); }}
                       className={`w-full max-w-[220px] rounded-lg border px-2.5 py-1.5 text-caption font-semibold focus:border-secondary focus:outline-none ${
                         r.department ? "border-outline-variant bg-white text-primary" : "border-amber-300 bg-amber-50 text-amber-800 placeholder:text-amber-700"
+                      }`}
+                    />
+                  </td>
+                  <td className="px-stack-md py-stack-md">
+                    <input
+                      type="text"
+                      defaultValue={r.site || ""}
+                      placeholder="Set a site…"
+                      onBlur={(e) => {
+                        const v = e.target.value.trim();
+                        if (v && v !== (r.site || "")) assignSite(r.id, v);
+                      }}
+                      onKeyDown={(e) => { if (e.key === "Enter") e.target.blur(); }}
+                      className={`w-full max-w-[180px] rounded-lg border px-2.5 py-1.5 text-caption font-semibold focus:border-secondary focus:outline-none ${
+                        r.site ? "border-outline-variant bg-white text-primary" : "border-amber-300 bg-amber-50 text-amber-800 placeholder:text-amber-700"
                       }`}
                     />
                   </td>

@@ -77,6 +77,7 @@ const users = rows.map((r, i) => {
     full_name: r[col("full_name")],
     email: (r[col("email")] || "").toLowerCase(),
     department: col("department") >= 0 ? r[col("department")] : "",
+    site: col("site") >= 0 ? r[col("site")] : "",
     password: col("password") >= 0 && r[col("password")] ? r[col("password")] : genPassword(),
     line: i + 2,
   };
@@ -114,7 +115,7 @@ for (const u of users) {
     // the signup hook created the profile row; set name + role directly
     const { error: pErr } = await supabase
       .from("profiles")
-      .update({ full_name: u.full_name, ...(u.department ? { department: u.department } : {}) })
+      .update({ full_name: u.full_name, ...(u.department ? { department: u.department } : {}), ...(u.site ? { site: u.site } : {}) })
       .eq("id", data.user.id);
     if (pErr) throw pErr;
     ok++;

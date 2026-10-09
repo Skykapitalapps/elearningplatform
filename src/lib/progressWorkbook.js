@@ -56,12 +56,13 @@ export async function downloadProgressWorkbook({ project, per, rows, members, mo
   /* ---------------- Sheet 1 · Overview ---------------- */
   const ov = wb.addWorksheet("Overview");
   titleBand(ov, 10, `Progress report · project: ${project.name} · exported ${today}`);
-  headerRow(ov, ["Learner", "Department", "Modules done", "Total", "Progress %", "Certified", "Certificate no.", "Last activity", "Sign-ins"]);
+  headerRow(ov, ["Learner", "Department", "Site", "Modules done", "Total", "Progress %", "Certified", "Certificate no.", "Last activity", "Sign-ins"]);
   const headerAt = 4;
   per.forEach((p, i) => {
     const row = ov.addRow([
       p.full_name || "—",
       p.department || "—",
+      p.site || "—",
       p.done,
       p.totalMods,
       Math.round((p.done / p.totalMods) * 100) / 100,
@@ -74,14 +75,14 @@ export async function downloadProgressWorkbook({ project, per, rows, members, mo
       c.border = BORDER;
       if (i % 2 === 1) c.fill = { type: "pattern", pattern: "solid", fgColor: { argb: ZEBRA } };
     });
-    row.getCell(5).numFmt = "0%";
-    const cert = row.getCell(6);
+    row.getCell(6).numFmt = "0%";
+    const cert = row.getCell(7);
     cert.font = p.certified ? { bold: true, color: { argb: GREEN_TX } } : { color: { argb: GREY_TX } };
     if (p.certified) cert.fill = { type: "pattern", pattern: "solid", fgColor: { argb: GREEN_BG } };
   });
-  ov.columns = [{ width: 28 }, { width: 20 }, { width: 13 }, { width: 8 }, { width: 11 }, { width: 10 }, { width: 20 }, { width: 13 }, { width: 9 }];
+  ov.columns = [{ width: 28 }, { width: 20 }, { width: 16 }, { width: 13 }, { width: 8 }, { width: 11 }, { width: 10 }, { width: 20 }, { width: 13 }, { width: 9 }];
   ov.views = [{ state: "frozen", ySplit: headerAt }];
-  ov.autoFilter = { from: { row: headerAt, column: 1 }, to: { row: headerAt + per.length, column: 9 } };
+  ov.autoFilter = { from: { row: headerAt, column: 1 }, to: { row: headerAt + per.length, column: 10 } };
 
   /* ---------------- Sheet 2 · By module ---------------- */
   const bm = wb.addWorksheet("By module");

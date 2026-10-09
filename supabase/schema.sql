@@ -308,3 +308,23 @@ begin
   update public.profiles set department = new_department where id = target;
 end;
 $$;
+
+-- ============================================================================
+-- SITES (run once) — the site each learner works on (e.g. a corridor
+-- section), set by the administrator alongside the department.
+-- ============================================================================
+alter table public.profiles
+  add column if not exists site text;
+
+create or replace function public.set_user_site(target uuid, new_site text)
+returns void language plpgsql security definer set search_path = public as $$
+begin
+  if not exists (select 1 from public.profiles where id = auth.uid() and role = 'admin') then
+    raise exception 'Only the administrator can assign sites.';
+  end if;
+  if new_site is null or length(new_site) = 0 or length(new_site) > 80 then
+    raise exception 'Invalid site.';
+  end if;
+  update public.profiles set site = new_site where id = target;
+end;
+$$;
