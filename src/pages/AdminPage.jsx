@@ -805,6 +805,35 @@ function ProjectUsers({ project, people, isAdmin, reload }) {
           </button>
         </form>
 
+        {/* Accounts that exist but belong to NO project yet — they are
+            invisible in every member list until assigned, so surface them. */}
+        {(() => {
+          const unassigned = others.filter((u) => !u.project_id);
+          if (unassigned.length === 0) return null;
+          return (
+            <div className="mt-stack-md rounded-lg border border-amber-300 bg-amber-50 p-stack-md">
+              <p className="mb-2 flex items-center gap-1.5 text-label-md font-bold text-amber-900">
+                <MaterialIcon name="warning" className="text-[18px]" />
+                {unassigned.length} account{unassigned.length !== 1 ? "s" : ""} not assigned to any project —
+                they will not appear in the lists below until added.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {unassigned.map((u) => (
+                  <button
+                    key={u.id}
+                    onClick={() => assign(u.id, project.id)}
+                    title={`Add ${u.full_name || "this user"} to ${project.name}`}
+                    className="flex items-center gap-1.5 rounded-full border border-amber-400 bg-white px-3.5 py-1.5 text-caption font-bold text-amber-900 transition-colors hover:border-primary hover:text-primary"
+                  >
+                    <MaterialIcon name="person_add" className="text-[15px]" />
+                    {u.full_name || u.id.slice(0, 8)} → {project.name}
+                  </button>
+                ))}
+              </div>
+            </div>
+          );
+        })()}
+
         {/* Or move an existing user into this project */}
         {others.length > 0 && (
           <div className="mt-stack-md flex flex-col gap-2 border-t border-outline-variant pt-stack-md sm:flex-row">
