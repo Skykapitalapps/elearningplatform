@@ -738,32 +738,25 @@ function ProjectUsers({ project, people, isAdmin, reload }) {
         : ' — check Supabase Auth settings: "Allow new users to sign up" must be ON.';
       return setErr(res.error + hint);
     }
-    // Assign to the project — retried once, because the profile row is
-    // created by a database trigger that can lag behind the signup.
+    // Assign project, department and site. The profile row is created by a
+    // database trigger that can lag behind the signup — especially when
+    // accounts are created back to back — so each call retries up to five
+    // times with growing pauses before giving up.
+    async function rpcRetry(fn, args) {
+      for (let attempt = 0; attempt < 5; attempt++) {
+        const { error } = await supabase.rpc(fn, args);
+        if (!error) return true;
+        await new Promise((r) => setTimeout(r, 1000 + attempt * 1000));
+      }
+      return false;
+    }
     let projOk = false;
     let deptOk = false;
     let siteOk = false;
     if (res.id) {
-      let { error: projErr } = await supabase.rpc("set_user_project", { target: res.id, proj: project.id });
-      if (projErr) {
-        await new Promise((r) => setTimeout(r, 1500));
-        ({ error: projErr } = await supabase.rpc("set_user_project", { target: res.id, proj: project.id }));
-      }
-      projOk = !projErr;
-      // Department — same retry pattern.
-      let { error: deptErr } = await supabase.rpc("set_user_department", { target: res.id, new_department: form.department.trim() });
-      if (deptErr) {
-        await new Promise((r) => setTimeout(r, 1500));
-        ({ error: deptErr } = await supabase.rpc("set_user_department", { target: res.id, new_department: form.department.trim() }));
-      }
-      deptOk = !deptErr;
-      // Site — same retry pattern.
-      let { error: siteErr } = await supabase.rpc("set_user_site", { target: res.id, new_site: form.site.trim() });
-      if (siteErr) {
-        await new Promise((r) => setTimeout(r, 1500));
-        ({ error: siteErr } = await supabase.rpc("set_user_site", { target: res.id, new_site: form.site.trim() }));
-      }
-      siteOk = !siteErr;
+      projOk = await rpcRetry("set_user_project", { target: res.id, proj: project.id });
+      deptOk = await rpcRetry("set_user_department", { target: res.id, new_department: form.department.trim() });
+      siteOk = await rpcRetry("set_user_site", { target: res.id, new_site: form.site.trim() });
     }
     // No automatic email: Supabase's built-in mailer is limited to ~2/hour
     // and burning it here blocks account creation itself. The credentials
@@ -883,9 +876,11 @@ function ProjectUsers({ project, people, isAdmin, reload }) {
               This password is shown only once — {msg.name} can change it after signing in.
             </p>
             {!msg.projOk && (
-              <p className="mt-2 rounded-lg bg-amber-50 p-2.5 text-caption font-bold text-amber-800">
-                ⚠ The account exists but could not be assigned to {project.name} — use
-                “Move an existing user into this project” below to add {msg.name}.
+              <p className="mt-2 flex items-start gap-2 rounded-lg border-2 border-rose-300 bg-rose-50 p-3 text-body-md font-bold text-rose-800">
+                <MaterialIcon name="error" className="mt-0.5 text-[20px]" />
+                IMPORTANT: the account exists but is NOT in {project.name} yet — {msg.name} will not
+                appear in your lists. Use the amber panel above (or the “Move an existing user”
+                dropdown) to add them before moving on.
               </p>
             )}
             {msg.deptOk && msg.siteOk ? (
