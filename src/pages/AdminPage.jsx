@@ -38,7 +38,7 @@ export default function AdminPage({ standalone = false }) {
   async function loadAll() {
     const [p1, p2, p3, p4, p5] = await Promise.all([
       supabase.from("projects").select("*").order("name"),
-      supabase.from("profiles").select("*").order("created_at"),
+      supabase.from("profiles").select("*").order("created_at", { ascending: false }),
       supabase.from("client_documents").select("*").order("created_at", { ascending: false }),
       supabase.from("module_progress").select("*"),
       supabase.from("login_events").select("*").order("created_at", { ascending: false }).limit(1000),
