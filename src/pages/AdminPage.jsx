@@ -268,20 +268,11 @@ function Home({ projects, people, docs, progressRows, logins, email, onOpen, onO
 /* ------------------------------ WORKSPACE ------------------------------ */
 function Workspace({ project, shared, projects, people, docs, logins, isAdmin, onBack, reload }) {
   const [tab, setTab] = useState(shared ? "docs" : "users");
-  const [confirmDel, setConfirmDel] = useState(false);
-  const [delName, setDelName] = useState("");
   const title = shared ? "Shared — all projects" : project?.name ?? "Project";
   const pid = shared ? null : project?.id;
-
-  async function removeProject() {
-    if (!project) return;
-    const { error } = await supabase.from("projects").delete().eq("id", project.id);
-    setConfirmDel(false);
-    if (!error) {
-      onBack();
-      reload();
-    }
-  }
+  // Deliberately NO "delete project" anywhere in the console: these are
+  // paid, large-scale deployments — removing one is a database operation
+  // done by hand, never a button.
 
   return (
     <>
@@ -295,47 +286,6 @@ function Workspace({ project, shared, projects, people, docs, logins, isAdmin, o
           </span>
           <h1 className="text-headline-lg text-primary">{title}</h1>
         </div>
-        {!shared && isAdmin && (
-          <button onClick={() => setConfirmDel(true)} className="flex items-center gap-1 rounded-lg border border-outline-variant px-3 py-2 text-caption font-bold text-on-surface-variant hover:border-error hover:text-error">
-            <MaterialIcon name="delete" className="text-[16px]" /> Delete project
-          </button>
-        )}
-        {confirmDel && (
-          <div className="fixed inset-0 z-[90] flex items-center justify-center bg-[#0f3d24]/60 px-6 backdrop-blur-sm" onClick={() => { setConfirmDel(false); setDelName(""); }}>
-            <div className="animate-pop w-full max-w-sm rounded-2xl bg-white p-stack-lg text-center shadow-2xl" onClick={(e) => e.stopPropagation()}>
-              <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-rose-50">
-                <MaterialIcon name="delete_forever" className="text-3xl text-rose-500" />
-              </div>
-              <h2 className="text-headline-md text-primary">Delete "{project?.name}"?</h2>
-              <p className="mx-auto mt-1 max-w-xs text-body-md text-on-surface-variant">
-                This is a paid, official project. Its documents disappear from Resources and its users
-                are left without a project. <strong>This cannot be undone.</strong>
-              </p>
-              <p className="mt-stack-md text-caption font-bold text-on-surface-variant">
-                Type the project name to confirm:
-              </p>
-              <input
-                type="text"
-                value={delName}
-                onChange={(e) => setDelName(e.target.value)}
-                placeholder={project?.name}
-                className="mt-1 w-full rounded-lg border border-outline-variant px-4 py-2.5 text-center text-body-md focus:border-rose-400 focus:outline-none"
-              />
-              <div className="mt-stack-md flex gap-2">
-                <button onClick={() => { setConfirmDel(false); setDelName(""); }} className="flex-1 rounded-lg bg-primary py-3 text-label-md font-bold text-on-primary hover:opacity-90">
-                  Keep it
-                </button>
-                <button
-                  onClick={removeProject}
-                  disabled={delName.trim() !== (project?.name ?? "")}
-                  className="flex-1 rounded-lg border py-3 text-label-md font-bold transition-colors disabled:cursor-not-allowed disabled:border-outline-variant disabled:text-outline enabled:border-rose-400 enabled:bg-rose-500 enabled:text-white enabled:hover:bg-rose-600"
-                >
-                  Delete forever
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
       </div>
 
       <div className="mb-stack-md flex flex-wrap gap-2">
