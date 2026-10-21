@@ -115,7 +115,7 @@ export default function LoginPage() {
         alt=""
         className="absolute inset-0 h-full w-full object-cover"
       />
-      <div className="absolute inset-0 bg-gradient-to-br from-[#0f3d24]/95 via-[#0f3d24]/85 to-[#2e6b45]/80" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#0c1c36]/95 via-[#0c1c36]/85 to-[#1c3a63]/80" />
 
       <div className="relative grid w-full max-w-4xl overflow-hidden rounded-2xl shadow-2xl md:grid-cols-2">
         {/* Left: brand panel */}
@@ -250,7 +250,7 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={busy}
-              className="flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-primary-container to-[#2e6b45] py-3.5 text-label-md font-bold text-white transition-all hover:brightness-110 active:scale-[0.98] disabled:opacity-60"
+              className="flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-primary-container to-[#1c3a63] py-3.5 text-label-md font-bold text-white transition-all hover:brightness-110 active:scale-[0.98] disabled:opacity-60"
             >
               {busy ? "One moment…" : mode === "signin" ? "Sign in" : "Create account"}
               <MaterialIcon name="arrow_forward" className="text-[18px]" />

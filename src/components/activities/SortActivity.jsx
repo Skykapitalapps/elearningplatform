@@ -13,7 +13,7 @@ function shuffle(a) {
 
 // Drag-based activity. `type: "order"` = reorder into the correct sequence;
 // `type: "categorize"` = drag items into the right buckets.
-export default function SortActivity({ activity, accent = "#0f3d24" }) {
+export default function SortActivity({ activity, accent = "#0c1c36" }) {
   return activity.type === "order" ? (
     <OrderGame activity={activity} accent={accent} />
   ) : (

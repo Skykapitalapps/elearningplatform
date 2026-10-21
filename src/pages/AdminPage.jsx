@@ -115,7 +115,7 @@ function Shell({ children, standalone, onSignOut }) {
       {standalone && (
         <header className="glass-bar fixed left-0 right-0 top-0 z-50 flex h-20 items-center justify-between border-b border-outline-variant/70 px-margin-mobile md:px-margin-desktop">
           <div className="flex items-center gap-2.5">
-            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary-container to-[#2e6b45] shadow-sm">
+            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary-container to-[#1c3a63] shadow-sm">
               <Logo className="h-6 w-6 text-white" />
             </span>
             <span className="text-headline-md font-bold text-primary">Skykapital Admin</span>
@@ -206,7 +206,7 @@ function Home({ projects, people, docs, progressRows, logins, email, onOpen, onO
         <button
           type="submit"
           disabled={busy}
-          className="flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-primary-container to-[#2e6b45] px-8 py-3 text-label-md font-bold text-white transition-all hover:brightness-110 disabled:opacity-60"
+          className="flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-primary-container to-[#1c3a63] px-8 py-3 text-label-md font-bold text-white transition-all hover:brightness-110 disabled:opacity-60"
         >
           <MaterialIcon name="add_business" className="text-[18px]" /> Create project
         </button>
@@ -224,7 +224,7 @@ function Home({ projects, people, docs, progressRows, logins, email, onOpen, onO
               onClick={() => onOpen(p)}
               className="lift soft-shadow group rounded-xl border border-outline-variant bg-surface-container-lowest p-stack-lg text-left"
             >
-              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-primary-container to-[#2e6b45] text-white">
+              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-primary-container to-[#1c3a63] text-white">
                 <MaterialIcon name="apartment" />
               </span>
               <h2 className="mt-3 text-headline-md text-primary group-hover:text-secondary">{p.name}</h2>
@@ -281,7 +281,7 @@ function Workspace({ project, shared, projects, people, docs, logins, isAdmin, o
       </button>
       <div className="mb-stack-md flex flex-wrap items-center justify-between gap-stack-md">
         <div className="flex items-center gap-3">
-          <span className={`flex h-11 w-11 items-center justify-center rounded-xl text-white ${shared ? "bg-secondary" : "bg-gradient-to-br from-primary-container to-[#2e6b45]"}`}>
+          <span className={`flex h-11 w-11 items-center justify-center rounded-xl text-white ${shared ? "bg-secondary" : "bg-gradient-to-br from-primary-container to-[#1c3a63]"}`}>
             <MaterialIcon name={shared ? "public" : "apartment"} />
           </span>
           <h1 className="text-headline-lg text-primary">{title}</h1>
@@ -502,7 +502,7 @@ function ProjectProgress({ project, people, logins = [] }) {
           onClick={exportCsv}
           disabled={per.length === 0}
           title="Download this table as a CSV progress report"
-          className="ml-auto flex items-center gap-2 self-center rounded-lg bg-gradient-to-r from-primary-container to-[#2e6b45] px-5 py-3 text-label-md font-bold text-white transition-all hover:brightness-110 disabled:opacity-50"
+          className="ml-auto flex items-center gap-2 self-center rounded-lg bg-gradient-to-r from-primary-container to-[#1c3a63] px-5 py-3 text-label-md font-bold text-white transition-all hover:brightness-110 disabled:opacity-50"
         >
           <MaterialIcon name="table_view" className="text-[18px]" /> Export progress report (CSV)
         </button>
@@ -742,7 +742,7 @@ function ProjectUsers({ project, people, isAdmin, reload }) {
             onChange={(e) => setForm({ ...form, site: e.target.value })}
             className="rounded-lg border border-outline-variant bg-white px-4 py-3 text-body-md focus:border-secondary focus:outline-none" />
           <button type="submit" disabled={busy}
-            className="flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-primary-container to-[#2e6b45] px-6 py-3 text-label-md font-bold text-white transition-all hover:brightness-110 disabled:opacity-60 sm:col-span-2 sm:w-auto">
+            className="flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-primary-container to-[#1c3a63] px-6 py-3 text-label-md font-bold text-white transition-all hover:brightness-110 disabled:opacity-60 sm:col-span-2 sm:w-auto">
             <MaterialIcon name="person_add" className="text-[18px]" />
             {busy ? "Creating & sending invite…" : "Create account & send invitation"}
           </button>
@@ -919,7 +919,7 @@ function ProjectUsers({ project, people, isAdmin, reload }) {
 
       {/* Remove-from-project confirmation — paid accounts are never one click away */}
       {confirmRemove && (
-        <div className="fixed inset-0 z-[90] flex items-center justify-center bg-[#0f3d24]/60 px-6 backdrop-blur-sm" onClick={() => setConfirmRemove(null)}>
+        <div className="fixed inset-0 z-[90] flex items-center justify-center bg-[#0c1c36]/60 px-6 backdrop-blur-sm" onClick={() => setConfirmRemove(null)}>
           <div className="animate-pop w-full max-w-sm rounded-2xl bg-white p-stack-lg text-center shadow-2xl" onClick={(e) => e.stopPropagation()}>
             <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-amber-50">
               <MaterialIcon name="person_remove" className="text-3xl text-amber-500" />
@@ -1213,7 +1213,7 @@ function ProjectDocs({ pid, shared, docs, reload }) {
           <input type="file" accept="application/pdf" onChange={(e) => setFile(e.target.files?.[0] ?? null)}
             className="text-body-md file:mr-3 file:rounded-lg file:border-0 file:bg-primary file:px-4 file:py-2.5 file:text-label-md file:text-on-primary" />
           <button type="submit" disabled={busy}
-            className="flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-primary-container to-[#2e6b45] px-6 py-3 text-label-md font-bold text-white transition-all hover:brightness-110 disabled:opacity-60">
+            className="flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-primary-container to-[#1c3a63] px-6 py-3 text-label-md font-bold text-white transition-all hover:brightness-110 disabled:opacity-60">
             <MaterialIcon name="cloud_upload" className="text-[18px]" />
             {busy ? "Uploading…" : "Publish to Resources"}
           </button>

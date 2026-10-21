@@ -83,7 +83,7 @@ export default function SideNav() {
       <div className="mt-auto px-4">
         <button
           onClick={continueLearning}
-          className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary-container to-[#2e6b45] py-4 text-label-md font-bold text-white shadow-md transition-all hover:shadow-lg hover:brightness-110 active:scale-[0.98]"
+          className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary-container to-[#1c3a63] py-4 text-label-md font-bold text-white shadow-md transition-all hover:shadow-lg hover:brightness-110 active:scale-[0.98]"
         >
           <span>Continue Learning</span>
           <MaterialIcon name="arrow_forward" />

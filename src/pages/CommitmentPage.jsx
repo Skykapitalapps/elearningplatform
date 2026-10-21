@@ -111,7 +111,7 @@ export default function CommitmentPage() {
                   checked={checked}
                   onChange={(e) => setChecked(e.target.checked)}
                   className="mt-1 h-5 w-5"
-                  style={{ accentColor: "#14532d" }}
+                  style={{ accentColor: "#163a66" }}
                 />
                 <span className="text-body-md text-on-surface">
                   This declaration carries my name and stands as my signature.

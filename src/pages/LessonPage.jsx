@@ -384,7 +384,7 @@ export default function LessonPage() {
             <div
               className="pointer-events-none absolute inset-0 opacity-75 mix-blend-multiply"
               style={{
-                background: `linear-gradient(135deg, ${module.accent}, #0f3d24)`,
+                background: `linear-gradient(135deg, ${module.accent}, #0c1c36)`,
               }}
             />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
@@ -733,7 +733,7 @@ export default function LessonPage() {
 
           {/* Bottom CTA — hidden in the open library (nothing is required) */}
           {!module.library && module.status !== "completed" && module.type !== "read" && (
-            <div className="mt-stack-lg rounded-xl bg-gradient-to-r from-primary-container to-[#2e6b45] p-stack-lg text-center text-white">
+            <div className="mt-stack-lg rounded-xl bg-gradient-to-r from-primary-container to-[#1c3a63] p-stack-lg text-center text-white">
               <span className="rounded-full bg-white/15 px-3 py-1 text-caption font-bold uppercase tracking-widest text-secondary-fixed">Step 3</span>
               <p className="mt-2 text-headline-md">{module.type === "capstone" ? "Run the simulation" : "Take the quiz"}</p>
               <p className="mx-auto mt-1 max-w-md text-body-md text-white/80">

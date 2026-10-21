@@ -48,7 +48,7 @@ export default function ReferenceLibraryPage() {
                 >
                   <span
                     className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-white"
-                    style={{ background: m.accent || "#1B4D3E" }}
+                    style={{ background: m.accent || "#1c3a63" }}
                   >
                     <MaterialIcon name={m.icon || "menu_book"} className="text-[20px]" />
                   </span>

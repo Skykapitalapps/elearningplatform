@@ -228,7 +228,7 @@ function MdPortrait({ src, name }) {
   const initials = name.split(" ").map((w) => w[0]).join("").slice(0, 2).toUpperCase();
   if (failed || !src)
     return (
-      <span className="flex h-28 w-28 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary-container to-[#2e6b45] text-headline-lg font-black text-white ring-4 ring-secondary-container">
+      <span className="flex h-28 w-28 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary-container to-[#1c3a63] text-headline-lg font-black text-white ring-4 ring-secondary-container">
         {initials}
       </span>
     );
