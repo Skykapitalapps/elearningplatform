@@ -9,7 +9,7 @@ export default function Logo({ className = "" }) {
       role="img"
       aria-label="Skykapital"
     >
-      <path d="M3 3 Q50 50 97 3 Q50 50 97 97 Q50 50 3 97 Q50 50 3 3 Z" />
+      <path d="M2 2 Q50 30 98 2 Q70 50 98 98 Q50 70 2 98 Q30 50 2 2 Z" />
     </svg>
   );
 }

@@ -83,8 +83,8 @@ function Gate({ children }) {
     return (
       <div className="flex min-h-screen flex-col items-center justify-center gap-3 bg-surface">
         <span className="animate-pop flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-primary-container to-[#1c3a63] shadow-lg">
-          <svg viewBox="0 0 24 24" className="h-8 w-8 animate-pulse text-white" fill="currentColor" aria-hidden="true">
-            <path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z" />
+          <svg viewBox="0 0 100 100" className="h-8 w-8 animate-pulse text-white" fill="currentColor" aria-hidden="true">
+            <path d="M2 2 Q50 30 98 2 Q70 50 98 98 Q50 70 2 98 Q30 50 2 2 Z" />
           </svg>
         </span>
         <p className="text-caption font-bold uppercase tracking-widest text-on-surface-variant">
