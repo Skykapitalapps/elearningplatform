@@ -456,9 +456,10 @@ function ProjectProgress({ project, people, logins = [] }) {
   // Progress report as a CSV the admin can attach to invoices and lender
   // reports. Semicolon-separated + BOM so Excel opens it cleanly.
   function exportCsv() {
-    const head = ["Learner", "Department", "Site", "Modules completed", "Total modules", "Policies signed", "Total signatures", "Progress %", "Certified", "Certificate no.", "Completion date", "Last sign-in", "Total sign-ins"];
+    const head = ["Learner", "Project", "Department", "Site", "Modules completed", "Total modules", "Policies signed", "Total signatures", "Progress %", "Certified", "Certificate no.", "Completion date", "Last sign-in", "Total sign-ins"];
     const lines = per.map((p) => [
       p.full_name || "",
+      project.name,
       p.department || "",
       p.site || "",
       p.done,
