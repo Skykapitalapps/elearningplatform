@@ -9,14 +9,37 @@
 // ============================================================================
 import { createClient } from "@supabase/supabase-js";
 
-const emails = process.argv.slice(2).map((e) => e.toLowerCase());
+const args = process.argv.slice(2);
+const NAME_MODE = args[0] === "--name";
+const emails = (NAME_MODE ? [] : args).map((e) => e.toLowerCase());
 const URL = process.env.SUPABASE_URL;
 const KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
-if (emails.length === 0 || !URL || !KEY) {
-  console.error("Usage: node scripts/find-user.mjs email1 [email2 ...]  (needs SUPABASE_URL + SUPABASE_SERVICE_ROLE_KEY)");
+if ((!NAME_MODE && emails.length === 0) || (NAME_MODE && !args[1]) || !URL || !KEY) {
+  console.error("Usage: node scripts/find-user.mjs email1 [email2 ...]   OR   node scripts/find-user.mjs --name <part of the name>");
   process.exit(1);
 }
 const supabase = createClient(URL, KEY, { auth: { autoRefreshToken: false, persistSession: false } });
+
+// --name mode: search profiles by display name, print each match's EMAIL
+if (NAME_MODE) {
+  const q = args.slice(1).join(" ");
+  const { data: projectsN } = await supabase.from("projects").select("id,name");
+  const { data: hits, error } = await supabase.from("profiles").select("*").ilike("full_name", `%${q}%`);
+  if (error) { console.error(error.message); process.exit(1); }
+  if (!hits?.length) { console.log(`No profile name contains "${q}".`); process.exit(0); }
+  const authAll = [];
+  for (let page = 1; page <= 4; page++) {
+    const { data } = await supabase.auth.admin.listUsers({ page, perPage: 500 });
+    authAll.push(...(data?.users ?? []));
+    if ((data?.users ?? []).length < 500) break;
+  }
+  for (const h of hits) {
+    const au = authAll.find((u) => u.id === h.id);
+    const pn = projectsN?.find((p) => p.id === h.project_id)?.name ?? "NO PROJECT";
+    console.log(`✓ "${h.full_name}" — email: ${au?.email ?? "?"} · project: ${pn} · dept: ${h.department ?? "—"} · site: ${h.site ?? "—"}`);
+  }
+  process.exit(0);
+}
 
 const { data: projects } = await supabase.from("projects").select("id,name");
 const projName = (id) => (id ? projects?.find((p) => p.id === id)?.name ?? ("unknown project " + id.slice(0, 8)) : "NO PROJECT");
