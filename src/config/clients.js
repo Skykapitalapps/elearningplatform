@@ -175,5 +175,7 @@ const CLIENTS = {
   },
 };
 
-const requested = (import.meta.env.VITE_CLIENT || "hitech").toLowerCase();
+// `?.` keeps this importable from plain Node (admin scripts) where
+// import.meta.env does not exist — Vite builds are unaffected.
+const requested = (import.meta.env?.VITE_CLIENT || "hitech").toLowerCase();
 export const client = CLIENTS[requested] ?? CLIENTS.hitech;
