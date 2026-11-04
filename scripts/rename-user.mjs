@@ -13,12 +13,14 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 
-const [email, newName, flag] = process.argv.slice(2);
-const ALSO_SIGS = flag === "--also-signatures";
+const argv = process.argv.slice(2);
+const [email, newName] = argv;
+const ALSO_SIGS = argv.includes("--also-signatures");
+const NEW_EMAIL = argv.includes("--new-email") ? (argv[argv.indexOf("--new-email") + 1] ?? "").toLowerCase() : null;
 const URL = process.env.SUPABASE_URL;
 const KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
-if (!email || !newName || !URL || !KEY) {
-  console.error('Usage: node scripts/rename-user.mjs user@email.com "Correct Name" [--also-signatures]');
+if (!email || !newName || !URL || !KEY || (argv.includes("--new-email") && !NEW_EMAIL)) {
+  console.error('Usage: node scripts/rename-user.mjs user@email.com "Correct Name" [--also-signatures] [--new-email new@email.com]');
   process.exit(1);
 }
 const supabase = createClient(URL, KEY, { auth: { autoRefreshToken: false, persistSession: false } });
@@ -40,6 +42,12 @@ console.log(`Renaming "${prof.full_name}" -> "${newName}" (${email})`);
 const { error: upErr } = await supabase.from("profiles").update({ full_name: newName }).eq("id", au.id);
 if (upErr) { console.error("rename failed:", upErr.message); process.exit(1); }
 console.log("✓ profile name updated — the platform and admin lists now show the new name.");
+
+if (NEW_EMAIL) {
+  const { error: emErr } = await supabase.auth.admin.updateUserById(au.id, { email: NEW_EMAIL, email_confirm: true });
+  if (emErr) { console.error("email change failed:", emErr.message); process.exit(1); }
+  console.log(`✓ sign-in email changed: ${au.email} -> ${NEW_EMAIL} (same password — tell them to sign in with the new address).`);
+}
 
 if (ALSO_SIGS) {
   const { error: sigErr, count } = await supabase
