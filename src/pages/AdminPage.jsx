@@ -474,7 +474,9 @@ function ProjectProgress({ project, people, logins = [] }) {
           totalModules: p.totalMods,
         });
         const safe = (p.full_name || "learner").replace(/[^\w-]+/g, "_");
-        folder.file(`${safe}-${p.certNo}.pdf`, doc.output("arraybuffer"));
+        // Classified by the learner's site: <Project>/<Site>/<Name>-<cert>.pdf
+        const site = (p.site || "No site").replace(/[^\w-]+/g, "_");
+        folder.folder(site).file(`${safe}-${p.certNo}.pdf`, doc.output("arraybuffer"));
       }
       setZipMsg("Zipping…");
       const blob = await zip.generateAsync({ type: "blob" });
