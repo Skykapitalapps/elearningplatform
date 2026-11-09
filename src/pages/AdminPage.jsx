@@ -6,7 +6,7 @@ import { supabase, isSupabaseConfigured, adminCreateAccount } from "../lib/supab
 import { useAuth } from "../AuthContext.jsx";
 import { client } from "../config/clients.js";
 import { course, modules } from "../data.js";
-import { downloadCertificatePdf } from "../lib/certificate.js";
+import { downloadCertificatePdf, buildCertificatePdf } from "../lib/certificate.js";
 import { assignedTotal, REQUIRED_SIGNATURES } from "../config/jobRoles.js";
 import { OSP_MODULES, OSP_BY_ID } from "../data/osp.js";
 import { downloadProgressWorkbook } from "../lib/progressWorkbook.js";
@@ -450,6 +450,44 @@ function ProjectProgress({ project, people, logins = [] }) {
     };
   });
   const certified = per.filter((p) => p.certified).length;
+  const [zipMsg, setZipMsg] = useState(null);
+
+  // One PDF per certified learner, zipped in a folder named after the project —
+  // the certificate pack handed to the client or the lender in one download.
+  async function downloadAllCertificates() {
+    const certs = per.filter((p) => p.certified);
+    if (certs.length === 0 || zipMsg) return;
+    try {
+      const JSZip = (await import("jszip")).default;
+      const zip = new JSZip();
+      const folderName = project.name.replace(/[^\w-]+/g, "_");
+      const folder = zip.folder(folderName);
+      for (let i = 0; i < certs.length; i++) {
+        const p = certs[i];
+        setZipMsg(`Generating ${i + 1}/${certs.length}…`);
+        const doc = await buildCertificatePdf({
+          name: p.full_name,
+          certNo: p.certNo,
+          date: p.last,
+          courseTitle: course.title,
+          clientShort: client.clientShort,
+          totalModules: p.totalMods,
+        });
+        const safe = (p.full_name || "learner").replace(/[^\w-]+/g, "_");
+        folder.file(`${safe}-${p.certNo}.pdf`, doc.output("arraybuffer"));
+      }
+      setZipMsg("Zipping…");
+      const blob = await zip.generateAsync({ type: "blob" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = `${folderName}-certificates-${new Date().toISOString().slice(0, 10)}.zip`;
+      a.click();
+      URL.revokeObjectURL(a.href);
+    } finally {
+      setZipMsg(null);
+    }
+  }
+
   const filtered = per.filter((p) => (p.full_name || "").toLowerCase().includes(query.trim().toLowerCase()));
   const paged = filtered.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE);
 
@@ -514,6 +552,14 @@ function ProjectProgress({ project, people, logins = [] }) {
           className="flex items-center gap-2 self-center rounded-lg border-2 border-primary px-5 py-2.5 text-label-md font-bold text-primary transition-colors hover:bg-surface-container-low disabled:opacity-50"
         >
           <MaterialIcon name="grid_on" className="text-[18px]" /> Export Excel workbook (.xlsx)
+        </button>
+        <button
+          onClick={downloadAllCertificates}
+          disabled={certified === 0 || !!zipMsg}
+          title="One PDF per certified learner, zipped in a folder named after the project"
+          className="flex items-center gap-2 self-center rounded-lg border-2 border-primary px-5 py-2.5 text-label-md font-bold text-primary transition-colors hover:bg-surface-container-low disabled:opacity-50"
+        >
+          <MaterialIcon name="folder_zip" className="text-[18px]" /> {zipMsg ?? `All certificates (.zip)`}
         </button>
       </div>
 
